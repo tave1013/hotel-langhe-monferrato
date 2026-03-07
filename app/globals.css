@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+
+:root {
+  --gold: #C9A870;
+  --gold-dark: #A8854A;
+  --dark: #1A1714;
+  --dark-deep: #0F0D0B;
+  --cream: #F5EFE4;
+  --cream-warm: #FAF7F2;
+  --text-dark: #2C2520;
+  --text-mid: #6B5E52;
+  --text-light: #9A8A7A;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Lato', sans-serif; color: var(--text-dark); background: var(--cream-warm); overflow-x: hidden; }
+
+/* TYPOGRAPHY */
+.section-label { font-family: 'Lato', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.2; color: var(--text-dark); }
+.section-title-light { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.2; color: #FAF7F2; }
+
+/* BUTTONS */
+.btn-gold { display: inline-block; background: var(--gold); color: #fff; font-family: 'Lato', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.9rem 2rem; transition: background 0.3s; cursor: pointer; border: none; text-decoration: none; }
+.btn-gold:hover { background: var(--gold-dark); }
+.btn-outline-gold { display: inline-block; background: transparent; color: var(--gold); border: 1px solid var(--gold); font-family: 'Lato', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.9rem 2rem; transition: all 0.3s; cursor: pointer; text-decoration: none; }
+.btn-outline-gold:hover { background: var(--gold); color: #fff; }
+.btn-outline-white { display: inline-block; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.6); font-family: 'Lato', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.9rem 2rem; transition: all 0.3s; cursor: pointer; text-decoration: none; }
+.btn-outline-white:hover { background: #fff; color: var(--text-dark); }
+
+/* DIVIDERS */
+.gold-divider { width: 50px; height: 1px; background: var(--gold); margin: 0.8rem auto; }
+.gold-divider-left { width: 50px; height: 1px; background: var(--gold); margin: 0.8rem 0; }
+
+/* CARDS */
+.card-hover { transition: transform 0.4s ease, box-shadow 0.4s ease; }
+.card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.12); }
+.img-overlay { position: relative; overflow: hidden; }
+.img-overlay::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,13,11,0.65) 0%, transparent 55%); }
+.img-overlay img { transition: transform 0.6s ease; display: block; width: 100%; height: 100%; object-fit: cover; }
+.img-overlay:hover img { transform: scale(1.05); }
+
+/* AMENITY ICON */
+.amenity-icon { width: 52px; height: 52px; border: 1px solid rgba(201,168,112,0.3); display: flex; align-items: center; justify-content: center; margin-bottom: 0.9rem; transition: all 0.3s; color: var(--gold); font-size: 1.3rem; }
+.amenity-card:hover .amenity-icon { background: var(--gold); color: #fff; border-color: var(--gold); }
+
+/* DROPDOWN */
+.dropdown-parent { position: relative; }
+.dropdown-menu { position: absolute; top: calc(100% + 4px); left: 50%; transform: translateX(-50%) translateY(8px); background: var(--dark-deep); border-top: 2px solid var(--gold); min-width: 210px; padding: 0.4rem 0; opacity: 0; visibility: hidden; transition: all 0.25s ease; z-index: 200; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+.dropdown-parent:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.dropdown-item { display: block; padding: 0.6rem 1.3rem; color: rgba(255,255,255,0.7); font-family: 'Lato', sans-serif; font-size: 0.75rem; letter-spacing: 0.06em; text-decoration: none; transition: all 0.2s; }
+.dropdown-item:hover { color: var(--gold); padding-left: 1.7rem; }
+
+/* STARS */
+.stars { color: var(--gold); letter-spacing: 2px; }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--dark-deep); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+/* DEAL BADGE */
+.deal-badge { position: absolute; top: 14px; left: 14px; background: var(--gold); color: #fff; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.8rem; z-index: 10; }

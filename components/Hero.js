@@ -1,0 +1,202 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+
+const slides = [
+  {
+    img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1800&q=85&fit=crop',
+    label: 'Un Rifugio di Lusso',
+    title: 'Dove il Piemonte\nRegala la Sua Anima',
+    sub: 'Tra vigneti UNESCO e colline dorate, un\'esperienza sensoriale unica che risveglia il piacere del bello, del buono e del vero.',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=1800&q=85&fit=crop',
+    label: 'Suite & Camere Esclusive',
+    title: 'Ogni Stanza\nRacconta una Storia',
+    sub: 'Suite disegnate con cura artigianale, materiali pregiati e vista sulle colline patrimonio dell\'UNESCO.',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1800&q=85&fit=crop',
+    label: 'Spa & Benessere',
+    title: 'Il Lusso del\nNon Fare Nulla',
+    sub: 'La nostra spa ti avvolge in un rituale di benessere ispirato alle tradizioni vinicole del territorio.',
+  },
+];
+
+export default function Hero() {
+  const [current, setCurrent] = useState(0);
+  const [animating, setAnimating] = useState(false);
+
+  useEffect(() => {
+    const timer = setInterval(() => goTo((current + 1) % slides.length), 6000);
+    return () => clearInterval(timer);
+  }, [current]);
+
+  const goTo = (idx) => {
+    if (animating) return;
+    setAnimating(true);
+    setTimeout(() => {
+      setCurrent(idx);
+      setAnimating(false);
+    }, 400);
+  };
+
+  const slide = slides[current];
+
+  return (
+    <section className="relative h-screen min-h-[680px] overflow-hidden" aria-label="Hero">
+      {/* BG IMAGE */}
+      <div
+        className="absolute inset-0 transition-opacity duration-700"
+        style={{ opacity: animating ? 0 : 1 }}
+      >
+        <div
+          className="absolute inset-0 animate-ken-burns"
+          style={{
+            backgroundImage: `url('${slide.img}')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        {/* Layered overlay */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(10,8,6,0.72) 0%, rgba(10,8,6,0.40) 60%, rgba(10,8,6,0.55) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,8,6,0.85) 0%, transparent 50%)' }} />
+      </div>
+
+      {/* CONTENT */}
+      <div className="relative h-full flex flex-col justify-center items-center text-center px-6 pt-20">
+        <div
+          key={current}
+          style={{ animation: 'fadeUp 0.9s ease forwards' }}
+        >
+          {/* Eyebrow */}
+          <div className="flex items-center justify-center gap-4 mb-5">
+            <span style={{ width: 40, height: 1, background: '#C9A870', display: 'inline-block' }}></span>
+            <span className="section-label">{slide.label}</span>
+            <span style={{ width: 40, height: 1, background: '#C9A870', display: 'inline-block' }}></span>
+          </div>
+
+          {/* Stars */}
+          <div className="stars mb-4">★★★★★</div>
+
+          {/* H1 */}
+          <h1
+            style={{
+              fontFamily: 'Playfair Display, serif',
+              fontSize: 'clamp(2.4rem, 6vw, 5rem)',
+              fontWeight: 400,
+              color: '#FAF7F2',
+              lineHeight: 1.15,
+              marginBottom: '1.4rem',
+              whiteSpace: 'pre-line',
+              letterSpacing: '-0.01em',
+              maxWidth: '800px',
+            }}
+          >
+            {slide.title}
+          </h1>
+
+          {/* Subtitle */}
+          <p
+            style={{
+              fontFamily: 'Cormorant Garamond, serif',
+              fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+              color: 'rgba(245,239,228,0.8)',
+              maxWidth: '560px',
+              margin: '0 auto 2.5rem',
+              lineHeight: 1.7,
+              fontStyle: 'italic',
+            }}
+          >
+            {slide.sub}
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/prenota" className="btn-gold">
+              <span>Prenota la Tua Esperienza</span>
+            </Link>
+            <Link href="/camere" className="btn-outline-white">
+              Scopri le Camere
+            </Link>
+          </div>
+        </div>
+
+        {/* REVIEW BADGE */}
+        <div
+          style={{
+            marginTop: '3.5rem',
+            display: 'flex',
+            gap: '2.5rem',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+          }}
+        >
+          {[
+            { val: '4.9/5', label: 'Su TripAdvisor', icon: 'fa-star' },
+            { val: '9.4/10', label: 'Su Booking.com', icon: 'fa-bed' },
+            { val: '+1.200', label: 'Recensioni Verificate', icon: 'fa-heart' },
+          ].map((item) => (
+            <div key={item.label} className="flex items-center gap-2">
+              <i className={`fa ${item.icon}`} style={{ color: '#C9A870', fontSize: '1rem' }}></i>
+              <div>
+                <div style={{ fontFamily: 'Playfair Display, serif', fontSize: '1rem', color: '#FAF7F2', fontWeight: 600 }}>{item.val}</div>
+                <div style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>{item.label}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* SLIDER DOTS */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-10">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => goTo(i)}
+            style={{
+              width: i === current ? 32 : 8,
+              height: 2,
+              background: i === current ? '#C9A870' : 'rgba(255,255,255,0.3)',
+              border: 'none',
+              cursor: 'pointer',
+              transition: 'all 0.4s ease',
+            }}
+          />
+        ))}
+      </div>
+
+      {/* PREV / NEXT */}
+      {[{ dir: -1, icon: 'fa-chevron-left', side: 'left-6' }, { dir: 1, icon: 'fa-chevron-right', side: 'right-6' }].map(({ dir, icon, side }) => (
+        <button
+          key={dir}
+          onClick={() => goTo((current + slides.length + dir) % slides.length)}
+          className={`absolute top-1/2 -translate-y-1/2 ${side} z-10`}
+          style={{
+            width: 44, height: 44,
+            background: 'rgba(255,255,255,0.08)',
+            border: '1px solid rgba(255,255,255,0.2)',
+            color: '#fff',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '0.75rem',
+            transition: 'all 0.2s',
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = '#C9A870'; e.currentTarget.style.borderColor = '#C9A870'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}
+        >
+          <i className={`fa ${icon}`}></i>
+        </button>
+      ))}
+
+      {/* SCROLL INDICATOR */}
+      <div className="absolute bottom-10 right-8 hidden md:flex flex-col items-center gap-2 z-10">
+        <span style={{ fontFamily: 'Lato', fontSize: '0.6rem', letterSpacing: '0.2em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', writingMode: 'vertical-lr' }}>Scorri</span>
+        <div style={{ width: 1, height: 50, background: 'linear-gradient(to bottom, rgba(201,168,112,0.8), transparent)' }}></div>
+      </div>
+    </section>
+  );
+}

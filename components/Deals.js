@@ -1,0 +1,164 @@
+'use client';
+
+import Link from 'next/link';
+
+const deals = [
+  {
+    img: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80&fit=crop',
+    badge: '-20% Spa',
+    title: 'Fuga Romantica con Spa',
+    desc: '2 notti in Suite Junior, accesso illimitato alla spa, cena gourmet per due e degustazione di vini locali. Il regalo perfetto.',
+    price: '580',
+    oldPrice: '720',
+    badge2: 'Coppia',
+    href: '/offerte/fuga-romantica',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&fit=crop',
+    badge: 'Colazione Inclusa',
+    title: 'Weekend Gastronomico',
+    desc: 'Immergiti nella cucina piemontese: 2 notti con colazione, cena nel ristorante gourmet e tour privato in cantina con il nostro sommelier.',
+    price: '420',
+    oldPrice: '540',
+    badge2: 'Gourmet',
+    href: '/offerte/weekend-gastronomico',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1506361797048-46a149213205?w=800&q=80&fit=crop',
+    badge: 'Pacchetto Completo',
+    title: 'Scopri le Langhe in 3 Notti',
+    desc: 'Il pacchetto completo: 3 notti in camera superior, colazione, wine tour UNESCO, degustazione e un pomeriggio di truffle hunting.',
+    price: '860',
+    oldPrice: '1050',
+    badge2: 'Avventura',
+    href: '/offerte/scopri-langhe',
+  },
+];
+
+export default function Deals() {
+  return (
+    <section style={{ background: '#F5EFE4', padding: '100px 0' }}>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-14">
+          <p className="section-label mb-3">Offerte Esclusive</p>
+          <div className="gold-divider mb-5"></div>
+          <h2 className="section-title mb-4">Proposte Pensate per Te</h2>
+          <p
+            style={{
+              fontFamily: 'Cormorant Garamond, serif',
+              fontSize: '1.1rem',
+              color: '#6B5E52',
+              maxWidth: 500,
+              margin: '0 auto',
+              fontStyle: 'italic',
+            }}
+          >
+            Esperienze su misura per ogni tipo di ospite. Prenota in anticipo e risparmia fino al 20%.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {deals.map((deal) => (
+            <div
+              key={deal.title}
+              className="card-hover"
+              style={{ background: '#fff', overflow: 'hidden' }}
+            >
+              {/* Image */}
+              <div className="relative" style={{ height: 220, overflow: 'hidden' }}>
+                <img
+                  src={deal.img}
+                  alt={deal.title}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+                <div className="deal-badge">{deal.badge}</div>
+                {/* Category tag */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: 16,
+                    right: 16,
+                    background: 'rgba(10,8,6,0.75)',
+                    padding: '0.28rem 0.7rem',
+                    fontFamily: 'Lato',
+                    fontSize: '0.6rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.1em',
+                    color: 'rgba(255,255,255,0.7)',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  {deal.badge2}
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-7">
+                <h3
+                  style={{
+                    fontFamily: 'Playfair Display, serif',
+                    fontSize: '1.2rem',
+                    color: '#2C2520',
+                    marginBottom: '0.6rem',
+                    fontWeight: 500,
+                  }}
+                >
+                  {deal.title}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: 'Lato',
+                    fontSize: '0.82rem',
+                    color: '#6B5E52',
+                    lineHeight: 1.75,
+                    marginBottom: '1.4rem',
+                  }}
+                >
+                  {deal.desc}
+                </p>
+
+                {/* Price */}
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <span
+                      style={{
+                        fontFamily: 'Lato',
+                        fontSize: '0.68rem',
+                        color: '#9A8A7A',
+                        textDecoration: 'line-through',
+                        marginRight: 6,
+                      }}
+                    >
+                      €{deal.oldPrice}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: 'Playfair Display, serif',
+                        fontSize: '1.5rem',
+                        color: '#C9A870',
+                        fontWeight: 600,
+                      }}
+                    >
+                      €{deal.price}
+                    </span>
+                  </div>
+                  <span style={{ fontFamily: 'Lato', fontSize: '0.65rem', color: '#9A8A7A' }}>per pacchetto</span>
+                </div>
+
+                <Link href={deal.href} className="btn-gold w-full text-center block">
+                  <span>Prenota Questa Offerta</span>
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <Link href="/offerte" className="btn-outline-gold">
+            Vedi Tutte le Offerte
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
