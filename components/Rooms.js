@@ -6,8 +6,8 @@ import Link from 'next/link';
 const rooms = [
   {
     name: 'Camera Standard',
-    desc: 'Le nostre 34 Camere Standard sono ideali per coppie e viaggiatori business in cerca di comfort e tranquillità tra Langhe e Monferrato. Ambienti accoglienti, curati nei dettagli, con doccia idromassaggio per un relax completo dopo una giornata sul territorio.',
-    img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80&fit=crop',
+    desc: 'Le nostre 34 Camere Standard sono ideali per coppie e viaggiatori business in cerca di comfort e tranquillità tra Langhe e Monferrato. Ambienti accoglienti, curati nei dettagli, con doccia idromassaggio per un relax completo.',
+    img: '/foto/suite.webp',
     price: '120',
     size: '22 m²',
     guests: '2',
@@ -17,7 +17,7 @@ const rooms = [
   {
     name: 'Camera Tripla',
     desc: 'Le 9 Camere Triple sono perfette per famiglie piccole o gruppi di amici. La configurazione letti è flessibile: matrimoniale + singolo oppure tre letti singoli, con vasca idromassaggio per rendere il soggiorno ancora più piacevole.',
-    img: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80&fit=crop',
+    img: '/foto/Camera-tripla.webp',
     price: '150',
     size: '30 m²',
     guests: '3',
@@ -27,7 +27,7 @@ const rooms = [
   {
     name: 'Camera Quadrupla',
     desc: 'Le 2 Camere Quadruple sono pensate per famiglie numerose e piccoli gruppi. Possibilità di scegliere tra 2 letti matrimoniali, 4 letti singoli oppure matrimoniale + 2 singoli, con vasca idromassaggio e spazi comodi per tutti gli ospiti.',
-    img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80&fit=crop',
+    img: '/foto/quadrupla.webp',
     price: '200',
     size: '40 m²',
     guests: '4',
@@ -37,7 +37,7 @@ const rooms = [
   {
     name: 'Camera Family',
     desc: 'Le 4 Family Room sono camere soppalcate ideali per chi viaggia con bambini: letto matrimoniale al piano superiore e due letti singoli al piano inferiore. Una soluzione pratica e confortevole per vivere le Langhe in famiglia.',
-    img: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80&fit=crop',
+    img: '/foto/family.webp',
     price: '220',
     size: '45 m²',
     guests: '2+2',
@@ -47,7 +47,7 @@ const rooms = [
   {
     name: 'Suite Deluxe',
     desc: 'Le 8 Suite sono la scelta ideale per coppie che desiderano più spazio e comfort. Ambienti eleganti, atmosfera riservata e vasca idromassaggio per un soggiorno rilassante nel cuore di Costigliole d\'Asti.',
-    img: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80&fit=crop',
+    img: '/foto/suite.webp',
     price: '140',
     size: '80 m²',
     guests: '2',

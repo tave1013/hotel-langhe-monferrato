@@ -7,8 +7,8 @@ const slides = [
   {
     img: '/foto/hotel-langhe-monferrato.jpg',
     label: 'Un\'Oasi di Relax nelle Langhe',
-    title: 'Dove il Piemonte\nRegala la Sua Anima',
-    sub: 'Tra vigneti UNESCO e colline dorate, un\'esperienza sensoriale unica che risveglia il piacere del bello, del buono e del vero.',
+    title: 'Soggiorna nel Cuore\ndelle Langhe',
+    sub: 'Nel verde del Parco della Contessa a Costigliole d\'Asti, a pochi chilometri dalle eccellenze UNESCO delle Langhe e del Monferrato.',
   },
   {
     img: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=1800&q=85&fit=crop',
@@ -17,10 +17,10 @@ const slides = [
     sub: 'Suite disegnate con cura artigianale, materiali pregiati e vista sulle colline patrimonio dell\'UNESCO.',
   },
   {
-    img: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=1800&q=85&fit=crop',
-    label: 'Piscina Panoramica',
-    title: 'Immergiti nella\nBellezza delle Langhe',
-    sub: 'La nostra piscina con vista sulle colline UNESCO è il luogo perfetto per rigenerarti tra cielo e vigneti.',
+    img: '/foto/piscina_oasi_blu_costigliole_asti.webp',
+    label: 'Piscina Immersa nella Natura',
+    title: 'La Piscina Immersa\nnella Natura',
+    sub: 'Lasciati avvolgere dal silenzio e dalla natura del Parco della Contessa. La nostra piscina è il posto perfetto per rilassarti e rigenerarti.',
   },
 ];
 

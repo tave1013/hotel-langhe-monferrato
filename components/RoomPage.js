@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -8,6 +8,14 @@ import Footer from '@/components/Footer';
 export default function RoomPage({ room }) {
   const [activePhoto, setActivePhoto] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [specCols, setSpecCols] = useState(2);
+
+  useEffect(() => {
+    const updateSpecCols = () => setSpecCols(window.innerWidth >= 640 ? 4 : 2);
+    updateSpecCols();
+    window.addEventListener('resize', updateSpecCols);
+    return () => window.removeEventListener('resize', updateSpecCols);
+  }, []);
 
   const openLightbox = (idx) => { setActivePhoto(idx); setLightboxOpen(true); };
   const closeLightbox = () => setLightboxOpen(false);
@@ -43,6 +51,35 @@ export default function RoomPage({ room }) {
             {/* ── LEFT (2/3) ── */}
             <div className="lg:col-span-2">
 
+              {/* MOBILE PRICE CARD (prima della descrizione) */}
+              <div className="lg:hidden" style={{ background: '#fff', borderTop: '3px solid #C9A870', padding: '1.7rem', marginBottom: '2rem', boxShadow: '0 8px 40px rgba(0,0,0,0.08)' }}>
+                <div style={{ marginBottom: '1.3rem' }}>
+                  <span style={{ fontFamily: 'Lato', fontSize: '0.62rem', color: '#9A8A7A', letterSpacing: '0.1em', textTransform: 'uppercase', display: 'block', marginBottom: 4 }}>A partire da</span>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
+                    <span style={{ fontFamily: 'Playfair Display, serif', fontSize: '2.6rem', color: '#C9A870', fontWeight: 600 }}>€{room.price}</span>
+                    <span style={{ fontFamily: 'Lato', fontSize: '0.75rem', color: '#9A8A7A' }}>&nbsp;/ notte</span>
+                  </div>
+                  <span style={{ fontFamily: 'Lato', fontSize: '0.7rem', color: '#9A8A7A' }}>{room.priceNote}</span>
+                </div>
+
+                <Link href="/prenota" className="btn-gold" style={{ display: 'block', textAlign: 'center', marginBottom: '0.8rem' }}>
+                  <i className="fa fa-calendar-check" style={{ marginRight: 8 }}></i>
+                  Prenota Questa Camera
+                </Link>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 6, paddingTop: '0.9rem', borderTop: '1px solid rgba(201,168,112,0.12)' }}>
+                  {[
+                    { icon: 'fa-shield-alt', text: 'Cancellazione gratuita' },
+                    { icon: 'fa-tag', text: 'Miglior prezzo garantito' },
+                  ].map((t) => (
+                    <div key={t.text} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                      <i className={`fa ${t.icon}`} style={{ color: '#C9A870', fontSize: '0.7rem', width: 14 }}></i>
+                      <span style={{ fontFamily: 'Lato', fontSize: '0.72rem', color: '#6B5E52' }}>{t.text}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
               {/* DESCRIZIONE + SPECS */}
               <section style={{ marginBottom: '3rem', paddingBottom: '3rem', borderBottom: '1px solid rgba(201,168,112,0.2)' }}>
                 <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.7rem', color: '#2C2520', marginBottom: '1.2rem', fontWeight: 500 }}>
@@ -57,8 +94,8 @@ export default function RoomPage({ room }) {
                   {room.specs.map((spec, i) => (
                     <div key={spec.label} style={{
                       padding: '1rem 1.1rem',
-                      borderRight: (i + 1) % 4 !== 0 ? '1px solid rgba(201,168,112,0.2)' : 'none',
-                      borderBottom: i < room.specs.length - 4 ? '1px solid rgba(201,168,112,0.2)' : 'none',
+                      borderRight: (i + 1) % specCols !== 0 ? '1px solid rgba(201,168,112,0.2)' : 'none',
+                      borderBottom: i < room.specs.length - specCols ? '1px solid rgba(201,168,112,0.2)' : 'none',
                       background: i % 2 === 0 ? '#fff' : '#FDFAF5',
                     }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 7, marginBottom: 4 }}>
@@ -140,7 +177,7 @@ export default function RoomPage({ room }) {
               <div style={{ position: 'sticky', top: 100 }}>
 
                 {/* PRICE CARD */}
-                <div style={{ background: '#fff', borderTop: '3px solid #C9A870', padding: '1.7rem', marginBottom: '1rem', boxShadow: '0 8px 40px rgba(0,0,0,0.08)' }}>
+                <div className="hidden lg:block" style={{ background: '#fff', borderTop: '3px solid #C9A870', padding: '1.7rem', marginBottom: '1rem', boxShadow: '0 8px 40px rgba(0,0,0,0.08)' }}>
                   <div style={{ marginBottom: '1.3rem' }}>
                     <span style={{ fontFamily: 'Lato', fontSize: '0.62rem', color: '#9A8A7A', letterSpacing: '0.1em', textTransform: 'uppercase', display: 'block', marginBottom: 4 }}>A partire da</span>
                     <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>

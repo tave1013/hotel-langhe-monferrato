@@ -11,22 +11,22 @@ export default function About() {
           <div className="relative grid grid-cols-2 gap-4">
             <div className="col-span-2 overflow-hidden" style={{ height: 280 }}>
               <img
-                src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=900&q=80&fit=crop"
+                src="/foto/hotel-langhe-monferrato.jpg"
                 alt="Hotel Langhe & Monferrato vista esterna"
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
             <div className="overflow-hidden" style={{ height: 200 }}>
               <img
-                src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600&q=80&fit=crop"
-                alt="Camera lusso Hotel Langhe"
+                src="/foto/ingresso.webp"
+                alt="Ingresso Hotel Langhe & Monferrato"
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
             <div className="overflow-hidden" style={{ height: 200 }}>
               <img
-                src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80&fit=crop"
-                alt="Ristorante gourmet Langhe"
+                src="/foto/Camera-tripla.webp"
+                alt="Camera tripla Hotel Langhe & Monferrato"
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
