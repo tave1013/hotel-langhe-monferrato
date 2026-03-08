@@ -122,6 +122,31 @@ export default function Hero() {
             </Link>
           </div>
 
+          {/* MOBILE ARROWS */}
+          <div className="md:hidden flex items-center justify-center gap-4" style={{ marginTop: 10, marginBottom: 10 }}>
+            {[{ dir: -1, icon: 'fa-chevron-left' }, { dir: 1, icon: 'fa-chevron-right' }].map(({ dir, icon }) => (
+              <button
+                key={dir}
+                onClick={() => goTo((current + slides.length + dir) % slides.length)}
+                style={{
+                  width: 44,
+                  height: 44,
+                  background: 'rgba(255,255,255,0.08)',
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  color: '#fff',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '0.75rem',
+                  transition: 'all 0.2s',
+                }}
+              >
+                <i className={`fa ${icon}`}></i>
+              </button>
+            ))}
+          </div>
+
           <div className="md:hidden flex justify-center gap-3 mt-4">
             {slides.map((_, i) => (
               <button
@@ -196,7 +221,6 @@ export default function Hero() {
             border: '1px solid rgba(255,255,255,0.2)',
             color: '#fff',
             cursor: 'pointer',
-            display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             fontSize: '0.75rem',
