@@ -113,38 +113,13 @@ export default function Hero() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 sm:mt-0">
             <Link href="/prenota" className="btn-gold">
               <span>Prenota la Tua Esperienza</span>
             </Link>
             <Link href="/camere" className="btn-outline-white">
               Scopri le Camere
             </Link>
-          </div>
-
-          {/* MOBILE NAVIGATION */}
-          <div className="md:hidden flex items-center justify-center gap-4 mt-6">
-            {[{ dir: -1, icon: 'fa-chevron-left' }, { dir: 1, icon: 'fa-chevron-right' }].map(({ dir, icon }) => (
-              <button
-                key={dir}
-                onClick={() => goTo((current + slides.length + dir) % slides.length)}
-                style={{
-                  width: 44,
-                  height: 44,
-                  background: 'rgba(255,255,255,0.08)',
-                  border: '1px solid rgba(255,255,255,0.2)',
-                  color: '#fff',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '0.75rem',
-                  transition: 'all 0.2s',
-                }}
-              >
-                <i className={`fa ${icon}`}></i>
-              </button>
-            ))}
           </div>
 
           <div className="md:hidden flex justify-center gap-3 mt-4">

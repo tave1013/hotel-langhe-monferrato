@@ -187,11 +187,11 @@ export default function Rooms() {
                 ))}
               </ul>
 
-              <div className="flex gap-3">
-                <Link href="/prenota" className="btn-gold">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Link href="/prenota" className="btn-gold text-center" style={{ padding: '0.75rem 1.4rem', fontSize: '0.62rem' }}>
                   <span>Prenota Ora</span>
                 </Link>
-                <Link href={rooms[active].href} className="btn-outline-gold">
+                <Link href={rooms[active].href} className="btn-outline-gold text-center" style={{ padding: '0.75rem 1.4rem', fontSize: '0.62rem' }}>
                   Dettagli
                 </Link>
               </div>
