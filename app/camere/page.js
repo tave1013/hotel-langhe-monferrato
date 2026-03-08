@@ -16,16 +16,16 @@ export default function CamerePage() {
       {/* HERO */}
       <section className="relative overflow-hidden" style={{ height: '52vh', minHeight: 360 }}>
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1800&q=85&fit=crop" alt="Camere Hotel Langhe" className="w-full h-full object-cover" />
+          <img src="/foto/Camere.webp" alt="Camere Hotel Langhe" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: 'rgba(10,8,6,0.58)' }} />
         </div>
         <div className="relative h-full flex flex-col items-center justify-center text-center px-6">
           <p className="section-label" style={{ marginBottom: '0.6rem' }}>La Nostra Collezione</p>
           <div className="gold-divider" style={{ marginBottom: '1.2rem' }}></div>
-          <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(2rem, 5vw, 3.8rem)', fontWeight: 400, color: '#FAF7F2', lineHeight: 1.15 }}>
+          <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(2.2rem, 5vw, 4rem)', fontWeight: 400, color: '#FAF7F2', lineHeight: 1.15 }}>
             Camere &amp; Suite
           </h1>
-          <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.1rem', color: 'rgba(245,239,228,0.7)', fontStyle: 'italic', marginTop: '0.8rem', maxWidth: 500 }}>
+          <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.2rem', color: '#fff', fontStyle: 'italic', marginTop: '0.8rem', maxWidth: 500 }}>
             Ogni stanza racconta la storia delle Langhe attraverso materiali pregiati e cura artigianale.
           </p>
         </div>

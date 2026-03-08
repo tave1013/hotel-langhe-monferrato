@@ -24,7 +24,7 @@ export default function TerritorioPage() {
       <section className="relative overflow-hidden" style={{ height: '58vh', minHeight: 400 }}>
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1506361797048-46a149213205?w=1800&q=85&fit=crop"
+            src="/foto/alba.webp"
             alt="Paesaggio Langhe e Monferrato"
             className="w-full h-full object-cover"
           />
@@ -36,7 +36,7 @@ export default function TerritorioPage() {
           <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(2.2rem, 5vw, 4rem)', fontWeight: 400, color: '#FAF7F2', lineHeight: 1.12, marginBottom: '1rem' }}>
             Territorio: Langhe &amp; Monferrato
           </h1>
-          <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.2rem', color: 'rgba(245,239,228,0.75)', fontStyle: 'italic', maxWidth: 580, lineHeight: 1.7 }}>
+          <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.2rem', color: '#fff', fontStyle: 'italic', maxWidth: 580, lineHeight: 1.7 }}>
             Sei mini guide scritte con cura per farti scoprire uno dei territori più straordinari d&apos;Italia — Patrimonio UNESCO, vini leggendari, tartufi, castelli e panchine giganti.
           </p>
         </div>
@@ -48,7 +48,7 @@ export default function TerritorioPage() {
           {[
             { icon: 'fa-map-marker-alt', num: '6', label: 'Mini Guide' },
             { icon: 'fa-award', num: 'UNESCO', label: 'Patrimonio Mondiale' },
-            { icon: 'fa-wine-glass-alt', num: '12', label: 'DOCG Riconosciute' },
+            { icon: 'fa-wine-glass-alt', num: '19', label: 'DOCG Riconosciute' },
             { icon: 'fa-route', num: '< 40km', label: 'Raggio dall\'Hotel' },
           ].map((s) => (
             <div key={s.label} style={{ padding: '0.5rem' }}>

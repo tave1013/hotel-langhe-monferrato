@@ -37,7 +37,7 @@ export default function RoomPage({ room }) {
           <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(2rem, 5vw, 4rem)', fontWeight: 400, color: '#FAF7F2', lineHeight: 1.1, marginBottom: '0.7rem' }}>
             {room.name}
           </h1>
-          <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.1rem', color: 'rgba(245,239,228,0.72)', fontStyle: 'italic', maxWidth: 500 }}>
+          <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.2rem', color: '#fff', fontStyle: 'italic', maxWidth: 500 }}>
             {room.tagline}
           </p>
         </div>
@@ -211,8 +211,8 @@ export default function RoomPage({ room }) {
                     Hai bisogno di aiuto?
                   </h3>
                   {[
-                    { icon: 'fa-phone', iconColor: '#C9A870', bg: 'rgba(201,168,112,0.1)', label: 'Chiamaci', value: '+39 0141 961853', href: 'tel:+390141961853' },
-                    { icon: 'fa-envelope', iconColor: '#C9A870', bg: 'rgba(201,168,112,0.1)', label: 'Scrivici', value: 'info@hotellanghemonferrato.it', href: 'mailto:info@hotellanghemonferrato.it' },
+                    { icon: 'fas fa-phone', iconColor: '#C9A870', bg: 'rgba(201,168,112,0.1)', label: 'Chiamaci', value: '+39 0141 961853', href: 'tel:+390141961853' },
+                    { icon: 'fas fa-envelope', iconColor: '#C9A870', bg: 'rgba(201,168,112,0.1)', label: 'Scrivici', value: 'info@hotellanghemonferrato.it', href: 'mailto:info@hotellanghemonferrato.it' },
                     { icon: 'fab fa-whatsapp', iconColor: '#25D366', bg: 'rgba(37,211,102,0.1)', label: 'WhatsApp', value: 'Chatta con noi', href: 'https://wa.me/390141961853' },
                   ].map((c) => (
                     <a key={c.label} href={c.href} style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', marginBottom: '0.9rem' }}>
@@ -291,7 +291,7 @@ export default function RoomPage({ room }) {
           <h2 className="section-title-light" style={{ marginBottom: '1rem' }}>
             Pronto a Vivere l&apos;Esperienza {room.name}?
           </h2>
-          <p style={{ fontFamily: 'Lato', fontSize: '0.86rem', color: 'rgba(245,239,228,0.62)', lineHeight: 1.8, marginBottom: '2rem' }}>
+          <p style={{ fontFamily: 'Lato', fontSize: '0.86rem', color: '#fff', lineHeight: 1.8, marginBottom: '2rem' }}>
             Prenota direttamente sul nostro sito: miglior prezzo garantito, cancellazione gratuita e un regalo di benvenuto esclusivo.
           </p>
           <Link href="/prenota" className="btn-gold" style={{ padding: '1rem 2.8rem' }}>

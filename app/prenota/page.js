@@ -33,7 +33,7 @@ export default function PrenotaPage() {
         <div className="relative h-full flex flex-col items-center justify-center text-center px-6">
           <p className="section-label" style={{ marginBottom: '0.6rem' }}>Miglior Prezzo Garantito</p>
           <div className="gold-divider" style={{ marginBottom: '1.2rem' }}></div>
-          <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(2rem,5vw,3.5rem)', fontWeight: 400, color: '#FAF7F2' }}>Prenota il Tuo Soggiorno</h1>
+          <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(2.2rem, 5vw, 4rem)', fontWeight: 400, color: '#FAF7F2' }}>Prenota il Tuo Soggiorno</h1>
         </div>
       </section>
 

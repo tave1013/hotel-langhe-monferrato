@@ -17,7 +17,7 @@ export default function SaleMeetingPage() {
       {/* HERO */}
       <section className="relative overflow-hidden" style={{ height: '58vh', minHeight: 400 }}>
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1800&q=85&fit=crop" alt="Sale Meeting Hotel Langhe" className="w-full h-full object-cover" />
+          <img src="/foto/hotel_langhe_sala_meeting_alfieri.webp" alt="Sale Meeting Hotel Langhe" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(10,8,6,0.55), rgba(10,8,6,0.75))' }} />
         </div>
         <div className="relative h-full flex flex-col items-center justify-center text-center px-6 max-w-4xl mx-auto" style={{ margin: '0 auto' }}>
@@ -26,7 +26,7 @@ export default function SaleMeetingPage() {
           <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(2.2rem, 5vw, 4rem)', fontWeight: 400, color: '#FAF7F2', lineHeight: 1.12, marginBottom: '1rem' }}>
             Sale Meeting & Congressi
           </h1>
-          <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.2rem', color: 'rgba(245,239,228,0.75)', fontStyle: 'italic', maxWidth: 580, lineHeight: 1.7 }}>
+          <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.2rem', color: '#fff', fontStyle: 'italic', maxWidth: 580, lineHeight: 1.7 }}>
             Organizza il tuo evento nelle Langhe UNESCO con sale modulari e servizi dedicati per rendere ogni occasione indimenticabile.
           </p>
         </div>
@@ -38,7 +38,7 @@ export default function SaleMeetingPage() {
           {[
             { icon: 'fa-th-large', num: '3', label: 'Sale Modulari' },
             { icon: 'fa-users', num: '400', label: 'Posti Max' },
-            { icon: 'fa-wifi', num: 'Free', label: 'Wi-Fi Fibra' },
+            { icon: 'fa-wifi', num: 'Free', label: 'Nella Struttura' },
             { icon: 'fa-headset', num: '24/7', label: 'Supporto Tecnico' },
           ].map((s) => (
             <div key={s.label} style={{ padding: '0.5rem' }}>

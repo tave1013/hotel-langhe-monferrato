@@ -11,12 +11,6 @@ const slides = [
     sub: 'Nel verde del Parco della Contessa a Costigliole d\'Asti, a pochi chilometri dalle eccellenze UNESCO delle Langhe e del Monferrato.',
   },
   {
-    img: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=1800&q=85&fit=crop',
-    label: 'Suite & Camere Esclusive',
-    title: 'Ogni Stanza\nRacconta una Storia',
-    sub: 'Suite disegnate con cura artigianale, materiali pregiati e vista sulle colline patrimonio dell\'UNESCO.',
-  },
-  {
     img: '/foto/piscina_oasi_blu_costigliole_asti.webp',
     label: 'Piscina Immersa nella Natura',
     title: 'La Piscina Immersa\nnella Natura',
@@ -27,6 +21,12 @@ const slides = [
 export default function Hero() {
   const [current, setCurrent] = useState(0);
   const [animating, setAnimating] = useState(false);
+
+  useEffect(() => {
+    if (current >= slides.length) {
+      setCurrent(0);
+    }
+  }, [current]);
 
   useEffect(() => {
     const timer = setInterval(() => goTo((current + 1) % slides.length), 9000);
@@ -42,7 +42,7 @@ export default function Hero() {
     }, 400);
   };
 
-  const slide = slides[current];
+  const slide = slides[current] || slides[0];
 
   return (
     <section className="relative h-screen min-h-[680px] overflow-hidden" aria-label="Hero">
@@ -102,7 +102,7 @@ export default function Hero() {
             style={{
               fontFamily: 'Cormorant Garamond, serif',
               fontSize: 'clamp(1rem, 2vw, 1.25rem)',
-              color: 'rgba(245,239,228,0.8)',
+              color: '#fff',
               maxWidth: '560px',
               margin: '0 auto 2.5rem',
               lineHeight: 1.7,
