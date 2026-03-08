@@ -4,9 +4,9 @@ import TrustBar from '@/components/TrustBar';
 import About from '@/components/About';
 import Rooms from '@/components/Rooms';
 import Amenities from '@/components/Amenities';
-import VideoBanner from '@/components/VideoBanner';
 import Testimonials from '@/components/Testimonials';
 import Deals from '@/components/Deals';
+import TerritoryGuides from '@/components/TerritoryGuides';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 
@@ -20,9 +20,9 @@ export default function Home() {
       <About />
       <Rooms />
       <Amenities />
-      <VideoBanner />
-      <Testimonials />
       <Deals />
+      <Testimonials />
+      <TerritoryGuides />
       <CTA />
       <Footer />
     </>

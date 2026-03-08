@@ -8,7 +8,7 @@ export default function CTA() {
       {/* BG */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1800&q=80&fit=crop"
+          src="/foto/hotel-langhe-monferrato.jpg"
           alt="Hotel Langhe & Monferrato"
           className="w-full h-full object-cover"
         />
@@ -61,7 +61,7 @@ export default function CTA() {
           <Link href="/prenota" className="btn-gold" style={{ fontSize: '0.78rem', padding: '1.1rem 2.8rem' }}>
             <span>Prenota Direttamente — Miglior Prezzo</span>
           </Link>
-          <Link href="/contatti" className="btn-outline-white">
+          <Link href="/contatti" className="btn-outline-white" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             Contattaci
           </Link>
         </div>

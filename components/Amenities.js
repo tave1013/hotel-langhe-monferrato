@@ -2,21 +2,21 @@
 
 export default function Amenities() {
   const amenities = [
-    { icon: 'fa-wifi', label: 'High Speed Wifi', desc: 'Enjoy seamless, high-speed internet access throughout the hotel.' },
-    { icon: 'fa-parking', label: 'Parking Space', desc: 'Ample and secure parking space provided for all hotel guests.' },
-    { icon: 'fa-utensils', label: 'Restaurant & Bar', desc: 'Savor gourmet dishes and cocktails at our elegant restaurant and bar.' },
-    { icon: 'fa-spa', label: 'Spa Center', desc: 'Indulge in a variety of relaxing and rejuvenating treatments at our spa.' },
-    { icon: 'fa-dumbbell', label: 'Fitness Center', desc: 'Stay active with state-of-the-art fitness equipment in our modern gym.' },
-    { icon: 'fa-swimming-pool', label: 'Swimming Pool', desc: 'Refresh and unwind in our pristine outdoor swimming pool.' },
+    { icon: 'fa-wifi', label: 'Wi-Fi', desc: 'Connessione Wi-Fi disponibile in tutto l\'hotel: in camera, nelle aree comuni e negli spazi esterni. Per restare sempre connessi durante il soggiorno.' },
+    { icon: 'fa-parking', label: 'Parcheggio', desc: 'Ampio parcheggio esterno gratuito direttamente davanti alla struttura, comodo e accessibile per tutti gli ospiti.' },
+    { icon: 'fa-utensils', label: 'Ristorante & Bar', desc: 'Possibilità di mangiare direttamente all\'interno della struttura. Colazione e bar a disposizione degli ospiti per iniziare al meglio la giornata e per un momento di relax in qualsiasi ora.' },
+    { icon: 'fa-gift', label: 'Pacchetti Esclusivi', desc: 'Organizziamo esperienze su misura per il tuo soggiorno, con sconti dedicati pensati appositamente per i nostri ospiti.' },
+    { icon: 'fa-briefcase', label: 'Sale Meeting', desc: 'Spazi attrezzati per ospitare i tuoi eventi, riunioni e occasioni speciali direttamente in struttura. Contattaci per organizzare ogni dettaglio.' },
+    { icon: 'fa-swimming-pool', label: 'Piscina', desc: 'Piscina all\'aperto immersa nella natura, per rilassarsi e godersi un momento di pace durante il soggiorno.' },
   ];
 
   return (
     <section style={{ background: '#fff', padding: '100px 0' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
-          <p className="section-label mb-3">Modern and Comfortable</p>
+          <p className="section-label mb-3">I Nostri Servizi</p>
           <div className="gold-divider mb-5"></div>
-          <h2 className="section-title mb-4">Facilities and amenities</h2>
+          <h2 className="section-title mb-4">Tutto il Comfort di cui Hai Bisogno</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">

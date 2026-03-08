@@ -5,44 +5,54 @@ import Link from 'next/link';
 
 const rooms = [
   {
-    name: 'Camera Classic',
-    desc: 'Eleganza essenziale con vista sui vigneti. Arredata con materiali naturali e luce morbida, per un risveglio che profuma di Langhe.',
+    name: 'Camera Standard',
+    desc: 'Le nostre 34 Camere Standard sono ideali per coppie e viaggiatori business in cerca di comfort e tranquillità tra Langhe e Monferrato. Ambienti accoglienti, curati nei dettagli, con doccia idromassaggio per un relax completo dopo una giornata sul territorio.',
     img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80&fit=crop',
-    price: '180',
-    size: '28 m²',
+    price: '120',
+    size: '22 m²',
     guests: '2',
-    features: ['Letto King Size', 'Vista Vigneti', 'Colazione Inclusa', 'Free Wi-Fi'],
-    href: '/camere/classic',
+    features: ['34 Camere Disponibili', 'Doccia Idromassaggio', 'Ideale per Coppie', 'Free Wi-Fi'],
+    href: '/camere/standard',
   },
   {
-    name: 'Camera Superior',
-    desc: 'Spazi più ampi, angolo lettura e terrazza privata. Il comfort di sentirsi a casa, con il lusso di un hotel cinque stelle.',
+    name: 'Camera Tripla',
+    desc: 'Le 9 Camere Triple sono perfette per famiglie piccole o gruppi di amici. La configurazione letti è flessibile: matrimoniale + singolo oppure tre letti singoli, con vasca idromassaggio per rendere il soggiorno ancora più piacevole.',
     img: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80&fit=crop',
-    price: '240',
-    size: '38 m²',
-    guests: '2',
-    features: ['Terrazza Privata', 'Vasca Freestanding', 'Minibar Curato', 'Prodotti Artigianali'],
-    href: '/camere/superior',
+    price: '150',
+    size: '30 m²',
+    guests: '3',
+    features: ['9 Camere Disponibili', 'Matrimoniale + Singolo o 3 Letti', 'Vasca Idromassaggio', 'Free Wi-Fi'],
+    href: '/camere/tripla',
   },
   {
-    name: 'Suite Junior',
-    desc: 'Una suite che è un inno al territorio piemontese. Travi a vista, pietra locale e ogni comfort pensato per coppie esigenti.',
+    name: 'Camera Quadrupla',
+    desc: 'Le 2 Camere Quadruple sono pensate per famiglie numerose e piccoli gruppi. Possibilità di scegliere tra 2 letti matrimoniali, 4 letti singoli oppure matrimoniale + 2 singoli, con vasca idromassaggio e spazi comodi per tutti gli ospiti.',
     img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80&fit=crop',
-    price: '340',
-    size: '55 m²',
-    guests: '2-3',
-    features: ['Soggiorno Separato', 'Jacuzzi Privata', 'Champagne al Arrivo', 'Late Check-out'],
-    href: '/camere/suite-junior',
+    price: '200',
+    size: '40 m²',
+    guests: '4',
+    features: ['2 Camere Disponibili', 'Configurazione Letti Flessibile', 'Vasca Idromassaggio', 'Free Wi-Fi'],
+    href: '/camere/quadrupla',
+  },
+  {
+    name: 'Camera Family',
+    desc: 'Le 4 Family Room sono camere soppalcate ideali per chi viaggia con bambini: letto matrimoniale al piano superiore e due letti singoli al piano inferiore. Una soluzione pratica e confortevole per vivere le Langhe in famiglia.',
+    img: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80&fit=crop',
+    price: '220',
+    size: '45 m²',
+    guests: '2+2',
+    features: ['4 Camere Disponibili', 'Camera Soppalcata', 'Ideale per Famiglie', 'Colazione per Tutti'],
+    href: '/camere/family',
   },
   {
     name: 'Suite Deluxe',
-    desc: 'L\'apice dell\'ospitalità piemontese. Panorama a 180° sulle colline, angolo cottura, spa privata e servizio butler dedicato.',
-    img: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80&fit=crop',
-    price: '520',
+    desc: 'Le 8 Suite sono la scelta ideale per coppie che desiderano più spazio e comfort. Ambienti eleganti, atmosfera riservata e vasca idromassaggio per un soggiorno rilassante nel cuore di Costigliole d\'Asti.',
+    img: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80&fit=crop',
+    price: '140',
     size: '80 m²',
-    guests: '2-4',
-    features: ['Spa Privata', 'Terrazza 50 m²', 'Butler Dedicato', 'Cena Gourmet Inclusa'],
-    href: '/camere/suite-deluxe',
+    guests: '2',
+    features: ['8 Suite Disponibili', 'Vasca Idromassaggio', 'Ideale per Coppie', 'Free Wi-Fi'],
+    href: '/camere/suite',
   },
 ];
 
@@ -68,7 +78,7 @@ export default function Rooms() {
               lineHeight: 1.7,
             }}
           >
-            Ogni stanza è un capitolo della storia delle Langhe, raccontato attraverso materiali pregiati e dettagli artigianali.
+            58 camere per vivere il territorio in un ambiente confortevole e accogliente, immerso nella natura del Parco della Contessa.
           </p>
         </div>
 
@@ -149,15 +159,10 @@ export default function Rooms() {
 
               {/* Meta */}
               <div className="flex gap-4 mb-5">
-                {[
-                  { icon: 'fa-expand', val: rooms[active].size },
-                  { icon: 'fa-user', val: `${rooms[active].guests} Ospiti` },
-                ].map((m) => (
-                  <span key={m.icon} style={{ fontFamily: 'Lato', fontSize: '0.75rem', color: '#9A8A7A', display: 'flex', alignItems: 'center', gap: 5 }}>
-                    <i className={`fa ${m.icon}`} style={{ color: '#C9A870' }}></i>
-                    {m.val}
-                  </span>
-                ))}
+                <span style={{ fontFamily: 'Lato', fontSize: '0.75rem', color: '#9A8A7A', display: 'flex', alignItems: 'center', gap: 5 }}>
+                  <i className="fa fa-user" style={{ color: '#C9A870' }}></i>
+                  {rooms[active].guests} Ospiti
+                </span>
               </div>
 
               <p

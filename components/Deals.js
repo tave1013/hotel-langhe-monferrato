@@ -5,13 +5,15 @@ import Link from 'next/link';
 const deals = [
   {
     img: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80&fit=crop',
-    badge: '-20% Spa',
-    title: 'Fuga Romantica con Spa',
-    desc: '2 notti in Suite Junior, accesso illimitato alla spa, cena gourmet per due e degustazione di vini locali. Il regalo perfetto.',
-    price: '580',
-    oldPrice: '720',
-    badge2: 'Coppia',
-    href: '/offerte/fuga-romantica',
+    badge: 'Relax & Scoperta',
+    title: 'Alla Scoperta del Monferrato Relax',
+    desc: '3 notti in camera comfort, colazione inclusa, tour delle colline UNESCO con guida privata e accesso alla spa per un relax totale.',
+    price: '520',
+    oldPrice: '650',
+    badge2: 'Relax',
+    href: '/offerte/monferrato-relax',
+    persone: 2,
+    notti: 3,
   },
   {
     img: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&fit=crop',
@@ -22,6 +24,8 @@ const deals = [
     oldPrice: '540',
     badge2: 'Gourmet',
     href: '/offerte/weekend-gastronomico',
+    persone: 2,
+    notti: 2,
   },
   {
     img: 'https://images.unsplash.com/photo-1506361797048-46a149213205?w=800&q=80&fit=crop',
@@ -32,6 +36,8 @@ const deals = [
     oldPrice: '1050',
     badge2: 'Avventura',
     href: '/offerte/scopri-langhe',
+    persone: 2,
+    notti: 3,
   },
 ];
 
@@ -94,6 +100,22 @@ export default function Deals() {
 
               {/* Content */}
               <div className="p-7">
+                {/* Info persone e notti */}
+                <div className="flex items-center gap-4 mb-3">
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <i className="fa fa-users" style={{ color: '#C9A870', fontSize: '0.85rem' }}></i>
+                    <span style={{ fontFamily: 'Lato', fontSize: '0.75rem', color: '#6B5E52', fontWeight: 600 }}>
+                      {deal.persone}
+                    </span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <i className="fa fa-calendar-alt" style={{ color: '#C9A870', fontSize: '0.85rem' }}></i>
+                    <span style={{ fontFamily: 'Lato', fontSize: '0.75rem', color: '#6B5E52', fontWeight: 600 }}>
+                      {deal.notti} {deal.notti === 1 ? 'notte' : 'notti'}
+                    </span>
+                  </div>
+                </div>
+
                 <h3
                   style={{
                     fontFamily: 'Playfair Display, serif',

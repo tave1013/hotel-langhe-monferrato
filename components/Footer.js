@@ -15,49 +15,27 @@ export default function Footer() {
               <span style={{ fontFamily: 'Lato', fontSize: '0.58rem', letterSpacing: '0.28em', textTransform: 'uppercase', color: '#C9A870' }}>& Monferrato</span>
             </div>
             <p style={{ fontFamily: 'Lato', fontSize: '0.82rem', lineHeight: 1.8, marginBottom: '1.4rem', maxWidth: 240 }}>
-              Un rifugio di lusso immerso nei vigneti patrimonio UNESCO delle Langhe piemontesi.
+              L'hotel Langhe&Monferrato, immerso nella natura del Parco della Contessa a Costigliole d'Asti, un'oasi di tranquillità e relax.
             </p>
-            <div className="flex gap-3">
-              {[
-                { icon: 'fa-instagram', href: '#' },
-                { icon: 'fa-facebook-f', href: '#' },
-                { icon: 'fa-tripadvisor', href: '#' },
-                { icon: 'fa-pinterest-p', href: '#' },
-              ].map((s) => (
-                <a
-                  key={s.icon}
-                  href={s.href}
-                  style={{
-                    width: 34, height: 34,
-                    border: '1px solid rgba(201,168,112,0.25)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'rgba(255,255,255,0.4)',
-                    textDecoration: 'none',
-                    fontSize: '0.75rem',
-                    transition: 'all 0.25s',
-                  }}
-                  onMouseEnter={(e) => { e.currentTarget.style.background = '#C9A870'; e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = '#C9A870'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(255,255,255,0.4)'; e.currentTarget.style.borderColor = 'rgba(201,168,112,0.25)'; }}
-                >
-                  <i className={`fab ${s.icon}`}></i>
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* LINKS 1 */}
           <div>
             <h4 style={{ fontFamily: 'Lato', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C9A870', marginBottom: '1.2rem' }}>L'Hotel</h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
-              {['La Nostra Storia', 'Camere & Suite', 'Spa & Benessere', 'Ristorante', 'Offerte Speciali'].map((item) => (
-                <li key={item}>
-                  <Link href="#" style={{ fontFamily: 'Lato', fontSize: '0.82rem', color: 'rgba(255,255,255,0.5)', textDecoration: 'none', transition: 'color 0.2s' }}
+              {[
+                { label: 'Prenota', href: '/prenota' },
+                { label: 'Camere e Suite', href: '/camere' },
+                { label: 'Sale Meeting', href: '/sale-meeting' },
+                { label: 'Offerte', href: '/offerte' },
+                { label: 'Dove siamo', href: '/contatti' },
+              ].map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} style={{ fontFamily: 'Lato', fontSize: '0.82rem', color: 'rgba(255,255,255,0.5)', textDecoration: 'none', transition: 'color 0.2s' }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = '#C9A870')}
                     onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.5)')}
                   >
-                    {item}
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -66,15 +44,21 @@ export default function Footer() {
 
           {/* LINKS 2 */}
           <div>
-            <h4 style={{ fontFamily: 'Lato', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C9A870', marginBottom: '1.2rem' }}>Esplora Langhe</h4>
+            <h4 style={{ fontFamily: 'Lato', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C9A870', marginBottom: '1.2rem' }}>Esplora il territorio</h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
-              {['Wine Tour & Degustazioni', 'Truffle Hunting', 'Gite ad Alba', 'Barolo & Barbaresco', 'Esperienze Naturalistiche'].map((item) => (
-                <li key={item}>
-                  <Link href="#" style={{ fontFamily: 'Lato', fontSize: '0.82rem', color: 'rgba(255,255,255,0.5)', textDecoration: 'none', transition: 'color 0.2s' }}
+              {[
+                { label: 'Asti - Il Medioevo', href: '/territorio/asti' },
+                { label: 'Alba - Capitale del Gusto', href: '/territorio/alba' },
+                { label: 'Cattedrali Sotterranee', href: '/territorio/cattedrali-sotterranee' },
+                { label: 'I Castelli del Monferrato', href: '/territorio/castelli-monferrato' },
+                { label: 'Le Big Bench', href: '/territorio/big-bench' },
+              ].map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} style={{ fontFamily: 'Lato', fontSize: '0.82rem', color: 'rgba(255,255,255,0.5)', textDecoration: 'none', transition: 'color 0.2s' }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = '#C9A870')}
                     onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.5)')}
                   >
-                    {item}
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -86,10 +70,10 @@ export default function Footer() {
             <h4 style={{ fontFamily: 'Lato', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C9A870', marginBottom: '1.2rem' }}>Contatti</h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
               {[
-                { icon: 'fa-map-marker-alt', text: 'Via Langhe 1, 12051 Alba (CN)' },
-                { icon: 'fa-phone', text: '+39 0173 000 000' },
+                { icon: 'fa-map-marker-alt', text: 'Via Contessa di Castiglione, 1 - 14055 Costigliole d\'Asti (AT) - Italy' },
+                { icon: 'fa-phone', text: '+39 0141 961853' },
                 { icon: 'fa-envelope', text: 'info@hotellanghemonferrato.it' },
-                { icon: 'fa-clock', text: 'Check-in 15:00 · Check-out 11:00' },
+                { icon: 'fa-clock', text: 'Check-in 14:00-22:30 · Check-out 07:00-11:00' },
               ].map((c) => (
                 <li key={c.icon} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
                   <i className={`fa ${c.icon}`} style={{ color: '#C9A870', fontSize: '0.75rem', marginTop: '2px', flexShrink: 0 }}></i>

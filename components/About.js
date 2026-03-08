@@ -57,19 +57,19 @@ export default function About() {
               className="section-title mb-6"
               style={{ maxWidth: 480 }}
             >
-              Un Hotel di Lusso nel Cuore delle Langhe
+              Hotel Langhe & Monferrato
             </h2>
             <p
               style={{
-                fontFamily: 'Cormorant Garamond, serif',
-                fontSize: '1.15rem',
+                fontFamily: 'Lato, sans-serif',
+                fontSize: '1rem',
                 color: '#4A3D33',
                 lineHeight: 1.8,
-                fontStyle: 'italic',
+                fontWeight: 700,
                 marginBottom: '1.2rem',
               }}
             >
-              "Nelle Langhe, ogni tramonto è un dipinto. Ogni pasto è un ricordo. Ogni notte è un sogno."
+              Il luogo ideale dove soggiornare nelle Langhe e nel Monferrato
             </p>
             <p
               style={{
@@ -80,7 +80,7 @@ export default function About() {
                 marginBottom: '1rem',
               }}
             >
-              Hotel Langhe & Monferrato nasce dal desiderio di offrire molto più di un soggiorno. È un viaggio sensoriale tra i vigneti patrimonio dell'UNESCO, la gastronomia piemontese d'eccellenza e un'ospitalità che cura ogni dettaglio.
+              L’Hotel Langhe & Monferrato, immerso nel verde del Parco della Contessa a Costigliole d’Asti, è un’oasi di tranquillità e benessere nel cuore del Piemonte. La posizione strategica, a soli 15 km da Alba, Asti e Canelli, lo rende perfetto per scoprire le colline UNESCO tra Langhe e Monferrato.
             </p>
             <p
               style={{
@@ -91,25 +91,28 @@ export default function About() {
                 marginBottom: '2rem',
               }}
             >
-              Che tu cerchi una fuga romantica, una celebrazione speciale o semplicemente il piacere del relax assoluto, qui trovi tutto ciò che il tuo spirito desidera.
+              In una zona Patrimonio dell’Umanità UNESCO, ricca di tradizioni, eventi culturali e itinerari enogastronomici, l’hotel offre 58 camere spaziose: Standard, Triple, Quadruple, Family Room e Suite. Ogni ambiente è pensato per garantire il massimo comfort a coppie, famiglie e viaggiatori alla ricerca di relax, natura e autenticità.
             </p>
 
             {/* MICRO STATS */}
             <div className="flex gap-8 mb-8">
               {[
-                { val: '4.9/5', src: 'TripAdvisor' },
-                { val: '5.4K', src: 'Recensioni' },
-                { val: '4.8/5', src: 'Google' },
+                { val: '8.2/10', src: 'Booking.com' },
+                { val: '4/5', src: 'Google', icon: 'fa-star' },
+                { val: '+600', src: 'Recensioni' },
               ].map((s) => (
                 <div key={s.src}>
-                  <div style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.3rem', color: '#C9A870', fontWeight: 600 }}>{s.val}</div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    {s.icon && <i className={`fa ${s.icon}`} style={{ color: '#C9A870', fontSize: '0.8rem' }}></i>}
+                    <div style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.3rem', color: '#C9A870', fontWeight: 600 }}>{s.val}</div>
+                  </div>
                   <div style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', color: '#9A8A7A', letterSpacing: '0.12em', textTransform: 'uppercase' }}>{s.src}</div>
                 </div>
               ))}
             </div>
 
-            <Link href="/about" className="btn-gold">
-              <span>La Nostra Storia</span>
+            <Link href="/prenota" className="btn-gold">
+              <span>Prenota la Tua Esperienza</span>
             </Link>
           </div>
         </div>

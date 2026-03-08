@@ -4,28 +4,28 @@ import { useState } from 'react';
 
 const testimonials = [
   {
-    text: "Una delle esperienze più belle della nostra vita. La camera con vista sui vigneti al tramonto è qualcosa che non dimenticheremo mai. Il ristorante poi è un'altra storia: il risotto al Barolo era di un'altra dimensione.",
-    name: 'Marco & Laura',
+    text: "La Struttura vanta camere spaziose, moderne, pulite e con ampi terrazzi che affacciano sul suggestivo Parco della Contessa. E' presente un grande parcheggio gratuito. La colazione è molto abbondante, varia e ricca di prodotti del territorio. Staff gentilissimo e disponibile.",
+    name: 'Alice B.',
     origin: 'Milano',
     rating: 5,
-    platform: 'TripAdvisor',
-    date: 'Ottobre 2024',
+    platform: 'Google',
+    date: 'Novembre 2024',
   },
   {
-    text: "Siamo venuti per il nostro anniversario e l'hotel ha curato ogni minimo dettaglio. Dalla bottiglia di Barbaresco in camera all'arrivederci con i nostri dolci preferiti. Torneremo sicuramente, è il posto perfetto per staccare.",
-    name: 'Alessia T.',
+    text: "Un bellissimo albergo ubicato in un posto un pochino isolato, ma vicinissimo al centro. Adatto a chi vuole passare una vacanza di completo relax e silenzio, visitando le splendide cantine della zona. Colazione molto varia, camere grandi, pulite e piene di comfort. In ultimo ma da non sottovalutare, il personale simpatico e professionale, i prezzi sono bassi per i servizi offerti.",
+    name: 'Antonio B.',
     origin: 'Torino',
     rating: 5,
     platform: 'Google',
-    date: 'Settembre 2024',
+    date: 'Ottobre 2024',
   },
   {
-    text: 'La spa è semplicemente paradisiaca. Ho fatto il percorso benessere di tre ore e sono uscita completamente rigenerata. Lo staff è attento, discreto e professionale. Un hotel che capisce davvero il concetto di lusso.',
-    name: 'Francesca M.',
+    text: 'Ottima struttura davvero! Personale gentile e disponibile. Camere pulite ed ambiente accogliente. Anche il contesto esterno merita e vale la pena esplorarlo con lunghe passeggiate. Ci siamo trovati tutti benissimo. Consigliatissimo!',
+    name: 'Andrea T.',
     origin: 'Roma',
     rating: 5,
     platform: 'Booking.com',
-    date: 'Agosto 2024',
+    date: 'Settembre 2024',
   },
 ];
 
@@ -53,15 +53,14 @@ export default function Testimonials() {
                 marginBottom: '2.5rem',
               }}
             >
-              Le recensioni dei nostri ospiti sono il nostro vanto più grande. Ecco cosa dicono coloro che hanno scelto Hotel Langhe & Monferrato.
+              Cerchiamo sempre di fare meglio per rendere ogni soggiorno speciale. Ecco cosa dicono alcuni dei nostri ospiti.
             </p>
 
             {/* Platform stats */}
             <div className="flex gap-8">
               {[
-                { val: '4.9/5', label: 'TripAdvisor', icon: 'fa-star' },
-                { val: '9.4/10', label: 'Booking.com', icon: 'fa-bed' },
-                { val: '4.8/5', label: 'Google', icon: 'fa-google' },
+                { val: '8.2/10', label: 'Booking.com', icon: 'fa-bed' },
+                { val: '4/5', label: 'Google', icon: 'fa-star' },
               ].map((s) => (
                 <div key={s.label}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>

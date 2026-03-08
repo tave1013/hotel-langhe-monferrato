@@ -48,7 +48,7 @@ export default function ContattiPage() {
                 <div style={{ background: '#fff', borderTop: '3px solid #C9A870', padding: '2.5rem', textAlign: 'center' }}>
                   <i className="fa fa-check-circle" style={{ color: '#C9A870', fontSize: '2.5rem', display: 'block', marginBottom: '1rem' }}></i>
                   <h3 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.4rem', color: '#2C2520', marginBottom: '0.5rem' }}>Messaggio Inviato!</h3>
-                  <p style={{ fontFamily: 'Lato', fontSize: '0.82rem', color: '#6B5E52', lineHeight: 1.7 }}>Ti risponderemo entro 24 ore. Nel frattempo puoi chiamarci al <strong>+39 0173 000 000</strong>.</p>
+                  <p style={{ fontFamily: 'Lato', fontSize: '0.82rem', color: '#6B5E52', lineHeight: 1.7 }}>Ti risponderemo entro 24 ore. Nel frattempo puoi chiamarci al <strong>+39 0141 961853</strong>.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -99,10 +99,10 @@ export default function ContattiPage() {
               {/* Contatti diretti */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2.5rem' }}>
                 {[
-                  { icon: 'fa-map-marker-alt', title: 'Indirizzo', lines: ['Via delle Vigne 12', '14050 Costigliole d\'Asti (AT)'] },
-                  { icon: 'fa-phone', title: 'Telefono', lines: ['+39 0173 000 000'], href: 'tel:+390173000000' },
+                  { icon: 'fa-map-marker-alt', title: 'Indirizzo', lines: ['Via Contessa di Castiglione, 1', '14055 Costigliole d\'Asti (AT) - Italy'] },
+                  { icon: 'fa-phone', title: 'Telefono', lines: ['+39 0141 961853'], href: 'tel:+390141961853' },
                   { icon: 'fa-envelope', title: 'Email', lines: ['info@hotellanghemonferrato.it'], href: 'mailto:info@hotellanghemonferrato.it' },
-                  { icon: 'fab fa-whatsapp', title: 'WhatsApp', lines: ['Chatta con noi ora'], href: 'https://wa.me/390173000000' },
+                  { icon: 'fab fa-whatsapp', title: 'WhatsApp', lines: ['Chatta con noi ora'], href: 'https://wa.me/390141961853' },
                 ].map((c) => (
                   <div key={c.title} style={{ background: '#fff', padding: '1.2rem 1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start', borderLeft: '2px solid #C9A870' }}>
                     <i className={c.icon} style={{ color: '#C9A870', fontSize: '0.9rem', marginTop: 2, width: 18 }}></i>

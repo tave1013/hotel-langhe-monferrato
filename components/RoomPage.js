@@ -102,13 +102,19 @@ export default function RoomPage({ room }) {
 
               {/* DOTAZIONI */}
               <section style={{ marginBottom: '3rem', paddingBottom: '3rem', borderBottom: '1px solid rgba(201,168,112,0.2)' }}>
-                <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.7rem', color: '#2C2520', marginBottom: '1.2rem', fontWeight: 500 }}>Dotazioni &amp; Servizi</h2>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: '1.2rem' }}>
+                  <i className="fa fa-star" style={{ color: '#C9A870', fontSize: '1.3rem' }}></i>
+                  <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.7rem', color: '#2C2520', fontWeight: 500 }}>Ideali per il tuo soggiorno</h2>
+                </div>
                 <div className="grid md:grid-cols-2 gap-5">
-                  {Object.entries(room.amenities).map(([cat, items]) => (
+                  {Object.entries(room.amenities).map(([cat, data]) => (
                     <div key={cat} style={{ background: '#fff', padding: '1.3rem', borderTop: '2px solid #C9A870' }}>
-                      <h3 style={{ fontFamily: 'Lato', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A870', marginBottom: '0.8rem' }}>{cat}</h3>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: '0.8rem' }}>
+                        <i className={`fa ${data.icon}`} style={{ color: '#C9A870', fontSize: '1rem', width: 20 }}></i>
+                        <h3 style={{ fontFamily: 'Lato', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A870' }}>{cat}</h3>
+                      </div>
                       <ul style={{ listStyle: 'none' }}>
-                        {items.map((item) => (
+                        {data.items.map((item) => (
                           <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, padding: '0.32rem 0', borderBottom: '1px solid rgba(201,168,112,0.07)', fontFamily: 'Lato', fontSize: '0.8rem', color: '#4A3D33' }}>
                             <i className="fa fa-check" style={{ color: '#C9A870', fontSize: '0.6rem', marginTop: 4, flexShrink: 0 }}></i>
                             {item}
@@ -197,9 +203,9 @@ export default function RoomPage({ room }) {
                     Hai bisogno di aiuto?
                   </h3>
                   {[
-                    { icon: 'fa-phone', iconColor: '#C9A870', bg: 'rgba(201,168,112,0.1)', label: 'Chiamaci', value: '+39 0173 000 000', href: 'tel:+390173000000' },
+                    { icon: 'fa-phone', iconColor: '#C9A870', bg: 'rgba(201,168,112,0.1)', label: 'Chiamaci', value: '+39 0141 961853', href: 'tel:+390141961853' },
                     { icon: 'fa-envelope', iconColor: '#C9A870', bg: 'rgba(201,168,112,0.1)', label: 'Scrivici', value: 'info@hotellanghemonferrato.it', href: 'mailto:info@hotellanghemonferrato.it' },
-                    { icon: 'fab fa-whatsapp', iconColor: '#25D366', bg: 'rgba(37,211,102,0.1)', label: 'WhatsApp', value: 'Chatta con noi', href: 'https://wa.me/390173000000' },
+                    { icon: 'fab fa-whatsapp', iconColor: '#25D366', bg: 'rgba(37,211,102,0.1)', label: 'WhatsApp', value: 'Chatta con noi', href: 'https://wa.me/390141961853' },
                   ].map((c) => (
                     <a key={c.label} href={c.href} style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', marginBottom: '0.9rem' }}>
                       <div style={{ width: 32, height: 32, background: c.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
@@ -268,7 +274,7 @@ export default function RoomPage({ room }) {
       {/* ── CTA BOTTOM ── */}
       <section className="relative overflow-hidden" style={{ padding: '80px 0' }}>
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1600&q=75&fit=crop" alt="" className="w-full h-full object-cover" />
+          <img src="/foto/hotel-langhe-monferrato.jpg" alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: 'rgba(10,8,6,0.78)' }} />
         </div>
         <div className="relative text-center px-6 max-w-3xl mx-auto">

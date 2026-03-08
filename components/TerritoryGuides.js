@@ -1,0 +1,127 @@
+'use client';
+
+import Link from 'next/link';
+import { guide } from '@/lib/territorioData';
+
+export default function TerritoryGuides() {
+  // Prendi solo le prime 3 guide
+  const topGuides = guide.slice(0, 3);
+
+  // Funzione per troncare il testo
+  const truncateText = (text, maxLength) => {
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength).trim() + '...';
+  };
+
+  return (
+    <section style={{ background: '#F5EFE4', padding: '100px 0' }}>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-14">
+          <p className="section-label mb-3">Le Nostre Mini Guide</p>
+          <div className="gold-divider mb-5"></div>
+          <h2 className="section-title mb-4">Cosa Fare e Vedere Intorno all'Hotel</h2>
+          <p
+            style={{
+              fontFamily: 'Cormorant Garamond, serif',
+              fontSize: '1.1rem',
+              color: '#6B5E52',
+              maxWidth: 560,
+              margin: '0 auto',
+              fontStyle: 'italic',
+            }}
+          >
+            Il territorio delle Langhe e del Monferrato regala esperienze uniche per ogni viaggiatore. Tre mete imperdibili da scoprire durante il tuo soggiorno.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {topGuides.map((item) => (
+            <div
+              key={item.slug}
+              className="card-hover"
+              style={{ background: '#fff', overflow: 'hidden' }}
+            >
+              {/* Image */}
+              <div className="relative" style={{ height: 220, overflow: 'hidden' }}>
+                <img
+                  src={item.img}
+                  alt={item.nome}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+                <div className="deal-badge">{item.distanzaDallHotel}</div>
+                {/* Category tag */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: 16,
+                    right: 16,
+                    background: 'rgba(10,8,6,0.75)',
+                    padding: '0.28rem 0.7rem',
+                    fontFamily: 'Lato',
+                    fontSize: '0.6rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.1em',
+                    color: 'rgba(255,255,255,0.7)',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  {item.categoria}
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-7">
+                <h3
+                  style={{
+                    fontFamily: 'Playfair Display, serif',
+                    fontSize: '1.2rem',
+                    color: '#2C2520',
+                    marginBottom: '0.6rem',
+                    fontWeight: 500,
+                  }}
+                >
+                  {item.nome}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: 'Lato',
+                    fontSize: '0.82rem',
+                    color: '#6B5E52',
+                    lineHeight: 1.75,
+                    marginBottom: '1.4rem',
+                    minHeight: '88px',
+                  }}
+                >
+                  {truncateText(item.descrizioneBreve, 140)}
+                </p>
+
+                {/* Info */}
+                <div className="flex items-center justify-between mb-4">
+                  <div style={{ fontFamily: 'Lato', fontSize: '0.7rem', color: '#9A8A7A' }}>
+                    <i className="fa fa-clock" style={{ marginRight: 6, color: '#C9A870' }}></i>
+                    {item.tempoVisita}
+                  </div>
+                  <div style={{ fontFamily: 'Lato', fontSize: '0.7rem', color: '#9A8A7A' }}>
+                    <i className={`fa ${item.categoryIcon}`} style={{ marginRight: 6, color: '#C9A870' }}></i>
+                    {item.categoria}
+                  </div>
+                </div>
+
+                <Link href={`/territorio/${item.slug}`} className="btn-gold w-full text-center block">
+                  <span>Scopri la Guida</span>
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Link to full guides */}
+        <div className="text-center mt-10">
+          <Link href="/territorio" className="btn-outline-gold">
+            Vedi Tutte le Guide del Territorio
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}

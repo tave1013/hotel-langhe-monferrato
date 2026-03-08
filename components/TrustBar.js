@@ -5,22 +5,22 @@ export default function TrustBar() {
     {
       icon: 'fa-map-marker-alt',
       title: 'Posizione Privilegiata',
-      desc: 'Nel cuore delle Langhe, a soli 5 minuti da Alba e dai vigneti patrimonio UNESCO',
-    },
-    {
-      icon: 'fa-spa',
-      title: 'Spa & Wellness',
-      desc: 'Piscina panoramica, sauna, bagno turco e trattamenti ispirati alle erbe delle colline',
+      desc: 'Nel cuore di Langhe e Monferrato, a circa 15 km da Alba, Asti e Canelli, nel verde di Costigliole d\'Asti.',
     },
     {
       icon: 'fa-utensils',
       title: 'Cucina del Territorio',
-      desc: 'Il nostro ristorante gourmet celebra i sapori autentici di Langa e Monferrato',
+      desc: 'Possibilità di mangiare direttamente in loco, con proposte del territorio ideali anche per eventi e occasioni speciali.',
     },
     {
-      icon: 'fa-concierge-bell',
-      title: 'Servizio Su Misura',
-      desc: 'Concierge dedicato, transfer privato, degustazioni esclusive e esperienze personalizzate',
+      icon: 'fa-swimming-pool',
+      title: 'Piscina',
+      desc: 'Piscina all\'aperto immersa nella natura, perfetta per rilassarsi e vivere un momento di pace durante il soggiorno.',
+    },
+    {
+      icon: 'fa-briefcase',
+      title: 'Sale Meeting',
+      desc: 'Spazi attrezzati per eventi, riunioni e occasioni speciali direttamente in struttura. Contattaci per organizzare ogni dettaglio.',
     },
   ];
 

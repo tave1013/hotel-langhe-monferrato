@@ -203,8 +203,8 @@ export default function PrenotaPage() {
 
                 <div style={{ marginTop: '1.2rem', paddingTop: '1rem', borderTop: '1px solid rgba(201,168,112,0.15)', textAlign: 'center' }}>
                   <p style={{ fontFamily: 'Lato', fontSize: '0.7rem', color: '#9A8A7A', marginBottom: '0.5rem' }}>Preferisci prenotare per telefono?</p>
-                  <a href="tel:+390173000000" style={{ fontFamily: 'Lato', fontSize: '0.8rem', fontWeight: 700, color: '#C9A870', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, textDecoration: 'none' }}>
-                    <i className="fa fa-phone" style={{ fontSize: '0.7rem' }}></i>+39 0173 000 000
+                  <a href="tel:+390141961853" style={{ fontFamily: 'Lato', fontSize: '0.8rem', fontWeight: 700, color: '#C9A870', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, textDecoration: 'none' }}>
+                    <i className="fa fa-phone" style={{ fontSize: '0.7rem' }}></i>+39 0141 961853
                   </a>
                 </div>
               </div>

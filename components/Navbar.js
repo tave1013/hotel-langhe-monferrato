@@ -121,19 +121,19 @@ export default function Navbar() {
 
         {/* ── CTA DESKTOP ── */}
         <div className="hidden lg:flex items-center gap-4">
-          <a href="tel:+390173000000" style={{ fontFamily: 'Lato', fontSize: '0.75rem', color: 'rgba(255,255,255,0.55)', textDecoration: 'none' }}>
+          <a href="tel:+390141961853" style={{ fontFamily: 'Lato', fontSize: '0.75rem', color: 'rgba(255,255,255,0.55)', textDecoration: 'none' }}>
             <i className="fa fa-phone" style={{ color: '#C9A870', marginRight: 6 }}></i>
-            +39 0173 000 000
+            +39 0141 961853
           </a>
           <Link href="/prenota" className="btn-gold">Prenota Ora</Link>
         </div>
 
-        {/* ── HAMBURGER ── */}
+        {/* ── HAMBURGER (solo mobile/tablet) ── */}
         <button
-          className="block lg:hidden p-2"
+          className="flex flex-col gap-[5px] lg:hidden p-2"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Apri menu"
-          style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: 5 }}
+          style={{ background: 'none', border: 'none', cursor: 'pointer' }}
         >
           {[0, 1, 2].map((i) => (
             <span key={i} style={{
@@ -147,7 +147,7 @@ export default function Navbar() {
       </div>
 
       {/* ── MOBILE MENU ── */}
-      <div style={{
+      <div className="lg:hidden" style={{
         background: 'rgba(10,8,6,0.98)',
         maxHeight: menuOpen ? '100vh' : 0,
         overflow: 'hidden',

@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const slides = [
   {
-    img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1800&q=85&fit=crop',
+    img: '/foto/hotel-langhe-monferrato.jpg',
     label: 'Un Rifugio di Lusso',
     title: 'Dove il Piemonte\nRegala la Sua Anima',
     sub: 'Tra vigneti UNESCO e colline dorate, un\'esperienza sensoriale unica che risveglia il piacere del bello, del buono e del vero.',
@@ -17,10 +17,10 @@ const slides = [
     sub: 'Suite disegnate con cura artigianale, materiali pregiati e vista sulle colline patrimonio dell\'UNESCO.',
   },
   {
-    img: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1800&q=85&fit=crop',
-    label: 'Spa & Benessere',
-    title: 'Il Lusso del\nNon Fare Nulla',
-    sub: 'La nostra spa ti avvolge in un rituale di benessere ispirato alle tradizioni vinicole del territorio.',
+    img: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=1800&q=85&fit=crop',
+    label: 'Piscina Panoramica',
+    title: 'Immergiti nella\nBellezza delle Langhe',
+    sub: 'La nostra piscina con vista sulle colline UNESCO è il luogo perfetto per rigenerarti tra cielo e vigneti.',
   },
 ];
 
@@ -29,7 +29,7 @@ export default function Hero() {
   const [animating, setAnimating] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(() => goTo((current + 1) % slides.length), 6000);
+    const timer = setInterval(() => goTo((current + 1) % slides.length), 9000);
     return () => clearInterval(timer);
   }, [current]);
 
@@ -60,8 +60,8 @@ export default function Hero() {
           }}
         />
         {/* Layered overlay */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(10,8,6,0.72) 0%, rgba(10,8,6,0.40) 60%, rgba(10,8,6,0.55) 100%)' }} />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,8,6,0.85) 0%, transparent 50%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(10,8,6,0.82) 0%, rgba(10,8,6,0.60) 60%, rgba(10,8,6,0.75) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,8,6,0.90) 0%, transparent 50%)' }} />
       </div>
 
       {/* CONTENT */}
@@ -78,7 +78,7 @@ export default function Hero() {
           </div>
 
           {/* Stars */}
-          <div className="stars mb-4">★★★★★</div>
+          <div className="stars mb-4">★★★★</div>
 
           {/* H1 */}
           <h1
@@ -134,9 +134,9 @@ export default function Hero() {
           }}
         >
           {[
-            { val: '4.9/5', label: 'Su TripAdvisor', icon: 'fa-star' },
-            { val: '9.4/10', label: 'Su Booking.com', icon: 'fa-bed' },
-            { val: '+1.200', label: 'Recensioni Verificate', icon: 'fa-heart' },
+            { val: '8.2/10', label: 'Su Booking.com', icon: 'fa-bed' },
+            { val: '4/5', label: 'Google Review', icon: 'fa-star' },
+            { val: '+600', label: 'Recensioni Verificate', icon: 'fa-heart' },
           ].map((item) => (
             <div key={item.label} className="flex items-center gap-2">
               <i className={`fa ${item.icon}`} style={{ color: '#C9A870', fontSize: '1rem' }}></i>
