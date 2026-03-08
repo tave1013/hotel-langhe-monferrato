@@ -6,7 +6,7 @@ import Link from 'next/link';
 const slides = [
   {
     img: '/foto/hotel-langhe-monferrato.jpg',
-    label: 'Un Rifugio di Lusso',
+    label: 'Un\'Oasi di Relax nelle Langhe',
     title: 'Dove il Piemonte\nRegala la Sua Anima',
     sub: 'Tra vigneti UNESCO e colline dorate, un\'esperienza sensoriale unica che risveglia il piacere del bello, del buono e del vero.',
   },
@@ -121,6 +121,48 @@ export default function Hero() {
               Scopri le Camere
             </Link>
           </div>
+
+          {/* MOBILE NAVIGATION */}
+          <div className="md:hidden flex items-center justify-center gap-4 mt-6">
+            {[{ dir: -1, icon: 'fa-chevron-left' }, { dir: 1, icon: 'fa-chevron-right' }].map(({ dir, icon }) => (
+              <button
+                key={dir}
+                onClick={() => goTo((current + slides.length + dir) % slides.length)}
+                style={{
+                  width: 44,
+                  height: 44,
+                  background: 'rgba(255,255,255,0.08)',
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  color: '#fff',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '0.75rem',
+                  transition: 'all 0.2s',
+                }}
+              >
+                <i className={`fa ${icon}`}></i>
+              </button>
+            ))}
+          </div>
+
+          <div className="md:hidden flex justify-center gap-3 mt-4">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                style={{
+                  width: i === current ? 32 : 8,
+                  height: 2,
+                  background: i === current ? '#C9A870' : 'rgba(255,255,255,0.3)',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.4s ease',
+                }}
+              />
+            ))}
+          </div>
         </div>
 
         {/* REVIEW BADGE */}
@@ -150,7 +192,7 @@ export default function Hero() {
       </div>
 
       {/* SLIDER DOTS */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-10">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex gap-3 z-10">
         {slides.map((_, i) => (
           <button
             key={i}
@@ -172,7 +214,7 @@ export default function Hero() {
         <button
           key={dir}
           onClick={() => goTo((current + slides.length + dir) % slides.length)}
-          className={`absolute top-1/2 -translate-y-1/2 ${side} z-10`}
+          className={`absolute top-1/2 -translate-y-1/2 ${side} z-10 hidden md:flex`}
           style={{
             width: 44, height: 44,
             background: 'rgba(255,255,255,0.08)',

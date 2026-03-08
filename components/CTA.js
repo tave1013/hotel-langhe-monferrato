@@ -71,7 +71,6 @@ export default function CTA() {
           {[
             { icon: 'fa-shield-alt', text: 'Cancellazione Gratuita' },
             { icon: 'fa-tag', text: 'Miglior Prezzo Garantito' },
-            { icon: 'fa-lock', text: 'Pagamento Sicuro' },
           ].map((t) => (
             <div key={t.text} style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
               <i className={`fa ${t.icon}`} style={{ color: '#C9A870', fontSize: '0.75rem' }}></i>

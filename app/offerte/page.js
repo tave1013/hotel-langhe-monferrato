@@ -148,7 +148,7 @@ export default function OffertePage() {
       {/* CTA */}
       <section className="relative overflow-hidden" style={{ padding: '80px 0' }}>
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1600&q=75&fit=crop" alt="" className="w-full h-full object-cover" />
+          <img src="/foto/hotel-langhe-monferrato.jpg" alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: 'rgba(10,8,6,0.78)' }} />
         </div>
         <div className="relative text-center px-6 max-w-2xl mx-auto">

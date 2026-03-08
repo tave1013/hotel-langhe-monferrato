@@ -25,16 +25,6 @@ export default function RoomPage({ room }) {
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(10,8,6,0.5) 0%, rgba(10,8,6,0.2) 50%, rgba(10,8,6,0.78) 100%)' }} />
         </div>
         <div className="relative h-full flex flex-col justify-end pb-14 px-6 max-w-7xl mx-auto">
-          {/* Breadcrumb */}
-          <nav aria-label="breadcrumb" style={{ marginBottom: '1rem' }}>
-            <ol style={{ display: 'flex', alignItems: 'center', gap: 8, fontFamily: 'Lato', fontSize: '0.68rem', color: 'rgba(255,255,255,0.45)', listStyle: 'none', padding: 0 }}>
-              <li><Link href="/" style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none' }}>Home</Link></li>
-              <li><i className="fa fa-chevron-right" style={{ fontSize: '0.45rem' }}></i></li>
-              <li><Link href="/camere" style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none' }}>Camere &amp; Suite</Link></li>
-              <li><i className="fa fa-chevron-right" style={{ fontSize: '0.45rem' }}></i></li>
-              <li style={{ color: '#C9A870' }}>{room.name}</li>
-            </ol>
-          </nav>
           <p className="section-label" style={{ marginBottom: '0.6rem' }}>Camere &amp; Suite</p>
           <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(2rem, 5vw, 4rem)', fontWeight: 400, color: '#FAF7F2', lineHeight: 1.1, marginBottom: '0.7rem' }}>
             {room.name}
@@ -160,24 +150,6 @@ export default function RoomPage({ room }) {
                     <span style={{ fontFamily: 'Lato', fontSize: '0.7rem', color: '#9A8A7A' }}>{room.priceNote}</span>
                   </div>
 
-                  {/* Date widget placeholder */}
-                  <div style={{ marginBottom: '1rem' }}>
-                    <div className="grid grid-cols-2" style={{ border: '1px solid rgba(201,168,112,0.3)' }}>
-                      <div style={{ padding: '0.75rem 1rem', borderRight: '1px solid rgba(201,168,112,0.3)' }}>
-                        <div style={{ fontFamily: 'Lato', fontSize: '0.58rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C9A870', marginBottom: 3 }}>Check-in</div>
-                        <div style={{ fontFamily: 'Lato', fontSize: '0.78rem', color: '#9A8A7A' }}>Seleziona data</div>
-                      </div>
-                      <div style={{ padding: '0.75rem 1rem' }}>
-                        <div style={{ fontFamily: 'Lato', fontSize: '0.58rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C9A870', marginBottom: 3 }}>Check-out</div>
-                        <div style={{ fontFamily: 'Lato', fontSize: '0.78rem', color: '#9A8A7A' }}>Seleziona data</div>
-                      </div>
-                    </div>
-                    <div style={{ padding: '0.75rem 1rem', border: '1px solid rgba(201,168,112,0.3)', borderTop: 'none' }}>
-                      <div style={{ fontFamily: 'Lato', fontSize: '0.58rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C9A870', marginBottom: 3 }}>Ospiti</div>
-                      <div style={{ fontFamily: 'Lato', fontSize: '0.78rem', color: '#9A8A7A' }}>2 Adulti</div>
-                    </div>
-                  </div>
-
                   <Link href="/prenota" className="btn-gold" style={{ display: 'block', textAlign: 'center', marginBottom: '0.8rem' }}>
                     <i className="fa fa-calendar-check" style={{ marginRight: 8 }}></i>
                     Prenota Questa Camera
@@ -187,7 +159,6 @@ export default function RoomPage({ room }) {
                     {[
                       { icon: 'fa-shield-alt', text: 'Cancellazione gratuita' },
                       { icon: 'fa-tag', text: 'Miglior prezzo garantito' },
-                      { icon: 'fa-lock', text: 'Pagamento sicuro' },
                     ].map((t) => (
                       <div key={t.text} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                         <i className={`fa ${t.icon}`} style={{ color: '#C9A870', fontSize: '0.7rem', width: 14 }}></i>

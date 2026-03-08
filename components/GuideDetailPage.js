@@ -19,14 +19,6 @@ export default function GuideDetailPage({ guida }) {
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(10,8,6,0.35) 0%, rgba(10,8,6,0.18) 40%, rgba(10,8,6,0.85) 100%)' }} />
         </div>
 
-        {/* Category pill */}
-        <div className="relative" style={{ paddingTop: 100, paddingLeft: 'max(1.5rem, calc((100% - 1280px)/2 + 1.5rem))', paddingRight: 24 }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 7, background: 'rgba(201,168,112,0.15)', border: '1px solid rgba(201,168,112,0.35)', padding: '0.38rem 1rem', backdropFilter: 'blur(6px)' }}>
-            <i className={`fa ${guida.categoryIcon}`} style={{ color: '#C9A870', fontSize: '0.65rem' }}></i>
-            <span style={{ fontFamily: 'Lato', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#C9A870' }}>{guida.categoria}</span>
-          </div>
-        </div>
-
         {/* Bottom text */}
         <div className="absolute bottom-0 left-0 right-0" style={{ padding: '0 max(1.5rem, calc((100% - 1280px)/2 + 1.5rem)) 3.5rem' }}>
           {/* Breadcrumb */}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const testimonials = [
   {
@@ -9,7 +9,6 @@ const testimonials = [
     origin: 'Milano',
     rating: 5,
     platform: 'Google',
-    date: 'Novembre 2024',
   },
   {
     text: "Un bellissimo albergo ubicato in un posto un pochino isolato, ma vicinissimo al centro. Adatto a chi vuole passare una vacanza di completo relax e silenzio, visitando le splendide cantine della zona. Colazione molto varia, camere grandi, pulite e piene di comfort. In ultimo ma da non sottovalutare, il personale simpatico e professionale, i prezzi sono bassi per i servizi offerti.",
@@ -17,7 +16,6 @@ const testimonials = [
     origin: 'Torino',
     rating: 5,
     platform: 'Google',
-    date: 'Ottobre 2024',
   },
   {
     text: 'Ottima struttura davvero! Personale gentile e disponibile. Camere pulite ed ambiente accogliente. Anche il contesto esterno merita e vale la pena esplorarlo con lunghe passeggiate. Ci siamo trovati tutti benissimo. Consigliatissimo!',
@@ -25,13 +23,47 @@ const testimonials = [
     origin: 'Roma',
     rating: 5,
     platform: 'Booking.com',
-    date: 'Settembre 2024',
   },
 ];
 
 export default function Testimonials() {
   const [active, setActive] = useState(0);
+  const touchStartX = useRef(null);
+  const touchStartY = useRef(null);
   const t = testimonials[active];
+
+  const goNext = () => setActive((prev) => (prev + 1) % testimonials.length);
+  const goPrev = () => setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive((prev) => (prev + 1) % testimonials.length);
+    }, 9000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+
+    const endX = e.changedTouches[0].clientX;
+    const endY = e.changedTouches[0].clientY;
+    const deltaX = endX - touchStartX.current;
+    const deltaY = endY - touchStartY.current;
+
+    if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (deltaX < 0) goNext();
+      else goPrev();
+    }
+
+    touchStartX.current = null;
+    touchStartY.current = null;
+  };
 
   return (
     <section style={{ background: '#1A1714', padding: '100px 0' }}>
@@ -76,11 +108,14 @@ export default function Testimonials() {
           {/* RIGHT: Testimonial */}
           <div>
             <div
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
               style={{
                 background: '#231F1A',
                 padding: '2.5rem',
                 borderTop: '2px solid #C9A870',
                 position: 'relative',
+                touchAction: 'pan-y',
               }}
             >
               {/* Quote mark */}
@@ -123,7 +158,6 @@ export default function Testimonials() {
                   <div style={{ fontFamily: 'Playfair Display, serif', fontSize: '1rem', color: '#FAF7F2', fontWeight: 600 }}>{t.name}</div>
                   <div style={{ fontFamily: 'Lato', fontSize: '0.7rem', color: '#C9A870', letterSpacing: '0.08em', marginTop: 3 }}>{t.origin} · {t.platform}</div>
                 </div>
-                <span style={{ fontFamily: 'Lato', fontSize: '0.65rem', color: 'rgba(255,255,255,0.3)', letterSpacing: '0.06em' }}>{t.date}</span>
               </div>
             </div>
 

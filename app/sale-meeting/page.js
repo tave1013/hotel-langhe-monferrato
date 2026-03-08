@@ -27,7 +27,7 @@ export default function SaleMeetingPage() {
             Sale Meeting & Congressi
           </h1>
           <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.2rem', color: 'rgba(245,239,228,0.75)', fontStyle: 'italic', maxWidth: 580, lineHeight: 1.7 }}>
-            Tre spazi modulari nelle Langhe UNESCO per eventi indimenticabili, tra tecnologia avanzata e paesaggi mozzafiato.
+            Organizza il tuo evento nelle Langhe UNESCO con sale modulari e servizi dedicati per rendere ogni occasione indimenticabile.
           </p>
         </div>
       </section>
@@ -37,8 +37,8 @@ export default function SaleMeetingPage() {
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {[
             { icon: 'fa-th-large', num: '3', label: 'Sale Modulari' },
-            { icon: 'fa-users', num: '150', label: 'Posti Max' },
-            { icon: 'fa-wifi', num: '1 Gbps', label: 'Wi-Fi Fibra' },
+            { icon: 'fa-users', num: '400', label: 'Posti Max' },
+            { icon: 'fa-wifi', num: 'Free', label: 'Wi-Fi Fibra' },
             { icon: 'fa-headset', num: '24/7', label: 'Supporto Tecnico' },
           ].map((s) => (
             <div key={s.label} style={{ padding: '0.5rem' }}>
@@ -134,7 +134,7 @@ export default function SaleMeetingPage() {
           <h2 className="section-title-light" style={{ marginBottom: '3rem' }}>I Servizi per il Tuo Evento</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
-              { icon: 'fa-wifi', label: 'Wi-Fi Fibra 1Gbps' },
+              { icon: 'fa-wifi', label: 'Wi-Fi Free' },
               { icon: 'fa-video', label: 'Proiezione 4K' },
               { icon: 'fa-coffee', label: 'Coffee Break Gourmet' },
               { icon: 'fa-utensils', label: 'Catering & Cena Gala' },

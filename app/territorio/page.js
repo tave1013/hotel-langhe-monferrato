@@ -83,11 +83,6 @@ export default function TerritorioPage() {
                   {/* Image */}
                   <div className="img-overlay" style={{ height: 240, position: 'relative', flexShrink: 0 }}>
                     <img src={g.img} alt={g.nome} className="w-full h-full object-cover" />
-                    {/* Category badge */}
-                    <div className="deal-badge" style={{ background: 'rgba(10,8,6,0.8)', border: '1px solid rgba(201,168,112,0.4)' }}>
-                      <i className={`fa ${g.categoryIcon}`} style={{ color: '#C9A870', marginRight: 5, fontSize: '0.55rem' }}></i>
-                      <span style={{ fontFamily: 'Lato', fontSize: '0.58rem', letterSpacing: '0.12em', color: '#fff', textTransform: 'uppercase' }}>{g.categoria}</span>
-                    </div>
                     {/* Distance */}
                     <div style={{ position: 'absolute', bottom: 12, right: 12, background: 'rgba(201,168,112,0.9)', padding: '0.28rem 0.7rem', zIndex: 10 }}>
                       <span style={{ fontFamily: 'Lato', fontSize: '0.6rem', fontWeight: 700, color: '#fff', letterSpacing: '0.05em' }}>{g.distanzaDallHotel}</span>

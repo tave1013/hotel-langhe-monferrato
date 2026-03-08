@@ -66,7 +66,7 @@ export default function Rooms() {
         <div className="text-center mb-14">
           <p className="section-label mb-3">Camere & Suite</p>
           <div className="gold-divider mb-5"></div>
-          <h2 className="section-title mb-4">La Collezione delle Nostre Suite</h2>
+          <h2 className="section-title mb-4">La Collezione delle Nostre Camere</h2>
           <p
             style={{
               fontFamily: 'Cormorant Garamond, serif',
