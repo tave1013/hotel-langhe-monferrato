@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DayPicker } from 'react-day-picker';
@@ -9,6 +9,7 @@ import 'react-day-picker/dist/style.css';
 
 export default function BookingForm({ onSubmit }) {
   const router = useRouter();
+  const calendarRef = useRef(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,13 +25,20 @@ export default function BookingForm({ onSubmit }) {
   const [showCalendar, setShowCalendar] = useState(false);
 
   useEffect(() => {
-    if (errors.length > 0) {
-      const timer = setTimeout(() => {
-        setErrors([]);
-      }, 5000);
-      return () => clearTimeout(timer);
+    const handleClickOutside = (event) => {
+      if (calendarRef.current && !calendarRef.current.contains(event.target)) {
+        setShowCalendar(false);
+      }
+    };
+
+    if (showCalendar) {
+      document.addEventListener('mousedown', handleClickOutside);
     }
-  }, [errors]);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showCalendar]);
 
   const validatePhone = (phone) => {
     const digits = phone.replace(/[^\d]/g, '');
@@ -113,6 +121,13 @@ export default function BookingForm({ onSubmit }) {
       
       return { ...prev, [field]: newValue };
     });
+  };
+
+  const calculateNights = () => {
+    if (!formData.dateRange?.from || !formData.dateRange?.to) return 0;
+    const diffTime = Math.abs(formData.dateRange.to - formData.dateRange.from);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays;
   };
 
   const formatDateRange = () => {
@@ -203,15 +218,22 @@ export default function BookingForm({ onSubmit }) {
               </div>
             </div>
             <div>
-              <label className="block text-gray-700 text-xs font-bold mb-2 uppercase tracking-wider" style={{ fontFamily: 'Lato, sans-serif' }}>Date di soggiorno</label>
-              <div className="relative">
+              <div className="flex items-center justify-between mb-2">
+                <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider" style={{ fontFamily: 'Lato, sans-serif' }}>Date di soggiorno</label>
+                {calculateNights() > 0 && (
+                  <span className="text-xs font-semibold px-2 py-1 rounded" style={{ fontFamily: 'Lato, sans-serif', background: '#C9A870', color: 'white' }}>
+                    {calculateNights()} {calculateNights() === 1 ? 'notte' : 'notti'}
+                  </span>
+                )}
+              </div>
+              <div className="relative" ref={calendarRef}>
                 <button type="button" onClick={() => setShowCalendar(!showCalendar)} className="w-full bg-[#f5f5f5] rounded-none p-4 text-left focus:outline-none hover:bg-[#eeeeee] transition-colors flex items-center justify-between min-h-[74px]" style={{ fontFamily: 'Lato, sans-serif' }}>
                   <span className="text-gray-800" style={{ fontSize: '0.95rem' }}>{formatDateRange()}</span>
                   <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                 </button>
                 {showCalendar && (
                   <div className="absolute z-10 mt-2 bg-white border border-gray-300 rounded-none shadow-lg p-4 left-0 md:left-auto md:right-0">
-                    <DayPicker mode="range" selected={formData.dateRange} onSelect={(range) => { setFormData({ ...formData, dateRange: range }); if (range?.from && range?.to) { setShowCalendar(false); }}} disabled={{ before: new Date() }} locale={it} />
+                    <DayPicker mode="range" selected={formData.dateRange} onSelect={(range) => { setFormData({ ...formData, dateRange: range }); }} disabled={{ before: new Date() }} locale={it} />
                   </div>
                 )}
               </div>

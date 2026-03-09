@@ -2,6 +2,7 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BookingForm from '@/components/BookingForm';
+import FAQ from '@/components/FAQ';
 
 export default function PrenotaPage() {
   const handleBookingSubmit = async (formData) => {
@@ -39,6 +40,9 @@ export default function PrenotaPage() {
           <BookingForm onSubmit={handleBookingSubmit} />
         </div>
       </section>
+
+      {/* FAQ */}
+      <FAQ />
 
       <Footer />
     </>
