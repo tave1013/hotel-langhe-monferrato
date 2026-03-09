@@ -85,7 +85,7 @@ export default function TerritorioPage() {
                     <img src={g.img} alt={g.nome} className="w-full h-full object-cover" />
                     {/* Distance */}
                     <div style={{ position: 'absolute', bottom: 12, right: 12, background: 'rgba(201,168,112,0.9)', padding: '0.28rem 0.7rem', zIndex: 10 }}>
-                      <span style={{ fontFamily: 'Lato', fontSize: '0.6rem', fontWeight: 700, color: '#fff', letterSpacing: '0.05em' }}>{g.distanzaDallHotel}</span>
+                      <span className="text-[0.74rem] md:text-[0.6rem]" style={{ fontFamily: 'Lato', fontWeight: 700, color: '#fff', letterSpacing: '0.05em', textAlign: 'center', display: 'block' }}>{g.distanzaDallHotel}</span>
                     </div>
                   </div>
 
@@ -137,7 +137,7 @@ export default function TerritorioPage() {
           <h2 className="section-title-light" style={{ marginBottom: '1rem' }}>
             Esplora le Langhe dal Nostro Hotel
           </h2>
-          <p style={{ fontFamily: 'Lato', fontSize: '0.86rem', color: 'rgba(245,239,228,0.62)', lineHeight: 1.85, marginBottom: '2.2rem', maxWidth: 560, margin: '0 auto 2.2rem' }}>
+          <p style={{ fontFamily: 'Lato', fontSize: 'clamp(0.95rem, 2.2vw, 1rem)', color: '#FAF7F2', lineHeight: 1.85, marginBottom: '2.2rem', maxWidth: 560, margin: '0 auto 2.2rem' }}>
             La posizione dell&apos;hotel ti mette a meno di 40 minuti da tutte le destinazioni di questa guida. Prenota il tuo soggiorno e lascia che ti aiutiamo a costruire l&apos;itinerario perfetto.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>

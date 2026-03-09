@@ -163,7 +163,7 @@ export default function SaleMeetingPage() {
           <p className="section-label" style={{ marginBottom: '0.6rem' }}>Organizziamo il Tuo Evento</p>
           <div className="gold-divider" style={{ marginBottom: '1.2rem' }}></div>
           <h2 className="section-title-light" style={{ marginBottom: '1rem' }}>Richiedi un Preventivo Personalizzato</h2>
-          <p style={{ fontFamily: 'Lato', fontSize: '0.84rem', color: 'rgba(245,239,228,0.55)', lineHeight: 1.8, marginBottom: '2rem' }}>
+          <p style={{ fontFamily: 'Lato', fontSize: 'clamp(0.95rem, 2.2vw, 1rem)', color: '#FAF7F2', lineHeight: 1.8, marginBottom: '2rem' }}>
             Il nostro team eventi risponde entro 24 ore con una proposta su misura per il tuo budget e le tue esigenze.
           </p>
           <Link href="/contatti" className="btn-gold" style={{ padding: '1rem 2.8rem' }}>Richiedi Preventivo</Link>

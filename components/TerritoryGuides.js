@@ -61,12 +61,13 @@ export default function TerritoryGuides() {
                     background: 'rgba(10,8,6,0.75)',
                     padding: '0.28rem 0.7rem',
                     fontFamily: 'Lato',
-                    fontSize: '0.6rem',
+                    fontSize: '0.74rem',
                     fontWeight: 700,
                     letterSpacing: '0.1em',
-                    color: 'rgba(255,255,255,0.7)',
+                    color: '#FAF7F2',
                     textTransform: 'uppercase',
                   }}
+                  className="md:text-[0.6rem]"
                 >
                   {item.categoria}
                 </div>

@@ -46,7 +46,7 @@ export default function Hero() {
   const slide = slides[current] || slides[0];
 
   return (
-    <section className="relative h-screen min-h-[680px] overflow-hidden" aria-label="Hero">
+    <section className="relative h-screen min-h-[960px] md:min-h-[680px] overflow-hidden" aria-label="Hero">
       {/* BG IMAGE */}
       <div
         className="absolute inset-0 transition-opacity duration-700"
@@ -73,7 +73,7 @@ export default function Hero() {
         >
           {/* Eyebrow */}
           <ScrollAnimation type="slide-up" duration="slow">
-            <div className="flex items-center justify-center gap-4 mb-5">
+            <div className="flex items-center justify-center gap-4 mb-5 mt-[5px] md:mt-0">
               <span style={{ width: 40, height: 1, background: '#C9A870', display: 'inline-block' }}></span>
               <span className="section-label">{slide.label}</span>
               <span style={{ width: 40, height: 1, background: '#C9A870', display: 'inline-block' }}></span>

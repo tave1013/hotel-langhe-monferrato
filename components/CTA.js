@@ -48,7 +48,7 @@ export default function CTA() {
           style={{
             fontFamily: 'Lato',
             fontSize: '0.95rem',
-            color: 'rgba(245,239,228,0.68)',
+            color: '#FAF7F2',
             maxWidth: 600,
             margin: '0 auto 2.5rem',
             lineHeight: 1.8,

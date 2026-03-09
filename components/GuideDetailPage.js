@@ -21,7 +21,7 @@ export default function GuideDetailPage({ guida }) {
           <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(2.2rem, 5vw, 4.2rem)', fontWeight: 400, color: '#FAF7F2', lineHeight: 1.1, marginBottom: '0.7rem', maxWidth: 720 }}>
             {guida.nome}
           </h1>
-          <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: 'rgba(245,239,228,0.72)', fontStyle: 'italic', marginBottom: '1.2rem', maxWidth: 600 }}>
+          <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(1.2rem, 2.8vw, 1.35rem)', color: '#FAF7F2', fontStyle: 'italic', marginBottom: '1.2rem', maxWidth: 600 }}>
             {guida.sottotitolo}
           </p>
 
@@ -34,7 +34,7 @@ export default function GuideDetailPage({ guida }) {
             ].map((m) => (
               <div key={m.text} style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'rgba(10,8,6,0.55)', border: '1px solid rgba(201,168,112,0.2)', padding: '0.38rem 0.9rem', backdropFilter: 'blur(8px)' }}>
                 <i className={`fa ${m.icon}`} style={{ color: '#C9A870', fontSize: '0.62rem' }}></i>
-                <span style={{ fontFamily: 'Lato', fontSize: '0.64rem', color: 'rgba(255,255,255,0.72)', letterSpacing: '0.04em' }}>{m.text}</span>
+                <span className="text-[0.74rem] md:text-[0.64rem]" style={{ fontFamily: 'Lato', color: '#FAF7F2', letterSpacing: '0.04em' }}>{m.text}</span>
               </div>
             ))}
           </div>
