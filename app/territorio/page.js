@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { guide } from '@/lib/territorioData';
@@ -23,10 +24,14 @@ export default function TerritorioPage() {
       {/* ===== HERO ===== */}
       <section className="relative overflow-hidden" style={{ height: '58vh', minHeight: 400 }}>
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/foto/alba.webp"
             alt="Paesaggio Langhe e Monferrato"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            quality={85}
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(10,8,6,0.55), rgba(10,8,6,0.72))' }} />
         </div>
@@ -82,7 +87,14 @@ export default function TerritorioPage() {
 
                   {/* Image */}
                   <div className="img-overlay" style={{ height: 240, position: 'relative', flexShrink: 0 }}>
-                    <img src={g.img} alt={g.nome} className="w-full h-full object-cover" />
+                    <Image
+                      src={g.img}
+                      alt={g.nome}
+                      fill
+                      quality={80}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover"
+                    />
                     {/* Distance */}
                     <div style={{ position: 'absolute', bottom: 12, right: 12, background: 'rgba(201,168,112,0.9)', padding: '0.28rem 0.7rem', zIndex: 10 }}>
                       <span className="text-[0.74rem] md:text-[0.6rem]" style={{ fontFamily: 'Lato', fontWeight: 700, color: '#fff', letterSpacing: '0.05em', textAlign: 'center', display: 'block' }}>{g.distanzaDallHotel}</span>

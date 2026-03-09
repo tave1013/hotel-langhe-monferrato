@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { guide } from '@/lib/territorioData';
 import ScrollAnimation from './ScrollAnimation';
 
@@ -46,11 +47,14 @@ export default function TerritoryGuides() {
               >
                 {/* Image */}
                 <div className="relative" style={{ height: 220, overflow: 'hidden' }}>
-                <img
-                  src={item.img}
-                  alt={item.nome}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                />
+                  <Image
+                    src={item.img}
+                    alt={item.nome}
+                    fill
+                    quality={80}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                  />
                 <div className="deal-badge">{item.distanzaDallHotel}</div>
                 {/* Category tag */}
                 <div

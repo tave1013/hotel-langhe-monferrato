@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import ScrollAnimation from './ScrollAnimation';
 
 const rooms = [
@@ -97,11 +98,14 @@ export default function Rooms() {
           <div className="grid lg:grid-cols-2">
             {/* IMAGE */}
             <div className="relative overflow-hidden" style={{ minHeight: 460 }}>
-              <img
+              <Image
                 key={active}
                 src={rooms[active].img}
                 alt={rooms[active].name}
-                className="absolute inset-0 w-full h-full object-cover"
+                fill
+                quality={85}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
                 style={{ animation: 'fadeIn 0.6s ease forwards' }}
               />
               {/* PRICE TAG */}

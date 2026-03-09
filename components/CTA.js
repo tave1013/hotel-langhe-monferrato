@@ -1,16 +1,20 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function CTA() {
   return (
     <section className="relative overflow-hidden" style={{ padding: '120px 0' }}>
       {/* BG */}
       <div className="absolute inset-0">
-        <img
+        <Image
           src="/foto/hotel-langhe-monferrato.jpg"
           alt="Hotel Langhe & Monferrato"
-          className="w-full h-full object-cover"
+          fill
+          quality={85}
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import ScrollAnimation from './ScrollAnimation';
 
 const deals = [
@@ -75,11 +76,14 @@ export default function Deals() {
               >
                 {/* Image */}
                 <div className="relative" style={{ height: 220, overflow: 'hidden' }}>
-                <img
-                  src={deal.img}
-                  alt={deal.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                />
+                  <Image
+                    src={deal.img}
+                    alt={deal.title}
+                    fill
+                    quality={80}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                  />
                 <div className="deal-badge">{deal.badge}</div>
                 {/* Category tag */}
                 <div

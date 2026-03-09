@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BookingForm from '@/components/BookingForm';
@@ -24,7 +25,15 @@ export default function PrenotaPage() {
       {/* HERO */}
       <section className="relative overflow-hidden" style={{ height: '42vh', minHeight: 300 }}>
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1800&q=85&fit=crop" alt="Prenota Hotel Langhe" className="w-full h-full object-cover" />
+          <Image
+            src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1800&q=85&fit=crop"
+            alt="Prenota Hotel Langhe"
+            fill
+            priority
+            quality={85}
+            sizes="100vw"
+            className="object-cover"
+          />
           <div className="absolute inset-0" style={{ background: 'rgba(10,8,6,0.65)' }} />
         </div>
         <div className="relative h-full flex flex-col items-center justify-center text-center px-6">

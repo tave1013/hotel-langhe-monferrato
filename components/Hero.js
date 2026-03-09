@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import ScrollAnimation from './ScrollAnimation';
 
 const slides = [
@@ -52,14 +53,19 @@ export default function Hero() {
         className="absolute inset-0 transition-opacity duration-700"
         style={{ opacity: animating ? 0 : 1 }}
       >
-        <div
-          className="absolute inset-0 animate-ken-burns hero-bg-image"
-          style={{
-            backgroundImage: `url('${slide.img}')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
+        <div className="absolute inset-0 animate-ken-burns hero-bg-image">
+          <Image
+            key={slide.img}
+            src={slide.img}
+            alt={slide.label}
+            fill
+            priority={current === 0}
+            quality={85}
+            sizes="100vw"
+            className="object-cover"
+            style={{ objectPosition: 'center 22%' }}
+          />
+        </div>
         {/* Layered overlay */}
         <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(10,8,6,0.82) 0%, rgba(10,8,6,0.60) 60%, rgba(10,8,6,0.75) 100%)' }} />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,8,6,0.90) 0%, transparent 50%)' }} />

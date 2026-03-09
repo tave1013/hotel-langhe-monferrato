@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import ScrollAnimation from './ScrollAnimation';
 
 export default function About() {
@@ -12,23 +13,35 @@ export default function About() {
           <ScrollAnimation type="slide-up">
             <div className="relative grid grid-cols-2 gap-4">
             <div className="col-span-2 overflow-hidden" style={{ height: 280 }}>
-              <img
+              <Image
                 src="/foto/hotel-langhe-monferrato.jpg"
                 alt="Hotel Langhe & Monferrato vista esterna"
+                width={800}
+                height={280}
+                quality={85}
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
             <div className="overflow-hidden" style={{ height: 200 }}>
-              <img
+              <Image
                 src="/foto/ingresso.webp"
                 alt="Ingresso Hotel Langhe & Monferrato"
+                width={400}
+                height={200}
+                quality={80}
+                sizes="(max-width: 768px) 50vw, 25vw"
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
             <div className="overflow-hidden" style={{ height: 200 }}>
-              <img
+              <Image
                 src="/foto/Camera-tripla.webp"
                 alt="Camera tripla Hotel Langhe & Monferrato"
+                width={400}
+                height={200}
+                quality={80}
+                sizes="(max-width: 768px) 50vw, 25vw"
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>

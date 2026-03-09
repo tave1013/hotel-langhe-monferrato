@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import ScrollAnimation from './ScrollAnimation';
 
 const experiences = [
@@ -60,10 +61,13 @@ export default function Experiences() {
               <div className="card-hover group" style={{ background: '#fff', overflow: 'hidden' }}>
               {/* Image */}
               <div className="img-overlay" style={{ height: 280 }}>
-                <img
+                <Image
                   src={exp.img}
                   alt={exp.title}
-                  className="w-full h-full object-cover"
+                  fill
+                  quality={80}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
                 />
                 {/* Label */}
                 <div
