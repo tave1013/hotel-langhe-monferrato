@@ -5,11 +5,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { DayPicker } from 'react-day-picker';
 import { format } from 'date-fns';
 import { it } from 'date-fns/locale';
+import emailjs from '@emailjs/browser';
 import 'react-day-picker/dist/style.css';
 
 export default function BookingForm({ onSubmit }) {
   const router = useRouter();
   const calendarRef = useRef(null);
+  const submittingRef = useRef(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,11 +32,9 @@ export default function BookingForm({ onSubmit }) {
         setShowCalendar(false);
       }
     };
-
     if (showCalendar) {
       document.addEventListener('mousedown', handleClickOutside);
     }
-
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
@@ -45,97 +45,121 @@ export default function BookingForm({ onSubmit }) {
     return digits.length >= 10;
   };
 
+  const calculateNights = () => {
+    if (!formData.dateRange?.from || !formData.dateRange?.to) return 0;
+    const diffTime = Math.abs(formData.dateRange.to - formData.dateRange.from);
+    return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  };
+
+  const formatDateRange = () => {
+    if (!formData.dateRange?.from) return 'Seleziona le date';
+    if (!formData.dateRange?.to) return format(formData.dateRange.from, 'dd/MM/yyyy', { locale: it });
+    return `${format(formData.dateRange.from, 'dd/MM/yyyy', { locale: it })} - ${format(formData.dateRange.to, 'dd/MM/yyyy', { locale: it })}`;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (submittingRef.current || isLoading) return;
+    submittingRef.current = true;
+
     const newErrors = [];
 
-    if (!formData.name.trim()) {
-      newErrors.push('Il nome è obbligatorio');
-    }
-    if (!formData.email.trim()) {
-      newErrors.push('L\'email è obbligatoria');
-    }
-    if (!formData.phone.trim()) {
-      newErrors.push('Il cellulare è obbligatorio');
-    } else if (!validatePhone(formData.phone)) {
-      newErrors.push('Il cellulare deve contenere almeno 10 cifre');
-    }
-    if (formData.adults < 1) {
-      newErrors.push('Almeno 1 adulto è obbligatorio');
-    }
-    if (!formData.dateRange?.from || !formData.dateRange?.to) {
-      newErrors.push('Seleziona le date di check-in e check-out');
-    }
+    if (!formData.name.trim())    newErrors.push('Il nome è obbligatorio');
+    if (!formData.email.trim())   newErrors.push("L'email è obbligatoria");
+    if (!formData.phone.trim())   newErrors.push('Il cellulare è obbligatorio');
+    else if (!validatePhone(formData.phone)) newErrors.push('Il cellulare deve contenere almeno 10 cifre');
+    if (formData.adults < 1)      newErrors.push('Almeno 1 adulto è obbligatorio');
+    if (!formData.dateRange?.from || !formData.dateRange?.to) newErrors.push('Seleziona le date di check-in e check-out');
 
     if (newErrors.length > 0) {
       setErrors(newErrors);
+      submittingRef.current = false;
       return;
     }
 
     setIsLoading(true);
-    
+
     try {
-      if (onSubmit) {
-        await onSubmit(formData);
-      }
+      const nights = calculateNights();
+      const checkInFormatted  = format(formData.dateRange.from, 'dd/MM/yyyy', { locale: it });
+      const checkOutFormatted = format(formData.dateRange.to,   'dd/MM/yyyy', { locale: it });
 
-      // Prepara i parametri per la pagina di ringraziamento
+      // ─── CREDENZIALI EMAILJS ───────────────────────────────
+      const EMAILJS_SERVICE_ID        = 'service_qayjn6q';
+      const EMAILJS_TEMPLATE_CLIENT   = 'template_e44h7i2';   // email all'ospite
+      const EMAILJS_TEMPLATE_INTERNAL = 'template_e6od39t';   // email all'hotel
+      const EMAILJS_PUBLIC_KEY        = 'rlwTvobnIMqgQVwQG';
+      // ──────────────────────────────────────────────────────
+
+      // I nomi qui corrispondono ESATTAMENTE ai {{placeholder}} nei template HTML
+      const baseParams = {
+        name:       formData.name.trim(),
+        email:      formData.email.trim(),
+        phone:      formData.phone.trim(),
+        checkIn:    checkInFormatted,
+        checkOut:   checkOutFormatted,
+        nights:     nights,
+        adults:     formData.adults,
+        children:   formData.children,
+        message:    formData.message.trim() || 'Nessun messaggio aggiuntivo',
+        receivedAt: new Date().toLocaleString('it-IT', {
+          day: '2-digit', month: '2-digit', year: 'numeric',
+          hour: '2-digit', minute: '2-digit'
+        }),
+      };
+
+      // Email all'ospite
+      const emailParamsClient = {
+        ...baseParams,
+        to_email: formData.email.trim(),  // Email dell'ospite
+      };
+
+      // Email all'hotel
+      const emailParamsInternal = {
+        ...baseParams,
+      };
+
+      await Promise.all([
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_CLIENT,   emailParamsClient,   { publicKey: EMAILJS_PUBLIC_KEY }),
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_INTERNAL, emailParamsInternal, { publicKey: EMAILJS_PUBLIC_KEY }),
+      ]);
+
+      if (onSubmit) await onSubmit(formData);
+
       const params = new URLSearchParams({
-        name: formData.name.trim(),
-        email: formData.email.trim(),
-        phone: formData.phone.trim(),
-        adults: formData.adults.toString(),
+        name:     formData.name.trim(),
+        email:    formData.email.trim(),
+        phone:    formData.phone.trim(),
+        adults:   formData.adults.toString(),
         children: formData.children.toString(),
-        checkIn: formData.dateRange?.from ? format(formData.dateRange.from, 'dd/MM/yyyy', { locale: it }) : '',
-        checkOut: formData.dateRange?.to ? format(formData.dateRange.to, 'dd/MM/yyyy', { locale: it }) : '',
-        message: formData.message.trim()
+        checkIn:  checkInFormatted,
+        checkOut: checkOutFormatted,
+        nights:   nights.toString(),
+        message:  formData.message.trim()
       });
 
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        adults: 1,
-        children: 0,
-        dateRange: undefined,
-        message: ''
-      });
-
+      setFormData({ name: '', email: '', phone: '', adults: 1, children: 0, dateRange: undefined, message: '' });
       router.push(`/grazie?${params.toString()}`);
+
     } catch (error) {
-      setErrors(['Si è verificato un errore. Riprova.']);
+      console.error('Errore invio email:', error);
+      setErrors([
+        "Si è verificato un errore durante l'invio. Riprova.",
+        `Dettaglio: ${error?.text || error?.message || 'Errore sconosciuto'}`
+      ]);
     } finally {
       setIsLoading(false);
+      submittingRef.current = false;
     }
   };
 
   const updateCounter = (field, increment) => {
     setFormData(prev => {
       const newValue = prev[field] + increment;
-      
-      if (field === 'adults') {
-        if (newValue < 1 || newValue > 50) return prev;
-      } else {
-        if (newValue < 0 || newValue > 10) return prev;
-      }
-      
+      if (field === 'adults')  { if (newValue < 1  || newValue > 50) return prev; }
+      else                     { if (newValue < 0  || newValue > 10) return prev; }
       return { ...prev, [field]: newValue };
     });
-  };
-
-  const calculateNights = () => {
-    if (!formData.dateRange?.from || !formData.dateRange?.to) return 0;
-    const diffTime = Math.abs(formData.dateRange.to - formData.dateRange.from);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return diffDays;
-  };
-
-  const formatDateRange = () => {
-    if (!formData.dateRange?.from) return 'Seleziona le date';
-    if (!formData.dateRange?.to) {
-      return format(formData.dateRange.from, 'dd/MM/yyyy', { locale: it });
-    }
-    return `${format(formData.dateRange.from, 'dd/MM/yyyy', { locale: it })} - ${format(formData.dateRange.to, 'dd/MM/yyyy', { locale: it })}`;
   };
 
   return (
@@ -146,26 +170,19 @@ export default function BookingForm({ onSubmit }) {
         <p className="text-gray-700 mb-8 leading-relaxed max-w-2xl mx-auto" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.95rem' }}>
           Compila il form con i tuoi dati e le date del tuo soggiorno. Ti risponderemo al più presto per confermare la disponibilità e fornirti tutte le informazioni necessarie.
         </p>
-        
         <div className="flex flex-col md:flex-row gap-6 justify-center items-start max-w-3xl mx-auto mb-10">
-          <div className="flex items-start gap-3 flex-1">
-            <div className="w-6 h-6 rounded-full bg-[#C9A870] flex items-center justify-center flex-shrink-0 mt-1">
-              <span className="text-white text-xs font-bold">✓</span>
+          {[
+            'Miglior prezzo garantito prenotando direttamente',
+            'Cancellazione gratuita fino a 48h prima del check-in',
+            'Assistenza dedicata per qualsiasi necessità'
+          ].map((text, i) => (
+            <div key={i} className="flex items-start gap-3 flex-1">
+              <div className="w-6 h-6 rounded-full bg-[#C9A870] flex items-center justify-center flex-shrink-0 mt-1">
+                <span className="text-white text-xs font-bold">✓</span>
+              </div>
+              <p className="text-gray-600 text-sm text-left" style={{ fontFamily: 'Lato, sans-serif' }}>{text}</p>
             </div>
-            <p className="text-gray-600 text-sm text-left" style={{ fontFamily: 'Lato, sans-serif' }}>Miglior prezzo garantito prenotando direttamente</p>
-          </div>
-          <div className="flex items-start gap-3 flex-1">
-            <div className="w-6 h-6 rounded-full bg-[#C9A870] flex items-center justify-center flex-shrink-0 mt-1">
-              <span className="text-white text-xs font-bold">✓</span>
-            </div>
-            <p className="text-gray-600 text-sm text-left" style={{ fontFamily: 'Lato, sans-serif' }}>Cancellazione gratuita fino a 48h prima del check-in</p>
-          </div>
-          <div className="flex items-start gap-3 flex-1">
-            <div className="w-6 h-6 rounded-full bg-[#C9A870] flex items-center justify-center flex-shrink-0 mt-1">
-              <span className="text-white text-xs font-bold">✓</span>
-            </div>
-            <p className="text-gray-600 text-sm text-left" style={{ fontFamily: 'Lato, sans-serif' }}>Assistenza dedicata per qualsiasi necessità</p>
-          </div>
+          ))}
         </div>
       </motion.div>
 
@@ -181,6 +198,8 @@ export default function BookingForm({ onSubmit }) {
 
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="bg-white rounded-none p-6 md:p-10 shadow-lg" style={{ border: '1px solid rgba(201,168,112,0.2)' }}>
         <form onSubmit={handleSubmit} className="space-y-5">
+
+          {/* NOME / EMAIL / CELLULARE */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <div>
               <label className="block text-gray-700 text-xs font-bold mb-2 uppercase tracking-wider" style={{ fontFamily: 'Lato, sans-serif' }}>Nome</label>
@@ -192,18 +211,19 @@ export default function BookingForm({ onSubmit }) {
             </div>
             <div>
               <label className="block text-gray-700 text-xs font-bold mb-2 uppercase tracking-wider" style={{ fontFamily: 'Lato, sans-serif' }}>Cellulare</label>
-              <input type="tel" value={formData.phone} onChange={(e) => { const value = e.target.value; if (/^[\d+\-\s]*$/.test(value)) { setFormData({ ...formData, phone: value }); }}} placeholder="+39 333 1234567" className="w-full px-4 py-3 border border-gray-300 rounded-none focus:outline-none focus:border-[#C9A870] transition-colors" style={{ fontFamily: 'Lato, sans-serif' }} />
+              <input type="tel" value={formData.phone} onChange={(e) => { const value = e.target.value; if (/^[\d+\-\s]*$/.test(value)) setFormData({ ...formData, phone: value }); }} placeholder="+39 333 1234567" className="w-full px-4 py-3 border border-gray-300 rounded-none focus:outline-none focus:border-[#C9A870] transition-colors" style={{ fontFamily: 'Lato, sans-serif' }} />
             </div>
           </div>
 
+          {/* ADULTI / BAMBINI / DATE */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <div>
               <label className="block text-gray-700 text-xs font-bold mb-2 uppercase tracking-wider" style={{ fontFamily: 'Lato, sans-serif' }}>Adulti</label>
               <div className="bg-[#f5f5f5] rounded-none p-4 flex items-center justify-between">
                 <span className="text-gray-800" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.95rem' }}>{formData.adults === 1 ? '1 adulto' : `${formData.adults} adulti`}</span>
                 <div className="flex items-center gap-3">
-                  <button type="button" onClick={() => updateCounter('adults', -1)} disabled={formData.adults <= 1} className={`w-10 h-10 rounded border-2 flex items-center justify-center transition-all ${formData.adults <= 1 ? 'border-gray-300 text-gray-400 cursor-not-allowed' : 'border-gray-400 text-gray-700 hover:border-[#C9A870] hover:text-[#C9A870] bg-white'}`} style={{ fontFamily: 'Lato, sans-serif', fontSize: '1.2rem', fontWeight: 600 }}>−</button>
-                  <button type="button" onClick={() => updateCounter('adults', 1)} disabled={formData.adults >= 50} className={`w-10 h-10 rounded border-2 flex items-center justify-center transition-all ${formData.adults >= 50 ? 'border-gray-300 text-gray-400 cursor-not-allowed' : 'border-gray-400 text-gray-700 hover:border-[#C9A870] hover:text-[#C9A870] bg-white'}`} style={{ fontFamily: 'Lato, sans-serif', fontSize: '1.2rem', fontWeight: 600 }}>+</button>
+                  <button type="button" onClick={() => updateCounter('adults', -1)} disabled={formData.adults <= 1} className={`w-10 h-10 rounded border-2 flex items-center justify-center transition-all ${formData.adults <= 1 ? 'border-gray-300 text-gray-400 cursor-not-allowed' : 'border-gray-400 text-gray-700 hover:border-[#C9A870] hover:text-[#C9A870] bg-white'}`} style={{ fontSize: '1.2rem', fontWeight: 600 }}>−</button>
+                  <button type="button" onClick={() => updateCounter('adults', 1)}  disabled={formData.adults >= 50} className={`w-10 h-10 rounded border-2 flex items-center justify-center transition-all ${formData.adults >= 50 ? 'border-gray-300 text-gray-400 cursor-not-allowed' : 'border-gray-400 text-gray-700 hover:border-[#C9A870] hover:text-[#C9A870] bg-white'}`} style={{ fontSize: '1.2rem', fontWeight: 600 }}>+</button>
                 </div>
               </div>
             </div>
@@ -212,8 +232,8 @@ export default function BookingForm({ onSubmit }) {
               <div className="bg-[#f5f5f5] rounded-none p-4 flex items-center justify-between">
                 <span className="text-gray-800" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.95rem' }}>{formData.children === 0 ? '0 bambini' : formData.children === 1 ? '1 bambino' : `${formData.children} bambini`}</span>
                 <div className="flex items-center gap-3">
-                  <button type="button" onClick={() => updateCounter('children', -1)} disabled={formData.children <= 0} className={`w-10 h-10 rounded border-2 flex items-center justify-center transition-all ${formData.children <= 0 ? 'border-gray-300 text-gray-400 cursor-not-allowed' : 'border-gray-400 text-gray-700 hover:border-[#C9A870] hover:text-[#C9A870] bg-white'}`} style={{ fontFamily: 'Lato, sans-serif', fontSize: '1.2rem', fontWeight: 600 }}>−</button>
-                  <button type="button" onClick={() => updateCounter('children', 1)} disabled={formData.children >= 10} className={`w-10 h-10 rounded border-2 flex items-center justify-center transition-all ${formData.children >= 10 ? 'border-gray-300 text-gray-400 cursor-not-allowed' : 'border-gray-400 text-gray-700 hover:border-[#C9A870] hover:text-[#C9A870] bg-white'}`} style={{ fontFamily: 'Lato, sans-serif', fontSize: '1.2rem', fontWeight: 600 }}>+</button>
+                  <button type="button" onClick={() => updateCounter('children', -1)} disabled={formData.children <= 0} className={`w-10 h-10 rounded border-2 flex items-center justify-center transition-all ${formData.children <= 0 ? 'border-gray-300 text-gray-400 cursor-not-allowed' : 'border-gray-400 text-gray-700 hover:border-[#C9A870] hover:text-[#C9A870] bg-white'}`} style={{ fontSize: '1.2rem', fontWeight: 600 }}>−</button>
+                  <button type="button" onClick={() => updateCounter('children', 1)}  disabled={formData.children >= 10} className={`w-10 h-10 rounded border-2 flex items-center justify-center transition-all ${formData.children >= 10 ? 'border-gray-300 text-gray-400 cursor-not-allowed' : 'border-gray-400 text-gray-700 hover:border-[#C9A870] hover:text-[#C9A870] bg-white'}`} style={{ fontSize: '1.2rem', fontWeight: 600 }}>+</button>
                 </div>
               </div>
             </div>
@@ -221,7 +241,7 @@ export default function BookingForm({ onSubmit }) {
               <div className="flex items-center justify-between mb-2">
                 <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider" style={{ fontFamily: 'Lato, sans-serif' }}>Date di soggiorno</label>
                 {calculateNights() > 0 && (
-                  <span className="text-xs font-semibold px-2 py-1 rounded" style={{ fontFamily: 'Lato, sans-serif', background: '#C9A870', color: 'white' }}>
+                  <span className="text-xs font-semibold px-2 py-1" style={{ fontFamily: 'Lato, sans-serif', background: '#C9A870', color: 'white' }}>
                     {calculateNights()} {calculateNights() === 1 ? 'notte' : 'notti'}
                   </span>
                 )}
@@ -233,21 +253,24 @@ export default function BookingForm({ onSubmit }) {
                 </button>
                 {showCalendar && (
                   <div className="absolute z-10 mt-2 bg-white border border-gray-300 rounded-none shadow-lg p-4 left-0 md:left-auto md:right-0">
-                    <DayPicker mode="range" selected={formData.dateRange} onSelect={(range) => { setFormData({ ...formData, dateRange: range }); }} disabled={{ before: new Date() }} locale={it} />
+                    <DayPicker mode="range" selected={formData.dateRange} onSelect={(range) => setFormData({ ...formData, dateRange: range })} disabled={{ before: new Date() }} locale={it} />
                   </div>
                 )}
               </div>
             </div>
           </div>
 
+          {/* MESSAGGIO */}
           <div>
             <label className="block text-gray-700 text-xs font-bold mb-2 uppercase tracking-wider" style={{ fontFamily: 'Lato, sans-serif' }}>Messaggio (opzionale)</label>
             <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder="Indica le camere: una singola, doppia...?" rows={4} className="w-full px-4 py-3 border border-gray-300 rounded-none focus:outline-none focus:border-[#C9A870] transition-colors resize-none" style={{ fontFamily: 'Lato, sans-serif' }} />
           </div>
 
+          {/* SUBMIT */}
           <button type="submit" disabled={isLoading} className={`w-full py-4 rounded-none text-white font-semibold transition-all ${isLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#C9A870] hover:bg-[#A8854A]'}`} style={{ fontFamily: 'Lato, sans-serif' }}>
             {isLoading ? 'Invio in corso...' : 'Invia Richiesta'}
           </button>
+
         </form>
       </motion.div>
     </div>

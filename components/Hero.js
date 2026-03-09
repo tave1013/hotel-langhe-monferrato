@@ -134,7 +134,7 @@ export default function Hero() {
           </ScrollAnimation>
 
           {/* MOBILE ARROWS */}
-          <div className="md:hidden flex items-center justify-between w-full max-w-md mx-auto px-2" style={{ marginTop: 10, marginBottom: 10 }}>
+          <div className="md:hidden flex items-center justify-between w-full max-w-md mx-auto px-2" style={{ marginTop: 60, marginBottom: 10 }}>
             {[{ dir: -1, icon: 'fa-chevron-left' }, { dir: 1, icon: 'fa-chevron-right' }].map(({ dir, icon }) => (
               <button
                 key={dir}
