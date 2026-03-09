@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import ScrollAnimation from './ScrollAnimation';
 
 const testimonials = [
   {
@@ -70,16 +71,17 @@ export default function Testimonials() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* LEFT: Image + Stats */}
-          <div>
-            <p className="section-label mb-3">Recensioni Verificate</p>
-            <div className="gold-divider-left mb-6"></div>
-            <h2 className="section-title-light mb-6" style={{ maxWidth: 420 }}>
-              I Nostri Ospiti Parlano di Noi
-            </h2>
+          <ScrollAnimation type="slide-up">
+            <div>
+              <p className="section-label mb-3">Recensioni Verificate</p>
+              <div className="gold-divider-left mb-6"></div>
+              <h2 className="section-title-light mb-6" style={{ maxWidth: 420 }}>
+                I Nostri Ospiti Parlano di Noi
+              </h2>
             <p
               style={{
                 fontFamily: 'Lato',
-                fontSize: '0.88rem',
+                fontSize: '0.98rem',
                 color: 'rgba(245,239,228,0.55)',
                 lineHeight: 1.8,
                 marginBottom: '2.5rem',
@@ -103,10 +105,11 @@ export default function Testimonials() {
                 </div>
               ))}
             </div>
-          </div>
+            </div>
+          </ScrollAnimation>
 
           {/* RIGHT: Testimonial */}
-          <div>
+          <ScrollAnimation type="slide-up" delay={200}>
             <div
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
@@ -142,7 +145,7 @@ export default function Testimonials() {
                 key={active}
                 style={{
                   fontFamily: 'Cormorant Garamond, serif',
-                  fontSize: '1.1rem',
+                  fontSize: '1.22rem',
                   color: 'rgba(245,239,228,0.85)',
                   lineHeight: 1.8,
                   fontStyle: 'italic',
@@ -178,7 +181,7 @@ export default function Testimonials() {
                 />
               ))}
             </div>
-          </div>
+          </ScrollAnimation>
         </div>
       </div>
     </section>

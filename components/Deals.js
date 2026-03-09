@@ -1,12 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import ScrollAnimation from './ScrollAnimation';
 
 const deals = [
   {
     img: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80&fit=crop',
     badge: 'Relax & Scoperta',
-    title: 'Alla Scoperta del Monferrato Relax',
+    title: 'Alla Scoperta del Monferrato',
     desc: '3 notti in camera comfort, colazione inclusa, tour delle colline UNESCO con guida privata e accesso alla spa per un relax totale.',
     price: '520',
     oldPrice: '650',
@@ -45,33 +46,35 @@ export default function Deals() {
   return (
     <section style={{ background: '#F5EFE4', padding: '100px 0' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <p className="section-label mb-3">Offerte Esclusive</p>
-          <div className="gold-divider mb-5"></div>
-          <h2 className="section-title mb-4">Proposte Pensate per Te</h2>
-          <p
-            style={{
-              fontFamily: 'Cormorant Garamond, serif',
-              fontSize: '1.1rem',
-              color: '#6B5E52',
-              maxWidth: 500,
-              margin: '0 auto',
-              fontStyle: 'italic',
-            }}
-          >
-            Esperienze su misura per ogni tipo di ospite. Prenota in anticipo e risparmia fino al 20%.
-          </p>
-        </div>
+        <ScrollAnimation type="slide-up">
+          <div className="text-center mb-14">
+            <p className="section-label mb-3">Offerte Esclusive</p>
+            <div className="gold-divider mb-5"></div>
+            <h2 className="section-title mb-4">Proposte Pensate per Te</h2>
+            <p
+              style={{
+                fontFamily: 'Cormorant Garamond, serif',
+                fontSize: '1.1rem',
+                color: '#6B5E52',
+                maxWidth: 500,
+                margin: '0 auto',
+                fontStyle: 'italic',
+              }}
+            >
+              Esperienze su misura per ogni tipo di ospite. Prenota in anticipo e risparmia fino al 20%.
+            </p>
+          </div>
+        </ScrollAnimation>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {deals.map((deal) => (
-            <div
-              key={deal.title}
-              className="card-hover"
-              style={{ background: '#fff', overflow: 'hidden' }}
-            >
-              {/* Image */}
-              <div className="relative" style={{ height: 220, overflow: 'hidden' }}>
+          {deals.map((deal, i) => (
+            <ScrollAnimation key={deal.title} type="slide-up" delay={i * 150}>
+              <div
+                className="card-hover"
+                style={{ background: '#fff', overflow: 'hidden' }}
+              >
+                {/* Image */}
+                <div className="relative" style={{ height: 220, overflow: 'hidden' }}>
                 <img
                   src={deal.img}
                   alt={deal.title}
@@ -119,7 +122,7 @@ export default function Deals() {
                 <h3
                   style={{
                     fontFamily: 'Playfair Display, serif',
-                    fontSize: '1.2rem',
+                    fontSize: '1.4rem',
                     color: '#2C2520',
                     marginBottom: '0.6rem',
                     fontWeight: 500,
@@ -130,7 +133,7 @@ export default function Deals() {
                 <p
                   style={{
                     fontFamily: 'Lato',
-                    fontSize: '0.82rem',
+                    fontSize: '0.95rem',
                     color: '#6B5E52',
                     lineHeight: 1.75,
                     marginBottom: '1.4rem',
@@ -171,7 +174,8 @@ export default function Deals() {
                   <span>Prenota Questa Offerta</span>
                 </Link>
               </div>
-            </div>
+              </div>
+            </ScrollAnimation>
           ))}
         </div>
 

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import ScrollAnimation from './ScrollAnimation';
 
 const experiences = [
   {
@@ -33,10 +34,11 @@ export default function Experiences() {
   return (
     <section style={{ background: '#FAF7F2', padding: '100px 0' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <p className="section-label mb-3">Esperienze Esclusive</p>
-          <div className="gold-divider mb-5"></div>
-          <h2 className="section-title mb-4">Vivi il Meglio delle Langhe</h2>
+        <ScrollAnimation type="slide-up">
+          <div className="text-center mb-14">
+            <p className="section-label mb-3">Esperienze Esclusive</p>
+            <div className="gold-divider mb-5"></div>
+            <h2 className="section-title mb-4">Vivi il Meglio delle Langhe</h2>
           <p
             style={{
               fontFamily: 'Cormorant Garamond, serif',
@@ -50,10 +52,12 @@ export default function Experiences() {
             Non solo un hotel. Un punto di partenza per scoprire tutto ciò che questo territorio straordinario ha da offrire.
           </p>
         </div>
+        </ScrollAnimation>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {experiences.map((exp) => (
-            <div key={exp.title} className="card-hover group" style={{ background: '#fff', overflow: 'hidden' }}>
+          {experiences.map((exp, i) => (
+            <ScrollAnimation key={exp.title} type="slide-up" delay={i * 150}>
+              <div className="card-hover group" style={{ background: '#fff', overflow: 'hidden' }}>
               {/* Image */}
               <div className="img-overlay" style={{ height: 280 }}>
                 <img
@@ -87,7 +91,7 @@ export default function Experiences() {
                 <h3
                   style={{
                     fontFamily: 'Playfair Display, serif',
-                    fontSize: '1.3rem',
+                    fontSize: '1.5rem',
                     color: '#2C2520',
                     marginBottom: '0.7rem',
                     fontWeight: 500,
@@ -98,7 +102,7 @@ export default function Experiences() {
                 <p
                   style={{
                     fontFamily: 'Lato',
-                    fontSize: '0.84rem',
+                    fontSize: '0.98rem',
                     color: '#6B5E52',
                     lineHeight: 1.75,
                     marginBottom: '1.4rem',
@@ -129,6 +133,7 @@ export default function Experiences() {
                 </Link>
               </div>
             </div>
+            </ScrollAnimation>
           ))}
         </div>
       </div>

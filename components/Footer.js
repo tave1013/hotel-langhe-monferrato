@@ -59,7 +59,7 @@ export default function Footer() {
                 { label: 'Asti - Il Medioevo', href: '/territorio/asti' },
                 { label: 'Alba - Capitale del Gusto', href: '/territorio/alba' },
                 { label: 'Cattedrali Sotterranee', href: '/territorio/cattedrali-sotterranee' },
-                { label: 'I Castelli del Monferrato', href: '/territorio/castelli-monferrato' },
+                { label: 'I Castelli del Monferrato', href: '/territorio/castelli-del-monferrato' },
                 { label: 'Le Big Bench', href: '/territorio/big-bench' },
               ].map((item) => (
                 <li key={item.href}>

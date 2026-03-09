@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import ScrollAnimation from './ScrollAnimation';
 
 export default function About() {
   return (
@@ -8,7 +9,8 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* IMAGE GRID */}
-          <div className="relative grid grid-cols-2 gap-4">
+          <ScrollAnimation type="slide-up">
+            <div className="relative grid grid-cols-2 gap-4">
             <div className="col-span-2 overflow-hidden" style={{ height: 280 }}>
               <img
                 src="/foto/hotel-langhe-monferrato.jpg"
@@ -47,10 +49,12 @@ export default function About() {
                 Ospiti Soddisfatti
               </div>
             </div>
-          </div>
+            </div>
+          </ScrollAnimation>
 
           {/* TEXT */}
-          <div>
+          <ScrollAnimation type="slide-up" delay={200}>
+            <div>
             <p className="section-label mb-3">Benvenuti</p>
             <div className="gold-divider-left mb-6"></div>
             <h2
@@ -62,7 +66,7 @@ export default function About() {
             <p
               style={{
                 fontFamily: 'Lato, sans-serif',
-                fontSize: '1rem',
+                fontSize: '1.1rem',
                 color: '#4A3D33',
                 lineHeight: 1.8,
                 fontWeight: 700,
@@ -115,6 +119,7 @@ export default function About() {
               <span>Prenota la Tua Esperienza</span>
             </Link>
           </div>
+          </ScrollAnimation>
         </div>
       </div>
     </section>

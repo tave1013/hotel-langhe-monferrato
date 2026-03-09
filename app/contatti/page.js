@@ -3,9 +3,10 @@ import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+import ScrollAnimation from '@/components/ScrollAnimation';
 
 export default function ContattiPage() {
-  const [form, setForm] = useState({ nome: '', email: '', telefono: '', tipo: '', messaggio: '' });
+  const [form, setForm] = useState({ nome: '', cognome: '', email: '', telefono: '', tipo: '', messaggio: '' });
   const [inviato, setInviato] = useState(false);
 
   const handleSubmit = (e) => {
@@ -36,65 +37,70 @@ export default function ContattiPage() {
           <div className="grid lg:grid-cols-2 gap-16">
 
             {/* FORM */}
-            <div>
-              <p className="section-label" style={{ marginBottom: '0.5rem' }}>Scrivici</p>
-              <div className="gold-divider-left" style={{ marginBottom: '1.2rem' }}></div>
-              <h2 className="section-title" style={{ marginBottom: '0.6rem' }}>Come Possiamo Aiutarti?</h2>
-              <p style={{ fontFamily: 'Lato', fontSize: '0.84rem', color: '#6B5E52', lineHeight: 1.8, marginBottom: '2rem' }}>
-                Rispondiamo entro poche ore. Per prenotazioni urgenti chiama direttamente.
-              </p>
+            <ScrollAnimation type="slide-up">
+              <div>
+                <p className="section-label" style={{ marginBottom: '0.5rem' }}>Scrivici</p>
+                <div className="gold-divider-left" style={{ marginBottom: '1.2rem' }}></div>
+                <h2 className="section-title" style={{ marginBottom: '0.6rem' }}>Come Possiamo Aiutarti?</h2>
+                <p style={{ fontFamily: 'Lato', fontSize: '0.98rem', color: '#6B5E52', lineHeight: 1.8, marginBottom: '2rem' }}>
+                  Rispondiamo entro poche ore. Per prenotazioni urgenti chiama direttamente.
+                </p>
 
               {inviato ? (
                 <div style={{ background: '#fff', borderTop: '3px solid #C9A870', padding: '2.5rem', textAlign: 'center' }}>
                   <i className="fa fa-check-circle" style={{ color: '#C9A870', fontSize: '2.5rem', display: 'block', marginBottom: '1rem' }}></i>
-                  <h3 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.4rem', color: '#2C2520', marginBottom: '0.5rem' }}>Messaggio Inviato!</h3>
-                  <p style={{ fontFamily: 'Lato', fontSize: '0.82rem', color: '#6B5E52', lineHeight: 1.7 }}>Ti risponderemo entro 24 ore. Nel frattempo puoi chiamarci al <strong>+39 0141 961853</strong>.</p>
+                  <h3 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.6rem', color: '#2C2520', marginBottom: '0.5rem' }}>Messaggio Inviato!</h3>
+                  <p style={{ fontFamily: 'Lato', fontSize: '0.96rem', color: '#6B5E52', lineHeight: 1.7 }}>Ti risponderemo entro 24 ore. Nel frattempo puoi chiamarci al <strong>+39 0141 961853</strong>.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label style={{ fontFamily: 'Lato', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A', display: 'block', marginBottom: '0.4rem' }}>Nome e Cognome *</label>
-                      <input required value={form.nome} onChange={e => setForm({...form, nome: e.target.value})} style={{ width: '100%', border: '1px solid rgba(201,168,112,0.3)', background: '#fff', padding: '0.75rem 1rem', fontFamily: 'Lato', fontSize: '0.84rem', color: '#2C2520', outline: 'none' }} />
+                      <label style={{ fontFamily: 'Lato', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A', display: 'block', marginBottom: '0.4rem' }}>Nome *</label>
+                      <input required value={form.nome} onChange={e => setForm({...form, nome: e.target.value})} style={{ width: '100%', border: '1px solid rgba(201,168,112,0.3)', background: '#fff', padding: '0.75rem 1rem', fontFamily: 'Lato', fontSize: '0.96rem', color: '#2C2520', outline: 'none' }} />
                     </div>
                     <div>
-                      <label style={{ fontFamily: 'Lato', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A', display: 'block', marginBottom: '0.4rem' }}>Email *</label>
-                      <input required type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})} style={{ width: '100%', border: '1px solid rgba(201,168,112,0.3)', background: '#fff', padding: '0.75rem 1rem', fontFamily: 'Lato', fontSize: '0.84rem', color: '#2C2520', outline: 'none' }} />
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label style={{ fontFamily: 'Lato', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A', display: 'block', marginBottom: '0.4rem' }}>Telefono</label>
-                      <input value={form.telefono} onChange={e => setForm({...form, telefono: e.target.value})} style={{ width: '100%', border: '1px solid rgba(201,168,112,0.3)', background: '#fff', padding: '0.75rem 1rem', fontFamily: 'Lato', fontSize: '0.84rem', color: '#2C2520', outline: 'none' }} />
-                    </div>
-                    <div>
-                      <label style={{ fontFamily: 'Lato', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A', display: 'block', marginBottom: '0.4rem' }}>Tipo di Richiesta</label>
-                      <select value={form.tipo} onChange={e => setForm({...form, tipo: e.target.value})} style={{ width: '100%', border: '1px solid rgba(201,168,112,0.3)', background: '#fff', padding: '0.75rem 1rem', fontFamily: 'Lato', fontSize: '0.84rem', color: form.tipo ? '#2C2520' : '#9A8A7A', outline: 'none' }}>
-                        <option value="">Seleziona...</option>
-                        <option>Prenotazione Camera</option>
-                        <option>Sala Meeting / Evento</option>
-                        <option>Pacchetto Offerta</option>
-                        <option>Informazioni Generali</option>
-                        <option>Altro</option>
-                      </select>
+                      <label style={{ fontFamily: 'Lato', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A', display: 'block', marginBottom: '0.4rem' }}>Cognome *</label>
+                      <input required value={form.cognome} onChange={e => setForm({...form, cognome: e.target.value})} style={{ width: '100%', border: '1px solid rgba(201,168,112,0.3)', background: '#fff', padding: '0.75rem 1rem', fontFamily: 'Lato', fontSize: '0.96rem', color: '#2C2520', outline: 'none' }} />
                     </div>
                   </div>
                   <div>
+                    <label style={{ fontFamily: 'Lato', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A', display: 'block', marginBottom: '0.4rem' }}>Email *</label>
+                    <input required type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})} style={{ width: '100%', border: '1px solid rgba(201,168,112,0.3)', background: '#fff', padding: '0.75rem 1rem', fontFamily: 'Lato', fontSize: '0.96rem', color: '#2C2520', outline: 'none' }} />
+                  </div>
+                  <div>
+                    <label style={{ fontFamily: 'Lato', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A', display: 'block', marginBottom: '0.4rem' }}>Telefono *</label>
+                    <input required value={form.telefono} onChange={e => setForm({...form, telefono: e.target.value})} style={{ width: '100%', border: '1px solid rgba(201,168,112,0.3)', background: '#fff', padding: '0.75rem 1rem', fontFamily: 'Lato', fontSize: '0.96rem', color: '#2C2520', outline: 'none' }} />
+                  </div>
+                  <div>
+                    <label style={{ fontFamily: 'Lato', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A', display: 'block', marginBottom: '0.4rem' }}>Tipo di Richiesta *</label>
+                    <select required value={form.tipo} onChange={e => setForm({...form, tipo: e.target.value})} style={{ width: '100%', border: '1px solid rgba(201,168,112,0.3)', background: '#fff', padding: '0.75rem 1rem', fontFamily: 'Lato', fontSize: '0.96rem', color: form.tipo ? '#2C2520' : '#9A8A7A', outline: 'none' }}>
+                      <option value="">Seleziona...</option>
+                      <option>Prenotazione Camera</option>
+                      <option>Sala Meeting / Evento</option>
+                      <option>Pacchetto Offerta</option>
+                      <option>Informazioni Generali</option>
+                      <option>Altro</option>
+                    </select>
+                  </div>
+                  <div>
                     <label style={{ fontFamily: 'Lato', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A', display: 'block', marginBottom: '0.4rem' }}>Messaggio *</label>
-                    <textarea required rows={5} value={form.messaggio} onChange={e => setForm({...form, messaggio: e.target.value})} style={{ width: '100%', border: '1px solid rgba(201,168,112,0.3)', background: '#fff', padding: '0.75rem 1rem', fontFamily: 'Lato', fontSize: '0.84rem', color: '#2C2520', outline: 'none', resize: 'vertical' }} />
+                    <textarea required rows={5} value={form.messaggio} onChange={e => setForm({...form, messaggio: e.target.value})} style={{ width: '100%', border: '1px solid rgba(201,168,112,0.3)', background: '#fff', padding: '0.75rem 1rem', fontFamily: 'Lato', fontSize: '0.96rem', color: '#2C2520', outline: 'none', resize: 'vertical' }} />
                   </div>
                   <button type="submit" className="btn-gold" style={{ alignSelf: 'flex-start', padding: '0.95rem 2.5rem' }}>
                     <i className="fa fa-paper-plane" style={{ marginRight: 8 }}></i>Invia Messaggio
                   </button>
                 </form>
               )}
-            </div>
+              </div>
+            </ScrollAnimation>
 
             {/* INFO */}
-            <div>
-              <p className="section-label" style={{ marginBottom: '0.5rem' }}>Dove Siamo</p>
-              <div className="gold-divider-left" style={{ marginBottom: '1.2rem' }}></div>
-              <h2 className="section-title" style={{ marginBottom: '2rem' }}>Informazioni Utili</h2>
+            <ScrollAnimation type="slide-up" delay={200}>
+              <div>
+                <p className="section-label" style={{ marginBottom: '0.5rem' }}>Dove Siamo</p>
+                <div className="gold-divider-left" style={{ marginBottom: '1.2rem' }}></div>
+                <h2 className="section-title" style={{ marginBottom: '2rem' }}>Informazioni Utili</h2>
 
               {/* Contatti diretti */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2.5rem' }}>
@@ -117,7 +123,8 @@ export default function ContattiPage() {
                   </div>
                 ))}
               </div>
-            </div>
+              </div>
+            </ScrollAnimation>
           </div>
 
           {/* Mappa a tutta larghezza */}

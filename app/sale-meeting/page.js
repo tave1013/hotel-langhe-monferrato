@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { sale } from '@/lib/saleMeetingData';
+import ScrollAnimation from '@/components/ScrollAnimation';
 
 export const metadata = {
   title: 'Sale Meeting & Congressi | Hotel Langhe & Monferrato',
@@ -61,15 +62,16 @@ export default function SaleMeetingPage() {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
             {sale.map((sala, i) => (
-              <div id={sala.slug} key={sala.slug} style={{ background: '#fff', overflow: 'hidden', scrollMarginTop: 110 }} className="card-hover md:grid md:grid-cols-2">
-                <div className={`${i % 2 === 0 ? 'md:order-1' : 'md:order-2'} h-[220px] sm:h-[300px] md:h-full`} style={{ width: '100%', overflow: 'hidden' }}>
+              <ScrollAnimation key={sala.slug} type="slide-up" delay={i * 150}>
+                <div id={sala.slug} style={{ background: '#fff', overflow: 'hidden', scrollMarginTop: 110 }} className="card-hover md:grid md:grid-cols-2">
+                  <div className={`${i % 2 === 0 ? 'md:order-1' : 'md:order-2'} h-[220px] sm:h-[300px] md:h-full`} style={{ width: '100%', overflow: 'hidden' }}>
                   <img src={sala.img} alt={sala.nome} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s' }} />
                 </div>
                 <div className={i % 2 === 0 ? 'md:order-2' : 'md:order-1'} style={{ padding: 'clamp(1.1rem, 3vw, 2rem)' }}>
                   <p className="section-label" style={{ marginBottom: '0.5rem' }}>Sale Meeting & Congressi</p>
                   <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(1.45rem, 2.6vw, 1.9rem)', fontWeight: 500, color: '#2C2520', marginBottom: '0.45rem' }}>{sala.nome}</h2>
-                  <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '0.96rem', fontStyle: 'italic', color: '#C9A870', marginBottom: '0.85rem' }}>{sala.sottotitolo}</p>
-                  <p style={{ fontFamily: 'Lato', fontSize: '0.8rem', color: '#6B5E52', lineHeight: 1.7, marginBottom: '1rem' }}>{sala.tagline}</p>
+                  <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.1rem', fontStyle: 'italic', color: '#C9A870', marginBottom: '0.85rem' }}>{sala.sottotitolo}</p>
+                  <p style={{ fontFamily: 'Lato', fontSize: '0.92rem', color: '#6B5E52', lineHeight: 1.7, marginBottom: '1rem' }}>{sala.tagline}</p>
 
                   {/* Info rapide */}
                   <div className="grid grid-cols-1 sm:grid-cols-3" style={{ gap: 8, marginBottom: '1rem' }}>
@@ -77,7 +79,7 @@ export default function SaleMeetingPage() {
                       <div key={spec.label} style={{ border: '1px solid rgba(201,168,112,0.18)', padding: '0.65rem 0.7rem' }}>
                         <i className={`fa ${spec.icon}`} style={{ color: '#C9A870', fontSize: '0.74rem', marginRight: 6 }}></i>
                         <span style={{ fontFamily: 'Lato', fontSize: '0.6rem', color: '#9A8A7A', letterSpacing: '0.09em', textTransform: 'uppercase' }}>{spec.label}</span>
-                        <div style={{ fontFamily: 'Lato', fontSize: '0.75rem', color: '#4A3D33', marginTop: 5 }}>{spec.value}</div>
+                        <div style={{ fontFamily: 'Lato', fontSize: '0.88rem', color: '#4A3D33', marginTop: 5 }}>{spec.value}</div>
                       </div>
                     ))}
                   </div>
@@ -87,7 +89,7 @@ export default function SaleMeetingPage() {
                     {sala.configurazioni.map((c) => (
                       <div key={c.tipo} style={{ display: 'flex', alignItems: 'center', gap: 5, background: 'rgba(201,168,112,0.08)', border: '1px solid rgba(201,168,112,0.2)', padding: '0.28rem 0.7rem' }}>
                         <i className={`fa ${c.icon}`} style={{ color: '#C9A870', fontSize: '0.58rem' }}></i>
-                        <span style={{ fontFamily: 'Lato', fontSize: '0.65rem', color: '#6B5E52' }}>{c.tipo} {c.posti} pax</span>
+                        <span style={{ fontFamily: 'Lato', fontSize: '0.76rem', color: '#6B5E52' }}>{c.tipo} {c.posti} pax</span>
                       </div>
                     ))}
                   </div>
@@ -95,7 +97,7 @@ export default function SaleMeetingPage() {
                   {/* Dotazioni */}
                   <div className="grid md:grid-cols-2 gap-1" style={{ marginBottom: '1rem' }}>
                     {sala.dotazioni.slice(0, 6).map((dotazione) => (
-                      <div key={dotazione} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, padding: '0.2rem 0', fontFamily: 'Lato', fontSize: '0.78rem', color: '#4A3D33' }}>
+                      <div key={dotazione} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, padding: '0.2rem 0', fontFamily: 'Lato', fontSize: '0.9rem', color: '#4A3D33' }}>
                         <i className="fa fa-check" style={{ color: '#C9A870', fontSize: '0.58rem', marginTop: 4, flexShrink: 0 }}></i>
                         {dotazione}
                       </div>
@@ -110,7 +112,7 @@ export default function SaleMeetingPage() {
 
                   {sala.nota && (
                     <div style={{ borderLeft: '2px solid #C9A870', paddingLeft: '0.8rem', marginBottom: '1rem' }}>
-                      <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '0.95rem', color: '#6B5E52', fontStyle: 'italic', lineHeight: 1.6 }}>
+                      <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.08rem', color: '#6B5E52', fontStyle: 'italic', lineHeight: 1.6 }}>
                         {sala.nota}
                       </p>
                     </div>
@@ -120,7 +122,8 @@ export default function SaleMeetingPage() {
                     <Link href="/contatti" className="btn-gold">Richiedi Preventivo</Link>
                   </div>
                 </div>
-              </div>
+                </div>
+              </ScrollAnimation>
             ))}
           </div>
         </div>
@@ -143,7 +146,7 @@ export default function SaleMeetingPage() {
             ].map((s) => (
               <div key={s.label} style={{ padding: '1.5rem 1rem', border: '1px solid rgba(201,168,112,0.12)', textAlign: 'center' }}>
                 <i className={`fa ${s.icon}`} style={{ color: '#C9A870', fontSize: '1.4rem', display: 'block', marginBottom: '0.8rem' }}></i>
-                <div style={{ fontFamily: 'Lato', fontSize: '0.7rem', color: 'rgba(245,239,228,0.55)', lineHeight: 1.4 }}>{s.label}</div>
+                <div style={{ fontFamily: 'Lato', fontSize: '0.82rem', color: 'rgba(245,239,228,0.55)', lineHeight: 1.4 }}>{s.label}</div>
               </div>
             ))}
           </div>

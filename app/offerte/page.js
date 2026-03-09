@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ScrollAnimation from '@/components/ScrollAnimation';
 
 export const metadata = {
   title: 'Offerte & Pacchetti | Hotel Langhe & Monferrato',
@@ -104,9 +105,10 @@ export default function OffertePage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {offerte.map((o) => (
-              <div key={o.slug} style={{ background: '#fff', overflow: 'hidden', transition: 'transform 0.4s, box-shadow 0.4s' }} className="card-hover">
-                {/* Image */}
-                <div style={{ position: 'relative', height: 240, overflow: 'hidden' }}>
+              <ScrollAnimation key={o.slug} type="slide-up">
+                <div style={{ background: '#fff', overflow: 'hidden', transition: 'transform 0.4s, box-shadow 0.4s' }} className="card-hover">
+                  {/* Image */}
+                  <div style={{ position: 'relative', height: 240, overflow: 'hidden' }}>
                   <img src={o.img} alt={o.titolo} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15,13,11,0.55), transparent 55%)' }}></div>
                   <div style={{ position: 'absolute', top: 12, left: 12, background: '#C9A870', padding: '0.28rem 0.8rem', fontFamily: 'Lato', fontSize: '0.58rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#fff' }}>{o.badge}</div>
@@ -115,13 +117,13 @@ export default function OffertePage() {
 
                 {/* Body */}
                 <div style={{ padding: '1.4rem 1.5rem' }}>
-                  <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.2rem', color: '#2C2520', fontWeight: 500, marginBottom: '0.5rem' }}>{o.titolo}</h2>
-                  <p style={{ fontFamily: 'Lato', fontSize: '0.79rem', color: '#6B5E52', lineHeight: 1.75, marginBottom: '1rem' }}>{o.descrizione}</p>
+                  <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.4rem', color: '#2C2520', fontWeight: 500, marginBottom: '0.5rem' }}>{o.titolo}</h2>
+                  <p style={{ fontFamily: 'Lato', fontSize: '0.92rem', color: '#6B5E52', lineHeight: 1.75, marginBottom: '1rem' }}>{o.descrizione}</p>
 
                   {/* Include list */}
                   <div style={{ marginBottom: '1.2rem', paddingBottom: '1.2rem', borderBottom: '1px solid rgba(201,168,112,0.12)' }}>
                     {o.include.map(i => (
-                      <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '0.2rem 0', fontFamily: 'Lato', fontSize: '0.72rem', color: '#4A3D33' }}>
+                      <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '0.2rem 0', fontFamily: 'Lato', fontSize: '0.84rem', color: '#4A3D33' }}>
                         <i className="fa fa-check" style={{ color: '#C9A870', fontSize: '0.55rem', flexShrink: 0 }}></i>{i}
                       </div>
                     ))}
@@ -139,7 +141,8 @@ export default function OffertePage() {
                     <Link href="/prenota" className="btn-gold">Prenota</Link>
                   </div>
                 </div>
-              </div>
+                </div>
+              </ScrollAnimation>
             ))}
           </div>
         </div>

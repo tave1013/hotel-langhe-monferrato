@@ -30,8 +30,8 @@ const navLinks = [
       { label: 'Asti — Il Medioevo',          href: '/territorio/asti' },
       { label: 'Alba — Capitale del Gusto',   href: '/territorio/alba' },
       { label: 'Cattedrali Sotterranee',      href: '/territorio/cattedrali-sotterranee' },
-      { label: 'Caccia al Tartufo',           href: '/territorio/caccia-tartufo' },
-      { label: 'Castelli del Monferrato',     href: '/territorio/castelli-monferrato' },
+      { label: 'Caccia al Tartufo',           href: '/territorio/caccia-al-tartufo' },
+      { label: 'Castelli del Monferrato',     href: '/territorio/castelli-del-monferrato' },
       { label: 'Le Big Bench',                href: '/territorio/big-bench' },
     ],
   },
@@ -181,7 +181,7 @@ export default function Navbar() {
                       key={item.href}
                       href={item.href}
                       onClick={() => { setMenuOpen(false); setMobileOpen(null); }}
-                      style={{ display: 'block', fontFamily: 'Lato', fontSize: '0.74rem', color: 'rgba(255,255,255,0.6)', textDecoration: 'none', padding: '0.45rem 0' }}
+                      style={{ display: 'block', fontFamily: 'Lato', fontSize: '0.86rem', color: 'rgba(255,255,255,0.6)', textDecoration: 'none', padding: '0.45rem 0' }}
                     >
                       {item.label}
                     </Link>

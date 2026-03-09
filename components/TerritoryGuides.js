@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { guide } from '@/lib/territorioData';
+import ScrollAnimation from './ScrollAnimation';
 
 export default function TerritoryGuides() {
   // Prendi solo le prime 3 guide
@@ -16,33 +17,35 @@ export default function TerritoryGuides() {
   return (
     <section style={{ background: '#F5EFE4', padding: '100px 0' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <p className="section-label mb-3">Le Nostre Mini Guide</p>
-          <div className="gold-divider mb-5"></div>
-          <h2 className="section-title mb-4">Cosa Fare e Vedere Intorno all'Hotel</h2>
-          <p
-            style={{
-              fontFamily: 'Cormorant Garamond, serif',
-              fontSize: '1.1rem',
-              color: '#6B5E52',
-              maxWidth: 560,
-              margin: '0 auto',
-              fontStyle: 'italic',
-            }}
-          >
-            Il territorio delle Langhe e del Monferrato regala esperienze uniche per ogni viaggiatore. Tre mete imperdibili da scoprire durante il tuo soggiorno.
-          </p>
-        </div>
+        <ScrollAnimation type="slide-up">
+          <div className="text-center mb-14">
+            <p className="section-label mb-3">Le Nostre Mini Guide</p>
+            <div className="gold-divider mb-5"></div>
+            <h2 className="section-title mb-4">Cosa Fare e Vedere Intorno all'Hotel</h2>
+            <p
+              style={{
+                fontFamily: 'Cormorant Garamond, serif',
+                fontSize: '1.1rem',
+                color: '#6B5E52',
+                maxWidth: 560,
+                margin: '0 auto',
+                fontStyle: 'italic',
+              }}
+            >
+              Il territorio delle Langhe e del Monferrato regala esperienze uniche per ogni viaggiatore. Tre mete imperdibili da scoprire durante il tuo soggiorno.
+            </p>
+          </div>
+        </ScrollAnimation>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {topGuides.map((item) => (
-            <div
-              key={item.slug}
-              className="card-hover"
-              style={{ background: '#fff', overflow: 'hidden' }}
-            >
-              {/* Image */}
-              <div className="relative" style={{ height: 220, overflow: 'hidden' }}>
+          {topGuides.map((item, i) => (
+            <ScrollAnimation key={item.slug} type="slide-up" delay={i * 150}>
+              <div
+                className="card-hover"
+                style={{ background: '#fff', overflow: 'hidden' }}
+              >
+                {/* Image */}
+                <div className="relative" style={{ height: 220, overflow: 'hidden' }}>
                 <img
                   src={item.img}
                   alt={item.nome}
@@ -74,7 +77,7 @@ export default function TerritoryGuides() {
                 <h3
                   style={{
                     fontFamily: 'Playfair Display, serif',
-                    fontSize: '1.2rem',
+                    fontSize: '1.4rem',
                     color: '#2C2520',
                     marginBottom: '0.6rem',
                     fontWeight: 500,
@@ -85,7 +88,7 @@ export default function TerritoryGuides() {
                 <p
                   style={{
                     fontFamily: 'Lato',
-                    fontSize: '0.82rem',
+                    fontSize: '0.95rem',
                     color: '#6B5E52',
                     lineHeight: 1.75,
                     marginBottom: '1.4rem',
@@ -111,7 +114,8 @@ export default function TerritoryGuides() {
                   <span>Scopri la Guida</span>
                 </Link>
               </div>
-            </div>
+              </div>
+            </ScrollAnimation>
           ))}
         </div>
 

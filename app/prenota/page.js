@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+import ScrollAnimation from '@/components/ScrollAnimation';
 
 export default function PrenotaPage() {
   const [step, setStep] = useState(1);
@@ -62,9 +63,10 @@ export default function PrenotaPage() {
 
               {/* STEP 1: Camera */}
               {step === 1 && (
-                <div>
-                  <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.7rem', color: '#2C2520', marginBottom: '1.5rem', fontWeight: 500 }}>Seleziona la Camera</h2>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                <ScrollAnimation type="slide-up">
+                  <div>
+                    <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.95rem', color: '#2C2520', marginBottom: '1.5rem', fontWeight: 500 }}>Seleziona la Camera</h2>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
                     {camere.map((c) => (
                       <div key={c.slug} onClick={() => setForm({ ...form, camera: c.slug })} style={{ background: '#fff', padding: '1.2rem 1.5rem', border: form.camera === c.slug ? '2px solid #C9A870' : '2px solid transparent', outline: '1px solid rgba(201,168,112,0.2)', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', transition: 'all 0.2s' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
@@ -72,7 +74,7 @@ export default function PrenotaPage() {
                             {form.camera === c.slug && <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#C9A870' }}></div>}
                           </div>
                           <div>
-                            <div style={{ fontFamily: 'Playfair Display, serif', fontSize: '1rem', color: '#2C2520', fontWeight: 500 }}>{c.nome}</div>
+                            <div style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.15rem', color: '#2C2520', fontWeight: 500 }}>{c.nome}</div>
                             <div style={{ fontFamily: 'Lato', fontSize: '0.72rem', color: '#9A8A7A', marginTop: 2 }}>{c.letto}</div>
                           </div>
                         </div>
@@ -86,11 +88,12 @@ export default function PrenotaPage() {
                   <button onClick={() => form.camera && setStep(2)} className="btn-gold" style={{ marginTop: '1.5rem', opacity: form.camera ? 1 : 0.4 }}>
                     Continua <i className="fa fa-arrow-right" style={{ marginLeft: 8 }}></i>
                   </button>
-                </div>
+                </ScrollAnimation>
               )}
 
               {/* STEP 2: Date */}
               {step === 2 && (
+                <ScrollAnimation type="slide-up">
                 <div>
                   <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.7rem', color: '#2C2520', marginBottom: '1.5rem', fontWeight: 500 }}>Date e Ospiti</h2>
                   <div style={{ background: '#fff', padding: '2rem', borderTop: '2px solid #C9A870', display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
@@ -127,11 +130,12 @@ export default function PrenotaPage() {
                       Continua <i className="fa fa-arrow-right" style={{ marginLeft: 8 }}></i>
                     </button>
                   </div>
-                </div>
+                </ScrollAnimation>
               )}
 
               {/* STEP 3: Dati */}
               {step === 3 && !inviato && (
+                <ScrollAnimation type="slide-up">
                 <div>
                   <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.7rem', color: '#2C2520', marginBottom: '1.5rem', fontWeight: 500 }}>I Tuoi Dati</h2>
                   <div style={{ background: '#fff', padding: '2rem', borderTop: '2px solid #C9A870', display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
@@ -156,11 +160,12 @@ export default function PrenotaPage() {
                       <i className="fa fa-check" style={{ marginRight: 8 }}></i>Invia Richiesta
                     </button>
                   </div>
-                </div>
+                </ScrollAnimation>
               )}
 
               {/* CONFERMA */}
               {inviato && (
+                <ScrollAnimation type="slide-up">
                 <div style={{ background: '#fff', borderTop: '3px solid #C9A870', padding: '3rem', textAlign: 'center' }}>
                   <i className="fa fa-check-circle" style={{ color: '#C9A870', fontSize: '3rem', display: 'block', marginBottom: '1.2rem' }}></i>
                   <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.8rem', color: '#2C2520', marginBottom: '0.6rem', fontWeight: 400 }}>Richiesta Inviata!</h2>
@@ -168,7 +173,7 @@ export default function PrenotaPage() {
                     Abbiamo ricevuto la tua richiesta di prenotazione. Riceverai una conferma via email entro poche ore con tutti i dettagli.
                   </p>
                   <Link href="/" className="btn-gold">Torna alla Home</Link>
-                </div>
+                </ScrollAnimation>
               )}
             </div>
 

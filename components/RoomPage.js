@@ -82,11 +82,11 @@ export default function RoomPage({ room }) {
 
               {/* DESCRIZIONE + SPECS */}
               <section style={{ marginBottom: '3rem', paddingBottom: '3rem', borderBottom: '1px solid rgba(201,168,112,0.2)' }}>
-                <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.7rem', color: '#2C2520', marginBottom: '1.2rem', fontWeight: 500 }}>
+                <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.95rem', color: '#2C2520', marginBottom: '1.2rem', fontWeight: 500 }}>
                   Descrizione della Camera
                 </h2>
                 {room.description.split('\n\n').map((para, i) => (
-                  <p key={i} style={{ fontFamily: 'Lato', fontSize: '0.88rem', color: '#6B5E52', lineHeight: 1.85, marginBottom: '1rem' }}>{para}</p>
+                  <p key={i} style={{ fontFamily: 'Lato', fontSize: '1.02rem', color: '#6B5E52', lineHeight: 1.85, marginBottom: '1rem' }}>{para}</p>
                 ))}
 
                 {/* SPECS GRID — stile Booking */}
@@ -131,7 +131,7 @@ export default function RoomPage({ room }) {
               <section style={{ marginBottom: '3rem', paddingBottom: '3rem', borderBottom: '1px solid rgba(201,168,112,0.2)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: '1.2rem' }}>
                   <i className="fa fa-star" style={{ color: '#C9A870', fontSize: '1.3rem' }}></i>
-                  <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.7rem', color: '#2C2520', fontWeight: 500 }}>Ideali per il tuo soggiorno</h2>
+                  <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.95rem', color: '#2C2520', fontWeight: 500 }}>Ideali per il tuo soggiorno</h2>
                 </div>
                 <div className="grid md:grid-cols-2 gap-5">
                   {Object.entries(room.amenities).map(([cat, data]) => (
@@ -142,7 +142,7 @@ export default function RoomPage({ room }) {
                       </div>
                       <ul style={{ listStyle: 'none' }}>
                         {data.items.map((item) => (
-                          <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, padding: '0.32rem 0', borderBottom: '1px solid rgba(201,168,112,0.07)', fontFamily: 'Lato', fontSize: '0.8rem', color: '#4A3D33' }}>
+                          <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, padding: '0.32rem 0', borderBottom: '1px solid rgba(201,168,112,0.07)', fontFamily: 'Lato', fontSize: '0.92rem', color: '#4A3D33' }}>
                             <i className="fa fa-check" style={{ color: '#C9A870', fontSize: '0.6rem', marginTop: 4, flexShrink: 0 }}></i>
                             {item}
                           </li>
@@ -155,7 +155,7 @@ export default function RoomPage({ room }) {
 
               {/* POLITICHE */}
               <section>
-                <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.7rem', color: '#2C2520', marginBottom: '1.2rem', fontWeight: 500 }}>Politiche &amp; Info Utili</h2>
+                <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.95rem', color: '#2C2520', marginBottom: '1.2rem', fontWeight: 500 }}>Politiche &amp; Info Utili</h2>
                 <div style={{ background: '#fff' }}>
                   {room.policies.map((policy, i) => (
                     <div key={policy.label} style={{ display: 'flex', gap: '1.1rem', padding: '1rem 1.3rem', borderBottom: i < room.policies.length - 1 ? '1px solid rgba(201,168,112,0.12)' : 'none', alignItems: 'flex-start' }}>
@@ -164,7 +164,7 @@ export default function RoomPage({ room }) {
                       </div>
                       <div>
                         <div style={{ fontFamily: 'Lato', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A', marginBottom: 3 }}>{policy.label}</div>
-                        <div style={{ fontFamily: 'Lato', fontSize: '0.82rem', color: '#4A3D33', lineHeight: 1.6 }}>{policy.value}</div>
+                        <div style={{ fontFamily: 'Lato', fontSize: '0.95rem', color: '#4A3D33', lineHeight: 1.6 }}>{policy.value}</div>
                       </div>
                     </div>
                   ))}

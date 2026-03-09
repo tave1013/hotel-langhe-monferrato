@@ -1,5 +1,7 @@
 'use client';
 
+import ScrollAnimation from './ScrollAnimation';
+
 export default function Amenities() {
   const amenities = [
     { icon: 'fa-wifi', label: 'Wi-Fi', desc: 'Connessione Wi-Fi disponibile in tutto l\'hotel: in camera, nelle aree comuni e negli spazi esterni. Per restare sempre connessi durante il soggiorno.' },
@@ -13,30 +15,31 @@ export default function Amenities() {
   return (
     <section style={{ background: '#fff', padding: '100px 0' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <p className="section-label mb-3">I Nostri Servizi</p>
-          <div className="gold-divider mb-5"></div>
-          <h2 className="section-title mb-4">Tutto il Comfort di cui Hai Bisogno</h2>
-        </div>
+        <ScrollAnimation type="slide-up">
+          <div className="text-center mb-14">
+            <p className="section-label mb-3">I Nostri Servizi</p>
+            <div className="gold-divider mb-5"></div>
+            <h2 className="section-title mb-4">Tutto il Comfort di cui Hai Bisogno</h2>
+          </div>
+        </ScrollAnimation>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
-          {amenities.map((a) => (
-            <div
-              key={a.label}
-              className="flex items-start gap-4"
-            >
+          {amenities.map((a, i) => (
+            <ScrollAnimation key={a.label} type="slide-up" delay={i * 100}>
+              <div className="flex items-start gap-4">
               <div style={{ flexShrink: 0, width: 56, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <i className={`fa ${a.icon}`} style={{ fontSize: '1.8rem', color: '#C9A870' }}></i>
               </div>
               <div>
-                <h3 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.15rem', fontWeight: 500, color: '#2C2520', marginBottom: '0.5rem' }}>
+                <h3 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.28rem', fontWeight: 500, color: '#2C2520', marginBottom: '0.5rem' }}>
                   {a.label}
                 </h3>
-                <p style={{ fontFamily: 'Lato', fontSize: '0.88rem', color: '#6B5E52', lineHeight: 1.7 }}>
+                <p style={{ fontFamily: 'Lato', fontSize: '1rem', color: '#6B5E52', lineHeight: 1.7 }}>
                   {a.desc}
                 </p>
               </div>
             </div>
+            </ScrollAnimation>
           ))}
         </div>
       </div>

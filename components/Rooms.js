@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import ScrollAnimation from './ScrollAnimation';
 
 const rooms = [
   {
@@ -63,10 +64,11 @@ export default function Rooms() {
     <section style={{ background: '#F5EFE4', padding: '100px 0' }}>
       <div className="max-w-7xl mx-auto px-6">
         {/* HEADER */}
-        <div className="text-center mb-14">
-          <p className="section-label mb-3">Camere & Suite</p>
-          <div className="gold-divider mb-5"></div>
-          <h2 className="section-title mb-4">La Collezione delle Nostre Camere</h2>
+        <ScrollAnimation type="fade-in">
+          <div className="text-center mb-14">
+            <p className="section-label mb-3">Camere & Suite</p>
+            <div className="gold-divider mb-5"></div>
+            <h2 className="section-title mb-4">La Collezione delle Nostre Camere</h2>
           <p
             style={{
               fontFamily: 'Cormorant Garamond, serif',
@@ -81,9 +83,11 @@ export default function Rooms() {
             58 camere per vivere il territorio in un ambiente confortevole e accogliente, immerso nella natura del Parco della Contessa.
           </p>
         </div>
+        </ScrollAnimation>
 
         {/* ROOM CARD — SPLIT LAYOUT */}
-        <div
+        <ScrollAnimation type="slide-up">
+          <div
           style={{
             background: '#fff',
             boxShadow: '0 20px 60px rgba(0,0,0,0.08)',
@@ -148,7 +152,7 @@ export default function Rooms() {
               <h3
                 style={{
                   fontFamily: 'Playfair Display, serif',
-                  fontSize: '1.9rem',
+                  fontSize: '1.95rem',
                   color: '#2C2520',
                   marginBottom: '0.8rem',
                   fontWeight: 500,
@@ -168,7 +172,7 @@ export default function Rooms() {
               <p
                 style={{
                   fontFamily: 'Lato',
-                  fontSize: '0.88rem',
+                  fontSize: '1.02rem',
                   color: '#6B5E52',
                   lineHeight: 1.8,
                   marginBottom: '1.5rem',
@@ -198,6 +202,7 @@ export default function Rooms() {
             </div>
           </div>
         </div>
+        </ScrollAnimation>
       </div>
     </section>
   );

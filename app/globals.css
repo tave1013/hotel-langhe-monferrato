@@ -66,3 +66,81 @@ body { font-family: 'Lato', sans-serif; color: var(--text-dark); background: var
 
 /* DEAL BADGE */
 .deal-badge { position: absolute; top: 14px; left: 14px; background: var(--gold); color: #fff; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.8rem; z-index: 10; }
+
+/* ========================================
+   SCROLL ANIMATIONS - Elegant & Professional
+   ======================================== */
+
+/* Base state: elementi nascosti prima dell'animazione */
+.scroll-fade-in,
+.scroll-slide-up,
+.scroll-slide-left,
+.scroll-slide-right,
+.scroll-scale {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-duration: 1.3s; /* Più lento e smooth */
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1); /* Smooth easing */
+}
+
+/* Fade In */
+.scroll-fade-in {
+  transform: translateY(0);
+}
+
+.scroll-fade-in.animate {
+  opacity: 1;
+}
+
+/* Slide Up (più usata) - dal basso verso l'alto */
+.scroll-slide-up {
+  transform: translateY(50px); /* Più distanza per effetto più evidente */
+}
+
+.scroll-slide-up.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide da sinistra */
+.scroll-slide-left {
+  transform: translateX(-40px);
+}
+
+.scroll-slide-left.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide da destra */
+.scroll-slide-right {
+  transform: translateX(40px);
+}
+
+.scroll-slide-right.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scale (leggero zoom) */
+.scroll-scale {
+  transform: scale(0.96);
+}
+
+.scroll-scale.animate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Delay per animazioni staggered (sequenziali) */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+.delay-600 { transition-delay: 0.6s; }
+
+/* Durate alternative */
+.duration-slow { transition-duration: 1.5s; }
+.duration-slower { transition-duration: 1.8s; }
+

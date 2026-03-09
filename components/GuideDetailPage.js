@@ -1,13 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 export default function GuideDetailPage({ guida }) {
-  const [activeSection, setActiveSection] = useState(0);
-
   return (
     <>
       <Navbar />
@@ -21,17 +18,6 @@ export default function GuideDetailPage({ guida }) {
 
         {/* Bottom text */}
         <div className="absolute bottom-0 left-0 right-0" style={{ padding: '0 max(1.5rem, calc((100% - 1280px)/2 + 1.5rem)) 3.5rem' }}>
-          {/* Breadcrumb */}
-          <nav style={{ marginBottom: '1.1rem' }}>
-            <ol style={{ display: 'flex', alignItems: 'center', gap: 8, fontFamily: 'Lato', fontSize: '0.65rem', color: 'rgba(255,255,255,0.38)', listStyle: 'none', padding: 0, flexWrap: 'wrap' }}>
-              <li><Link href="/" style={{ color: 'rgba(255,255,255,0.38)', textDecoration: 'none' }}>Home</Link></li>
-              <li><i className="fa fa-chevron-right" style={{ fontSize: '0.4rem' }}></i></li>
-              <li><Link href="/territorio" style={{ color: 'rgba(255,255,255,0.38)', textDecoration: 'none' }}>Territorio</Link></li>
-              <li><i className="fa fa-chevron-right" style={{ fontSize: '0.4rem' }}></i></li>
-              <li style={{ color: '#C9A870' }}>{guida.nome}</li>
-            </ol>
-          </nav>
-
           <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(2.2rem, 5vw, 4.2rem)', fontWeight: 400, color: '#FAF7F2', lineHeight: 1.1, marginBottom: '0.7rem', maxWidth: 720 }}>
             {guida.nome}
           </h1>
@@ -70,7 +56,7 @@ export default function GuideDetailPage({ guida }) {
                 </p>
               </div>
 
-              <p style={{ fontFamily: 'Lato', fontSize: '0.9rem', color: '#6B5E52', lineHeight: 1.9, marginBottom: '3rem' }}>
+              <p style={{ fontFamily: 'Lato', fontSize: '1.05rem', color: '#6B5E52', lineHeight: 1.9, marginBottom: '3rem' }}>
                 {guida.descrizioneBreve}
               </p>
 
@@ -82,20 +68,91 @@ export default function GuideDetailPage({ guida }) {
                     <div style={{ width: 38, height: 38, background: 'rgba(201,168,112,0.12)', border: '1px solid rgba(201,168,112,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 3 }}>
                       <span style={{ fontFamily: 'Lato', fontSize: '0.72rem', fontWeight: 700, color: '#C9A870' }}>{String(i + 1).padStart(2, '0')}</span>
                     </div>
-                    <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(1.3rem, 3vw, 1.75rem)', color: '#2C2520', fontWeight: 500, lineHeight: 1.25 }}>
+                    <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: '#2C2520', fontWeight: 500, lineHeight: 1.25 }}>
                       {sez.titolo}
                     </h2>
                   </div>
 
-                  {/* Image */}
+                {/* Image - only if sez.img exists */}
+                {sez.img && (
                   <div className="overflow-hidden" style={{ marginBottom: '1.5rem', height: 380 }}>
                     <img src={sez.img} alt={sez.titolo} className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
                   </div>
+                )}
 
                   {/* Text */}
                   {sez.testo.split('\n\n').map((para, j) => (
-                    <p key={j} style={{ fontFamily: 'Lato', fontSize: '0.87rem', color: '#5A4D43', lineHeight: 1.9, marginBottom: '1rem' }}>{para}</p>
+                    <p key={j} style={{ fontFamily: 'Lato', fontSize: '1rem', color: '#5A4D43', lineHeight: 1.9, marginBottom: '1rem' }}>{para}</p>
                   ))}
+
+                  {/* Optional bullet list */}
+                  {Array.isArray(sez.lista) && sez.lista.length > 0 && (
+                    <ul style={{ margin: '0.6rem 0 1rem 1.1rem', padding: 0 }}>
+                      {sez.lista.map((item) => (
+                        <li key={item} style={{ fontFamily: 'Lato', fontSize: '0.98rem', color: '#5A4D43', lineHeight: 1.8, marginBottom: '0.45rem' }}>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {/* Optional details blocks with H3 titles */}
+                  {Array.isArray(sez.dettagli) && sez.dettagli.length > 0 && (
+                    <div style={{ marginTop: '1rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                      {sez.dettagli.map((d) => (
+                        <div key={d.titolo} style={{ background: 'rgba(201,168,112,0.05)', border: '1px solid rgba(201,168,112,0.2)', padding: '0.9rem 1rem' }}>
+                          <h3 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.15rem', color: '#2C2520', lineHeight: 1.3, marginBottom: '0.35rem', fontWeight: 700 }}>
+                            {d.titolo}
+                          </h3>
+                          <p style={{ fontFamily: 'Lato', fontSize: '0.95rem', color: '#5A4D43', lineHeight: 1.75, marginBottom: d.href ? '0.3rem' : 0 }}>
+                            {d.testo}
+                          </p>
+                          {d.href && (
+                            <a
+                              href={d.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{
+                                fontFamily: 'Lato',
+                                fontSize: '0.76rem',
+                                color: '#C9A870',
+                                textDecoration: 'underline',
+                                textDecorationThickness: '1px',
+                                textUnderlineOffset: '2px',
+                              }}
+                            >
+                              {d.linkLabel || 'Apri su Google Maps'}
+                            </a>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Optional external links (SEO + utilità) */}
+                  {Array.isArray(sez.links) && sez.links.length > 0 && (
+                    <div style={{ marginTop: '1rem', display: 'flex', flexDirection: 'column', gap: 6 }}>
+                      {sez.links.map((link) => (
+                        <a
+                          key={link.href}
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            fontFamily: 'Lato',
+                            fontSize: '0.78rem',
+                            color: '#C9A870',
+                            textDecoration: 'underline',
+                            textDecorationThickness: '1px',
+                            textUnderlineOffset: '2px',
+                            lineHeight: 1.6,
+                          }}
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
 
                   {/* Tags */}
                   <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: '1.2rem' }}>
@@ -104,6 +161,14 @@ export default function GuideDetailPage({ guida }) {
                         {tag}
                       </span>
                     ))}
+                  </div>
+
+                  {/* Photo Credits */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid rgba(201,168,112,0.08)' }}>
+                    <i className="fa fa-camera" style={{ color: '#9A8A7A', fontSize: '0.7rem' }}></i>
+                    <span style={{ fontFamily: 'Lato', fontSize: '0.68rem', color: '#9A8A7A', lineHeight: 1.5 }}>
+                      Foto: M. Ferni (Dal Gruppo Facebook Gite fuori porta in Piemonte) – utilizzata per cover e featured
+                    </span>
                   </div>
 
                   {/* Section divider */}
