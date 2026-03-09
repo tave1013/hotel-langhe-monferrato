@@ -53,7 +53,7 @@ export default function Hero() {
         style={{ opacity: animating ? 0 : 1 }}
       >
         <div
-          className="absolute inset-0 animate-ken-burns"
+          className="absolute inset-0 animate-ken-burns hero-bg-image"
           style={{
             backgroundImage: `url('${slide.img}')`,
             backgroundSize: 'cover',

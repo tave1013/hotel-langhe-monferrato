@@ -12,6 +12,7 @@ export default function BookingForm({ onSubmit }) {
   const router = useRouter();
   const calendarRef = useRef(null);
   const submittingRef = useRef(false);
+  const lastSubmitTime = useRef(0);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,7 +20,8 @@ export default function BookingForm({ onSubmit }) {
     adults: 1,
     children: 0,
     dateRange: undefined,
-    message: ''
+    message: '',
+    website: '' // Honeypot field
   });
 
   const [errors, setErrors] = useState([]);
@@ -45,6 +47,15 @@ export default function BookingForm({ onSubmit }) {
     return digits.length >= 10;
   };
 
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const sanitizeInput = (input) => {
+    return input.trim().replace(/[<>"']/g, '');
+  };
+
   const calculateNights = () => {
     if (!formData.dateRange?.from || !formData.dateRange?.to) return 0;
     const diffTime = Math.abs(formData.dateRange.to - formData.dateRange.from);
@@ -60,12 +71,29 @@ export default function BookingForm({ onSubmit }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (submittingRef.current || isLoading) return;
+    
+    // Honeypot check
+    if (formData.website) {
+      console.warn('Bot detected');
+      return;
+    }
+
+    // Rate limiting (3 seconds between submissions)
+    const now = Date.now();
+    if (now - lastSubmitTime.current < 3000) {
+      setErrors(['Attendi qualche secondo prima di inviare nuovamente']);
+      return;
+    }
+    lastSubmitTime.current = now;
+
     submittingRef.current = true;
 
     const newErrors = [];
 
     if (!formData.name.trim())    newErrors.push('Il nome è obbligatorio');
+    if (formData.name.trim().length < 2) newErrors.push('Il nome deve avere almeno 2 caratteri');
     if (!formData.email.trim())   newErrors.push("L'email è obbligatoria");
+    else if (!validateEmail(formData.email)) newErrors.push('Inserisci un\'email valida');
     if (!formData.phone.trim())   newErrors.push('Il cellulare è obbligatorio');
     else if (!validatePhone(formData.phone)) newErrors.push('Il cellulare deve contenere almeno 10 cifre');
     if (formData.adults < 1)      newErrors.push('Almeno 1 adulto è obbligatorio');
@@ -93,9 +121,9 @@ export default function BookingForm({ onSubmit }) {
 
       // I nomi qui corrispondono ESATTAMENTE ai {{placeholder}} nei template HTML
       const baseParams = {
-        name:       formData.name.trim(),
-        email:      formData.email.trim(),
-        phone:      formData.phone.trim(),
+        name:       sanitizeInput(formData.name),
+        email:      sanitizeInput(formData.email),
+        phone:      sanitizeInput(formData.phone),
         checkIn:    checkInFormatted,
         checkOut:   checkOutFormatted,
         nights:     nights,
@@ -138,7 +166,7 @@ export default function BookingForm({ onSubmit }) {
         message:  formData.message.trim()
       });
 
-      setFormData({ name: '', email: '', phone: '', adults: 1, children: 0, dateRange: undefined, message: '' });
+      setFormData({ name: '', email: '', phone: '', adults: 1, children: 0, dateRange: undefined, message: '', website: '' });
       router.push(`/grazie?${params.toString()}`);
 
     } catch (error) {
@@ -202,15 +230,15 @@ export default function BookingForm({ onSubmit }) {
           {/* NOME / EMAIL / CELLULARE */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <div>
-              <label className="block text-gray-700 text-xs font-bold mb-2 uppercase tracking-wider" style={{ fontFamily: 'Lato, sans-serif' }}>Nome</label>
+              <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Nome</label>
               <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="Paolo Rossi" className="w-full px-4 py-3 border border-gray-300 rounded-none focus:outline-none focus:border-[#C9A870] transition-colors" style={{ fontFamily: 'Lato, sans-serif' }} />
             </div>
             <div>
-              <label className="block text-gray-700 text-xs font-bold mb-2 uppercase tracking-wider" style={{ fontFamily: 'Lato, sans-serif' }}>Email</label>
+              <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Email</label>
               <input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder="paolo.rossi@email.it" className="w-full px-4 py-3 border border-gray-300 rounded-none focus:outline-none focus:border-[#C9A870] transition-colors" style={{ fontFamily: 'Lato, sans-serif' }} />
             </div>
             <div>
-              <label className="block text-gray-700 text-xs font-bold mb-2 uppercase tracking-wider" style={{ fontFamily: 'Lato, sans-serif' }}>Cellulare</label>
+              <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Cellulare</label>
               <input type="tel" value={formData.phone} onChange={(e) => { const value = e.target.value; if (/^[\d+\-\s]*$/.test(value)) setFormData({ ...formData, phone: value }); }} placeholder="+39 333 1234567" className="w-full px-4 py-3 border border-gray-300 rounded-none focus:outline-none focus:border-[#C9A870] transition-colors" style={{ fontFamily: 'Lato, sans-serif' }} />
             </div>
           </div>
@@ -218,7 +246,7 @@ export default function BookingForm({ onSubmit }) {
           {/* ADULTI / BAMBINI / DATE */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <div>
-              <label className="block text-gray-700 text-xs font-bold mb-2 uppercase tracking-wider" style={{ fontFamily: 'Lato, sans-serif' }}>Adulti</label>
+              <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Adulti</label>
               <div className="bg-[#f5f5f5] rounded-none p-4 flex items-center justify-between">
                 <span className="text-gray-800" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.95rem' }}>{formData.adults === 1 ? '1 adulto' : `${formData.adults} adulti`}</span>
                 <div className="flex items-center gap-3">
@@ -228,7 +256,7 @@ export default function BookingForm({ onSubmit }) {
               </div>
             </div>
             <div>
-              <label className="block text-gray-700 text-xs font-bold mb-2 uppercase tracking-wider" style={{ fontFamily: 'Lato, sans-serif' }}>Bambini</label>
+              <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Bambini</label>
               <div className="bg-[#f5f5f5] rounded-none p-4 flex items-center justify-between">
                 <span className="text-gray-800" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.95rem' }}>{formData.children === 0 ? '0 bambini' : formData.children === 1 ? '1 bambino' : `${formData.children} bambini`}</span>
                 <div className="flex items-center gap-3">
@@ -239,7 +267,7 @@ export default function BookingForm({ onSubmit }) {
             </div>
             <div>
               <div className="flex items-center justify-between mb-2">
-                <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider" style={{ fontFamily: 'Lato, sans-serif' }}>Date di soggiorno</label>
+                <label className="block" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Date di soggiorno</label>
                 {calculateNights() > 0 && (
                   <span className="text-xs font-semibold px-2 py-1" style={{ fontFamily: 'Lato, sans-serif', background: '#C9A870', color: 'white' }}>
                     {calculateNights()} {calculateNights() === 1 ? 'notte' : 'notti'}
@@ -262,8 +290,20 @@ export default function BookingForm({ onSubmit }) {
 
           {/* MESSAGGIO */}
           <div>
-            <label className="block text-gray-700 text-xs font-bold mb-2 uppercase tracking-wider" style={{ fontFamily: 'Lato, sans-serif' }}>Messaggio (opzionale)</label>
+            <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Messaggio (opzionale)</label>
             <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder="Indica le camere: una singola, doppia...?" rows={4} className="w-full px-4 py-3 border border-gray-300 rounded-none focus:outline-none focus:border-[#C9A870] transition-colors resize-none" style={{ fontFamily: 'Lato, sans-serif' }} />
+          </div>
+
+          {/* HONEYPOT - Hidden field for bots */}
+          <div style={{ position: 'absolute', left: '-9999px' }} aria-hidden="true">
+            <input
+              type="text"
+              name="website"
+              tabIndex="-1"
+              autoComplete="off"
+              value={formData.website}
+              onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+            />
           </div>
 
           {/* SUBMIT */}
