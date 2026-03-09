@@ -143,4 +143,3 @@ body { font-family: 'Lato', sans-serif; color: var(--text-dark); background: var
 /* Durate alternative */
 .duration-slow { transition-duration: 1.5s; }
 .duration-slower { transition-duration: 1.8s; }
-
