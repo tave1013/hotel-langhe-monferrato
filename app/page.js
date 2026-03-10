@@ -10,10 +10,12 @@ import TerritoryGuides from '@/components/TerritoryGuides';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
+import SchemaOrg from '@/components/SchemaOrg';
 
 export default function Home() {
   return (
     <>
+      <SchemaOrg />
       <Navbar />
       <Hero />
       <TrustBar />

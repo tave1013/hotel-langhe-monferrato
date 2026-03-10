@@ -8,6 +8,21 @@ export const metadata = {
   title: 'Sale Meeting & Congressi | Hotel Langhe & Monferrato',
   description: 'Tre sale modulari per eventi aziendali, congressi e banchetti nelle Langhe. Tecnologia 4K, catering gourmet, Wi-Fi fibra. Preventivo personalizzato.',
   keywords: 'sale meeting langhe, hotel congressi piemonte, sala conferenze alba asti, eventi aziendali langhe monferrato',
+  openGraph: {
+    title: 'Sale Meeting & Congressi | Hotel Langhe & Monferrato',
+    description: 'Tre sale modulari per eventi aziendali, congressi e banchetti nelle Langhe.',
+    type: 'website',
+    locale: 'it_IT',
+    url: 'https://hotel-langhe-monferrato.vercel.app/sale-meeting',
+    images: [{ url: '/foto/hotel_langhe_sala_meeting_alfieri.webp', width: 1200, height: 630 }],
+    updatedTime: new Date().toISOString(),
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sale Meeting & Congressi',
+    description: 'Eventi aziendali e congressi nelle Langhe.',
+    images: ['/foto/hotel_langhe_sala_meeting_alfieri.webp'],
+  },
 };
 
 export default function SaleMeetingPage() {

@@ -9,7 +9,7 @@ const slides = [
   {
     img: '/foto/hotel-langhe-monferrato.jpg',
     label: 'Un\'Oasi di Relax nelle Langhe',
-    title: 'Hotel Langhe & Monferrato\nSoggiorna nel Cuore del Piemonte',
+    title: 'Soggiorna all\'Hotel\nLanghe & Monferrato',
     sub: 'Nel verde del Parco della Contessa a Costigliole d\'Asti, a pochi chilometri dalle eccellenze UNESCO delle Langhe e del Monferrato.',
   },
   {

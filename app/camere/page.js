@@ -7,6 +7,21 @@ import { rooms } from '@/lib/roomsData';
 export const metadata = {
   title: 'Camere & Suite | Hotel Langhe & Monferrato',
   description: 'Scopri le nostre 5 tipologie di camere: Standard, Tripla, Quadrupla, Family e Suite Deluxe. Ogni camera è un\'esperienza unica nel cuore delle Langhe.',
+  openGraph: {
+    title: 'Camere & Suite | Hotel Langhe & Monferrato',
+    description: 'Scopri le nostre 5 tipologie di camere: Standard, Tripla, Quadrupla, Family e Suite Deluxe.',
+    type: 'website',
+    locale: 'it_IT',
+    url: 'https://hotel-langhe-monferrato.vercel.app/camere',
+    images: [{ url: '/foto/Camere.webp', width: 1200, height: 630 }],
+    updatedTime: new Date().toISOString(),
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Camere & Suite | Hotel Langhe & Monferrato',
+    description: 'Scopri le nostre 5 tipologie di camere nel cuore delle Langhe.',
+    images: ['/foto/Camere.webp'],
+  },
 };
 
 export default function CamerePage() {

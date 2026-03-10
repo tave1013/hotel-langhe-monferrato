@@ -1,0 +1,32 @@
+# robots.txt per Hotel Langhe & Monferrato
+# https://hotel-langhe-monferrato.vercel.app
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hotel-langhe-monferrato.vercel.app/sitemap.xml
+
+# Blocca eventuali file di sistema
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Consenti immagini
+Allow: /foto/
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.png
+Allow: *.webp
+Allow: *.avif
+
+# Bot specifici
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Crawl delay per bot meno prioritari
+User-agent: *
+Crawl-delay: 1

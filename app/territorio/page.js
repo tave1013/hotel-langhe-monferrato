@@ -13,6 +13,15 @@ export const metadata = {
     description: 'Mini guide pratiche per esplorare uno dei territori più belli d\'Italia: arte, vino, gastronomia e natura a portata di mano dal nostro hotel.',
     type: 'website',
     locale: 'it_IT',
+    url: 'https://hotel-langhe-monferrato.vercel.app/territorio',
+    images: [{ url: '/foto/alba.webp', width: 1200, height: 630 }],
+    updatedTime: new Date().toISOString(),
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Territorio: Langhe & Monferrato',
+    description: 'Mini guide pratiche per esplorare le Langhe e il Monferrato.',
+    images: ['/foto/alba.webp'],
   },
 };
 
