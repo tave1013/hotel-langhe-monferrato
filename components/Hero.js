@@ -60,7 +60,7 @@ export default function Hero() {
             alt={slide.label}
             fill
             priority={current === 0}
-            quality={85}
+            quality={75}
             sizes="100vw"
             className="object-cover"
             style={{ objectPosition: 'center 22%' }}

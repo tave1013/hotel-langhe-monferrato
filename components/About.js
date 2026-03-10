@@ -19,6 +19,7 @@ export default function About() {
                 width={800}
                 height={280}
                 quality={85}
+                priority
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
@@ -29,7 +30,8 @@ export default function About() {
                 alt="Ingresso Hotel Langhe & Monferrato"
                 width={400}
                 height={200}
-                quality={80}
+                quality={70}
+                priority
                 sizes="(max-width: 768px) 50vw, 25vw"
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
@@ -41,6 +43,7 @@ export default function About() {
                 width={400}
                 height={200}
                 quality={80}
+                priority
                 sizes="(max-width: 768px) 50vw, 25vw"
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />

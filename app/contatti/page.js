@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
@@ -21,7 +22,7 @@ export default function ContattiPage() {
       {/* HERO */}
       <section className="relative overflow-hidden" style={{ height: '45vh', minHeight: 320 }}>
         <div className="absolute inset-0">
-          <img src="/foto/hotel-langhe-monferrato.jpg" alt="Contatti Hotel Langhe" className="w-full h-full object-cover" />
+          <Image src="/foto/hotel-langhe-monferrato.jpg" alt="Contatti Hotel Langhe" fill priority quality={85} sizes="100vw" className="object-cover" />
           <div className="absolute inset-0" style={{ background: 'rgba(10,8,6,0.65)' }} />
         </div>
         <div className="relative h-full flex flex-col items-center justify-center text-center px-6">
@@ -135,7 +136,6 @@ export default function ContattiPage() {
               height="400" 
               style={{ border: '1px solid rgba(201,168,112,0.2)' }}
               allowFullScreen="" 
-              loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
             <a 

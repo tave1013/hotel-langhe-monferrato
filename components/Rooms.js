@@ -103,6 +103,7 @@ export default function Rooms() {
                 src={rooms[active].img}
                 alt={rooms[active].name}
                 fill
+                priority
                 quality={85}
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"

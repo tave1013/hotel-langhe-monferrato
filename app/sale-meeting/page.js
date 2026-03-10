@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { sale } from '@/lib/saleMeetingData';
@@ -33,7 +34,7 @@ export default function SaleMeetingPage() {
       {/* HERO */}
       <section className="relative overflow-hidden" style={{ height: '58vh', minHeight: 400 }}>
         <div className="absolute inset-0">
-          <img src="/foto/hotel_langhe_sala_meeting_alfieri.webp" alt="Sale Meeting Hotel Langhe" className="w-full h-full object-cover" />
+          <Image src="/foto/hotel_langhe_sala_meeting_alfieri.webp" alt="Sale Meeting Hotel Langhe" fill priority quality={85} sizes="100vw" className="object-cover" />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(10,8,6,0.55), rgba(10,8,6,0.75))' }} />
         </div>
         <div className="relative h-full flex flex-col items-center justify-center text-center px-6 max-w-4xl mx-auto" style={{ margin: '0 auto' }}>
