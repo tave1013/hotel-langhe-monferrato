@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
@@ -29,7 +30,16 @@ export default function RoomPage({ room }) {
       {/* ===== HERO ===== */}
       <section className="relative overflow-hidden" style={{ height: '65vh', minHeight: 460 }}>
         <div className="absolute inset-0">
-          <img src={room.heroImg} alt={room.name} className="w-full h-full object-cover" style={{ animation: 'kenBurns 12s ease-in-out infinite alternate' }} />
+          <Image
+            src={room.heroImg}
+            alt={room.name}
+            fill
+            priority
+            quality={85}
+            sizes="100vw"
+            className="object-cover"
+            style={{ animation: 'kenBurns 12s ease-in-out infinite alternate' }}
+          />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(10,8,6,0.5) 0%, rgba(10,8,6,0.2) 50%, rgba(10,8,6,0.78) 100%)' }} />
         </div>
         <div className="relative h-full flex flex-col justify-end pb-14 px-6 max-w-7xl mx-auto">

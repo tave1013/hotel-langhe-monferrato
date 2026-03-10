@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
@@ -12,7 +13,16 @@ export default function GuideDetailPage({ guida }) {
       {/* ===== HERO ===== */}
       <section className="relative overflow-hidden" style={{ height: '70vh', minHeight: 500 }}>
         <div className="absolute inset-0">
-          <img src={guida.heroImg} alt={guida.nome} className="w-full h-full object-cover" style={{ animation: 'kenBurns 14s ease-in-out infinite alternate' }} />
+          <Image
+            src={guida.heroImg}
+            alt={guida.nome}
+            fill
+            priority
+            quality={85}
+            sizes="100vw"
+            className="object-cover"
+            style={{ animation: 'kenBurns 14s ease-in-out infinite alternate' }}
+          />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(10,8,6,0.35) 0%, rgba(10,8,6,0.18) 40%, rgba(10,8,6,0.85) 100%)' }} />
         </div>
 

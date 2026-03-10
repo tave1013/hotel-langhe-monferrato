@@ -74,7 +74,7 @@ export default function About() {
               className="section-title mb-6"
               style={{ maxWidth: 480 }}
             >
-              Hotel Langhe & Monferrato
+              Un'Oasi di Relax nel Cuore del Piemonte
             </h2>
             <p
               style={{

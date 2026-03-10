@@ -73,7 +73,7 @@ export default function TerritorioPage() {
             <p className="section-label">Le Nostre Mini Guide</p>
             <div className="gold-divider" style={{ marginBottom: '1rem' }}></div>
             <h2 className="section-title" style={{ maxWidth: 600, margin: '0 auto' }}>
-              Cosa Fare e Vedere Intorno all&apos;Hotel
+              Esperienze e Destinazioni da Non Perdere
             </h2>
             <p style={{ fontFamily: 'Lato', fontSize: '0.85rem', color: '#9A8A7A', maxWidth: 580, margin: '1rem auto 0', lineHeight: 1.8 }}>
               Le Langhe e il Monferrato offrono esperienze per ogni tipo di viaggiatore. Abbiamo selezionato le sei tappe che secondo noi non si possono perdere.

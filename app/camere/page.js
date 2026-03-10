@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { rooms } from '@/lib/roomsData';
@@ -16,7 +17,15 @@ export default function CamerePage() {
       {/* HERO */}
       <section className="relative overflow-hidden" style={{ height: '52vh', minHeight: 360 }}>
         <div className="absolute inset-0">
-          <img src="/foto/Camere.webp" alt="Camere Hotel Langhe" className="w-full h-full object-cover" />
+          <Image
+            src="/foto/Camere.webp"
+            alt="Camere Hotel Langhe"
+            fill
+            priority
+            quality={85}
+            sizes="100vw"
+            className="object-cover"
+          />
           <div className="absolute inset-0" style={{ background: 'rgba(10,8,6,0.58)' }} />
         </div>
         <div className="relative h-full flex flex-col items-center justify-center text-center px-6">
@@ -40,7 +49,14 @@ export default function CamerePage() {
                 <div style={{ background: '#fff', overflow: 'hidden' }}>
                   {/* Image */}
                   <div className="img-overlay" style={{ height: 255 }}>
-                    <img src={room.heroImg} alt={room.name} className="w-full h-full object-cover" />
+                    <Image
+                      src={room.heroImg}
+                      alt={room.name}
+                      fill
+                      quality={80}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover"
+                    />
                     {/* Price */}
                     <div style={{ position: 'absolute', bottom: 14, right: 14, background: 'rgba(10,8,6,0.82)', padding: '0.45rem 1rem', zIndex: 10 }}>
                       <span style={{ fontFamily: 'Lato', fontSize: '0.58rem', color: '#C9A870', letterSpacing: '0.1em', textTransform: 'uppercase', display: 'block' }}>da</span>

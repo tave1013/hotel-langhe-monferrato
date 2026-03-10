@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ScrollAnimation from '@/components/ScrollAnimation';
@@ -85,7 +86,15 @@ export default function OffertePage() {
       {/* HERO */}
       <section className="relative overflow-hidden" style={{ height: '52vh', minHeight: 360 }}>
         <div className="absolute inset-0">
-          <img src="/foto/langhe-monferrato.webp" alt="Offerte Hotel Langhe" className="w-full h-full object-cover" />
+          <Image
+            src="/foto/langhe-monferrato.webp"
+            alt="Offerte Hotel Langhe"
+            fill
+            priority
+            quality={85}
+            sizes="100vw"
+            className="object-cover"
+          />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(10,8,6,0.5), rgba(10,8,6,0.75))' }} />
         </div>
         <div className="relative h-full flex flex-col items-center justify-center text-center px-6">
@@ -151,7 +160,14 @@ export default function OffertePage() {
       {/* CTA */}
       <section className="relative overflow-hidden" style={{ padding: '80px 0' }}>
         <div className="absolute inset-0">
-          <img src="/foto/hotel-langhe-monferrato.jpg" alt="" className="w-full h-full object-cover" />
+          <Image
+            src="/foto/hotel-langhe-monferrato.jpg"
+            alt="Hotel Langhe Monferrato"
+            fill
+            quality={85}
+            sizes="100vw"
+            className="object-cover"
+          />
           <div className="absolute inset-0" style={{ background: 'rgba(10,8,6,0.78)' }} />
         </div>
         <div className="relative text-center px-6 max-w-2xl mx-auto">

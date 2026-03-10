@@ -14,7 +14,6 @@ import Footer from '@/components/Footer';
 export default function Home() {
   return (
     <>
-      <h1 className="sr-only">Hotel Langhe &amp; Monferrato — Hotel di Lusso nel Cuore del Piemonte</h1>
       <Navbar />
       <Hero />
       <TrustBar />
