@@ -3,10 +3,17 @@ import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ScrollAnimation from '@/components/ScrollAnimation';
+import SchemaOrg from '@/components/SchemaOrg';
 
 export const metadata = {
-  title: 'Offerte & Pacchetti | Hotel Langhe & Monferrato',
-  description: 'Scopri le nostre offerte esclusive: fuga romantica con spa, weekend gastronomico, caccia al tartufo e molto altro. Prenota al miglior prezzo garantito.',
+  title: 'Offerte Speciali Hotel Langhe | Pacchetti e Promozioni',
+  description: 'Scopri offerte e pacchetti soggiorno dell\'Hotel Langhe & Monferrato. Promozioni stagionali e proposte dedicate per il tuo viaggio.',
+  openGraph: {
+    title: 'Offerte Speciali | Hotel Langhe & Monferrato',
+    description: 'Offerte e pacchetti per soggiornare tra Langhe e Monferrato con prenotazione diretta.',
+    url: 'https://hotel-langhe-monferrato.vercel.app/offerte',
+    images: [{ url: '/foto/langhe-monferrato.webp', width: 1200, height: 630 }],
+  },
 };
 
 const offerte = [
@@ -81,6 +88,7 @@ const offerte = [
 export default function OffertePage() {
   return (
     <>
+      <SchemaOrg />
       <Navbar />
 
       {/* HERO */}

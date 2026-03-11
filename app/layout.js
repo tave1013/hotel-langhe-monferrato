@@ -2,13 +2,12 @@ import './globals.css';
 
 export const metadata = {
   metadataBase: new URL('https://hotel-langhe-monferrato.vercel.app'),
-  title: 'Hotel Langhe & Monferrato | Lusso nel Cuore del Piemonte',
-  description: 'Scopri Hotel Langhe & Monferrato: camere di lusso, piscina, ristorante gourmet e spa nel cuore delle Langhe. Prenota ora la tua esperienza indimenticabile.',
-  keywords: 'hotel langhe, hotel monferrato, hotel lusso piemonte, spa langhe, ristorante gourmet alba',
+  title: 'Hotel Langhe & Monferrato | Hotel 4 Stelle nelle Langhe',
+  description: 'Hotel a Costigliole d\'Asti, punto di partenza ideale per visitare Langhe e Monferrato. Prenotazione diretta sul sito ufficiale.',
   authors: [{ name: 'Hotel Langhe & Monferrato' }],
   openGraph: {
-    title: 'Hotel Langhe & Monferrato | Lusso nel Cuore del Piemonte',
-    description: 'Camere di lusso, piscina panoramica, ristorante gourmet e spa. Un rifugio esclusivo immerso nei vigneti delle Langhe.',
+    title: 'Hotel Langhe & Monferrato | Hotel 4 Stelle',
+    description: 'Hotel a Costigliole d\'Asti, ideale per visitare Langhe e Monferrato con prenotazione diretta.',
     type: 'website',
     locale: 'it_IT',
     url: 'https://hotel-langhe-monferrato.vercel.app',
@@ -25,7 +24,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Hotel Langhe & Monferrato | Lusso nel Cuore del Piemonte',
-    description: 'Camere di lusso, piscina panoramica, ristorante gourmet e spa. Un rifugio esclusivo immerso nei vigneti delle Langhe.',
+    description: 'Hotel a Costigliole d\'Asti, punto di partenza ideale per visitare Langhe e Monferrato.',
     images: ['/foto/hotel-langhe-monferrato.jpg'],
   },
   robots: {

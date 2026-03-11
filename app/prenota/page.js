@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import BookingForm from '@/components/BookingForm';
 import FAQ from '@/components/FAQ';
 
-export default function PrenotaPage() {
+function PrenotaPage() {
   const handleBookingSubmit = async (formData) => {
     // Here you can add your logic to send the form data to your backend
     console.log('Booking form submitted:', formData);
@@ -57,3 +57,16 @@ export default function PrenotaPage() {
     </>
   );
 }
+
+export const metadata = {
+  title: 'Prenota Hotel Langhe | Miglior Prezzo Garantito Online',
+  description: 'Prenota direttamente sul sito ufficiale e risparmia. Camere da €120/notte, cancellazione gratuita, colazione inclusa. Miglior prezzo garantito.',
+  openGraph: {
+    title: 'Prenota Ora | Hotel Langhe & Monferrato',
+    description: 'Prenota al miglior prezzo garantito. Cancellazione gratuita e colazione inclusa.',
+    url: 'https://hotel-langhe-monferrato.vercel.app/prenota',
+    images: [{ url: '/foto/hotel-langhe-monferrato.jpg', width: 1200, height: 630 }],
+  },
+};
+
+export default PrenotaPage;

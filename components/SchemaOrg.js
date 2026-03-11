@@ -3,7 +3,7 @@ export default function SchemaOrg() {
     '@context': 'https://schema.org',
     '@type': 'Hotel',
     name: 'Hotel Langhe & Monferrato',
-    description: 'Hotel 4 stelle nel cuore delle Langhe e del Monferrato, immerso nel verde del Parco della Contessa a Costigliole d\'Asti.',
+    description: 'Hotel a Costigliole d\'Asti, punto di partenza ideale per visitare Langhe e Monferrato.',
     image: 'https://hotel-langhe-monferrato.vercel.app/foto/hotel-langhe-monferrato.jpg',
     '@id': 'https://hotel-langhe-monferrato.vercel.app',
     url: 'https://hotel-langhe-monferrato.vercel.app',
@@ -22,27 +22,8 @@ export default function SchemaOrg() {
       latitude: 44.7881,
       longitude: 8.1834,
     },
-    starRating: {
-      '@type': 'Rating',
-      ratingValue: '4',
-    },
     priceRange: '€€€',
     amenityFeature: [
-      {
-        '@type': 'LocationFeatureSpecification',
-        name: 'Piscina',
-        value: true,
-      },
-      {
-        '@type': 'LocationFeatureSpecification',
-        name: 'Ristorante',
-        value: true,
-      },
-      {
-        '@type': 'LocationFeatureSpecification',
-        name: 'Spa',
-        value: true,
-      },
       {
         '@type': 'LocationFeatureSpecification',
         name: 'Wi-Fi gratuito',
@@ -61,32 +42,7 @@ export default function SchemaOrg() {
     ],
     checkinTime: '15:00',
     checkoutTime: '11:00',
-    numberOfRooms: '58',
     petsAllowed: 'https://schema.org/False',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.1',
-      reviewCount: '600',
-      bestRating: '5',
-      worstRating: '1',
-    },
-    containsPlace: [
-      {
-        '@type': 'Restaurant',
-        name: 'Ristorante Gourmet',
-        servesCuisine: 'Italiana, Piemontese',
-        acceptsReservations: 'https://schema.org/True',
-      },
-      {
-        '@type': 'HealthAndBeautyBusiness',
-        name: 'Spa & Benessere',
-        amenityFeature: [
-          { '@type': 'LocationFeatureSpecification', name: 'Massaggi' },
-          { '@type': 'LocationFeatureSpecification', name: 'Sauna' },
-          { '@type': 'LocationFeatureSpecification', name: 'Bagno turco' },
-        ],
-      },
-    ],
     potentialAction: {
       '@type': 'ReserveAction',
       target: {
@@ -149,6 +105,53 @@ export default function SchemaOrg() {
     ],
   };
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Dove si trova l\'Hotel Langhe & Monferrato?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'L\'hotel si trova a Costigliole d\'Asti, nel cuore delle Langhe e del Monferrato, patrimonio UNESCO. Dista 15 minuti da Asti e 30 minuti da Alba.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Quali servizi offre l\'hotel?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'L\'hotel offre camere accoglienti, Wi-Fi gratuito, parcheggio e sale meeting. Contattaci per informazioni aggiornate sui servizi disponibili durante il soggiorno.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Qual è il prezzo delle camere?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Le camere partono da €120 a notte per la Camera Standard. Offriamo anche Camere Triple (€150), Quadruple (€200), Family (€220) e Suite Deluxe (€140).',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'È possibile cancellare la prenotazione?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Sì, offriamo cancellazione gratuita fino a 48 ore prima dell\'arrivo. Per prenotazioni non rimborsabili con sconto, la cancellazione non è possibile.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Gli animali sono ammessi?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Gli animali domestici non sono ammessi nelle nostre strutture per garantire comfort e igiene a tutti gli ospiti.',
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <script
@@ -162,6 +165,10 @@ export default function SchemaOrg() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </>
   );

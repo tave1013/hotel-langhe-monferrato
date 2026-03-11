@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import Link from 'next/link';
 import ScrollAnimation from '@/components/ScrollAnimation';
 
-export default function ContattiPage() {
+function ContattiPage() {
   const [form, setForm] = useState({ nome: '', cognome: '', email: '', telefono: '', tipo: '', messaggio: '' });
   const [inviato, setInviato] = useState(false);
 
@@ -175,3 +175,17 @@ export default function ContattiPage() {
     </>
   );
 }
+
+// Metadata per SEO (necessario wrapper per client components)
+export const metadata = {
+  title: 'Contatti Hotel Langhe | Info e Prenotazioni Dirette',
+  description: 'Contatta Hotel Langhe & Monferrato: +39 0141 966012. Richiedi informazioni, prenota direttamente e scopri le nostre offerte esclusive.',
+  openGraph: {
+    title: 'Contatti | Hotel Langhe & Monferrato',
+    description: 'Contattaci per informazioni e prenotazioni. Risposta entro 24 ore.',
+    url: 'https://hotel-langhe-monferrato.vercel.app/contatti',
+    images: [{ url: '/foto/hotel-langhe-monferrato.jpg', width: 1200, height: 630 }],
+  },
+};
+
+export default ContattiPage;

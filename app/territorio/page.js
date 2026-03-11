@@ -3,14 +3,14 @@ import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { guide } from '@/lib/territorioData';
+import SchemaOrg from '@/components/SchemaOrg';
 
 export const metadata = {
-  title: 'Territorio: Langhe & Monferrato | Hotel Langhe & Monferrato',
-  description: 'Scopri il territorio intorno al nostro hotel: Asti medievale, Alba e il tartufo, le Cattedrali Sotterranee di Canelli, i castelli del Monferrato e le iconiche Big Bench. Mini guide pratiche per il tuo soggiorno.',
-  keywords: 'cosa fare langhe, cosa vedere monferrato, guida turistica alba asti, tartufo bianco alba, castelli monferrato, big bench langhe, cattedrali sotterranee canelli',
+  title: 'Cosa Vedere nelle Langhe | Guida Territorio e Attrazioni',
+  description: 'Scopri Asti, Alba e il tartufo, Cattedrali Sotterranee di Canelli, castelli del Monferrato e Big Bench. Mini guide per il tuo soggiorno nelle Langhe.',
   openGraph: {
-    title: 'Scopri il Territorio: Le Langhe e il Monferrato',
-    description: 'Mini guide pratiche per esplorare uno dei territori più belli d\'Italia: arte, vino, gastronomia e natura a portata di mano dal nostro hotel.',
+    title: 'Territorio Langhe e Monferrato | Guide e Attrazioni',
+    description: 'Guide pratiche per esplorare Langhe e Monferrato: arte, vino, gastronomia e natura.',
     type: 'website',
     locale: 'it_IT',
     url: 'https://hotel-langhe-monferrato.vercel.app/territorio',
@@ -28,6 +28,7 @@ export const metadata = {
 export default function TerritorioPage() {
   return (
     <>
+      <SchemaOrg />
       <Navbar />
 
       {/* ===== HERO ===== */}

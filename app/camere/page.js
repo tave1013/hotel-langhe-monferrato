@@ -3,13 +3,14 @@ import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { rooms } from '@/lib/roomsData';
+import SchemaOrg from '@/components/SchemaOrg';
 
 export const metadata = {
-  title: 'Camere & Suite | Hotel Langhe & Monferrato',
-  description: 'Scopri le nostre 5 tipologie di camere: Standard, Tripla, Quadrupla, Family e Suite Deluxe. Ogni camera è un\'esperienza unica nel cuore delle Langhe.',
+  title: 'Camere e Suite Hotel Langhe | 5 Tipologie Disponibili',
+  description: '58 camere nelle Langhe: Standard, Tripla, Quadrupla, Family e Suite Deluxe. Comfort e prenotazione diretta sul sito ufficiale.',
   openGraph: {
-    title: 'Camere & Suite | Hotel Langhe & Monferrato',
-    description: 'Scopri le nostre 5 tipologie di camere: Standard, Tripla, Quadrupla, Family e Suite Deluxe.',
+    title: 'Camere e Suite | Hotel Langhe & Monferrato',
+    description: '58 camere tra Standard, Tripla, Quadrupla, Family e Suite Deluxe nel cuore di Langhe e Monferrato.',
     type: 'website',
     locale: 'it_IT',
     url: 'https://hotel-langhe-monferrato.vercel.app/camere',
@@ -27,6 +28,7 @@ export const metadata = {
 export default function CamerePage() {
   return (
     <>
+      <SchemaOrg />
       <Navbar />
 
       {/* HERO */}

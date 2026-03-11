@@ -4,14 +4,14 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { sale } from '@/lib/saleMeetingData';
 import ScrollAnimation from '@/components/ScrollAnimation';
+import SchemaOrg from '@/components/SchemaOrg';
 
 export const metadata = {
-  title: 'Sale Meeting & Congressi | Hotel Langhe & Monferrato',
-  description: 'Tre sale modulari per eventi aziendali, congressi e banchetti nelle Langhe. Tecnologia 4K, catering gourmet, Wi-Fi fibra. Preventivo personalizzato.',
-  keywords: 'sale meeting langhe, hotel congressi piemonte, sala conferenze alba asti, eventi aziendali langhe monferrato',
+  title: 'Sale Meeting Langhe | Eventi Aziendali e Congressi',
+  description: 'Tre sale modulari per eventi aziendali nelle Langhe. Tecnologia 4K, Wi-Fi disponibile e supporto organizzativo dedicato. Preventivo gratuito.',
   openGraph: {
-    title: 'Sale Meeting & Congressi | Hotel Langhe & Monferrato',
-    description: 'Tre sale modulari per eventi aziendali, congressi e banchetti nelle Langhe.',
+    title: 'Sale Meeting e Congressi | Hotel Langhe',
+    description: 'Sale modulari per eventi aziendali e congressi nelle Langhe. Fino a 400 persone.',
     type: 'website',
     locale: 'it_IT',
     url: 'https://hotel-langhe-monferrato.vercel.app/sale-meeting',
@@ -29,6 +29,7 @@ export const metadata = {
 export default function SaleMeetingPage() {
   return (
     <>
+      <SchemaOrg />
       <Navbar />
 
       {/* HERO */}
