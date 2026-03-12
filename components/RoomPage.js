@@ -74,7 +74,7 @@ export default function RoomPage({ room }) {
 
                 <Link href="/prenota" className="btn-gold" style={{ display: 'block', textAlign: 'center', marginBottom: '0.8rem' }}>
                   <i className="fa fa-calendar-check" style={{ marginRight: 8 }}></i>
-                  Prenota Questa Camera
+                  Prenota il Tuo Soggiorno
                 </Link>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 6, paddingTop: '0.9rem', borderTop: '1px solid rgba(201,168,112,0.12)' }}>
@@ -225,7 +225,7 @@ export default function RoomPage({ room }) {
 
                   <Link href="/prenota" className="btn-gold" style={{ display: 'block', textAlign: 'center', marginBottom: '0.8rem' }}>
                     <i className="fa fa-calendar-check" style={{ marginRight: 8 }}></i>
-                    Prenota Questa Camera
+                    Prenota il Tuo Soggiorno
                   </Link>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 6, paddingTop: '0.9rem', borderTop: '1px solid rgba(201,168,112,0.12)' }}>
