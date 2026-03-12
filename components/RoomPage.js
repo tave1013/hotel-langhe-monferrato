@@ -169,7 +169,7 @@ export default function RoomPage({ room }) {
                   <i className="fa fa-map-marker-alt" style={{ color: '#C9A870', fontSize: '1.3rem' }}></i>
                   <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.95rem', color: '#2C2520', fontWeight: 500 }}>Dintorni dell&apos;hotel</h2>
                 </div>
-                <div className="grid md:grid-cols-3 gap-5">
+                <div className="grid md:grid-cols-2 gap-5">
                   {Object.entries(room.surroundings).map(([cat, data]) => (
                     <div key={cat} style={{ background: '#fff', padding: '1.3rem', borderTop: '2px solid #C9A870' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: '0.8rem' }}>
