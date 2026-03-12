@@ -5,7 +5,7 @@
 /* Google Fonts caricati nel layout.js per prestazioni migliori */
 
 :root {
-  --gold: #D4AF37;
+  --gold: #C9A870;
   --gold-dark: #A8854A;
   --button-gold: #960018;
   --button-gold-dark: #7A0013;
@@ -67,7 +67,7 @@ body { font-family: 'Lato', sans-serif; color: var(--text-dark); background: var
 ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
 
 /* DEAL BADGE */
-.deal-badge { position: absolute; top: 14px; left: 14px; background: var(--gold); color: #fff; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.8rem; z-index: 10; }
+.deal-badge { position: absolute; top: 14px; left: 14px; background: var(--button-gold); color: #fff; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.8rem; z-index: 10; }
 
 @media (max-width: 768px) {
   .deal-badge {

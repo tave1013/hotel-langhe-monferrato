@@ -144,7 +144,7 @@ export default function Rooms() {
                       border: 'none',
                       cursor: 'pointer',
                       transition: 'all 0.25s',
-                      background: i === active ? '#C9A870' : 'transparent',
+                      background: i === active ? 'var(--button-gold)' : 'transparent',
                       color: i === active ? '#fff' : '#9A8A7A',
                       borderBottom: i === active ? 'none' : '1px solid rgba(201,168,112,0.25)',
                     }}
