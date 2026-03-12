@@ -163,6 +163,32 @@ export default function RoomPage({ room }) {
                 </div>
               </section>
 
+              {/* DINTORNI DELL'HOTEL */}
+              <section style={{ marginBottom: '3rem', paddingBottom: '3rem', borderBottom: '1px solid rgba(201,168,112,0.2)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: '1.2rem' }}>
+                  <i className="fa fa-map-marker-alt" style={{ color: '#C9A870', fontSize: '1.3rem' }}></i>
+                  <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.95rem', color: '#2C2520', fontWeight: 500 }}>Dintorni dell&apos;hotel</h2>
+                </div>
+                <div className="grid md:grid-cols-3 gap-5">
+                  {Object.entries(room.surroundings).map(([cat, data]) => (
+                    <div key={cat} style={{ background: '#fff', padding: '1.3rem', borderTop: '2px solid #C9A870' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: '0.8rem' }}>
+                        <i className={`fa ${data.icon}`} style={{ color: '#C9A870', fontSize: '1rem', width: 20 }}></i>
+                        <h3 style={{ fontFamily: 'Lato', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A870' }}>{cat}</h3>
+                      </div>
+                      <ul style={{ listStyle: 'none' }}>
+                        {data.items.map((item) => (
+                          <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, padding: '0.32rem 0', borderBottom: '1px solid rgba(201,168,112,0.07)', fontFamily: 'Lato', fontSize: '0.92rem', color: '#4A3D33' }}>
+                            <i className="fa fa-check" style={{ color: '#C9A870', fontSize: '0.6rem', marginTop: 4, flexShrink: 0 }}></i>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
               {/* POLITICHE */}
               <section>
                 <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.95rem', color: '#2C2520', marginBottom: '1.2rem', fontWeight: 500 }}>Politiche &amp; Info Utili</h2>
