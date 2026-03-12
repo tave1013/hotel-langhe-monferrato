@@ -56,7 +56,8 @@ body { font-family: 'Lato', sans-serif; color: var(--text-dark); background: var
 .dropdown-menu { position: absolute; top: calc(100% + 4px); left: 50%; transform: translateX(-50%) translateY(8px); background: var(--dark-deep); border-top: 2px solid var(--gold); min-width: 210px; padding: 0.4rem 0; opacity: 0; visibility: hidden; transition: all 0.25s ease; z-index: 200; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
 .dropdown-parent:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
 .dropdown-item { display: block; padding: 0.6rem 1.3rem; color: rgba(255,255,255,0.7); font-family: 'Lato', sans-serif; font-size: 0.75rem; letter-spacing: 0.06em; text-decoration: none; transition: all 0.2s; }
-.dropdown-item:hover { color: var(--gold); padding-left: 1.7rem; }
+.dropdown-item:hover { color: var(--button-gold); padding-left: 1.7rem; }
+.dropdown-item.active { color: var(--button-gold); }
 
 /* STARS */
 .stars { color: var(--gold); letter-spacing: 2px; }

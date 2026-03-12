@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 // ================================================================
 // MENU PRINCIPALE — modifica qui voci e link
@@ -41,9 +42,15 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled]         = useState(false);
   const [menuOpen, setMenuOpen]         = useState(false);
   const [mobileOpen, setMobileOpen]     = useState(null); // label del dropdown aperto
+
+  const isActiveLink = (href) => pathname === href || (href !== '/' && pathname.startsWith(`${href}/`));
+
+  const isActiveDropdownParent = (link) =>
+    isActiveLink(link.href) || (link.dropdown?.some((item) => isActiveLink(item.href)) ?? false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -76,8 +83,10 @@ export default function Navbar() {
 
         {/* ── DESKTOP NAV ── */}
         <nav className="hidden lg:flex items-center gap-7">
-          {navLinks.map((link) =>
-            link.dropdown ? (
+          {navLinks.map((link) => {
+            const parentActive = link.dropdown ? isActiveDropdownParent(link) : isActiveLink(link.href);
+
+            return link.dropdown ? (
               <div key={link.label} className="dropdown-parent">
                 {/* Cliccando la voce principale va alla pagina listing */}
                 <Link
@@ -85,11 +94,11 @@ export default function Navbar() {
                   style={{
                     fontFamily: 'Lato, sans-serif', fontSize: '0.68rem', fontWeight: 700,
                     letterSpacing: '0.14em', textTransform: 'uppercase',
-                    color: 'rgba(255,255,255,0.82)', textDecoration: 'none',
+                    color: parentActive ? 'var(--button-gold)' : 'rgba(255,255,255,0.82)', textDecoration: 'none',
                     display: 'flex', alignItems: 'center', gap: 5, transition: 'color 0.2s',
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = '#C9A870')}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.82)')}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--button-gold)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = parentActive ? 'var(--button-gold)' : 'rgba(255,255,255,0.82)')}
                 >
                   {link.label}
                   <i className="fa fa-chevron-down" style={{ fontSize: '0.5rem', marginTop: 1 }}></i>
@@ -98,7 +107,11 @@ export default function Navbar() {
                 {/* Dropdown */}
                 <div className="dropdown-menu">
                   {link.dropdown.map((item) => (
-                    <Link key={item.href} href={item.href} className="dropdown-item">
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`dropdown-item ${isActiveLink(item.href) ? 'active' : ''}`}
+                    >
                       {item.label}
                     </Link>
                   ))}
@@ -111,15 +124,15 @@ export default function Navbar() {
                 style={{
                   fontFamily: 'Lato, sans-serif', fontSize: '0.68rem', fontWeight: 700,
                   letterSpacing: '0.14em', textTransform: 'uppercase',
-                  color: 'rgba(255,255,255,0.82)', textDecoration: 'none', transition: 'color 0.2s',
+                  color: parentActive ? 'var(--button-gold)' : 'rgba(255,255,255,0.82)', textDecoration: 'none', transition: 'color 0.2s',
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#C9A870')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.82)')}
+                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--button-gold)')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = parentActive ? 'var(--button-gold)' : 'rgba(255,255,255,0.82)')}
               >
                 {link.label}
               </Link>
-            )
-          )}
+            );
+          })}
         </nav>
 
         {/* ── CTA DESKTOP ── */}
@@ -158,20 +171,23 @@ export default function Navbar() {
         borderTop: menuOpen ? '1px solid rgba(201,168,112,0.15)' : 'none',
       }}>
         <div style={{ padding: '1.5rem 1.5rem 2rem' }}>
-          {navLinks.map((link) => (
+          {navLinks.map((link) => {
+            const parentActive = link.dropdown ? isActiveDropdownParent(link) : isActiveLink(link.href);
+
+            return (
             <div key={link.label} style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: '0.3rem', marginBottom: '0.3rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <Link
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  style={{ fontFamily: 'Lato', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.85)', textDecoration: 'none', padding: '0.7rem 0', display: 'block' }}
+                  style={{ fontFamily: 'Lato', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: parentActive ? 'var(--button-gold)' : 'rgba(255,255,255,0.85)', textDecoration: 'none', padding: '0.7rem 0', display: 'block' }}
                 >
                   {link.label}
                 </Link>
                 {link.dropdown && (
                   <button
                     onClick={() => setMobileOpen(mobileOpen === link.label ? null : link.label)}
-                    style={{ background: 'none', border: 'none', color: '#C9A870', cursor: 'pointer', padding: '0.5rem' }}
+                    style={{ background: 'none', border: 'none', color: parentActive ? 'var(--button-gold)' : '#C9A870', cursor: 'pointer', padding: '0.5rem' }}
                   >
                     <i className={`fa fa-chevron-${mobileOpen === link.label ? 'up' : 'down'}`} style={{ fontSize: '0.65rem' }}></i>
                   </button>
@@ -184,7 +200,7 @@ export default function Navbar() {
                       key={item.href}
                       href={item.href}
                       onClick={() => { setMenuOpen(false); setMobileOpen(null); }}
-                      style={{ display: 'block', fontFamily: 'Lato', fontSize: '0.86rem', color: 'rgba(255,255,255,0.6)', textDecoration: 'none', padding: '0.45rem 0' }}
+                      style={{ display: 'block', fontFamily: 'Lato', fontSize: '0.86rem', color: isActiveLink(item.href) ? 'var(--button-gold)' : 'rgba(255,255,255,0.6)', textDecoration: 'none', padding: '0.45rem 0' }}
                     >
                       {item.label}
                     </Link>
@@ -192,7 +208,7 @@ export default function Navbar() {
                 </div>
               )}
             </div>
-          ))}
+          );})}
           <Link href="/prenota" className="btn-gold" style={{ marginTop: '1.2rem', display: 'block', textAlign: 'center' }} onClick={() => setMenuOpen(false)}>
             Prenota Ora
           </Link>
