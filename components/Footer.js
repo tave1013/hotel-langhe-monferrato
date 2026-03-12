@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -11,8 +12,13 @@ export default function Footer() {
           {/* BRAND */}
           <div className="lg:col-span-1">
             <div className="mb-4">
-              <span style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.4rem', color: '#FAF7F2', display: 'block' }}>Hotel Langhe</span>
-              <span style={{ fontFamily: 'Lato', fontSize: '0.58rem', letterSpacing: '0.28em', textTransform: 'uppercase', color: '#C9A870' }}>& Monferrato</span>
+              <Image
+                src="/foto/logo_hotel_langhe_monferrato_asti_2026.webp"
+                alt="Hotel Langhe & Monferrato"
+                width={160}
+                height={70}
+                style={{ height: 'auto', width: 'auto', maxHeight: 70, marginBottom: '1rem' }}
+              />
             </div>
             <p style={{ fontFamily: 'Lato', fontSize: '0.82rem', lineHeight: 1.8, marginBottom: '1.4rem', maxWidth: 240 }}>
               L'hotel Langhe&Monferrato, immerso nella natura del Parco della Contessa a Costigliole d'Asti, un'oasi di tranquillità e relax.

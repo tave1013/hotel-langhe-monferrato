@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 // ================================================================
 // MENU PRINCIPALE — modifica qui voci e link
@@ -62,13 +63,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
 
         {/* ── LOGO ── */}
-        <Link href="/" style={{ textDecoration: 'none' }}>
-          <span style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.25rem', color: '#FAF7F2', display: 'block', lineHeight: 1.1 }}>
-            Hotel Langhe
-          </span>
-          <span style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.55rem', letterSpacing: '0.28em', textTransform: 'uppercase', color: '#C9A870' }}>
-            &amp; Monferrato
-          </span>
+        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+          <Image
+            src="/foto/logo_hotel_langhe_monferrato_asti_2026.webp"
+            alt="Hotel Langhe & Monferrato"
+            width={140}
+            height={60}
+            style={{ height: 'auto', width: 'auto', maxHeight: 50 }}
+            priority
+          />
         </Link>
 
         {/* ── DESKTOP NAV ── */}
