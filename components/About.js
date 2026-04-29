@@ -49,22 +49,7 @@ export default function About() {
               />
             </div>
 
-            {/* FLOATING STATS */}
-            <div
-              style={{
-                position: 'absolute',
-                bottom: -20,
-                right: -20,
-                background: '#1A1714',
-                padding: '1.4rem 1.8rem',
-                zIndex: 10,
-              }}
-            >
-              <div style={{ fontFamily: 'Playfair Display, serif', fontSize: '2.2rem', color: '#C9A870', fontWeight: 600, lineHeight: 1 }}>98%</div>
-              <div style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.68rem', color: 'rgba(255,255,255,0.6)', letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: '4px' }}>
-                Ospiti Soddisfatti
-              </div>
-            </div>
+
             </div>
           </ScrollAnimation>
 

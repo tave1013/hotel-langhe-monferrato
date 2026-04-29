@@ -8,22 +8,22 @@ import ScrollAnimation from './ScrollAnimation';
 const rooms = [
   {
     name: 'Camera Standard',
-    desc: 'Le nostre 34 Camere Standard sono ideali per coppie e viaggiatori business in cerca di comfort e tranquillità tra Langhe e Monferrato. Ambienti accoglienti, curati nei dettagli, con doccia idromassaggio per un relax completo.',
+    desc: 'Le nostre 38 Camere Standard sono ideali per coppie e viaggiatori business in cerca di comfort e tranquillità tra Langhe e Monferrato. Ambienti accoglienti, curati nei dettagli, con doccia idromassaggio per un relax completo.',
     img: '/foto/suite.webp',
     price: '120',
     size: '22 m²',
     guests: '2',
-    features: ['34 Camere Disponibili', 'Doccia Idromassaggio', 'Ideale per Coppie', 'Free Wi-Fi'],
+    features: ['38 Camere Disponibili', 'Doccia Idromassaggio', 'Ideale per Coppie', 'Free Wi-Fi'],
     href: '/camere/standard',
   },
   {
     name: 'Camera Tripla',
-    desc: 'Le 9 Camere Triple sono perfette per famiglie piccole o gruppi di amici. La configurazione letti è flessibile: matrimoniale + singolo oppure tre letti singoli, con vasca idromassaggio per rendere il soggiorno ancora più piacevole.',
+    desc: 'Le 8 Camere Triple sono perfette per famiglie piccole o gruppi di amici. La configurazione letti è flessibile: matrimoniale + singolo oppure tre letti singoli, con vasca idromassaggio per rendere il soggiorno ancora più piacevole.',
     img: '/foto/Camera-tripla.webp',
     price: '150',
     size: '30 m²',
     guests: '3',
-    features: ['9 Camere Disponibili', 'Matrimoniale + Singolo o 3 Letti', 'Vasca Idromassaggio', 'Free Wi-Fi'],
+    features: ['8 Camere Disponibili', 'Matrimoniale + Singolo o 3 Letti', 'Vasca Idromassaggio', 'Free Wi-Fi'],
     href: '/camere/tripla',
   },
   {
@@ -48,12 +48,12 @@ const rooms = [
   },
   {
     name: 'Suite Deluxe',
-    desc: 'Le 8 Suite sono la scelta ideale per coppie che desiderano più spazio e comfort. Ambienti eleganti, atmosfera riservata e vasca idromassaggio per un soggiorno rilassante nel cuore di Costigliole d\'Asti.',
+    desc: 'Le 6 Suite sono la scelta ideale per coppie che desiderano più spazio e comfort. Ambienti eleganti, atmosfera riservata e vasca idromassaggio per un soggiorno rilassante nel cuore di Costigliole d\'Asti.',
     img: '/foto/suite.webp',
     price: '140',
     size: '80 m²',
     guests: '2',
-    features: ['8 Suite Disponibili', 'Vasca Idromassaggio', 'Ideale per Coppie', 'Free Wi-Fi'],
+    features: ['6 Suite Disponibili', 'Vasca Idromassaggio', 'Ideale per Coppie', 'Free Wi-Fi'],
     href: '/camere/suite',
   },
 ];

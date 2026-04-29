@@ -1,4 +1,5 @@
 import './globals.css';
+import WhatsAppWidget from '@/components/WhatsAppWidget';
 
 export const metadata = {
   metadataBase: new URL('https://hotel-langhe-monferrato.vercel.app'),
@@ -61,7 +62,10 @@ export default function RootLayout({ children }) {
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <WhatsAppWidget />
+      </body>
     </html>
   );
 }

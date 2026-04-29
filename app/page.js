@@ -22,7 +22,7 @@ export default function Home() {
       <About />
       <Rooms />
       <Amenities />
-      <Deals />
+      {/* <Deals /> */}
       <Testimonials />
       <TerritoryGuides />
       <div style={{ marginTop: '60px' }}>

@@ -8,19 +8,19 @@ export default function FAQ() {
   const faqs = [
     {
       question: "Quali sono gli orari di check-in e check-out?",
-      answer: "Il check-in è disponibile dalle ore 14:00. Se arrivi prima, puoi lasciare i bagagli in hotel e goderti il territorio mentre la camera viene preparata. Il check-out è entro le ore 11:00. Se hai bisogno di flessibilità, contattaci prima del tuo arrivo: in base alla disponibilità, possiamo valutare un late check-out senza costi aggiuntivi."
+      answer: "Il check-in è disponibile dalle ore 15:00. Se arrivi prima, puoi lasciare i bagagli in hotel e goderti il territorio mentre la camera viene preparata. Il check-out è entro le ore 11:00. Se hai bisogno di flessibilità, contattaci prima del tuo arrivo: in base alla disponibilità, possiamo valutare un late check-out senza costi aggiuntivi."
     },
     {
       question: "È possibile portare animali domestici in hotel?",
-      answer: "Sì, accettiamo animali domestici di piccola e media taglia. Ti chiediamo di comunicarcelo al momento della prenotazione, così da prepararci al meglio per l'accoglienza del tuo amico a quattro zampe. Alcune aree dell'hotel potrebbero avere restrizioni per garantire il comfort di tutti gli ospiti."
+      answer: "Sì, accettiamo animali domestici di piccola e media taglia con un supplemento di €15 al giorno. Ti chiediamo di segnalarlo al momento della prenotazione, così da organizzare al meglio l'accoglienza del tuo amico a quattro zampe. Alcune aree dell'hotel potrebbero avere restrizioni, per garantire il comfort e la tranquillità di tutti gli ospiti."
     },
     {
       question: "La colazione è inclusa nella tariffa?",
-      answer: "Dipende dalla tariffa scelta al momento della prenotazione. Molti dei nostri pacchetti includono la colazione, servita ogni mattina all'interno della struttura. Per verificare cosa è incluso nella tua prenotazione, controlla i dettagli al momento della scelta della tariffa o contattaci direttamente."
+      answer: "Dipende dalla tariffa scelta al momento della prenotazione. Molti dei nostri pacchetti includono una ricca colazione a buffet. Per verificare cosa è incluso nella tua prenotazione, controlla i dettagli al momento della scelta della tariffa o contattaci direttamente."
     },
     {
       question: "C'è un ristorante o un bar in hotel?",
-      answer: "All'interno della struttura è disponibile un bar, con colazione servita ogni mattina. Per pranzo e cena, a pochi passi dall'hotel si trova il nostro ristorante affiliato, gestito dalla stessa proprietà: potrai mangiare ottima cucina del territorio senza allontanarti. Il nostro staff è anche felice di consigliarti le migliori osterie e ristoranti delle Langhe e del Monferrato nelle vicinanze."
+      answer: "All\'interno della struttura è disponibile la zona bar, dove serviamo una ricca colazione a buffet. Per pranzo e cena, il servizio di ristorazione è disponibile su richiesta o in convenzione con partner locali, con possibilità di degustare prodotti tipici del territorio. Il nostro staff è felice di consigliarti le migliori osterie e ristoranti delle Langhe e del Monferrato nelle vicinanze."
     },
     {
       question: "L'hotel dispone di sale meeting o spazi per eventi?",
@@ -32,7 +32,7 @@ export default function FAQ() {
     },
     {
       question: "L'hotel ha una piscina?",
-      answer: "La piscina non si trova all'interno dell'hotel ma è accessibile a pochi passi dalla struttura, nella nostra area esterna adiacente. È aperta anche al pubblico, ma gli ospiti dell'Hotel Langhe & Monferrato hanno uno sconto riservato sull'accesso. Per informazioni sulle tariffe e sugli orari, chiedi direttamente alla nostra reception al momento del check-in."
+      answer: "La piscina non si trova all\'interno dell\'hotel ma è accessibile nel Parco della Contessa, all\'interno del nostro complesso turistico. È aperta anche al pubblico, ma gli ospiti dell\'Hotel Langhe & Monferrato possono accedervi gratuitamente. Per informazioni sugli orari, chiedi direttamente alla nostra reception al momento del check-in."
     },
     {
       question: "Come posso raggiungere l'hotel da Asti, Alba o Torino? C'è il trasporto pubblico?",
@@ -48,7 +48,7 @@ export default function FAQ() {
     },
     {
       question: "Ci sono orari di ingresso da rispettare se torniamo tardi da una passeggiata o da una serata fuori?",
-      answer: "No, nessun vincolo di orario. A ogni ospite viene consegnato un codice personale di accesso che permette di entrare nella struttura in piena autonomia e a qualsiasi ora, senza dover dipendere dalla reception. In questo modo potrete vivere il vostro soggiorno con la massima libertà. Naturalmente, se aveste bisogno di assistenza o supporto in qualsiasi momento, siamo sempre a vostra disposizione: basta contattarci."
+      answer: "No, nessun vincolo di orario. A ogni ospite viene consegnato un codice personale di accesso che permette di entrare nella struttura in piena autonomia e a qualsiasi ora, senza dover dipendere dalla reception. In questo modo potrete vivere il vostro soggiorno con la massima libertà. Naturalmente, se aveste bisogno di assistenza o supporto in qualsiasi momento, siamo sempre a vostra disposizione anche tramite chat presente sul sito."
     }
   ];
 

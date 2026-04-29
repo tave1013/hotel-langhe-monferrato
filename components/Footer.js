@@ -112,7 +112,7 @@ export default function Footer() {
                 </a>
               </li>
               {[
-                { icon: 'fa-clock', text: 'Check-in 14:00-22:30 · Check-out 07:00-11:00' },
+                { icon: 'fa-clock', text: 'Check-in 15:00-22:30 · Check-out 07:00-11:00' },
               ].map((c) => (
                 <li key={c.icon} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
                   <i className={`fa ${c.icon}`} style={{ color: '#C9A870', fontSize: '0.75rem', marginTop: '2px', flexShrink: 0 }}></i>

@@ -10,23 +10,6 @@ const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   
-  // WWW Canonicalization - Redirect www to non-www
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'www.hotel-langhe-monferrato.vercel.app',
-          },
-        ],
-        destination: 'https://hotel-langhe-monferrato.vercel.app/:path*',
-        permanent: true,
-      },
-    ];
-  },
-  
   // Headers per SEO e sicurezza
   async headers() {
     return [

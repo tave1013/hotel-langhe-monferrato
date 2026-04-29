@@ -16,7 +16,7 @@ const slides = [
     img: '/foto/piscina_oasi_blu_costigliole_asti.webp',
     label: 'Piscina Immersa nella Natura',
     title: 'La Piscina Immersa\nnella Natura',
-    sub: 'Lasciati avvolgere dal silenzio e dalla natura del Parco della Contessa. La nostra piscina è il posto perfetto per rilassarti e rigenerarti.',
+    sub: 'Lasciati avvolgere dal silenzio e dalla natura del Parco della Contessa. La nostra piscina aperta nel periodo estivo è il posto perfetto per rilassarti e rigenerarti.',
   },
 ];
 

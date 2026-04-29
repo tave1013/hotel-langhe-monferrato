@@ -6,10 +6,10 @@ export default function Amenities() {
   const amenities = [
     { icon: 'fa-wifi', label: 'Wi-Fi', desc: 'Connessione Wi-Fi disponibile in tutto l\'hotel: in camera, nelle aree comuni e negli spazi esterni. Per restare sempre connessi durante il soggiorno.' },
     { icon: 'fa-parking', label: 'Parcheggio', desc: 'Ampio parcheggio esterno gratuito direttamente davanti alla struttura, comodo e accessibile per tutti gli ospiti.' },
-    { icon: 'fa-utensils', label: 'Ristorante & Bar', desc: 'Possibilità di mangiare direttamente all\'interno della struttura. Colazione e bar a disposizione degli ospiti per iniziare al meglio la giornata e per un momento di relax in qualsiasi ora.' },
+    { icon: 'fa-utensils', label: 'Ristorante & Bar', desc: 'Servizio di ristorazione disponibile su richiesta o in convenzione con partner locali. Ricca colazione a buffet e bar a disposizione degli ospiti.' },
     { icon: 'fa-gift', label: 'Pacchetti Esclusivi', desc: 'Organizziamo esperienze su misura per il tuo soggiorno, con sconti dedicati pensati appositamente per i nostri ospiti.' },
     { icon: 'fa-briefcase', label: 'Sale Meeting', desc: 'Spazi attrezzati per ospitare i tuoi eventi, riunioni e occasioni speciali direttamente in struttura. Contattaci per organizzare ogni dettaglio.' },
-    { icon: 'fa-swimming-pool', label: 'Piscina', desc: 'Piscina all\'aperto immersa nella natura, per rilassarsi e godersi un momento di pace durante il soggiorno.' },
+    { icon: 'fa-swimming-pool', label: 'Piscina', desc: 'Complesso piscina aperto nella stagione estiva, immerso nella natura per rilassarsi e godersi un momento di relax durante il soggiorno.' },
   ];
 
   return (

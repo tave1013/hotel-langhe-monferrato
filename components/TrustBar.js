@@ -10,12 +10,12 @@ export default function TrustBar() {
     {
       icon: 'fa-utensils',
       title: 'Cucina del Territorio',
-      desc: 'Possibilità di mangiare direttamente in loco, con proposte del territorio ideali anche per eventi e occasioni speciali.',
+      desc: 'Possibilità di mangiare prodotti locali del territorio, con proposte tipiche ideali anche per eventi e occasioni speciali.',
     },
     {
       icon: 'fa-swimming-pool',
       title: 'Piscina',
-      desc: 'Piscina all\'aperto immersa nella natura, perfetta per rilassarsi e vivere un momento di pace durante il soggiorno.',
+      desc: 'Piscina estiva all\'aperto immersa nella natura, perfetta per rilassarsi e vivere un momento di relax durante il soggiorno.',
     },
     {
       icon: 'fa-briefcase',

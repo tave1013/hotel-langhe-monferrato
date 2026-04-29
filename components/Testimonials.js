@@ -159,7 +159,7 @@ export default function Testimonials() {
               <div className="flex justify-between items-end">
                 <div>
                   <div style={{ fontFamily: 'Playfair Display, serif', fontSize: '1rem', color: '#FAF7F2', fontWeight: 600 }}>{t.name}</div>
-                  <div style={{ fontFamily: 'Lato', fontSize: '0.7rem', color: '#C9A870', letterSpacing: '0.08em', marginTop: 3 }}>{t.origin} · {t.platform}</div>
+                  <div style={{ fontFamily: 'Lato', fontSize: '0.7rem', color: '#C9A870', letterSpacing: '0.08em', marginTop: 3 }}>{t.platform}</div>
                 </div>
               </div>
             </div>
