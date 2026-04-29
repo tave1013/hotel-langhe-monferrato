@@ -32,7 +32,7 @@ export default function WhatsAppWidget() {
 
   const whatsappUrl = useMemo(() => {
     const message = 'Buongiorno, vorrei ricevere maggiori informazioni sull\'Hotel Langhe & Monferrato.';
-    return `https://wa.me/393489044172?text=${encodeURIComponent(message)}`;
+    return `https://wa.me/393518011730?text=${encodeURIComponent(message)}`;
   }, []);
 
   const handleChatOpen = () => {
