@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 
 function WhatsAppIcon({ className = 'w-7 h-7' }) {
@@ -29,6 +29,15 @@ function CloseIcon() {
 export default function WhatsAppWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [showPromoBubble, setShowPromoBubble] = useState(false);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setShowPromoBubble(true);
+    }, 1200);
+
+    return () => window.clearTimeout(timer);
+  }, []);
 
   const whatsappUrl = useMemo(() => {
     const message = 'Buongiorno, vorrei ricevere maggiori informazioni sull\'Hotel Langhe & Monferrato.';
@@ -38,6 +47,10 @@ export default function WhatsAppWidget() {
   const handleChatOpen = () => {
     if (!privacyAccepted) return;
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+  };
+
+  const dismissPromoBubble = () => {
+    setShowPromoBubble(false);
   };
 
   return (
@@ -109,6 +122,45 @@ export default function WhatsAppWidget() {
         </div>
       </div>
 
+      <div className="flex items-end gap-3">
+        {showPromoBubble && !isOpen && (
+          <div
+            className="relative rounded-2xl border border-[#ECECEC] bg-white px-4 py-3 shadow-[0_14px_36px_rgba(0,0,0,0.16)]"
+            style={{ width: 'min(320px, calc(100vw - 5.5rem))' }}
+          >
+            <div className="flex items-start gap-2">
+              <button
+                type="button"
+                onClick={() => setIsOpen(true)}
+                className="flex-1 text-left"
+                aria-label="Apri chat WhatsApp"
+              >
+                <p className="text-sm font-semibold leading-5 text-[#2C2520] sm:text-[15px]">
+                  Prenota il tuo soggiorno al prezzo più basso!
+                </p>
+              </button>
+
+              <button
+                type="button"
+                onClick={dismissPromoBubble}
+                className="-mr-1 -mt-1 rounded-full p-1 text-[#6C6C6C] transition hover:bg-[#F5F5F5] hover:text-[#2C2520]"
+                aria-label="Chiudi messaggio promozionale"
+              >
+                <CloseIcon />
+              </button>
+            </div>
+
+            <span
+              aria-hidden="true"
+              className="absolute -right-[11px] bottom-3 h-0 w-0 border-y-[9px] border-y-transparent border-l-[11px] border-l-[#ECECEC]"
+            />
+            <span
+              aria-hidden="true"
+              className="absolute -right-[9px] bottom-[13px] h-0 w-0 border-y-[8px] border-y-transparent border-l-[10px] border-l-white"
+            />
+          </div>
+        )}
+
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
@@ -117,6 +169,7 @@ export default function WhatsAppWidget() {
       >
         <WhatsAppIcon className="h-6 w-6 text-white sm:h-7 sm:w-7" />
       </button>
+      </div>
     </div>
   );
 }

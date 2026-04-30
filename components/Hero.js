@@ -11,12 +11,14 @@ const slides = [
     label: 'Un\'Oasi di Relax nelle Langhe',
     title: 'Soggiorna all\'Hotel\nLanghe & Monferrato',
     sub: 'Nel verde del Parco della Contessa a Costigliole d\'Asti, a pochi chilometri dalle eccellenze UNESCO delle Langhe e del Monferrato.',
+    showStars: true,
   },
   {
     img: '/foto/piscina_oasi_blu_costigliole_asti.webp',
     label: 'Piscina Immersa nella Natura',
     title: 'La Piscina Immersa\nnella Natura',
     sub: 'Lasciati avvolgere dal silenzio e dalla natura del Parco della Contessa. La nostra piscina aperta nel periodo estivo è il posto perfetto per rilassarti e rigenerarti.',
+    showStars: false,
   },
 ];
 
@@ -87,9 +89,11 @@ export default function Hero() {
           </ScrollAnimation>
 
           {/* Stars */}
-          <ScrollAnimation type="slide-up" duration="slow" delay={100}>
-            <div className="stars mb-4">★★★★</div>
-          </ScrollAnimation>
+          {slide.showStars && (
+            <ScrollAnimation type="slide-up" duration="slow" delay={100}>
+              <div className="stars mb-4">★★★★</div>
+            </ScrollAnimation>
+          )}
 
           {/* H1 */}
           <ScrollAnimation type="slide-up" duration="slow" delay={200}>

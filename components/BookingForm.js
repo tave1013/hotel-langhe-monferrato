@@ -1,15 +1,12 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DayPicker } from 'react-day-picker';
 import { format } from 'date-fns';
 import { it } from 'date-fns/locale';
-import emailjs from '@emailjs/browser';
 import 'react-day-picker/dist/style.css';
 
 export default function BookingForm({ onSubmit }) {
-  const router = useRouter();
   const calendarRef = useRef(null);
   const submittingRef = useRef(false);
   const lastSubmitTime = useRef(0);
@@ -54,6 +51,28 @@ export default function BookingForm({ onSubmit }) {
 
   const sanitizeInput = (input) => {
     return input.trim().replace(/[<>"']/g, '');
+  };
+
+  const buildWhatsAppMessage = ({ checkInFormatted, checkOutFormatted, nights }) => {
+    const safeName = sanitizeInput(formData.name);
+    const safeEmail = sanitizeInput(formData.email);
+    const safePhone = sanitizeInput(formData.phone);
+    const safeMessage = sanitizeInput(formData.message);
+
+    return [
+      'Buongiorno Hotel Langhe & Monferrato, vorrei richiedere disponibilit\u00e0.',
+      '',
+      '\u{1F4CB} *Dati richiesta*',
+      `\u{1F464} *Nome:* ${safeName}`,
+      `\u{1F4E7} *Email:* ${safeEmail}`,
+      `\u{1F4F1} *Cellulare:* ${safePhone}`,
+      `\u{1F9D1} *Adulti:* ${formData.adults}`,
+      `\u{1F9D2} *Bambini:* ${formData.children}`,
+      `\u{1F4C5} *Check-in:* ${checkInFormatted}`,
+      `\u{1F4C5} *Check-out:* ${checkOutFormatted}`,
+      `\u{1F319} *Notti:* ${nights}`,
+      `\u{1F4DD} *Note:* ${safeMessage || 'Nessuna nota aggiuntiva'}`,
+    ].join('\n');
   };
 
   const calculateNights = () => {
@@ -112,68 +131,21 @@ export default function BookingForm({ onSubmit }) {
       const checkInFormatted  = format(formData.dateRange.from, 'dd/MM/yyyy', { locale: it });
       const checkOutFormatted = format(formData.dateRange.to,   'dd/MM/yyyy', { locale: it });
 
-      // ─── CREDENZIALI EMAILJS ───────────────────────────────
-      const EMAILJS_SERVICE_ID        = 'service_qayjn6q';
-      const EMAILJS_TEMPLATE_CLIENT   = 'template_e44h7i2';   // email all'ospite
-      const EMAILJS_TEMPLATE_INTERNAL = 'template_e6od39t';   // email all'hotel
-      const EMAILJS_PUBLIC_KEY        = 'rlwTvobnIMqgQVwQG';
-      // ──────────────────────────────────────────────────────
+      const whatsappMessage = buildWhatsAppMessage({ checkInFormatted, checkOutFormatted, nights });
+      const whatsappUrl = `https://wa.me/393518011730?text=${encodeURIComponent(whatsappMessage)}`;
 
-      // I nomi qui corrispondono ESATTAMENTE ai {{placeholder}} nei template HTML
-      const baseParams = {
-        name:       sanitizeInput(formData.name),
-        email:      sanitizeInput(formData.email),
-        phone:      sanitizeInput(formData.phone),
-        checkIn:    checkInFormatted,
-        checkOut:   checkOutFormatted,
-        nights:     nights,
-        adults:     formData.adults,
-        children:   formData.children,
-        message:    formData.message.trim() || 'Nessun messaggio aggiuntivo',
-        receivedAt: new Date().toLocaleString('it-IT', {
-          day: '2-digit', month: '2-digit', year: 'numeric',
-          hour: '2-digit', minute: '2-digit'
-        }),
-      };
-
-      // Email all'ospite
-      const emailParamsClient = {
-        ...baseParams,
-        to_email: formData.email.trim(),  // Email dell'ospite
-      };
-
-      // Email all'hotel
-      const emailParamsInternal = {
-        ...baseParams,
-      };
-
-      await Promise.all([
-        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_CLIENT,   emailParamsClient,   { publicKey: EMAILJS_PUBLIC_KEY }),
-        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_INTERNAL, emailParamsInternal, { publicKey: EMAILJS_PUBLIC_KEY }),
-      ]);
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
 
       if (onSubmit) await onSubmit(formData);
 
-      const params = new URLSearchParams({
-        name:     formData.name.trim(),
-        email:    formData.email.trim(),
-        phone:    formData.phone.trim(),
-        adults:   formData.adults.toString(),
-        children: formData.children.toString(),
-        checkIn:  checkInFormatted,
-        checkOut: checkOutFormatted,
-        nights:   nights.toString(),
-        message:  formData.message.trim()
-      });
-
       setFormData({ name: '', email: '', phone: '', adults: 1, children: 0, dateRange: undefined, message: '', website: '' });
-      router.push(`/grazie?${params.toString()}`);
+      setErrors([]);
 
     } catch (error) {
-      console.error('Errore invio email:', error);
+      console.error('Errore apertura WhatsApp:', error);
       setErrors([
-        "Si è verificato un errore durante l'invio. Riprova.",
-        `Dettaglio: ${error?.text || error?.message || 'Errore sconosciuto'}`
+        "Si è verificato un errore durante l'apertura di WhatsApp. Riprova.",
+        `Dettaglio: ${error?.message || 'Errore sconosciuto'}`
       ]);
     } finally {
       setIsLoading(false);
@@ -308,7 +280,7 @@ export default function BookingForm({ onSubmit }) {
 
           {/* SUBMIT */}
           <button type="submit" disabled={isLoading} className={`w-full py-4 rounded-none text-white font-semibold transition-all ${isLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#C9A870] hover:bg-[#A8854A]'}`} style={{ fontFamily: 'Lato, sans-serif' }}>
-            {isLoading ? 'Invio in corso...' : 'Invia Richiesta'}
+            {isLoading ? 'Apertura WhatsApp...' : 'Invia Richiesta su WhatsApp'}
           </button>
 
         </form>
