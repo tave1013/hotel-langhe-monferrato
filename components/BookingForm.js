@@ -59,20 +59,21 @@ export default function BookingForm({ onSubmit }) {
     const safePhone = sanitizeInput(formData.phone);
     const safeMessage = sanitizeInput(formData.message);
 
-    return [
+    const lines = [
       'Buongiorno Hotel Langhe & Monferrato, vorrei richiedere disponibilit\u00e0.',
       '',
-      '\uD83D\uDCCB *Dati richiesta*',
-      `\uD83D\uDC64 *Nome:* ${safeName}`,
-      `\uD83D\uDCE7 *Email:* ${safeEmail}`,
-      `\uD83D\uDCDE *Cellulare:* ${safePhone}`,
-      `\uD83D\uDC65 *Adulti:* ${formData.adults}`,
-      `\uD83D\uDC76 *Bambini:* ${formData.children}`,
-      `\uD83D\uDCC5 *Check-in:* ${checkInFormatted}`,
-      `\uD83D\uDCC5 *Check-out:* ${checkOutFormatted}`,
-      `\uD83C\uDF19 *Notti:* ${nights}`,
-      `\uD83D\uDCDD *Note:* ${safeMessage || 'Nessuna nota aggiuntiva'}`,
-    ].join('\n');
+      String.fromCodePoint(0x1F4CB) + ' *Dati richiesta*',
+      String.fromCodePoint(0x1F464) + ' *Nome:* ' + safeName,
+      String.fromCodePoint(0x1F4E7) + ' *Email:* ' + safeEmail,
+      String.fromCodePoint(0x1F4DE) + ' *Cellulare:* ' + safePhone,
+      String.fromCodePoint(0x1F465) + ' *Adulti:* ' + formData.adults,
+      String.fromCodePoint(0x1F476) + ' *Bambini:* ' + formData.children,
+      String.fromCodePoint(0x1F4C5) + ' *Check-in:* ' + checkInFormatted,
+      String.fromCodePoint(0x1F4C5) + ' *Check-out:* ' + checkOutFormatted,
+      String.fromCodePoint(0x1F319) + ' *Notti:* ' + nights,
+      String.fromCodePoint(0x1F4DD) + ' *Note:* ' + (safeMessage || 'Nessuna nota aggiuntiva'),
+    ];
+    return lines.join('\n');
   };
 
   const calculateNights = () => {
