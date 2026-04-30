@@ -59,13 +59,13 @@ export default function BookingForm({ onSubmit }) {
     const safePhone   = sanitizeInput(formData.phone);
     const safeMessage = sanitizeInput(formData.message);
 
-    const CHECK   = '\u2705';
-    const PERSON  = '\uD83D\uDC64';
-    const PHONE   = '\uD83D\uDCDE';
-    const EMAIL   = '\u2709\uFE0F';
-    const BABY    = '\uD83D\uDC76';
-    const CAL     = '\uD83D\uDCC5';
-    const NOTE    = '\uD83D\uDCDD';
+    const CHECK  = String.fromCodePoint(0x2705);
+    const PERSON = String.fromCodePoint(0x1F464);
+    const PHONE  = String.fromCodePoint(0x1F4DE);
+    const EMAIL  = String.fromCodePoint(0x2709) + String.fromCodePoint(0xFE0F);
+    const BABY   = String.fromCodePoint(0x1F476);
+    const CAL    = String.fromCodePoint(0x1F4C5);
+    const NOTE   = String.fromCodePoint(0x1F4DD);
 
     const lines = [
       'Buongiorno Hotel Langhe & Monferrato, vorrei richiedere disponibilit\u00e0.',
@@ -143,7 +143,7 @@ export default function BookingForm({ onSubmit }) {
       const whatsappMessage = buildWhatsAppMessage({ checkInFormatted, checkOutFormatted, nights });
       const whatsappUrl = `https://wa.me/393518011730?text=${encodeURIComponent(whatsappMessage)}`;
 
-      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      window.location.href = whatsappUrl;
 
       if (onSubmit) await onSubmit(formData);
 
