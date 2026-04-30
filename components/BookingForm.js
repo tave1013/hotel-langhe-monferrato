@@ -66,8 +66,8 @@ export default function BookingForm({ onSubmit }) {
       `👤 *Nome:* ${safeName}`,
       `📞 *Cellulare:* ${safePhone}`,
       `✉️ *Email:* ${safeEmail}`,
-      `👥 *Adulti:* ${formData.adults}`,
-      `🧒 *Bambini:* ${formData.children}`,
+      `👤 *Adulti:* ${formData.adults}`,
+      `👶 *Bambini:* ${formData.children}`,
       `📅 *Check-in:* ${checkInFormatted}`,
       `📅 *Check-out:* ${checkOutFormatted}`,
       `📅 *Notti:* ${nights}`,
@@ -133,7 +133,7 @@ export default function BookingForm({ onSubmit }) {
       const checkOutFormatted = format(formData.dateRange.to,   'dd/MM/yyyy', { locale: it });
 
       const whatsappMessage = buildWhatsAppMessage({ checkInFormatted, checkOutFormatted, nights });
-      const whatsappUrl = `https://wa.me/393518011730?text=${encodeURIComponent(whatsappMessage)}`;
+      const whatsappUrl = `https://api.whatsapp.com/send?phone=393518011730&text=${encodeURIComponent(whatsappMessage)}`;
 
       window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
 
