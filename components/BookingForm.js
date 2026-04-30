@@ -54,24 +54,32 @@ export default function BookingForm({ onSubmit }) {
   };
 
   const buildWhatsAppMessage = ({ checkInFormatted, checkOutFormatted, nights }) => {
-    const safeName = sanitizeInput(formData.name);
-    const safeEmail = sanitizeInput(formData.email);
-    const safePhone = sanitizeInput(formData.phone);
+    const safeName    = sanitizeInput(formData.name);
+    const safeEmail   = sanitizeInput(formData.email);
+    const safePhone   = sanitizeInput(formData.phone);
     const safeMessage = sanitizeInput(formData.message);
 
+    const CHECK   = '\u2705';
+    const PERSON  = '\uD83D\uDC64';
+    const PHONE   = '\uD83D\uDCDE';
+    const EMAIL   = '\u2709\uFE0F';
+    const BABY    = '\uD83D\uDC76';
+    const CAL     = '\uD83D\uDCC5';
+    const NOTE    = '\uD83D\uDCDD';
+
     const lines = [
-      'Buongiorno Hotel Langhe & Monferrato, vorrei richiedere disponibilità.',
+      'Buongiorno Hotel Langhe & Monferrato, vorrei richiedere disponibilit\u00e0.',
       '',
-      '✅ *Dati richiesta*',
-      `👤 *Nome:* ${safeName}`,
-      `📞 *Cellulare:* ${safePhone}`,
-      `✉️ *Email:* ${safeEmail}`,
-      `👤 *Adulti:* ${formData.adults}`,
-      `👶 *Bambini:* ${formData.children}`,
-      `📅 *Check-in:* ${checkInFormatted}`,
-      `📅 *Check-out:* ${checkOutFormatted}`,
-      `📅 *Notti:* ${nights}`,
-      `📝 *Messaggio:* ${safeMessage || 'Nessuna nota aggiuntiva'}`,
+      `${CHECK} *Dati richiesta*`,
+      `${PERSON} *Nome:* ${safeName}`,
+      `${PHONE} *Cellulare:* ${safePhone}`,
+      `${EMAIL} *Email:* ${safeEmail}`,
+      `${PERSON} *Adulti:* ${formData.adults}`,
+      `${BABY} *Bambini:* ${formData.children}`,
+      `${CAL} *Check-in:* ${checkInFormatted}`,
+      `${CAL} *Check-out:* ${checkOutFormatted}`,
+      `${CAL} *Notti:* ${nights}`,
+      `${NOTE} *Messaggio:* ${safeMessage || 'Nessuna nota aggiuntiva'}`,
     ];
     return lines.join('\n');
   };
@@ -133,7 +141,7 @@ export default function BookingForm({ onSubmit }) {
       const checkOutFormatted = format(formData.dateRange.to,   'dd/MM/yyyy', { locale: it });
 
       const whatsappMessage = buildWhatsAppMessage({ checkInFormatted, checkOutFormatted, nights });
-      const whatsappUrl = `https://api.whatsapp.com/send?phone=393518011730&text=${encodeURIComponent(whatsappMessage)}`;
+      const whatsappUrl = `https://wa.me/393518011730?text=${encodeURIComponent(whatsappMessage)}`;
 
       window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
 
