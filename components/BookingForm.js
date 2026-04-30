@@ -62,16 +62,16 @@ export default function BookingForm({ onSubmit }) {
     return [
       'Buongiorno Hotel Langhe & Monferrato, vorrei richiedere disponibilit\u00e0.',
       '',
-      '\u{1F4CB} *Dati richiesta*',
-      `\u{1F464} *Nome:* ${safeName}`,
-      `\u{1F4E7} *Email:* ${safeEmail}`,
-      `\u{1F4F1} *Cellulare:* ${safePhone}`,
-      `\u{1F9D1} *Adulti:* ${formData.adults}`,
-      `\u{1F9D2} *Bambini:* ${formData.children}`,
-      `\u{1F4C5} *Check-in:* ${checkInFormatted}`,
-      `\u{1F4C5} *Check-out:* ${checkOutFormatted}`,
-      `\u{1F319} *Notti:* ${nights}`,
-      `\u{1F4DD} *Note:* ${safeMessage || 'Nessuna nota aggiuntiva'}`,
+      '\uD83D\uDCCB *Dati richiesta*',
+      `\uD83D\uDC64 *Nome:* ${safeName}`,
+      `\uD83D\uDCE7 *Email:* ${safeEmail}`,
+      `\uD83D\uDCDE *Cellulare:* ${safePhone}`,
+      `\uD83D\uDC65 *Adulti:* ${formData.adults}`,
+      `\uD83D\uDC76 *Bambini:* ${formData.children}`,
+      `\uD83D\uDCC5 *Check-in:* ${checkInFormatted}`,
+      `\uD83D\uDCC5 *Check-out:* ${checkOutFormatted}`,
+      `\uD83C\uDF19 *Notti:* ${nights}`,
+      `\uD83D\uDCDD *Note:* ${safeMessage || 'Nessuna nota aggiuntiva'}`,
     ].join('\n');
   };
 
