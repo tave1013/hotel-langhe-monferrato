@@ -60,18 +60,18 @@ export default function BookingForm({ onSubmit }) {
     const safeMessage = sanitizeInput(formData.message);
 
     const lines = [
-      'Buongiorno Hotel Langhe & Monferrato, vorrei richiedere disponibilit\u00e0.',
+      'Buongiorno Hotel Langhe & Monferrato, vorrei richiedere disponibilità.',
       '',
-      String.fromCodePoint(0x1F4CB) + ' *Dati richiesta*',
-      String.fromCodePoint(0x1F464) + ' *Nome:* ' + safeName,
-      String.fromCodePoint(0x1F4E7) + ' *Email:* ' + safeEmail,
-      String.fromCodePoint(0x1F4DE) + ' *Cellulare:* ' + safePhone,
-      String.fromCodePoint(0x1F465) + ' *Adulti:* ' + formData.adults,
-      String.fromCodePoint(0x1F476) + ' *Bambini:* ' + formData.children,
-      String.fromCodePoint(0x1F4C5) + ' *Check-in:* ' + checkInFormatted,
-      String.fromCodePoint(0x1F4C5) + ' *Check-out:* ' + checkOutFormatted,
-      String.fromCodePoint(0x1F319) + ' *Notti:* ' + nights,
-      String.fromCodePoint(0x1F4DD) + ' *Note:* ' + (safeMessage || 'Nessuna nota aggiuntiva'),
+      '✅ *Dati richiesta*',
+      `👤 *Nome:* ${safeName}`,
+      `📞 *Cellulare:* ${safePhone}`,
+      `✉️ *Email:* ${safeEmail}`,
+      `👥 *Adulti:* ${formData.adults}`,
+      `🧒 *Bambini:* ${formData.children}`,
+      `📅 *Check-in:* ${checkInFormatted}`,
+      `📅 *Check-out:* ${checkOutFormatted}`,
+      `📅 *Notti:* ${nights}`,
+      `📝 *Messaggio:* ${safeMessage || 'Nessuna nota aggiuntiva'}`,
     ];
     return lines.join('\n');
   };
