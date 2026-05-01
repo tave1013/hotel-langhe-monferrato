@@ -152,3 +152,57 @@ body { font-family: 'Lato', sans-serif; color: var(--text-dark); background: var
 /* Durate alternative */
 .duration-slow { transition-duration: 1.5s; }
 .duration-slower { transition-duration: 1.8s; }
+
+/* DAYPICKER - GOLD THEME */
+.rdp-root {
+  --rdp-accent-color: #C9A870;
+  --rdp-accent-background-color: rgba(201, 168, 112, 0.2);
+  --rdp-range_middle-background-color: rgba(201, 168, 112, 0.24);
+}
+
+.rdp-day_selected,
+.rdp-day_selected:focus-visible,
+.rdp-day_selected:hover {
+  background-color: #C9A870 !important;
+  color: #ffffff !important;
+}
+
+.rdp-day_range_start,
+.rdp-day_range_end {
+  background-color: #C9A870 !important;
+  color: #ffffff !important;
+}
+
+.rdp-day_range_middle {
+  background-color: rgba(201, 168, 112, 0.24) !important;
+  color: #2C2520 !important;
+}
+
+/* react-day-picker v9 class structure overrides */
+.rdp .rdp-selected .rdp-day_button,
+.rdp .rdp-range_start .rdp-day_button,
+.rdp .rdp-range_end .rdp-day_button {
+  background-color: #C9A870 !important;
+  border-color: #C9A870 !important;
+  color: #ffffff !important;
+}
+
+.rdp .rdp-range_middle {
+  background-color: rgba(201, 168, 112, 0.24) !important;
+}
+
+.rdp .rdp-range_middle .rdp-day_button {
+  color: #2C2520 !important;
+}
+
+.rdp .rdp-today:not(.rdp-outside) .rdp-day_button {
+  color: #A8854A !important;
+  font-weight: 700;
+}
+
+.rdp .rdp-button_previous,
+.rdp .rdp-button_next,
+.rdp .rdp-chevron {
+  color: #C9A870 !important;
+  fill: #C9A870 !important;
+}

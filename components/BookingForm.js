@@ -14,8 +14,12 @@ export default function BookingForm({ onSubmit }) {
     name: '',
     email: '',
     phone: '',
-    adults: 1,
-    children: 0,
+    single: 0,
+    matrimonial: 0,
+    twin: 0,
+    triple: 0,
+    quadruple: 0,
+    suite: 0,
     dateRange: undefined,
     message: '',
     website: '' // Honeypot field
@@ -53,6 +57,19 @@ export default function BookingForm({ onSubmit }) {
     return input.trim().replace(/[<>"']/g, '');
   };
 
+  const roomFieldConfigs = [
+    { key: 'single', label: 'Singola' },
+    { key: 'matrimonial', label: 'Matrimoniale' },
+    { key: 'twin', label: 'Doppia', helper: '(letti separati)' },
+    { key: 'triple', label: 'Tripla' },
+    { key: 'quadruple', label: 'Quadrupla' },
+    { key: 'suite', label: 'Suite' },
+  ];
+
+  const totalRoomsSelected = () => {
+    return roomFieldConfigs.reduce((total, room) => total + (formData[room.key] || 0), 0);
+  };
+
   const buildWhatsAppMessage = ({ checkInFormatted, checkOutFormatted, nights }) => {
     const safeName    = sanitizeInput(formData.name);
     const safeEmail   = sanitizeInput(formData.email);
@@ -66,8 +83,12 @@ export default function BookingForm({ onSubmit }) {
       `*Nome:* ${safeName}`,
       `*Cellulare:* ${safePhone}`,
       `*Email:* ${safeEmail}`,
-      `*Adulti:* ${formData.adults}`,
-      `*Bambini:* ${formData.children}`,
+      `*Camere Singole:* ${formData.single}`,
+      `*Camere Matrimoniali:* ${formData.matrimonial}`,
+      `*Camere Doppie (letti separati):* ${formData.twin}`,
+      `*Camere Triple:* ${formData.triple}`,
+      `*Camere Quadruple:* ${formData.quadruple}`,
+      `*Suite:* ${formData.suite}`,
       `*Check-in:* ${checkInFormatted}`,
       `*Check-out:* ${checkOutFormatted}`,
       `*Notti:* ${nights}`,
@@ -83,9 +104,11 @@ export default function BookingForm({ onSubmit }) {
   };
 
   const formatDateRange = () => {
-    if (!formData.dateRange?.from) return 'Seleziona le date';
-    if (!formData.dateRange?.to) return format(formData.dateRange.from, 'dd/MM/yyyy', { locale: it });
-    return `${format(formData.dateRange.from, 'dd/MM/yyyy', { locale: it })} - ${format(formData.dateRange.to, 'dd/MM/yyyy', { locale: it })}`;
+    if (!formData.dateRange?.from) return 'Arrivo: --/--/----   |   Partenza: --/--/----';
+    if (!formData.dateRange?.to) {
+      return `Arrivo: ${format(formData.dateRange.from, 'dd/MM/yyyy', { locale: it })}   |   Partenza: --/--/----`;
+    }
+    return `Arrivo: ${format(formData.dateRange.from, 'dd/MM/yyyy', { locale: it })}   |   Partenza: ${format(formData.dateRange.to, 'dd/MM/yyyy', { locale: it })}`;
   };
 
   const handleSubmit = async (e) => {
@@ -116,7 +139,7 @@ export default function BookingForm({ onSubmit }) {
     else if (!validateEmail(formData.email)) newErrors.push('Inserisci un\'email valida');
     if (!formData.phone.trim())   newErrors.push('Il cellulare è obbligatorio');
     else if (!validatePhone(formData.phone)) newErrors.push('Il cellulare deve contenere almeno 10 cifre');
-    if (formData.adults < 1)      newErrors.push('Almeno 1 adulto è obbligatorio');
+    if (totalRoomsSelected() < 1) newErrors.push('Seleziona almeno una tipologia di camera (quantità maggiore di 0)');
     if (!formData.dateRange?.from || !formData.dateRange?.to) newErrors.push('Seleziona le date di check-in e check-out');
 
     if (newErrors.length > 0) {
@@ -139,7 +162,7 @@ export default function BookingForm({ onSubmit }) {
 
       if (onSubmit) await onSubmit(formData);
 
-      setFormData({ name: '', email: '', phone: '', adults: 1, children: 0, dateRange: undefined, message: '', website: '' });
+      setFormData({ name: '', email: '', phone: '', single: 0, matrimonial: 0, twin: 0, triple: 0, quadruple: 0, suite: 0, dateRange: undefined, message: '', website: '' });
       setErrors([]);
 
     } catch (error) {
@@ -157,8 +180,7 @@ export default function BookingForm({ onSubmit }) {
   const updateCounter = (field, increment) => {
     setFormData(prev => {
       const newValue = prev[field] + increment;
-      if (field === 'adults')  { if (newValue < 1  || newValue > 50) return prev; }
-      else                     { if (newValue < 0  || newValue > 10) return prev; }
+      if (newValue < 0 || newValue > 10) return prev;
       return { ...prev, [field]: newValue };
     });
   };
@@ -216,48 +238,85 @@ export default function BookingForm({ onSubmit }) {
             </div>
           </div>
 
-          {/* ADULTI / BAMBINI / DATE */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div>
-              <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Adulti</label>
-              <div className="bg-[#f5f5f5] rounded-none p-4 flex items-center justify-between">
-                <span className="text-gray-800" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.95rem' }}>{formData.adults === 1 ? '1 adulto' : `${formData.adults} adulti`}</span>
-                <div className="flex items-center gap-3">
-                  <button type="button" onClick={() => updateCounter('adults', -1)} disabled={formData.adults <= 1} className={`w-10 h-10 rounded border-2 flex items-center justify-center transition-all ${formData.adults <= 1 ? 'border-gray-300 text-gray-400 cursor-not-allowed' : 'border-gray-400 text-gray-700 hover:border-[#C9A870] hover:text-[#C9A870] bg-white'}`} style={{ fontSize: '1.2rem', fontWeight: 600 }}>−</button>
-                  <button type="button" onClick={() => updateCounter('adults', 1)}  disabled={formData.adults >= 50} className={`w-10 h-10 rounded border-2 flex items-center justify-center transition-all ${formData.adults >= 50 ? 'border-gray-300 text-gray-400 cursor-not-allowed' : 'border-gray-400 text-gray-700 hover:border-[#C9A870] hover:text-[#C9A870] bg-white'}`} style={{ fontSize: '1.2rem', fontWeight: 600 }}>+</button>
-                </div>
-              </div>
-            </div>
-            <div>
-              <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Bambini</label>
-              <div className="bg-[#f5f5f5] rounded-none p-4 flex items-center justify-between">
-                <span className="text-gray-800" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.95rem' }}>{formData.children === 0 ? '0 bambini' : formData.children === 1 ? '1 bambino' : `${formData.children} bambini`}</span>
-                <div className="flex items-center gap-3">
-                  <button type="button" onClick={() => updateCounter('children', -1)} disabled={formData.children <= 0} className={`w-10 h-10 rounded border-2 flex items-center justify-center transition-all ${formData.children <= 0 ? 'border-gray-300 text-gray-400 cursor-not-allowed' : 'border-gray-400 text-gray-700 hover:border-[#C9A870] hover:text-[#C9A870] bg-white'}`} style={{ fontSize: '1.2rem', fontWeight: 600 }}>−</button>
-                  <button type="button" onClick={() => updateCounter('children', 1)}  disabled={formData.children >= 10} className={`w-10 h-10 rounded border-2 flex items-center justify-center transition-all ${formData.children >= 10 ? 'border-gray-300 text-gray-400 cursor-not-allowed' : 'border-gray-400 text-gray-700 hover:border-[#C9A870] hover:text-[#C9A870] bg-white'}`} style={{ fontSize: '1.2rem', fontWeight: 600 }}>+</button>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div className="flex items-center justify-between mb-2">
-                <label className="block" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Date di soggiorno</label>
-                {calculateNights() > 0 && (
-                  <span className="text-xs font-semibold px-2 py-1" style={{ fontFamily: 'Lato, sans-serif', background: '#C9A870', color: 'white' }}>
-                    {calculateNights()} {calculateNights() === 1 ? 'notte' : 'notti'}
-                  </span>
-                )}
-              </div>
-              <div className="relative" ref={calendarRef}>
-                <button type="button" onClick={() => setShowCalendar(!showCalendar)} className="w-full bg-[#f5f5f5] rounded-none p-4 text-left focus:outline-none hover:bg-[#eeeeee] transition-colors flex items-center justify-between min-h-[74px]" style={{ fontFamily: 'Lato, sans-serif' }}>
-                  <span className="text-gray-800" style={{ fontSize: '0.95rem' }}>{formatDateRange()}</span>
-                  <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                </button>
-                {showCalendar && (
-                  <div className="absolute z-10 mt-2 bg-white border border-gray-300 rounded-none shadow-lg p-4 left-0 md:left-auto md:right-0">
-                    <DayPicker mode="range" selected={formData.dateRange} onSelect={(range) => setFormData({ ...formData, dateRange: range })} disabled={{ before: new Date() }} locale={it} />
+          {/* TIPOLOGIE CAMERE */}
+          <div>
+            <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Tipologie camere</label>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {roomFieldConfigs.map((room) => (
+                <div key={room.key}>
+                  <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>
+                    {room.label} {room.helper ? <span style={{ textTransform: 'none', letterSpacing: 'normal', fontWeight: 600 }}>{room.helper}</span> : null}
+                  </label>
+                  <div className="bg-[#f5f5f5] rounded-none p-4 flex items-center justify-between">
+                    <span className="text-gray-800" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.95rem' }}>{formData[room.key]} {formData[room.key] === 1 ? 'camera' : 'camere'}</span>
+                    <div className="flex items-center gap-3">
+                      <button
+                        type="button"
+                        onClick={() => updateCounter(room.key, -1)}
+                        disabled={formData[room.key] <= 0}
+                        className={`w-10 h-10 rounded border-2 flex items-center justify-center transition-all ${formData[room.key] <= 0 ? 'border-gray-300 text-gray-400 cursor-not-allowed' : 'border-gray-400 text-gray-700 hover:border-[#C9A870] hover:text-[#C9A870] bg-white'}`}
+                        style={{ fontSize: '1.2rem', fontWeight: 600 }}
+                      >
+                        −
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => updateCounter(room.key, 1)}
+                        disabled={formData[room.key] >= 10}
+                        className={`w-10 h-10 rounded border-2 flex items-center justify-center transition-all ${formData[room.key] >= 10 ? 'border-gray-300 text-gray-400 cursor-not-allowed' : 'border-gray-400 text-gray-700 hover:border-[#C9A870] hover:text-[#C9A870] bg-white'}`}
+                        style={{ fontSize: '1.2rem', fontWeight: 600 }}
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
-                )}
-              </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* DATE SU RIGA SINGOLA */}
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <label className="block" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Date soggiorno (arrivo e partenza)</label>
+              {calculateNights() > 0 && (
+                <span className="text-xs font-semibold px-2 py-1" style={{ fontFamily: 'Lato, sans-serif', background: '#C9A870', color: 'white' }}>
+                  {calculateNights()} {calculateNights() === 1 ? 'notte' : 'notti'}
+                </span>
+              )}
+            </div>
+            <div className="relative" ref={calendarRef}>
+              <button type="button" onClick={() => setShowCalendar(!showCalendar)} className="w-full bg-[#f5f5f5] rounded-none p-4 text-left focus:outline-none hover:bg-[#eeeeee] transition-colors flex items-center justify-between min-h-[74px]" style={{ fontFamily: 'Lato, sans-serif' }}>
+                <span className="text-gray-800" style={{ fontSize: '0.95rem' }}>{formatDateRange()}</span>
+                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+              </button>
+              {showCalendar && (
+                <div className="absolute z-10 mt-2 bg-white border border-gray-300 rounded-none shadow-lg p-4 left-0 md:left-auto md:right-0">
+                  <DayPicker
+                    mode="range"
+                    selected={formData.dateRange}
+                    onSelect={(range) => setFormData({ ...formData, dateRange: range })}
+                    disabled={{ before: new Date() }}
+                    locale={it}
+                    styles={{
+                      root: {
+                        '--rdp-accent-color': '#C9A870',
+                        '--rdp-accent-background-color': 'rgba(201, 168, 112, 0.2)',
+                        '--rdp-range_middle-background-color': 'rgba(201, 168, 112, 0.24)',
+                      },
+                      chevron: { fill: '#C9A870' },
+                    }}
+                    modifiersStyles={{
+                      selected: { backgroundColor: '#C9A870', color: '#fff' },
+                      range_start: { backgroundColor: '#C9A870', color: '#fff' },
+                      range_end: { backgroundColor: '#C9A870', color: '#fff' },
+                      range_middle: { backgroundColor: 'rgba(201, 168, 112, 0.24)', color: '#2C2520' },
+                      today: { color: '#A8854A', fontWeight: 700 },
+                    }}
+                  />
+                </div>
+              )}
             </div>
           </div>
 
