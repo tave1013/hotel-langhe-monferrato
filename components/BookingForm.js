@@ -96,15 +96,15 @@ export default function BookingForm({ onSubmit }) {
     const lines = [
       'Buongiorno, vorrei richiedere disponibilita per la seguentte data:',
       '',
-      '🗓️ *Prenotazione*',
-      `👤 *Nome:* ${safeName}`,
-      `📱 *Cellulare:* ${safePhone}`,
-      `✉️ *Email:* ${safeEmail}`,
+      '*Prenotazione*',
+      `*Nome:* ${safeName}`,
+      `*Cellulare:* ${safePhone}`,
+      `*Email:* ${safeEmail}`,
       ...selectedRoomLines,
-      `📅 *Check-in:* ${checkInFormatted}`,
-      `📅 *Check-out:* ${checkOutFormatted}`,
-      `🌙 *Notti:* ${nights}`,
-      `💬 *Messaggio:* ${safeMessage || 'Nessuna nota aggiuntiva'}`,
+      `*Check-in:* ${checkInFormatted}`,
+      `*Check-out:* ${checkOutFormatted}`,
+      `*Notti:* ${nights}`,
+      `*Messaggio:* ${safeMessage || 'Nessuna nota aggiuntiva'}`,
     ];
     return lines.join('\n');
   };
