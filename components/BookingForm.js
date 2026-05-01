@@ -94,9 +94,9 @@ export default function BookingForm({ onSubmit }) {
       .map((room) => `*${room.label}:* ${room.value}`);
 
     const lines = [
-      'Buongiorno Hotel Langhe & Monferrato, vorrei richiedere disponibilita.',
+      'Buongiorno, vorrei richiedere disponibilita per la seguentte data:',
       '',
-      '*Dati richiesta*',
+      '*🗓️ Prenotazione*',
       `*Nome:* ${safeName}`,
       `*Cellulare:* ${safePhone}`,
       `*Email:* ${safeEmail}`,
