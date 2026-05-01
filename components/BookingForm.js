@@ -76,6 +76,17 @@ export default function BookingForm({ onSubmit }) {
     const safePhone   = sanitizeInput(formData.phone);
     const safeMessage = sanitizeInput(formData.message);
 
+    const selectedRoomLines = [
+      { label: 'Camere Singole', value: formData.single },
+      { label: 'Camere Matrimoniali', value: formData.matrimonial },
+      { label: 'Camere Doppie (letti separati)', value: formData.twin },
+      { label: 'Camere Triple', value: formData.triple },
+      { label: 'Camere Quadruple', value: formData.quadruple },
+      { label: 'Suite', value: formData.suite },
+    ]
+      .filter((room) => room.value > 0)
+      .map((room) => `*${room.label}:* ${room.value}`);
+
     const lines = [
       'Buongiorno Hotel Langhe & Monferrato, vorrei richiedere disponibilita.',
       '',
@@ -83,12 +94,7 @@ export default function BookingForm({ onSubmit }) {
       `*Nome:* ${safeName}`,
       `*Cellulare:* ${safePhone}`,
       `*Email:* ${safeEmail}`,
-      `*Camere Singole:* ${formData.single}`,
-      `*Camere Matrimoniali:* ${formData.matrimonial}`,
-      `*Camere Doppie (letti separati):* ${formData.twin}`,
-      `*Camere Triple:* ${formData.triple}`,
-      `*Camere Quadruple:* ${formData.quadruple}`,
-      `*Suite:* ${formData.suite}`,
+      ...selectedRoomLines,
       `*Check-in:* ${checkInFormatted}`,
       `*Check-out:* ${checkOutFormatted}`,
       `*Notti:* ${nights}`,
