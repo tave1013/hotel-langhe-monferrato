@@ -7,7 +7,7 @@ import SchemaOrg from '@/components/SchemaOrg';
 
 export const metadata = {
   title: 'Cosa Vedere nelle Langhe | Guida Territorio e Attrazioni',
-  description: 'Scopri Asti, Alba e il tartufo, Cattedrali Sotterranee di Canelli, castelli del Monferrato e Big Bench. Mini guide per il tuo soggiorno nelle Langhe.',
+  description: 'Scopri Asti, Alba e il tartufo, Cattedrali Sotterranee di Canelli, castelli del Monferrato, Big Bench, E-bike e birrificio artigianale. Mini guide per il tuo soggiorno nelle Langhe.',
   openGraph: {
     title: 'Territorio Langhe e Monferrato | Guide e Attrazioni',
     description: 'Guide pratiche per esplorare Langhe e Monferrato: arte, vino, gastronomia e natura.',
@@ -52,7 +52,7 @@ export default function TerritorioPage() {
             Territorio: Langhe &amp; Monferrato
           </h1>
           <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.2rem', color: '#fff', fontStyle: 'italic', maxWidth: 580, lineHeight: 1.7 }}>
-            Sei mini guide scritte con cura per farti scoprire uno dei territori più straordinari d&apos;Italia — Patrimonio UNESCO, vini leggendari, tartufi, castelli e panchine giganti.
+            Otto mini guide scritte con cura per farti scoprire uno dei territori più straordinari d&apos;Italia — Patrimonio UNESCO, vini leggendari, tartufi, castelli, E-bike e panchine giganti.
           </p>
         </div>
       </section>
@@ -61,7 +61,7 @@ export default function TerritorioPage() {
       <div style={{ background: '#1A1714', padding: '1.8rem 1.5rem' }}>
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {[
-            { icon: 'fa-map-marker-alt', num: '6', label: 'Mini Guide' },
+            { icon: 'fa-map-marker-alt', num: '8', label: 'Mini Guide' },
             { icon: 'fa-award', num: 'UNESCO', label: 'Patrimonio Mondiale' },
             { icon: 'fa-wine-glass-alt', num: '19', label: 'DOCG Riconosciute' },
             { icon: 'fa-route', num: '< 40km', label: 'Raggio dall\'Hotel' },
@@ -86,7 +86,7 @@ export default function TerritorioPage() {
               Esperienze e Destinazioni da Non Perdere
             </h2>
             <p style={{ fontFamily: 'Lato', fontSize: '0.85rem', color: '#9A8A7A', maxWidth: 580, margin: '1rem auto 0', lineHeight: 1.8 }}>
-              Le Langhe e il Monferrato offrono esperienze per ogni tipo di viaggiatore. Abbiamo selezionato le sei tappe che secondo noi non si possono perdere.
+              Le Langhe e il Monferrato offrono esperienze per ogni tipo di viaggiatore. Abbiamo selezionato otto tappe che secondo noi non si possono perdere.
             </p>
           </div>
 

@@ -36,7 +36,6 @@ const navLinks = [
       { label: 'Le Big Bench',                href: '/territorio/big-bench' },
     ],
   },
-  { label: 'Offerte',  href: '/offerte' },
   { label: 'Contatti', href: '/contatti' },
 ];
 

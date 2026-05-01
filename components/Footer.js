@@ -33,7 +33,6 @@ export default function Footer() {
                 { label: 'Prenota', href: '/prenota', external: false },
                 { label: 'Camere e Suite', href: '/camere', external: false },
                 { label: 'Sale Meeting', href: '/sale-meeting', external: false },
-                { label: 'Offerte', href: '/offerte', external: false },
                 { label: 'Dove siamo', href: 'https://www.google.com/maps/place/Albergo+Langhe+e+Monferrato/@44.7923618,8.1750117,17z/data=!3m1!4b1!4m9!3m8!1s0x47878ca2d313df7d:0xb73fca66300f6dd0!5m2!4m1!1i2!8m2!3d44.7923618!4d8.1775866!16s%2Fg%2F1vs1qrqf?entry=ttu&g_ep=EgoyMDI2MDMwNC4xIKXMDSoASAFQAw%3D%3D', external: true },
               ].map((item) => (
                 <li key={item.href}>
