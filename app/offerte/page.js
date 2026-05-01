@@ -55,10 +55,10 @@ const offerte = [
     badge: 'Famiglie',
     categoria: 'Family',
     titolo: 'Vacanza in Famiglia',
-    descrizione: 'Tutto pensato per le famiglie: Camera Family spaziosa, kit benvenuto bambini, accesso alla piscina e un pomeriggio di attività in natura tra le colline.',
+    descrizione: 'Tutto pensato per le famiglie: Camera Quadrupla spaziosa, kit benvenuto bambini, accesso alla piscina e un pomeriggio di attività in natura tra le colline.',
     prezzo: '340',
     prezzoPieno: '420',
-    include: ['2 notti Camera Family', 'Colazione inclusa', 'Kit bambini', 'Piscina inclusa', 'Attività natura guidata'],
+    include: ['2 notti Camera Quadrupla', 'Colazione inclusa', 'Kit bambini', 'Piscina inclusa', 'Attività natura guidata'],
     slug: 'vacanza-famiglia',
   },
   {

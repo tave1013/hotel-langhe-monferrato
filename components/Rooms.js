@@ -47,16 +47,6 @@ const rooms = [
     href: '/camere/quadrupla',
   },
   {
-    name: 'Camera Family',
-    desc: 'Le 4 Family Room sono camere soppalcate ideali per chi viaggia con bambini: letto matrimoniale al piano superiore e due letti singoli al piano inferiore. Una soluzione pratica e confortevole per vivere le Langhe in famiglia.',
-    img: '/foto/family.webp',
-    price: '220',
-    size: '45 m²',
-    guests: '2+2',
-    features: ['4 Camere Disponibili', 'Camera Soppalcata', 'Ideale per Famiglie', 'Colazione per Tutti'],
-    href: '/camere/family',
-  },
-  {
     name: 'Suite Deluxe',
     desc: 'Le 6 Suite sono la scelta ideale per coppie che desiderano più spazio e comfort. Ambienti eleganti, atmosfera riservata e vasca idromassaggio per un soggiorno rilassante nel cuore di Costigliole d\'Asti.',
     img: '/foto/suite.webp',

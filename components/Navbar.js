@@ -17,7 +17,6 @@ const navLinks = [
       { label: 'Camera Matrimoniale', href: '/camere/standard' },
       { label: 'Camera Tripla',     href: '/camere/tripla' },
       { label: 'Camera Quadrupla',  href: '/camere/quadrupla' },
-      { label: 'Camera Family',     href: '/camere/family' },
       { label: 'Suite Deluxe',      href: '/camere/suite' },
     ],
   },

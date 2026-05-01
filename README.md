@@ -15,7 +15,6 @@ Apri http://localhost:3000
 - `/camere/standard` → Camera Standard
 - `/camere/tripla` → Camera Tripla
 - `/camere/quadrupla` → Camera Quadrupla
-- `/camere/family` → Camera Family
 - `/camere/suite` → Suite Deluxe
 
 ## Modificare i dati delle camere
