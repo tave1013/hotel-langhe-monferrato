@@ -54,7 +54,7 @@ export default function WhatsAppWidget() {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-[9999] flex flex-col items-end sm:bottom-6 sm:right-6">
+    <div className="pointer-events-none fixed bottom-4 right-4 z-[9999] flex flex-col items-end sm:bottom-6 sm:right-6">
       <div
         className={[
           'mb-3 w-[calc(100vw-2rem)] max-w-[380px] overflow-hidden rounded-3xl bg-white shadow-[0_20px_70px_rgba(0,0,0,0.22)] transition-all duration-300 ease-out',
@@ -125,7 +125,7 @@ export default function WhatsAppWidget() {
       <div className="flex items-end gap-3">
         {showPromoBubble && !isOpen && (
           <div
-            className="relative rounded-2xl border border-[#ECECEC] bg-white px-4 py-3 shadow-[0_14px_36px_rgba(0,0,0,0.16)]"
+            className="pointer-events-auto relative rounded-2xl border border-[#ECECEC] bg-white px-4 py-3 shadow-[0_14px_36px_rgba(0,0,0,0.16)]"
             style={{ width: 'min(320px, calc(100vw - 5.5rem))' }}
           >
             <div className="flex items-start gap-2">
@@ -164,7 +164,7 @@ export default function WhatsAppWidget() {
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-[#128C7E] shadow-[0_10px_24px_rgba(18,140,126,0.26)] transition-transform duration-300 hover:scale-105 sm:h-14 sm:w-14"
+        className="pointer-events-auto flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#128C7E] shadow-[0_10px_24px_rgba(18,140,126,0.26)] transition-transform duration-300 hover:scale-105 sm:h-14 sm:w-14"
         aria-label={isOpen ? 'Chiudi chat WhatsApp' : 'Apri chat WhatsApp'}
       >
         <WhatsAppIcon className="h-6 w-6 text-white sm:h-7 sm:w-7" />
