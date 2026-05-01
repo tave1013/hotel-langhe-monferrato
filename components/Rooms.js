@@ -7,8 +7,18 @@ import ScrollAnimation from './ScrollAnimation';
 
 const rooms = [
   {
-    name: 'Camera Standard',
-    desc: 'Le nostre 38 Camere Standard sono ideali per coppie e viaggiatori business in cerca di comfort e tranquillità tra Langhe e Monferrato. Ambienti accoglienti, curati nei dettagli, con doccia idromassaggio per un relax completo.',
+    name: 'Camera Singola',
+    desc: 'La Camera Singola è ideale per chi viaggia da solo in cerca di comfort e tranquillità tra Langhe e Monferrato. Ambiente accogliente, curato nei dettagli, con doccia idromassaggio per un relax completo.',
+    img: '/foto/suite.webp',
+    price: '90',
+    size: '22 m²',
+    guests: '1',
+    features: ['Camera Disponibile', 'Doccia Idromassaggio', 'Ideale per Viaggiatori Singoli', 'Free Wi-Fi'],
+    href: '/camere/singola',
+  },
+  {
+    name: 'Camera Matrimoniale',
+    desc: 'Le nostre 38 Camere Matrimoniali sono ideali per coppie e viaggiatori business in cerca di comfort e tranquillità tra Langhe e Monferrato. Ambienti accoglienti, curati nei dettagli, con doccia idromassaggio per un relax completo.',
     img: '/foto/suite.webp',
     price: '120',
     size: '22 m²',

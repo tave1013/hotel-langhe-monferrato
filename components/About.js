@@ -96,7 +96,7 @@ export default function About() {
                 marginBottom: '2rem',
               }}
             >
-              In una zona Patrimonio dell’Umanità UNESCO, ricca di tradizioni, eventi culturali e itinerari enogastronomici, l’hotel offre 58 camere spaziose: Standard, Triple, Quadruple, Family Room e Suite. Ogni ambiente è pensato per garantire il massimo comfort a coppie, famiglie e viaggiatori alla ricerca di relax, natura e autenticità.
+              In una zona Patrimonio dell’Umanità UNESCO, ricca di tradizioni, eventi culturali e itinerari enogastronomici, l’hotel offre 58 camere spaziose: Singole, Matrimoniali, Triple, Quadruple, Family Room e Suite. Ogni ambiente è pensato per garantire il massimo comfort a coppie, famiglie e viaggiatori alla ricerca di relax, natura e autenticità.
             </p>
 
             {/* MICRO STATS */}
@@ -117,7 +117,7 @@ export default function About() {
             </div>
 
             <Link href="/prenota" className="btn-gold">
-              <span>Prenota la Tua Esperienza</span>
+              <span>Prenota il Tuo Soggiorno</span>
             </Link>
           </div>
           </ScrollAnimation>

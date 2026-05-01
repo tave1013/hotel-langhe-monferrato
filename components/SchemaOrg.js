@@ -130,7 +130,7 @@ export default function SchemaOrg() {
         name: 'Qual è il prezzo delle camere?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Le camere partono da €120 a notte per la Camera Standard. Offriamo anche Camere Triple (€150), Quadruple (€200), Family (€220) e Suite Deluxe (€140).',
+          text: 'Le camere partono da €90 a notte per la Camera Singola. Offriamo anche Camera Matrimoniale (€120), Camere Triple (€150), Quadruple (€200), Family (€220) e Suite Deluxe (€140).',
         },
       },
       {

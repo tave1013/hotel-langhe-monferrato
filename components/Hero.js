@@ -135,7 +135,7 @@ export default function Hero() {
           <ScrollAnimation type="slide-up" duration="slow" delay={400}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 sm:mt-0">
               <Link href="/prenota" className="btn-gold">
-                <span>Prenota la Tua Esperienza</span>
+                <span>Prenota il Tuo Soggiorno</span>
               </Link>
               <Link href="/camere" className="btn-outline-white">
                 Scopri le Camere

@@ -13,7 +13,8 @@ const navLinks = [
     label: 'Camere & Suite',
     href: '/camere',
     dropdown: [
-      { label: 'Camera Standard',   href: '/camere/standard' },
+      { label: 'Camera Singola',    href: '/camere/singola' },
+      { label: 'Camera Matrimoniale', href: '/camere/standard' },
       { label: 'Camera Tripla',     href: '/camere/tripla' },
       { label: 'Camera Quadrupla',  href: '/camere/quadrupla' },
       { label: 'Camera Family',     href: '/camere/family' },

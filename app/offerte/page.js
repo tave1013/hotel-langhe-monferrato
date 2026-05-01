@@ -47,7 +47,7 @@ const offerte = [
     descrizione: 'Il pacchetto completo per scoprire il territorio: 3 notti, colazione ogni giorno, wine tour UNESCO, caccia al tartufo con trifolau e transfer incluso.',
     prezzo: '860',
     prezzoPieno: '1050',
-    include: ['3 notti Camera Standard+', 'Colazioni incluse', 'Wine tour UNESCO', 'Caccia al tartufo', 'Transfer privato'],
+    include: ['3 notti Camera Matrimoniale+', 'Colazioni incluse', 'Wine tour UNESCO', 'Caccia al tartufo', 'Transfer privato'],
     slug: 'scopri-le-langhe',
   },
   {
