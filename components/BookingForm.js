@@ -7,6 +7,7 @@ import { it } from 'date-fns/locale';
 import 'react-day-picker/dist/style.css';
 
 export default function BookingForm({ onSubmit }) {
+  const formTopRef = useRef(null);
   const calendarRef = useRef(null);
   const submittingRef = useRef(false);
   const lastSubmitTime = useRef(0);
@@ -70,6 +71,11 @@ export default function BookingForm({ onSubmit }) {
     return roomFieldConfigs.reduce((total, room) => total + (formData[room.key] || 0), 0);
   };
 
+  const scrollToFormTop = () => {
+    if (!formTopRef.current) return;
+    formTopRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   const buildWhatsAppMessage = ({ checkInFormatted, checkOutFormatted, nights }) => {
     const safeName    = sanitizeInput(formData.name);
     const safeEmail   = sanitizeInput(formData.email);
@@ -131,6 +137,7 @@ export default function BookingForm({ onSubmit }) {
     const now = Date.now();
     if (now - lastSubmitTime.current < 3000) {
       setErrors(['Attendi qualche secondo prima di inviare nuovamente']);
+      scrollToFormTop();
       return;
     }
     lastSubmitTime.current = now;
@@ -150,6 +157,7 @@ export default function BookingForm({ onSubmit }) {
 
     if (newErrors.length > 0) {
       setErrors(newErrors);
+      scrollToFormTop();
       submittingRef.current = false;
       return;
     }
@@ -177,6 +185,7 @@ export default function BookingForm({ onSubmit }) {
         "Si è verificato un errore durante l'apertura di WhatsApp. Riprova.",
         `Dettaglio: ${error?.message || 'Errore sconosciuto'}`
       ]);
+      scrollToFormTop();
     } finally {
       setIsLoading(false);
       submittingRef.current = false;
@@ -192,7 +201,7 @@ export default function BookingForm({ onSubmit }) {
   };
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div ref={formTopRef} className="max-w-4xl mx-auto">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center mb-10">
         <h2 className="text-3xl md:text-4xl mb-4" style={{ fontFamily: 'Playfair Display, serif', fontWeight: 400, color: '#2C2520' }}>Richiedi Disponibilità</h2>
         <div className="w-16 h-0.5 bg-[#C9A870] mx-auto mb-6"></div>
