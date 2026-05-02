@@ -49,7 +49,7 @@ export default function Hero() {
   const slide = slides[current] || slides[0];
 
   return (
-    <section className="relative h-screen md:min-h-[680px] overflow-hidden" aria-label="Hero">
+    <section className="relative min-h-[110vh] md:min-h-[680px] overflow-hidden" aria-label="Hero">
       {/* BG IMAGE */}
       <div
         className="absolute inset-0 transition-opacity duration-700"
@@ -188,7 +188,7 @@ export default function Hero() {
 
         {/* REVIEW BADGE */}
         <div
-          className="mb-24 md:mb-20"
+          className="mb-32 md:mb-20"
           style={{
             marginTop: '5.5rem',
             display: 'flex',
