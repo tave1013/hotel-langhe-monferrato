@@ -22,6 +22,8 @@ export default function BookingForm({ onSubmit }) {
     quadruple: 0,
     suite: 0,
     dateRange: undefined,
+    colazione: '',
+    extras: [],
     message: '',
     website: '' // Honeypot field
   });
@@ -67,6 +69,23 @@ export default function BookingForm({ onSubmit }) {
     { key: 'suite', label: 'Suite' },
   ];
 
+  const extrasOptions = [
+    { id: 'bollicine',  label: 'Bottiglia di bollicine con 2 calici', price: '20€' },
+    { id: 'cantine',   label: 'Visita alle cantine con degustazione', price: 'da 25€ p.p.' },
+    { id: 'tartufo',   label: 'Esperienza caccia al tartufo', price: 'da 200€' },
+    { id: 'ebike',     label: 'Tour e-bike per le Langhe', price: 'da 35€ p.p.' },
+    { id: 'birre',     label: 'Tour + degustazione birre del territorio', price: 'da 15€ p.p.' },
+  ];
+
+  const toggleExtra = (id) => {
+    setFormData(prev => ({
+      ...prev,
+      extras: prev.extras.includes(id)
+        ? prev.extras.filter(e => e !== id)
+        : [...prev.extras, id],
+    }));
+  };
+
   const totalRoomsSelected = () => {
     return roomFieldConfigs.reduce((total, room) => total + (formData[room.key] || 0), 0);
   };
@@ -93,6 +112,10 @@ export default function BookingForm({ onSubmit }) {
       .filter((room) => room.value > 0)
       .map((room) => `*${room.label}:* ${room.value}`);
 
+    const extraLabels = formData.extras.length > 0
+      ? formData.extras.map(id => extrasOptions.find(o => o.id === id)?.label).filter(Boolean).join(', ')
+      : 'Nessun extra selezionato';
+
     const lines = [
       'Buongiorno, vorrei richiedere disponibilita per la seguentte data:',
       '',
@@ -104,6 +127,8 @@ export default function BookingForm({ onSubmit }) {
       `*Check-in:* ${checkInFormatted}`,
       `*Check-out:* ${checkOutFormatted}`,
       `*Notti:* ${nights}`,
+      `*Colazione:* ${formData.colazione === 'inclusa' ? 'Colazione inclusa' : 'Colazione esclusa'}`,
+      `*Esperienze ed Extra:* ${extraLabels}`,
       `*Messaggio:* ${safeMessage || 'Nessuna nota aggiuntiva'}`,
     ];
     return lines.join('\n');
@@ -153,6 +178,7 @@ export default function BookingForm({ onSubmit }) {
     if (!formData.phone.trim())   newErrors.push('Il cellulare è obbligatorio');
     else if (!validatePhone(formData.phone)) newErrors.push('Il cellulare deve contenere almeno 10 cifre');
     if (totalRoomsSelected() < 1) newErrors.push('Seleziona almeno una tipologia di camera (quantità maggiore di 0)');
+    if (!formData.colazione) newErrors.push('Seleziona un\'opzione per la colazione');
     if (!formData.dateRange?.from || !formData.dateRange?.to) newErrors.push('Seleziona le date di check-in e check-out');
 
     if (newErrors.length > 0) {
@@ -176,7 +202,7 @@ export default function BookingForm({ onSubmit }) {
 
       if (onSubmit) await onSubmit(formData);
 
-      setFormData({ name: '', email: '', phone: '', single: 0, matrimonial: 0, twin: 0, triple: 0, quadruple: 0, suite: 0, dateRange: undefined, message: '', website: '' });
+      setFormData({ name: '', email: '', phone: '', single: 0, matrimonial: 0, twin: 0, triple: 0, quadruple: 0, suite: 0, dateRange: undefined, colazione: '', extras: [], message: '', website: '' });
       setErrors([]);
 
     } catch (error) {
@@ -288,6 +314,54 @@ export default function BookingForm({ onSubmit }) {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* COLAZIONE */}
+          <div>
+            <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Colazione</label>
+            <div className="relative">
+              <select
+                value={formData.colazione}
+                onChange={(e) => setFormData({ ...formData, colazione: e.target.value })}
+                className="w-full bg-[#f5f5f5] px-4 py-4 appearance-none focus:outline-none focus:border-[#C9A870] transition-colors cursor-pointer"
+                style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.95rem', color: formData.colazione ? '#2C2520' : '#9A8A7A', border: '1px solid #e5e7eb', borderRadius: 0 }}
+              >
+                <option value="" disabled>Seleziona un\'opzione...</option>
+                <option value="inclusa">Colazione inclusa</option>
+                <option value="esclusa">Colazione esclusa</option>
+              </select>
+              <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center">
+                <svg className="w-4 h-4" style={{ color: '#C9A870' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+              </div>
+            </div>
+          </div>
+
+          {/* ESPERIENZE ED EXTRA */}
+          <div>
+            <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Esperienze ed extra <span style={{ textTransform: 'none', letterSpacing: 'normal', fontWeight: 400, fontSize: '0.6rem' }}>(opzionale)</span></label>
+            <div className="bg-[#f5f5f5] px-4 py-3" style={{ border: '1px solid #e5e7eb' }}>
+              <p className="text-sm mb-3" style={{ fontFamily: 'Lato, sans-serif', color: '#9A8A7A', fontStyle: 'italic', fontSize: '0.85rem' }}>Personalizza la tua esperienza nelle Langhe…</p>
+              <div className="space-y-3">
+                {extrasOptions.map((opt) => (
+                  <label key={opt.id} className="flex items-center gap-3 cursor-pointer group" onClick={() => toggleExtra(opt.id)}>
+                    <div
+                      className="flex-shrink-0 w-5 h-5 border-2 flex items-center justify-center transition-all"
+                      style={{
+                        borderColor: formData.extras.includes(opt.id) ? '#C9A870' : '#d1d5db',
+                        backgroundColor: formData.extras.includes(opt.id) ? '#C9A870' : 'white',
+                        borderRadius: 0,
+                      }}
+                    >
+                      {formData.extras.includes(opt.id) && (
+                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+                      )}
+                    </div>
+                    <span className="flex-1 text-sm" style={{ fontFamily: 'Lato, sans-serif', color: '#2C2520' }}>{opt.label}</span>
+                    <span className="text-xs font-semibold" style={{ fontFamily: 'Lato, sans-serif', color: '#C9A870' }}>{opt.price}</span>
+                  </label>
+                ))}
+              </div>
             </div>
           </div>
 
