@@ -79,18 +79,18 @@ export default function About() {
             <p
               style={{
                 fontFamily: 'Lato, sans-serif',
-                fontSize: '0.9rem',
+                fontSize: '1rem',
                 color: '#6B5E52',
                 lineHeight: 1.85,
                 marginBottom: '1rem',
               }}
             >
-              L’Hotel Langhe & Monferrato, immerso nel verde del Parco della Contessa a Costigliole d’Asti, è un’oasi di tranquillità e benessere nel cuore del Piemonte. La posizione strategica, a soli 15 km da Alba, Asti e Canelli, lo rende perfetto per scoprire le colline UNESCO tra Langhe e Monferrato.
+              L'Hotel Langhe & Monferrato, immerso nel verde del Parco della Contessa a Costigliole d'Asti, è un'oasi di tranquillità e benessere nel cuore del Piemonte. La posizione strategica, a soli 15 km da Alba, Asti e Canelli, lo rende perfetto per scoprire le colline UNESCO tra Langhe e Monferrato.
             </p>
             <p
               style={{
                 fontFamily: 'Lato, sans-serif',
-                fontSize: '0.9rem',
+                fontSize: '1rem',
                 color: '#6B5E52',
                 lineHeight: 1.85,
                 marginBottom: '2rem',
