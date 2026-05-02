@@ -27,7 +27,7 @@ export default function PrenotaClient() {
       <section className="relative overflow-hidden" style={{ height: '42vh', minHeight: 300 }}>
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1800&q=85&fit=crop"
+            src="/foto/suite.webp"
             alt="Prenota Hotel Langhe"
             fill
             priority
