@@ -124,11 +124,12 @@ export default function GuideDetailPage({ guida }) {
                               rel="noopener noreferrer"
                               style={{
                                 fontFamily: 'Lato',
-                                fontSize: '0.76rem',
+                                fontSize: '0.86rem',
                                 color: '#C9A870',
                                 textDecoration: 'underline',
                                 textDecorationThickness: '1px',
                                 textUnderlineOffset: '2px',
+                                lineHeight: 1.6,
                               }}
                             >
                               {d.linkLabel || 'Apri su Google Maps'}
@@ -150,7 +151,7 @@ export default function GuideDetailPage({ guida }) {
                           rel="noopener noreferrer"
                           style={{
                             fontFamily: 'Lato',
-                            fontSize: '0.78rem',
+                            fontSize: '0.9rem',
                             color: '#C9A870',
                             textDecoration: 'underline',
                             textDecorationThickness: '1px',
@@ -167,7 +168,7 @@ export default function GuideDetailPage({ guida }) {
                   {/* Tags */}
                   <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: '1.2rem' }}>
                     {sez.tags.map((tag) => (
-                      <span key={tag} style={{ fontFamily: 'Lato', fontSize: '0.58rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C9A870', border: '1px solid rgba(201,168,112,0.3)', padding: '0.22rem 0.65rem' }}>
+                      <span key={tag} style={{ fontFamily: 'Lato', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C9A870', border: '1px solid rgba(201,168,112,0.3)', padding: '0.3rem 0.72rem' }}>
                         {tag}
                       </span>
                     ))}
