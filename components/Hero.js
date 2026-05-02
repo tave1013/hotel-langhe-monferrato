@@ -189,7 +189,7 @@ export default function Hero() {
         {/* REVIEW BADGE */}
         <div
           style={{
-            marginTop: '3.5rem',
+            marginTop: '5.5rem',
             marginBottom: '5rem',
             display: 'flex',
             gap: '2.5rem',
