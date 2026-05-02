@@ -79,7 +79,7 @@ export default function About() {
             <p
               style={{
                 fontFamily: 'Lato, sans-serif',
-                fontSize: '0.9rem',
+                fontSize: '1rem',
                 color: '#6B5E52',
                 lineHeight: 1.85,
                 marginBottom: '1rem',
@@ -90,7 +90,7 @@ export default function About() {
             <p
               style={{
                 fontFamily: 'Lato, sans-serif',
-                fontSize: '0.9rem',
+                fontSize: '1rem',
                 color: '#6B5E52',
                 lineHeight: 1.85,
                 marginBottom: '2rem',
