@@ -190,7 +190,7 @@ export default function Hero() {
         <div
           style={{
             marginTop: '3.5rem',
-            marginBottom: '3.5rem',
+            marginBottom: '5rem',
             display: 'flex',
             gap: '2.5rem',
             justifyContent: 'center',
