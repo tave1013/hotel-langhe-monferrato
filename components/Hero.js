@@ -91,7 +91,7 @@ export default function Hero() {
           {/* Stars */}
           {slide.showStars && (
             <ScrollAnimation type="slide-up" duration="slow" delay={100}>
-              <div className="stars mb-4 text-center" style={{ marginTop: '1.5rem' }}>★★★★</div>
+              <div className="stars mb-4 text-center mt-14 md:mt-6">★★★★</div>
             </ScrollAnimation>
           )}
 
@@ -188,9 +188,9 @@ export default function Hero() {
 
         {/* REVIEW BADGE */}
         <div
+          className="mb-24 md:mb-20"
           style={{
             marginTop: '5.5rem',
-            marginBottom: '5rem',
             display: 'flex',
             gap: '2.5rem',
             justifyContent: 'center',
