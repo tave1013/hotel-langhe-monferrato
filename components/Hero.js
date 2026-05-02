@@ -49,23 +49,22 @@ export default function Hero() {
   const slide = slides[current] || slides[0];
 
   return (
-    <section className="relative h-screen min-h-[960px] md:min-h-[680px] overflow-hidden" aria-label="Hero">
+    <section className="relative h-[88vh] min-h-[560px] md:h-screen md:min-h-[680px] overflow-hidden" aria-label="Hero">
       {/* BG IMAGE */}
       <div
         className="absolute inset-0 transition-opacity duration-700"
         style={{ opacity: animating ? 0 : 1 }}
       >
-        <div className="absolute inset-0 animate-ken-burns hero-bg-image">
+        <div className="absolute inset-0 md:animate-ken-burns hero-bg-image">
           <Image
             key={slide.img}
             src={slide.img}
             alt={slide.label}
             fill
             priority={current === 0}
-            quality={75}
+            quality={90}
             sizes="100vw"
-            className="object-cover"
-            style={{ objectPosition: 'center 22%' }}
+            className="object-cover object-center md:[object-position:center_22%]"
           />
         </div>
         {/* Layered overlay */}
