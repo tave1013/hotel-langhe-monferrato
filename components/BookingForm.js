@@ -278,31 +278,31 @@ export default function BookingForm({ onSubmit }) {
           {/* NOME / EMAIL / CELLULARE */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <div>
-              <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Nome</label>
-              <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="Paolo Rossi" className="w-full px-4 py-3 border border-gray-300 rounded-none focus:outline-none focus:border-[#C9A870] transition-colors" style={{ fontFamily: 'Lato, sans-serif' }} />
+              <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Nome</label>
+              <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="Paolo Rossi" className="w-full px-4 py-3 border border-gray-300 rounded-none focus:outline-none focus:border-[#C9A870] transition-colors" style={{ fontFamily: 'Lato, sans-serif', fontSize: '1rem' }} />
             </div>
             <div>
-              <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Email</label>
-              <input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder="paolo.rossi@email.it" className="w-full px-4 py-3 border border-gray-300 rounded-none focus:outline-none focus:border-[#C9A870] transition-colors" style={{ fontFamily: 'Lato, sans-serif' }} />
+              <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Email</label>
+              <input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder="paolo.rossi@email.it" className="w-full px-4 py-3 border border-gray-300 rounded-none focus:outline-none focus:border-[#C9A870] transition-colors" style={{ fontFamily: 'Lato, sans-serif', fontSize: '1rem' }} />
             </div>
             <div>
-              <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Cellulare</label>
-              <input type="tel" value={formData.phone} onChange={(e) => { const value = e.target.value; if (/^[\d+\-\s]*$/.test(value)) setFormData({ ...formData, phone: value }); }} placeholder="+39 333 1234567" className="w-full px-4 py-3 border border-gray-300 rounded-none focus:outline-none focus:border-[#C9A870] transition-colors" style={{ fontFamily: 'Lato, sans-serif' }} />
+              <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Cellulare</label>
+              <input type="tel" value={formData.phone} onChange={(e) => { const value = e.target.value; if (/^[\d+\-\s]*$/.test(value)) setFormData({ ...formData, phone: value }); }} placeholder="+39 333 1234567" className="w-full px-4 py-3 border border-gray-300 rounded-none focus:outline-none focus:border-[#C9A870] transition-colors" style={{ fontFamily: 'Lato, sans-serif', fontSize: '1rem' }} />
             </div>
           </div>
 
           {/* TIPOLOGIE CAMERE */}
           <div>
-            <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Tipologie camere</label>
+            <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Tipologie camere</label>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {roomFieldConfigs.map((room) => (
                 <div key={room.key}>
-                  <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>
+                  <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>
                     {room.label} {room.helper ? <span style={{ textTransform: 'none', letterSpacing: 'normal', fontWeight: 600 }}>{room.helper}</span> : null}
                   </label>
                   <div className="bg-[#f5f5f5] rounded-none p-4 flex items-center justify-between">
-                    <span className="text-gray-800" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.95rem' }}>{formData[room.key]} {formData[room.key] === 1 ? 'camera' : 'camere'}</span>
+                    <span className="text-gray-800" style={{ fontFamily: 'Lato, sans-serif', fontSize: '1rem' }}>{formData[room.key]} {formData[room.key] === 1 ? 'camera' : 'camere'}</span>
                     <div className="flex items-center gap-3">
                       <button
                         type="button"
@@ -331,13 +331,13 @@ export default function BookingForm({ onSubmit }) {
 
           {/* COLAZIONE */}
           <div>
-            <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Colazione</label>
+            <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Colazione</label>
             <div className="relative">
               <select
                 value={formData.colazione}
                 onChange={(e) => setFormData({ ...formData, colazione: e.target.value })}
                 className="w-full bg-[#f5f5f5] px-4 py-4 appearance-none focus:outline-none focus:border-[#C9A870] transition-colors cursor-pointer"
-                style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.95rem', color: formData.colazione ? '#2C2520' : '#9A8A7A', border: '1px solid #e5e7eb', borderRadius: 0 }}
+                style={{ fontFamily: 'Lato, sans-serif', fontSize: '1rem', color: formData.colazione ? '#2C2520' : '#9A8A7A', border: '1px solid #e5e7eb', borderRadius: 0 }}
               >
                 <option value="" disabled>Seleziona un\'opzione...</option>
                 <option value="inclusa">Colazione inclusa</option>
@@ -352,13 +352,13 @@ export default function BookingForm({ onSubmit }) {
           {/* LATE CHECKOUT + ANIMALI DOMESTICI */}
           <div className="space-y-5">
             <div>
-              <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Late checkout</label>
+              <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Late checkout</label>
               <div className="relative">
                 <select
                   value={formData.lateCheckout}
                   onChange={(e) => setFormData({ ...formData, lateCheckout: e.target.value })}
                   className="w-full bg-[#f5f5f5] px-4 py-4 appearance-none focus:outline-none focus:border-[#C9A870] transition-colors cursor-pointer"
-                  style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.95rem', color: '#2C2520', border: '1px solid #e5e7eb', borderRadius: 0 }}
+                  style={{ fontFamily: 'Lato, sans-serif', fontSize: '1rem', color: '#2C2520', border: '1px solid #e5e7eb', borderRadius: 0 }}
                 >
                   <option value="no">No, grazie</option>
                   <option value="si">Sì (+15€ supplemento)</option>
@@ -370,11 +370,11 @@ export default function BookingForm({ onSubmit }) {
             </div>
 
             <div>
-              <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>
+              <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>
                 Hai animali domestici? <span style={{ textTransform: 'none', letterSpacing: 'normal', fontWeight: 600 }}>(+15€ a notte per animale)</span>
               </label>
               <div className="bg-[#f5f5f5] rounded-none p-4 flex items-center justify-between" style={{ border: '1px solid #e5e7eb' }}>
-                <span className="text-gray-800" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.95rem' }}>{formData.pets} {formData.pets === 1 ? 'animale' : 'animali'}</span>
+                <span className="text-gray-800" style={{ fontFamily: 'Lato, sans-serif', fontSize: '1rem' }}>{formData.pets} {formData.pets === 1 ? 'animale' : 'animali'}</span>
                 <div className="flex items-center gap-3">
                   <button
                     type="button"
@@ -401,9 +401,9 @@ export default function BookingForm({ onSubmit }) {
 
           {/* ESPERIENZE ED EXTRA */}
           <div>
-            <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Esperienze ed extra <span style={{ textTransform: 'none', letterSpacing: 'normal', fontWeight: 400, fontSize: '0.6rem' }}>(opzionale)</span></label>
+            <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Esperienze ed extra <span style={{ textTransform: 'none', letterSpacing: 'normal', fontWeight: 400, fontSize: '0.65rem' }}>(opzionale)</span></label>
             <div className="bg-[#f5f5f5] px-4 py-3" style={{ border: '1px solid #e5e7eb' }}>
-              <p className="text-sm mb-3" style={{ fontFamily: 'Lato, sans-serif', color: '#9A8A7A', fontStyle: 'italic', fontSize: '0.85rem' }}>Personalizza la tua esperienza nelle Langhe…</p>
+              <p className="text-sm mb-3" style={{ fontFamily: 'Lato, sans-serif', color: '#9A8A7A', fontStyle: 'italic', fontSize: '0.92rem' }}>Personalizza la tua esperienza nelle Langhe…</p>
               <div className="space-y-3">
                 {extrasOptions.map((opt) => (
                   <label key={opt.id} className="flex items-center gap-3 cursor-pointer group" onClick={() => toggleExtra(opt.id)}>
@@ -419,8 +419,8 @@ export default function BookingForm({ onSubmit }) {
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
                       )}
                     </div>
-                    <span className="flex-1 text-sm" style={{ fontFamily: 'Lato, sans-serif', color: '#2C2520' }}>{opt.label}</span>
-                    <span className="text-xs font-semibold" style={{ fontFamily: 'Lato, sans-serif', color: '#C9A870' }}>{opt.price}</span>
+                    <span className="flex-1" style={{ fontFamily: 'Lato, sans-serif', color: '#2C2520', fontSize: '0.96rem' }}>{opt.label}</span>
+                    <span className="font-semibold" style={{ fontFamily: 'Lato, sans-serif', color: '#C9A870', fontSize: '0.86rem' }}>{opt.price}</span>
                   </label>
                 ))}
               </div>
@@ -430,7 +430,7 @@ export default function BookingForm({ onSubmit }) {
           {/* DATE SU RIGA SINGOLA */}
           <div>
             <div className="flex items-center justify-between mb-2">
-              <label className="block" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Date soggiorno (arrivo e partenza)</label>
+              <label className="block" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Date soggiorno (arrivo e partenza)</label>
               {calculateNights() > 0 && (
                 <span className="text-xs font-semibold px-2 py-1" style={{ fontFamily: 'Lato, sans-serif', background: '#C9A870', color: 'white' }}>
                   {calculateNights()} {calculateNights() === 1 ? 'notte' : 'notti'}
@@ -439,7 +439,7 @@ export default function BookingForm({ onSubmit }) {
             </div>
             <div className="relative" ref={calendarRef}>
               <button type="button" onClick={() => setShowCalendar(!showCalendar)} className="w-full bg-[#f5f5f5] rounded-none p-4 text-left focus:outline-none hover:bg-[#eeeeee] transition-colors flex items-center justify-between min-h-[74px]" style={{ fontFamily: 'Lato, sans-serif' }}>
-                <span className="text-gray-800" style={{ fontSize: '0.95rem' }}>{formatDateRange()}</span>
+                <span className="text-gray-800" style={{ fontSize: '1rem' }}>{formatDateRange()}</span>
                 <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
               </button>
               {showCalendar && (
@@ -473,8 +473,8 @@ export default function BookingForm({ onSubmit }) {
 
           {/* MESSAGGIO */}
           <div>
-            <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Messaggio (opzionale)</label>
-            <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder="Indica le camere: una singola, doppia...?" rows={4} className="w-full px-4 py-3 border border-gray-300 rounded-none focus:outline-none focus:border-[#C9A870] transition-colors resize-none" style={{ fontFamily: 'Lato, sans-serif' }} />
+            <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Messaggio (opzionale)</label>
+            <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder="Indica le camere: una singola, doppia...?" rows={4} className="w-full px-4 py-3 border border-gray-300 rounded-none focus:outline-none focus:border-[#C9A870] transition-colors resize-none" style={{ fontFamily: 'Lato, sans-serif', fontSize: '1rem' }} />
           </div>
 
           {/* HONEYPOT - Hidden field for bots */}
