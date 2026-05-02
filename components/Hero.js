@@ -74,7 +74,7 @@ export default function Hero() {
       </div>
 
       {/* CONTENT */}
-      <div className="relative h-full flex flex-col justify-center items-center text-center px-6 pt-20">
+      <div className="relative h-full flex flex-col justify-center items-center text-center px-6 pt-16">
         <div
           key={current}
           style={{ animation: 'fadeUp 0.9s ease forwards' }}
@@ -91,7 +91,7 @@ export default function Hero() {
           {/* Stars */}
           {slide.showStars && (
             <ScrollAnimation type="slide-up" duration="slow" delay={100}>
-              <div className="stars mb-4 text-center mt-14 md:mt-6">★★★★</div>
+              <div className="stars mb-4 text-center mt-10 md:mt-6">★★★★</div>
             </ScrollAnimation>
           )}
 
@@ -188,7 +188,7 @@ export default function Hero() {
 
         {/* REVIEW BADGE */}
         <div
-          className="mb-32 md:mb-20"
+          className="mb-28 md:mb-20"
           style={{
             marginTop: '5.5rem',
             display: 'flex',
