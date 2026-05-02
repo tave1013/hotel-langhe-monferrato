@@ -119,17 +119,17 @@ export default function TerritorioPage() {
                     <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '0.9rem', color: '#C9A870', fontStyle: 'italic', marginBottom: '0.9rem' }}>
                       {g.sottotitolo}
                     </p>
-                    <p style={{ fontFamily: 'Lato', fontSize: '0.8rem', color: '#6B5E52', lineHeight: 1.75, marginBottom: '1.2rem', flexGrow: 1 }}>
+                    <p style={{ fontFamily: 'Lato', fontSize: '0.95rem', color: '#6B5E52', lineHeight: 1.75, marginBottom: '1.2rem', flexGrow: 1 }}>
                       {g.descrizioneBreve.slice(0, 140)}…
                     </p>
 
                     {/* Meta info */}
                     <div style={{ display: 'flex', gap: '1.2rem', paddingTop: '1rem', borderTop: '1px solid rgba(201,168,112,0.12)', marginBottom: '1.2rem' }}>
-                      <span style={{ fontFamily: 'Lato', fontSize: '0.66rem', color: '#9A8A7A', display: 'flex', alignItems: 'center', gap: 5 }}>
+                      <span style={{ fontFamily: 'Lato', fontSize: '0.78rem', color: '#9A8A7A', display: 'flex', alignItems: 'center', gap: 5 }}>
                         <i className="fa fa-clock" style={{ color: '#C9A870', fontSize: '0.6rem' }}></i>
                         {g.tempoVisita}
                       </span>
-                      <span style={{ fontFamily: 'Lato', fontSize: '0.66rem', color: '#9A8A7A', display: 'flex', alignItems: 'center', gap: 5 }}>
+                      <span style={{ fontFamily: 'Lato', fontSize: '0.78rem', color: '#9A8A7A', display: 'flex', alignItems: 'center', gap: 5 }}>
                         <i className="fa fa-map-marker-alt" style={{ color: '#C9A870', fontSize: '0.6rem' }}></i>
                         {g.distanzaDallHotel}
                       </span>

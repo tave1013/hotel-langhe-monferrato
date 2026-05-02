@@ -93,7 +93,7 @@ export default function TerritoryGuides() {
                 <p
                   style={{
                     fontFamily: 'Lato',
-                    fontSize: '0.95rem',
+                    fontSize: '1.05rem',
                     color: '#6B5E52',
                     lineHeight: 1.75,
                     marginBottom: '1.4rem',
@@ -105,11 +105,11 @@ export default function TerritoryGuides() {
 
                 {/* Info */}
                 <div className="flex items-center justify-between mb-4">
-                  <div style={{ fontFamily: 'Lato', fontSize: '0.7rem', color: '#9A8A7A' }}>
+                  <div style={{ fontFamily: 'Lato', fontSize: '0.8rem', color: '#9A8A7A' }}>
                     <i className="fa fa-clock" style={{ marginRight: 6, color: '#C9A870' }}></i>
                     {item.tempoVisita}
                   </div>
-                  <div style={{ fontFamily: 'Lato', fontSize: '0.7rem', color: '#9A8A7A' }}>
+                  <div style={{ fontFamily: 'Lato', fontSize: '0.8rem', color: '#9A8A7A' }}>
                     <i className={`fa ${item.categoryIcon}`} style={{ marginRight: 6, color: '#C9A870' }}></i>
                     {item.categoria}
                   </div>
