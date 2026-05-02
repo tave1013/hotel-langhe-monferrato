@@ -49,7 +49,7 @@ export default function Hero() {
   const slide = slides[current] || slides[0];
 
   return (
-    <section className="relative h-screen min-h-[960px] md:min-h-[680px] overflow-hidden" aria-label="Hero">
+    <section className="relative h-screen md:min-h-[680px] overflow-hidden" aria-label="Hero">
       {/* BG IMAGE */}
       <div
         className="absolute inset-0 transition-opacity duration-700"
