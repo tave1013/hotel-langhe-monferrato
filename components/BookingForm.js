@@ -23,6 +23,8 @@ export default function BookingForm({ onSubmit }) {
     suite: 0,
     dateRange: undefined,
     colazione: '',
+    lateCheckout: 'no',
+    pets: 0,
     extras: [],
     message: '',
     website: '' // Honeypot field
@@ -72,9 +74,9 @@ export default function BookingForm({ onSubmit }) {
   const extrasOptions = [
     { id: 'bollicine',  label: 'Bottiglia di bollicine con 2 calici', price: '20€' },
     { id: 'cantine',   label: 'Visita alle cantine con degustazione', price: 'da 25€ p.p.' },
-    { id: 'tartufo',   label: 'Esperienza caccia al tartufo', price: 'da 200€' },
+    { id: 'tartufo',   label: 'Esperienza caccia al tartufo', price: 'da 200€ p.p.' },
     { id: 'ebike',     label: 'Tour e-bike per le Langhe', price: 'da 35€ p.p.' },
-    { id: 'birre',     label: 'Tour + degustazione birre del territorio', price: 'da 15€ p.p.' },
+    { id: 'birre',     label: 'Tour + degustazione al birrificio del territorio', price: 'da 15€ p.p.' },
   ];
 
   const toggleExtra = (id) => {
@@ -128,6 +130,8 @@ export default function BookingForm({ onSubmit }) {
       `*Check-out:* ${checkOutFormatted}`,
       `*Notti:* ${nights}`,
       `*Colazione:* ${formData.colazione === 'inclusa' ? 'Colazione inclusa' : 'Colazione esclusa'}`,
+      `*Late checkout:* ${formData.lateCheckout === 'si' ? 'Sì (+15€)' : 'No, grazie'}`,
+      `*Animali domestici:* ${formData.pets > 0 ? `${formData.pets} (${formData.pets === 1 ? '1 animale' : `${formData.pets} animali`} - supplemento 15€ a notte per animale)` : 'Nessuno'}`,
       `*Esperienze ed Extra:* ${extraLabels}`,
       `*Messaggio:* ${safeMessage || 'Nessuna nota aggiuntiva'}`,
     ];
@@ -202,7 +206,7 @@ export default function BookingForm({ onSubmit }) {
 
       if (onSubmit) await onSubmit(formData);
 
-      setFormData({ name: '', email: '', phone: '', single: 0, matrimonial: 0, twin: 0, triple: 0, quadruple: 0, suite: 0, dateRange: undefined, colazione: '', extras: [], message: '', website: '' });
+      setFormData({ name: '', email: '', phone: '', single: 0, matrimonial: 0, twin: 0, triple: 0, quadruple: 0, suite: 0, dateRange: undefined, colazione: '', lateCheckout: 'no', pets: 0, extras: [], message: '', website: '' });
       setErrors([]);
 
     } catch (error) {
@@ -223,6 +227,14 @@ export default function BookingForm({ onSubmit }) {
       const newValue = prev[field] + increment;
       if (newValue < 0 || newValue > 10) return prev;
       return { ...prev, [field]: newValue };
+    });
+  };
+
+  const updatePetsCounter = (increment) => {
+    setFormData(prev => {
+      const newValue = prev.pets + increment;
+      if (newValue < 0 || newValue > 5) return prev;
+      return { ...prev, pets: newValue };
     });
   };
 
@@ -333,6 +345,56 @@ export default function BookingForm({ onSubmit }) {
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center">
                 <svg className="w-4 h-4" style={{ color: '#C9A870' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+              </div>
+            </div>
+          </div>
+
+          {/* LATE CHECKOUT + ANIMALI DOMESTICI */}
+          <div className="space-y-5">
+            <div>
+              <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Late checkout</label>
+              <div className="relative">
+                <select
+                  value={formData.lateCheckout}
+                  onChange={(e) => setFormData({ ...formData, lateCheckout: e.target.value })}
+                  className="w-full bg-[#f5f5f5] px-4 py-4 appearance-none focus:outline-none focus:border-[#C9A870] transition-colors cursor-pointer"
+                  style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.95rem', color: '#2C2520', border: '1px solid #e5e7eb', borderRadius: 0 }}
+                >
+                  <option value="no">No, grazie</option>
+                  <option value="si">Sì (+15€ supplemento)</option>
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center">
+                  <svg className="w-4 h-4" style={{ color: '#C9A870' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>
+                Hai animali domestici? <span style={{ textTransform: 'none', letterSpacing: 'normal', fontWeight: 600 }}>(+15€ a notte per animale)</span>
+              </label>
+              <div className="bg-[#f5f5f5] rounded-none p-4 flex items-center justify-between" style={{ border: '1px solid #e5e7eb' }}>
+                <span className="text-gray-800" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.95rem' }}>{formData.pets} {formData.pets === 1 ? 'animale' : 'animali'}</span>
+                <div className="flex items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => updatePetsCounter(-1)}
+                    disabled={formData.pets <= 0}
+                    className={`w-10 h-10 rounded border-2 flex items-center justify-center transition-all ${formData.pets <= 0 ? 'border-gray-300 text-gray-400 cursor-not-allowed' : 'border-gray-400 text-gray-700 hover:border-[#C9A870] hover:text-[#C9A870] bg-white'}`}
+                    style={{ fontSize: '1.2rem', fontWeight: 600 }}
+                  >
+                    −
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => updatePetsCounter(1)}
+                    disabled={formData.pets >= 5}
+                    className={`w-10 h-10 rounded border-2 flex items-center justify-center transition-all ${formData.pets >= 5 ? 'border-gray-300 text-gray-400 cursor-not-allowed' : 'border-gray-400 text-gray-700 hover:border-[#C9A870] hover:text-[#C9A870] bg-white'}`}
+                    style={{ fontSize: '1.2rem', fontWeight: 600 }}
+                  >
+                    +
+                  </button>
+                </div>
               </div>
             </div>
           </div>
