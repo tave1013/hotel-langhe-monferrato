@@ -34,6 +34,7 @@ const navLinks = [
       { label: 'Caccia al Tartufo',           href: '/territorio/caccia-al-tartufo' },
       { label: 'Castelli del Monferrato',     href: '/territorio/castelli-del-monferrato' },
       { label: 'Le Big Bench',                href: '/territorio/big-bench' },
+      { label: 'Nizza è Barbera',             href: '/territorio/nizza-e-barbera' },
     ],
   },
   { label: 'Contatti', href: '/contatti' },
