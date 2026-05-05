@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { DayPicker } from 'react-day-picker';
 import { format } from 'date-fns';
 import { it } from 'date-fns/locale';
+import InfoPopup from './InfoPopup';
 import 'react-day-picker/dist/style.css';
 
 export default function BookingForm({ onSubmit }) {
@@ -78,6 +79,107 @@ export default function BookingForm({ onSubmit }) {
     { id: 'ebike',     label: 'Tour e-bike per le Langhe', price: 'da 35€ p.p.' },
     { id: 'birre',     label: 'Tour + degustazione al birrificio del territorio', price: 'da 15€ p.p.' },
   ];
+
+  const extrasInfo = {
+    cantine: {
+      title: 'Visita alle Cantine',
+      description: (
+        <>
+          <p className="mb-3">
+            Scopri le storiche cantine delle Langhe con una visita guidata esclusiva. Un'esperienza autentica tra le vigne e la tradizione vinicola piemontese.
+          </p>
+          <h4 className="font-semibold mb-2" style={{ color: '#C9A870' }}>Cosa è incluso:</h4>
+          <p className="mb-3">
+            Tour guidato di una cantina locale a vostra scelta, degustazione di vini, durata circa 1,5 ore.
+          </p>
+          <h4 className="font-semibold mb-2" style={{ color: '#C9A870' }}>Le cantine visitabili a scelta tra:</h4>
+          <ul className="list-disc list-inside space-y-1 mb-3">
+            <li>Cantine Sotterranee Bosca</li>
+            <li>Cantina Ronzano</li>
+            <li>Cantina Boeri</li>
+          </ul>
+          <p className="text-sm" style={{ color: '#9A8A7A' }}>
+            Prezzo a persona: da 25€. Minimo 2 persone.
+          </p>
+          <p className="text-sm mt-2" style={{ color: '#9A8A7A' }}>
+            Si prega di avvisare in anticipo così da poter organizzare al meglio e garantire la disponibilità dei posti.
+          </p>
+        </>
+      )
+    },
+    tartufo: {
+      title: 'Caccia al Tartufo',
+      description: (
+        <>
+          <p className="mb-3">
+            Un'avventura indimenticabile alla ricerca del "diamante nero" delle Langhe con cani trufolatori addestrati e un esperto tartufaio locale.
+          </p>
+          <h4 className="font-semibold mb-2" style={{ color: '#C9A870' }}>Cosa è incluso:</h4>
+          <p className="mb-3">
+            Uscita in bosco con tartufaio professionista, ricerca e raccolta tartufi (in stagione), lezione sulla ricerca, identificazione e usi in cucina. Durata circa 1,5 ore.
+          </p>
+          <div className="space-y-1 mb-3 text-sm" style={{ color: '#2C2520' }}>
+            <p><span className="font-semibold">Orari disponibili:</span> 11:00 — 14:30 — 17:00</p>
+            <p><span className="font-semibold">Disponibilità:</span> non disponibile il mercoledì e il giovedì.</p>
+            <p><span className="font-semibold">Bambini fino a 17 anni:</span> ingresso gratuito.</p>
+          </div>
+          <p className="text-sm" style={{ color: '#9A8A7A' }}>
+            Prezzo a persona: da 87€.
+          </p>
+          <p className="text-sm mt-2" style={{ color: '#9A8A7A' }}>
+            Si prega di avvisare in anticipo così da poter organizzare al meglio e garantire la disponibilità dei posti.
+          </p>
+        </>
+      )
+    },
+    ebike: {
+      title: 'Tour E-Bike',
+      description: (
+        <>
+          <p className="mb-3">
+            Pedala attraverso i paesaggi mozzafiato delle Langhe con le nostre biciclette elettriche. Un modo ecologico e divertente per scoprire la regione, adatto a ogni età.
+          </p>
+          <h4 className="font-semibold mb-2" style={{ color: '#C9A870' }}>Cosa è incluso:</h4>
+          <p className="mb-3">
+            E-bike, itinerario guidato attraverso vigne e borghi, soste panoramiche, guida locale esperta. Il noleggio comprende casco, zainetto, lucchetto, kit riparazione forature e mantellina antipioggia. Seggiolino bimbo disponibile su richiesta.
+          </p>
+          <p className="mb-3 text-sm" style={{ color: '#2C2520' }}>
+            <span className="font-semibold">Percorsi disponibili:</span> da 40 a 80 km a seconda della scelta.
+          </p>
+          <h4 className="font-semibold mb-2" style={{ color: '#C9A870' }}>Opzioni e prezzi:</h4>
+          <ul className="list-disc list-inside space-y-1 mb-3">
+            <li>Mezza giornata (8:00–12:30 oppure 15:00–19:30): 35€ a persona</li>
+            <li>1 giorno (8:00–19:30): 45€ a persona</li>
+            <li>2 giorni: 80€ a persona</li>
+            <li>3 giorni: 110€ a persona</li>
+          </ul>
+          <p className="text-sm" style={{ color: '#9A8A7A' }}>
+            Minimo 2 persone. Disponibilità: marzo–novembre.
+          </p>
+        </>
+      )
+    },
+    birre: {
+      title: 'Birrificio del Territorio',
+      description: (
+        <>
+          <p className="mb-3">
+            Visita una delle migliori birraie artigianali del territorio piemontese. Scopri il processo di produzione e assaggia birre esclusive create localmente.
+          </p>
+          <h4 className="font-semibold mb-2" style={{ color: '#C9A870' }}>Cosa è incluso:</h4>
+          <p className="mb-3">
+            Tour dei reparti di produzione, degustazione di 3 birre artigianali con abbinamento di 3 assaggi, spiegazione del processo di fermentazione. Durata circa 1,5 ore. Al termine è possibile acquistare direttamente i prodotti in azienda.
+          </p>
+          <p className="text-sm" style={{ color: '#9A8A7A' }}>
+            Prezzo a persona: da 15€. Minimo 2 persone.
+          </p>
+          <p className="text-sm mt-2" style={{ color: '#9A8A7A' }}>
+            Si prega di avvisare in anticipo così da poter organizzare al meglio e garantire la disponibilità dei posti.
+          </p>
+        </>
+      )
+    },
+  };
 
   const toggleExtra = (id) => {
     setFormData(prev => ({
@@ -421,6 +523,16 @@ export default function BookingForm({ onSubmit }) {
                     </div>
                     <span className="flex-1" style={{ fontFamily: 'Lato, sans-serif', color: '#2C2520', fontSize: '0.96rem' }}>{opt.label}</span>
                     <span className="font-semibold" style={{ fontFamily: 'Lato, sans-serif', color: '#C9A870', fontSize: '0.86rem' }}>{opt.price}</span>
+                    {extrasInfo[opt.id] && (
+                      <span
+                        onClick={(e) => e.stopPropagation()}
+                        className="flex-shrink-0 inline-flex"
+                      >
+                        <InfoPopup title={extrasInfo[opt.id].title}>
+                          {extrasInfo[opt.id].description}
+                        </InfoPopup>
+                      </span>
+                    )}
                   </label>
                 ))}
               </div>
