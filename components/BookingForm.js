@@ -508,7 +508,7 @@ export default function BookingForm({ onSubmit }) {
               <p className="text-sm mb-3" style={{ fontFamily: 'Lato, sans-serif', color: '#9A8A7A', fontStyle: 'italic', fontSize: '0.92rem' }}>Personalizza la tua esperienza nelle Langhe…</p>
               <div className="space-y-3">
                 {extrasOptions.map((opt) => (
-                  <label key={opt.id} className="flex items-center gap-3 cursor-pointer group" onClick={() => toggleExtra(opt.id)}>
+                  <div key={opt.id} className="flex items-center gap-3 cursor-pointer group" onClick={() => toggleExtra(opt.id)}>
                     <div
                       className="flex-shrink-0 w-5 h-5 border-2 flex items-center justify-center transition-all"
                       style={{
@@ -533,7 +533,7 @@ export default function BookingForm({ onSubmit }) {
                         </InfoPopup>
                       </span>
                     )}
-                  </label>
+                  </div>
                 ))}
               </div>
             </div>
