@@ -54,8 +54,7 @@ export default function ContattiClient() {
                   <p style={{ fontFamily: 'Lato', fontSize: '0.96rem', color: '#6B5E52', lineHeight: 1.7 }}>Ti risponderemo entro 24 ore. Nel frattempo puoi chiamarci al <strong>+39 0141 961853</strong>.</p>
                 </div>
               ) : (
-                <div className="bg-white shadow-lg p-6 md:p-10" style={{ border: '1px solid rgba(201,168,112,0.2)' }}>
-                  <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid grid-cols-2 gap-5">
                       <div>
                         <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Nome *</label>
@@ -91,11 +90,10 @@ export default function ContattiClient() {
                       <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Messaggio *</label>
                       <textarea required rows={5} value={form.messaggio} onChange={e => setForm({...form, messaggio: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-none focus:outline-none focus:border-[#C9A870] transition-colors" style={{ fontFamily: 'Lato, sans-serif', fontSize: '1rem', resize: 'vertical' }} />
                     </div>
-                    <button type="submit" className="btn-gold" style={{ padding: '0.95rem 2.5rem' }}>
+                    <button type="submit" className="w-full py-4 rounded-none text-white font-semibold transition-all bg-[#C9A870] hover:bg-[#A8854A]" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.75rem', letterSpacing: '0.18em', textTransform: 'uppercase' }}>
                       <i className="fa fa-paper-plane" style={{ marginRight: 8 }}></i>Invia Messaggio
                     </button>
-                  </form>
-                </div>
+                </form>
               )}
               </div>
             </ScrollAnimation>
