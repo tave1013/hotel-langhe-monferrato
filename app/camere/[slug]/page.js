@@ -11,7 +11,7 @@ export async function generateMetadata({ params }) {
   if (!room) return {};
   return {
     title: `${room.name} | Hotel Langhe & Monferrato`,
-    description: `${room.tagline} — Prenota la ${room.name} all'Hotel Langhe & Monferrato. Colazione inclusa, cancellazione gratuita, miglior prezzo garantito.`,
+    description: `${room.tagline}. Prenota la ${room.name} all'Hotel Langhe & Monferrato. Colazione inclusa, cancellazione gratuita, miglior prezzo garantito.`,
     openGraph: {
       title: `${room.name} | Hotel Langhe & Monferrato`,
       description: room.tagline,

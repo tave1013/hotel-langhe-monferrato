@@ -63,7 +63,7 @@ export default function CTA() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
           <Link href="/prenota" className="btn-gold" style={{ fontSize: '0.78rem', padding: '1.1rem 2.8rem' }}>
-            <span>Prenota Direttamente — Miglior Prezzo</span>
+            <span>Prenota Direttamente. Miglior Prezzo</span>
           </Link>
           <Link href="/contatti" className="btn-outline-white" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             Contattaci

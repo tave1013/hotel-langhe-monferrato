@@ -51,7 +51,7 @@ export default function TerritorioPage() {
           <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(2.2rem, 5vw, 4rem)', fontWeight: 400, color: '#FAF7F2', lineHeight: 1.12, marginBottom: '1rem' }}>
             Territorio: Langhe &amp; Monferrato
           </h1>
-          <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.2rem', color: '#fff', fontStyle: 'italic', maxWidth: 580, lineHeight: 1.7 }}>
+          <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.2rem', color: '#fff', fontStyle: 'italic', maxWidth: 580, lineHeight: 1.7, paddingBottom: '2rem' }}>
             Nove mini guide scritte con cura per farti scoprire uno dei territori più straordinari d&apos;Italia — Patrimonio UNESCO, vini leggendari, tartufi, castelli, E-bike, eventi wine e panchine giganti.
           </p>
         </div>

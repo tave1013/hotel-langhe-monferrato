@@ -45,7 +45,7 @@ export default function VideoBanner() {
               maxWidth: 480,
             }}
           >
-            Dalla colazione con i prodotti del territorio alla degustazione serale dei grandi vini piemontesi — ogni momento qui è un ricordo da portare con sé.
+            Dalla colazione con i prodotti del territorio alla degustazione serale dei grandi vini piemontesi; ogni momento qui è un ricordo da portare con sé.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/prenota" className="btn-gold">

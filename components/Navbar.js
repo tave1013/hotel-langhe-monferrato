@@ -28,8 +28,8 @@ const navLinks = [
     label: 'Territorio',
     href: '/territorio',
     dropdown: [
-      { label: 'Asti — Il Medioevo',          href: '/territorio/asti' },
-      { label: 'Alba — Capitale del Gusto',   href: '/territorio/alba' },
+      { label: 'Asti, Il Medioevo',          href: '/territorio/asti' },
+      { label: 'Alba, Capitale del Gusto',   href: '/territorio/alba' },
       { label: 'Cattedrali Sotterranee',      href: '/territorio/cattedrali-sotterranee' },
       { label: 'Caccia al Tartufo',           href: '/territorio/caccia-al-tartufo' },
       { label: 'Castelli del Monferrato',     href: '/territorio/castelli-del-monferrato' },

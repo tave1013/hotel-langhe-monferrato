@@ -331,7 +331,7 @@ export default function RoomPage({ room }) {
             Prenota direttamente sul nostro sito: miglior prezzo garantito, cancellazione gratuita e un regalo di benvenuto esclusivo.
           </p>
           <Link href="/prenota" className="btn-gold" style={{ padding: '1rem 2.8rem' }}>
-            Prenota Ora — Miglior Prezzo
+            Prenota Ora. Miglior Prezzo
           </Link>
         </div>
       </section>

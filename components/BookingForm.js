@@ -119,7 +119,7 @@ export default function BookingForm({ onSubmit }) {
             Uscita in bosco con tartufaio professionista, ricerca e raccolta tartufi (in stagione), lezione sulla ricerca, identificazione e usi in cucina. Durata circa 1,5 ore.
           </p>
           <div className="space-y-1 mb-3 text-sm" style={{ color: '#2C2520' }}>
-            <p><span className="font-semibold">Orari disponibili:</span> 11:00 — 14:30 — 17:00</p>
+            <p><span className="font-semibold">Orari disponibili:</span> 11:00, 14:30, 17:00</p>
             <p><span className="font-semibold">Disponibilità:</span> non disponibile il mercoledì e il giovedì.</p>
             <p><span className="font-semibold">Bambini fino a 17 anni:</span> ingresso gratuito.</p>
           </div>
@@ -473,7 +473,7 @@ export default function BookingForm({ onSubmit }) {
 
             <div>
               <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>
-                Hai animali domestici? <span style={{ textTransform: 'none', letterSpacing: 'normal', fontWeight: 600 }}>(+15€ a notte per animale)</span>
+                Hai animali domestici? <span style={{ textTransform: 'none', letterSpacing: 'normal', fontWeight: 600, fontSize: '0.82rem', color: '#7E6F61' }}>(+15€ a notte per animale)</span>
               </label>
               <div className="bg-[#f5f5f5] rounded-none p-4 flex items-center justify-between" style={{ border: '1px solid #e5e7eb' }}>
                 <span className="text-gray-800" style={{ fontFamily: 'Lato, sans-serif', fontSize: '1rem' }}>{formData.pets} {formData.pets === 1 ? 'animale' : 'animali'}</span>
@@ -503,7 +503,7 @@ export default function BookingForm({ onSubmit }) {
 
           {/* ESPERIENZE ED EXTRA */}
           <div>
-            <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Esperienze ed extra <span style={{ textTransform: 'none', letterSpacing: 'normal', fontWeight: 400, fontSize: '0.65rem' }}>(opzionale)</span></label>
+            <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Esperienze ed extra <span style={{ textTransform: 'none', letterSpacing: 'normal', fontWeight: 600, fontSize: '0.82rem', color: '#7E6F61' }}>(opzionale)</span></label>
             <div className="bg-[#f5f5f5] px-4 py-3" style={{ border: '1px solid #e5e7eb' }}>
               <p className="text-sm mb-3" style={{ fontFamily: 'Lato, sans-serif', color: '#9A8A7A', fontStyle: 'italic', fontSize: '0.92rem' }}>Personalizza la tua esperienza nelle Langhe…</p>
               <div className="space-y-3">
@@ -585,7 +585,7 @@ export default function BookingForm({ onSubmit }) {
 
           {/* MESSAGGIO */}
           <div>
-            <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Messaggio (opzionale)</label>
+            <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>Messaggio <span style={{ textTransform: 'none', letterSpacing: 'normal', fontWeight: 600, fontSize: '0.82rem', color: '#7E6F61' }}>(opzionale)</span></label>
             <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder="Indica le camere: una singola, doppia...?" rows={4} className="w-full px-4 py-3 border border-gray-300 rounded-none focus:outline-none focus:border-[#C9A870] transition-colors resize-none" style={{ fontFamily: 'Lato, sans-serif', fontSize: '1rem' }} />
           </div>
 
