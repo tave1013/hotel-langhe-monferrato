@@ -74,7 +74,7 @@ export default function Hero() {
       </div>
 
       {/* CONTENT */}
-      <div className="relative h-full flex flex-col justify-center items-center text-center px-6 pt-16">
+      <div className="relative h-full flex flex-col justify-center items-center text-center px-6 pt-16 md:pt-28 lg:pt-32">
         <div
           key={current}
           style={{ animation: 'fadeUp 0.9s ease forwards' }}

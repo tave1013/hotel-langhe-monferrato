@@ -45,7 +45,7 @@ export default function TerritorioPage() {
           />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(10,8,6,0.55), rgba(10,8,6,0.72))' }} />
         </div>
-        <div className="relative h-full flex flex-col items-center justify-center text-center px-6 max-w-4xl mx-auto" style={{ margin: '0 auto' }}>
+        <div className="relative h-full flex flex-col items-center justify-center text-center px-6 max-w-4xl mx-auto pt-16 md:pt-28 lg:pt-32" style={{ margin: '0 auto' }}>
           <p className="section-label" style={{ marginBottom: '0.7rem' }}>Esplora la Nostra Terra</p>
           <div className="gold-divider" style={{ marginBottom: '1.3rem' }}></div>
           <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(2.2rem, 5vw, 4rem)', fontWeight: 400, color: '#FAF7F2', lineHeight: 1.12, marginBottom: '1rem' }}>
