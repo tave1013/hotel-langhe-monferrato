@@ -75,7 +75,7 @@ export default function BookingForm({ onSubmit }) {
   const extrasOptions = [
     { id: 'bollicine',  label: 'Bottiglia di bollicine con 2 calici', price: '20€' },
     { id: 'cantine',   label: 'Visita alle cantine con degustazione', price: 'da 25€ p.p.' },
-    { id: 'tartufo',   label: 'Esperienza caccia al tartufo', price: 'da 200€ p.p.' },
+    { id: 'tartufo',   label: 'Esperienza caccia al tartufo', price: 'da 87€ p.p.' },
     { id: 'ebike',     label: 'Tour e-bike per le Langhe', price: 'da 35€ p.p.' },
     { id: 'birre',     label: 'Tour + degustazione al birrificio del territorio', price: 'da 15€ p.p.' },
   ];
