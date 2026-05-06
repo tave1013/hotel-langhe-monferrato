@@ -32,7 +32,7 @@ export default function FAQ() {
     },
     {
       question: "L'hotel ha una piscina?",
-      answer: "La piscina non si trova all\'interno dell\'hotel ma è accessibile nel Parco della Contessa, all\'interno del nostro complesso turistico. È aperta anche al pubblico, ma gli ospiti dell\'Hotel Langhe & Monferrato possono accedervi gratuitamente. Per informazioni sugli orari, chiedi direttamente alla nostra reception al momento del check-in."
+      answer: "La piscina non si trova all\'interno dell\'hotel ma è accessibile nel Parco della Contessa, all\'interno del nostro complesso turistico, aperta solo nella stagione estiva. È aperta anche al pubblico, ma gli ospiti dell\'Hotel Langhe & Monferrato possono accedervi gratuitamente. Per informazioni sugli orari, chiedi direttamente alla nostra reception al momento del check-in."
     },
     {
       question: "Come posso raggiungere l'hotel da Asti, Alba o Torino? C'è il trasporto pubblico?",
