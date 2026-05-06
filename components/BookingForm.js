@@ -136,25 +136,40 @@ export default function BookingForm({ onSubmit }) {
       title: 'Tour E-Bike',
       description: (
         <>
+          <h4 className="font-semibold mb-2" style={{ color: '#C9A870' }}>
+            <i className="fa fa-check-circle" style={{ marginRight: 8 }}></i>COSA È INCLUSO
+          </h4>
           <p className="mb-3">
-            Pedala attraverso i paesaggi mozzafiato delle Langhe con le nostre biciclette elettriche. Un modo ecologico e divertente per scoprire la regione, adatto a ogni età.
+            E-bike, casco, zainetto, lucchetto, bomboletta riparazioni e mantellina antipioggia. Seggiolino bimbo disponibile su richiesta.
           </p>
-          <h4 className="font-semibold mb-2" style={{ color: '#C9A870' }}>Cosa è incluso:</h4>
+
+          <h4 className="font-semibold mb-2" style={{ color: '#C9A870' }}>
+            <i className="fa fa-route" style={{ marginRight: 8 }}></i>PERCORSI DISPONIBILI
+          </h4>
           <p className="mb-3">
-            E-bike, itinerario guidato attraverso vigne e borghi, soste panoramiche, guida locale esperta. Il noleggio comprende casco, zainetto, lucchetto, kit riparazione forature e mantellina antipioggia. Seggiolino bimbo disponibile su richiesta.
+            Canelli, Acqui Terme, Barbaresco, Nizza Monferrato e altri. Dai 40 agli 80 km, adatti a tutti i livelli.
           </p>
-          <p className="mb-3 text-sm" style={{ color: '#2C2520' }}>
-            <span className="font-semibold">Percorsi disponibili:</span> da 40 a 80 km a seconda della scelta.
-          </p>
-          <h4 className="font-semibold mb-2" style={{ color: '#C9A870' }}>Opzioni e prezzi:</h4>
+
+          <h4 className="font-semibold mb-2" style={{ color: '#C9A870' }}>
+            <i className="fa fa-tag" style={{ marginRight: 8 }}></i>PREZZI
+          </h4>
           <ul className="list-disc list-inside space-y-1 mb-3">
-            <li>Mezza giornata (8:00–12:30 oppure 15:00–19:30): 35€ a persona</li>
-            <li>1 giorno (8:00–19:30): 45€ a persona</li>
-            <li>2 giorni: 80€ a persona</li>
-            <li>3 giorni: 110€ a persona</li>
+            <li>Mezza giornata (8:00-12:30 oppure 15:00-19:30): €35</li>
+            <li>1 giorno (8:00-19:30): €45</li>
+            <li>2 giorni: €80</li>
+            <li>3 giorni: €110</li>
           </ul>
-          <p className="text-sm" style={{ color: '#9A8A7A' }}>
-            Minimo 2 persone. Disponibilità: marzo–novembre.
+
+          <h4 className="font-semibold mb-2" style={{ color: '#C9A870' }}>
+            <i className="fa fa-shuttle-van" style={{ marginRight: 8 }}></i>TRASPORTO DALL'HOTEL
+          </h4>
+          <p className="mb-3">€20 a persona</p>
+
+          <h4 className="font-semibold mb-2" style={{ color: '#C9A870' }}>
+            <i className="fa fa-calendar-check" style={{ marginRight: 8 }}></i>PRENOTAZIONE
+          </h4>
+          <p className="text-sm mt-2" style={{ color: '#9A8A7A' }}>
+            Si prega di avvisare in anticipo così da poter organizzare al meglio e garantire la disponibilità dei posti.
           </p>
         </>
       )

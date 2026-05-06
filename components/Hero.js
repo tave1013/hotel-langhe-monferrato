@@ -81,7 +81,7 @@ export default function Hero() {
         >
           {/* Eyebrow */}
           <ScrollAnimation type="slide-up" duration="slow">
-            <div className={`${slide.showStars ? 'hidden' : 'hidden md:flex'} items-center justify-center gap-4 mb-5 mt-[5px] md:mt-0`}>
+            <div className={`${slide.showStars ? 'hidden' : 'hidden md:flex'} items-center justify-center gap-4 mb-5 mt-6 md:mt-0`}>
               <span style={{ width: 40, height: 1, background: '#C9A870', display: 'inline-block' }}></span>
               <span className="section-label">{slide.label}</span>
               <span style={{ width: 40, height: 1, background: '#C9A870', display: 'inline-block' }}></span>
@@ -98,6 +98,7 @@ export default function Hero() {
           {/* H1 */}
           <ScrollAnimation type="slide-up" duration="slow" delay={200}>
             <h1
+              className={`${slide.showStars ? '' : 'mt-8 md:mt-0'}`}
               style={{
                 fontFamily: 'Playfair Display, serif',
                 fontSize: 'clamp(2.4rem, 6vw, 5rem)',
