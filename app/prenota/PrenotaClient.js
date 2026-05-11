@@ -5,8 +5,14 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BookingForm from '@/components/BookingForm';
 import FAQ from '@/components/FAQ';
+import useSiteLanguage from '@/hooks/useSiteLanguage';
 
 export default function PrenotaClient() {
+  const lang = useSiteLanguage();
+  const isEn = lang === 'en';
+  const isFr = lang === 'fr';
+  const isEs = lang === 'es';
+
   const handleBookingSubmit = async (formData) => {
     // Here you can add your logic to send the form data to your backend
     console.log('Booking form submitted:', formData);
@@ -28,7 +34,7 @@ export default function PrenotaClient() {
         <div className="absolute inset-0">
           <Image
             src="/foto/Camere.webp"
-            alt="Prenota Hotel Langhe"
+            alt={isEn ? 'Book Hotel Langhe' : isFr ? 'Réserver Hotel Langhe' : isEs ? 'Reservar Hotel Langhe' : 'Prenota Hotel Langhe'}
             fill
             priority
             quality={85}
@@ -38,9 +44,9 @@ export default function PrenotaClient() {
           <div className="absolute inset-0" style={{ background: 'rgba(10,8,6,0.65)' }} />
         </div>
         <div className="relative h-full flex flex-col items-center justify-center text-center px-6">
-          <p className="section-label" style={{ marginBottom: '0.6rem' }}>Miglior Prezzo Garantito</p>
+          <p className="section-label" style={{ marginBottom: '0.6rem' }}>{isEn ? 'Best Price Guaranteed' : isFr ? 'Meilleur Prix Garanti' : isEs ? 'Mejor precio garantizado' : 'Miglior Prezzo Garantito'}</p>
           <div className="gold-divider" style={{ marginBottom: '1.2rem' }}></div>
-          <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(2.2rem, 5vw, 4rem)', fontWeight: 400, color: '#FAF7F2' }}>Prenota il Tuo Soggiorno</h1>
+          <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(2.2rem, 5vw, 4rem)', fontWeight: 400, color: '#FAF7F2' }}>{isEn ? 'Book Your Stay' : isFr ? 'Réservez Votre Séjour' : isEs ? 'Reserva tu estancia' : 'Prenota il Tuo Soggiorno'}</h1>
         </div>
       </section>
 

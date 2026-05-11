@@ -4,8 +4,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import useSiteLanguage from '@/hooks/useSiteLanguage';
 
 export default function GuideDetailPage({ guida }) {
+  const lang = useSiteLanguage();
+  const isEn = lang === 'en';
+  const isFr = lang === 'fr';
+  const isDe = lang === 'de';
+  const isEs = lang === 'es';
+
   return (
     <>
       <Navbar />
@@ -132,7 +139,7 @@ export default function GuideDetailPage({ guida }) {
                                 lineHeight: 1.6,
                               }}
                             >
-                              {d.linkLabel || 'Apri su Google Maps'}
+                              {d.linkLabel || (isEn ? 'Open on Google Maps' : isFr ? 'Ouvrir sur Google Maps' : isDe ? 'Auf Google Maps öffnen' : isEs ? 'Abrir en Google Maps' : 'Apri su Google Maps')}
                             </a>
                           )}
                         </div>
@@ -178,7 +185,15 @@ export default function GuideDetailPage({ guida }) {
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid rgba(201,168,112,0.08)' }}>
                     <i className="fa fa-camera" style={{ color: '#9A8A7A', fontSize: '0.7rem' }}></i>
                     <span style={{ fontFamily: 'Lato', fontSize: '0.68rem', color: '#9A8A7A', lineHeight: 1.5 }}>
-                      Foto: M. Ferni (Dal Gruppo Facebook Gite fuori porta in Piemonte) – utilizzata per cover e featured
+                      {isEn
+                        ? 'Photo: M. Ferni (from the Facebook group "Gite fuori porta in Piemonte") – used for cover and featured image'
+                        : isFr
+                          ? 'Photo : M. Ferni (du groupe Facebook « Gite fuori porta in Piemonte ») – utilisée pour la couverture et l’image principale'
+                          : isDe
+                            ? 'Foto: M. Ferni (von der Facebook-Gruppe „Gite fuori porta in Piemonte") – verwendet für Coverfoto und Hauptbild'
+                            : isEs
+                              ? 'Foto: M. Ferni (del grupo de Facebook “Gite fuori porta in Piemonte”) – utilizada para portada e imagen destacada'
+                            : 'Foto: M. Ferni (Dal Gruppo Facebook Gite fuori porta in Piemonte) – utilizzata per cover e featured'}
                     </span>
                   </div>
 
@@ -193,14 +208,14 @@ export default function GuideDetailPage({ guida }) {
               <div style={{ background: '#1A1714', padding: '2rem', marginBottom: '3rem' }}>
                 <h3 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.25rem', color: '#FAF7F2', marginBottom: '1.3rem', fontWeight: 500 }}>
                   <i className="fa fa-info-circle" style={{ color: '#C9A870', marginRight: 10, fontSize: '0.9rem' }}></i>
-                  Informazioni Pratiche
+                  {isEn ? 'Practical Information' : isFr ? 'Informations Pratiques' : isDe ? 'Praktische Informationen' : isEs ? 'Información práctica' : 'Informazioni Pratiche'}
                 </h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   {[
-                    { icon: 'fa-car', label: 'Come Arrivare', value: guida.infoPratiche.come },
-                    { icon: 'fa-calendar-alt', label: 'Periodo Consigliato', value: guida.infoPratiche.periodo },
-                    { icon: 'fa-backpack', label: 'Cosa Portare', value: guida.infoPratiche.cosaDPortare },
-                    { icon: 'fa-ticket-alt', label: 'Biglietti & Costi', value: guida.infoPratiche.ingressiPaganti },
+                    { icon: 'fa-car', label: isEn ? 'How to Get There' : isFr ? "Comment S'y Rendre" : isDe ? 'Wie man ankommt' : isEs ? 'Cómo llegar' : 'Come Arrivare', value: guida.infoPratiche.come },
+                    { icon: 'fa-calendar-alt', label: isEn ? 'Best Period' : isFr ? 'Période Conseillée' : isDe ? 'Beste Jahreszeit' : isEs ? 'Mejor época' : 'Periodo Consigliato', value: guida.infoPratiche.periodo },
+                    { icon: 'fa-backpack', label: isEn ? 'What to Bring' : isFr ? 'Que Prendre' : isDe ? 'Was man mitbringen sollte' : isEs ? 'Qué llevar' : 'Cosa Portare', value: guida.infoPratiche.cosaDPortare },
+                    { icon: 'fa-ticket-alt', label: isEn ? 'Tickets & Costs' : isFr ? 'Billets & Coûts' : isDe ? 'Eintrittskarten & Kosten' : isEs ? 'Entradas y costes' : 'Biglietti & Costi', value: guida.infoPratiche.ingressiPaganti },
                   ].map((info) => (
                     <div key={info.label} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
                       <div style={{ width: 30, height: 30, background: 'rgba(201,168,112,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
@@ -223,7 +238,7 @@ export default function GuideDetailPage({ guida }) {
                 {/* INDEX / SOMMARIO */}
                 <div style={{ background: '#fff', borderTop: '2px solid #C9A870', padding: '1.5rem', marginBottom: '1.2rem' }}>
                   <h3 style={{ fontFamily: 'Lato', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A870', marginBottom: '1rem' }}>
-                    In Questa Guida
+                    {isEn ? 'In This Guide' : isFr ? 'Dans ce Guide' : isDe ? 'In diesem Reiseführer' : isEs ? 'En esta guía' : 'In Questa Guida'}
                   </h3>
                   <ol style={{ listStyle: 'none', padding: 0 }}>
                     {guida.sezioni.map((sez, i) => (
@@ -238,7 +253,7 @@ export default function GuideDetailPage({ guida }) {
                 {/* LINK INTERNI — CONVERSIONE */}
                 <div style={{ background: '#fff', borderTop: '2px solid #1A1714', padding: '1.5rem', marginBottom: '1.2rem' }}>
                   <h3 style={{ fontFamily: 'Lato', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#9A8A7A', marginBottom: '1rem' }}>
-                    Potrebbe Interessarti
+                    {isEn ? 'You Might Also Like' : isFr ? 'Cela Peut Aussi Vous Intéresser' : isDe ? 'Das könnte Dich auch interessieren' : isEs ? 'También te puede interesar' : 'Potrebbe Interessarti'}
                   </h3>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                     {guida.linkInterni.map((link) => (
@@ -260,16 +275,16 @@ export default function GuideDetailPage({ guida }) {
                 {/* PRENOTA BOX */}
                 <div style={{ background: '#1A1714', padding: '1.5rem' }}>
                   <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.05rem', color: '#FAF7F2', fontStyle: 'italic', marginBottom: '0.9rem', lineHeight: 1.5 }}>
-                    Vuoi esplorare {guida.nome} partendo dal nostro hotel?
+                    {isEn ? `Would you like to explore ${guida.nome} starting from our hotel?` : isFr ? `Souhaitez-vous explorer ${guida.nome} en partant de notre hôtel ?` : isDe ? `Möchten Sie ${guida.nome} von unserem Hotel aus erkunden?` : isEs ? `¿Te gustaría explorar ${guida.nome} partiendo de nuestro hotel?` : `Vuoi esplorare ${guida.nome} partendo dal nostro hotel?`}
                   </p>
                   <p style={{ fontFamily: 'Lato', fontSize: '0.74rem', color: 'rgba(245,239,228,0.45)', lineHeight: 1.7, marginBottom: '1.2rem' }}>
-                    Il nostro team organizza transfer, prenotazioni e itinerari su misura. Prenota il soggiorno e dicci cosa vuoi fare.
+                    {isEn ? 'Our team organizes transfers, bookings and tailored itineraries. Book your stay and tell us what you want to do.' : isFr ? 'Notre équipe organise transferts, réservations et itinéraires sur mesure. Réservez votre séjour et dites-nous ce que vous souhaitez faire.' : isDe ? 'Unser Team organisiert Transfers, Reservierungen und maßgeschneiderte Reiserouten. Buchen Sie Ihren Aufenthalt und sagen Sie uns, was Sie tun möchten.' : isEs ? 'Nuestro equipo organiza traslados, reservas e itinerarios a medida. Reserva tu estancia y cuéntanos qué te gustaría hacer.' : 'Il nostro team organizza transfer, prenotazioni e itinerari su misura. Prenota il soggiorno e dicci cosa vuoi fare.'}
                   </p>
                   <Link href="/prenota" className="btn-gold" style={{ display: 'block', textAlign: 'center' }}>
-                    Prenota il Soggiorno
+                    {isEn ? 'Book Your Stay' : isFr ? 'Réservez Votre Séjour' : isDe ? 'Buchen Sie Ihren Aufenthalt' : isEs ? 'Reserva tu estancia' : 'Prenota il Soggiorno'}
                   </Link>
                   <Link href="/contatti" style={{ display: 'block', textAlign: 'center', fontFamily: 'Lato', fontSize: '0.68rem', color: 'rgba(255,255,255,0.35)', marginTop: '0.7rem', textDecoration: 'none', letterSpacing: '0.06em' }}>
-                    Contattaci per un Itinerario
+                    {isEn ? 'Contact us for an itinerary' : isFr ? 'Contactez-nous pour un itinéraire' : isDe ? 'Kontaktieren Sie uns für eine Reiseroute' : isEs ? 'Contáctanos para un itinerario' : 'Contattaci per un Itinerario'}
                   </Link>
                 </div>
 
@@ -279,7 +294,7 @@ export default function GuideDetailPage({ guida }) {
                   onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'rgba(201,168,112,0.15)')}
                 >
                   <i className="fa fa-map" style={{ color: '#C9A870', fontSize: '0.75rem' }}></i>
-                  <span style={{ fontFamily: 'Lato', fontSize: '0.75rem', color: '#4A3D33' }}>Tutte le Mini Guide del Territorio</span>
+                  <span style={{ fontFamily: 'Lato', fontSize: '0.75rem', color: '#4A3D33' }}>{isEn ? 'All Area Mini Guides' : isFr ? 'Tous les Mini-Guides du Territoire' : isDe ? 'Alle Reiseführer des Gebiets' : isEs ? 'Todas las mini guías del territorio' : 'Tutte le Mini Guide del Territorio'}</span>
                   <i className="fa fa-arrow-right" style={{ color: '#C9A870', fontSize: '0.58rem', marginLeft: 'auto' }}></i>
                 </Link>
               </div>
@@ -300,7 +315,7 @@ export default function GuideDetailPage({ guida }) {
                   onMouseLeave={(e) => (e.currentTarget.style.color = '#4A3D33')}
                 >
                   <i className="fa fa-arrow-left" style={{ fontSize: '0.65rem' }}></i>
-                  Guida Precedente
+                  {isEn ? 'Previous Guide' : isFr ? 'Guide Précédent' : isDe ? 'Vorheriger Reiseführer' : isEs ? 'Guía anterior' : 'Guida Precedente'}
                 </Link>
               )}
             </div>
@@ -315,7 +330,7 @@ export default function GuideDetailPage({ guida }) {
                   onMouseEnter={(e) => (e.currentTarget.style.color = '#C9A870')}
                   onMouseLeave={(e) => (e.currentTarget.style.color = '#4A3D33')}
                 >
-                  Guida Successiva
+                  {isEn ? 'Next Guide' : isFr ? 'Guide Suivant' : isDe ? 'Nächster Reiseführer' : isEs ? 'Guía siguiente' : 'Guida Successiva'}
                   <i className="fa fa-arrow-right" style={{ fontSize: '0.65rem' }}></i>
                 </Link>
               )}

@@ -3,11 +3,24 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { guide } from '@/lib/territorioData';
+import { guideEn } from '@/lib/territorioDataEn';
+import { guideFr } from '@/lib/territorioDataFr';
+import { guideDe } from '@/lib/territorioDataDe';
+import { guideEs } from '@/lib/territorioDataEs';
 import ScrollAnimation from './ScrollAnimation';
+import useSiteLanguage from '@/hooks/useSiteLanguage';
+import { t } from '@/lib/i18n';
 
 export default function TerritoryGuides() {
+  const lang = useSiteLanguage();
+  const isEn = lang === 'en';
+  const isFr = lang === 'fr';
+  const isDe = lang === 'de';
+  const isEs = lang === 'es';
+  const guides = isEs ? guideEs : isDe ? guideDe : isFr ? guideFr : isEn ? guideEn : guide;
+
   // Prendi solo le prime 3 guide
-  const topGuides = guide.slice(0, 3);
+  const topGuides = guides.slice(0, 3);
 
   // Funzione per troncare il testo
   const truncateText = (text, maxLength) => {
@@ -20,9 +33,9 @@ export default function TerritoryGuides() {
       <div className="max-w-7xl mx-auto px-6">
         <ScrollAnimation type="slide-up">
           <div className="text-center mb-14">
-            <p className="section-label mb-3">Le Nostre Mini Guide</p>
+            <p className="section-label mb-3">{t(lang, 'guidesHome.label')}</p>
             <div className="gold-divider mb-5"></div>
-            <h2 className="section-title mb-4">Cosa Fare e Vedere Intorno all'Hotel</h2>
+            <h2 className="section-title mb-4">{t(lang, 'guidesHome.title')}</h2>
             <p
               style={{
                 fontFamily: 'Cormorant Garamond, serif',
@@ -33,7 +46,7 @@ export default function TerritoryGuides() {
                 fontStyle: 'italic',
               }}
             >
-              Il territorio delle Langhe e del Monferrato regala esperienze uniche per ogni viaggiatore. Tre mete imperdibili da scoprire durante il tuo soggiorno.
+              {t(lang, 'guidesHome.subtitle')}
             </p>
           </div>
         </ScrollAnimation>
@@ -93,7 +106,7 @@ export default function TerritoryGuides() {
                 <p
                   style={{
                     fontFamily: 'Lato',
-                    fontSize: '1.05rem',
+                    fontSize: '1rem',
                     color: '#6B5E52',
                     lineHeight: 1.75,
                     marginBottom: '1.4rem',
@@ -116,7 +129,7 @@ export default function TerritoryGuides() {
                 </div>
 
                 <Link href={`/territorio/${item.slug}`} className="btn-gold w-full text-center block">
-                  <span>Scopri la Guida</span>
+                  <span>{t(lang, 'guidesHome.discoverGuide')}</span>
                 </Link>
               </div>
               </div>
@@ -127,7 +140,7 @@ export default function TerritoryGuides() {
         {/* Link to full guides */}
         <div className="text-center mt-10">
           <Link href="/territorio" className="btn-outline-gold">
-            Vedi Tutte le Guide del Territorio
+            {t(lang, 'guidesHome.seeAll')}
           </Link>
         </div>
       </div>

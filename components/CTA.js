@@ -2,8 +2,11 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import useSiteLanguage from '@/hooks/useSiteLanguage';
+import { t } from '@/lib/i18n';
 
 export default function CTA() {
+  const lang = useSiteLanguage();
   return (
     <section className="relative overflow-hidden" style={{ padding: '120px 0' }}>
       {/* BG */}
@@ -25,7 +28,7 @@ export default function CTA() {
       </div>
 
       <div className="relative max-w-4xl mx-auto px-6 text-center">
-        <p className="section-label mb-4">Pronto per la Tua Fuga?</p>
+        <p className="section-label mb-4">{t(lang, 'cta.eyebrow')}</p>
 
         {/* Decorative line */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginBottom: 24 }}>
@@ -44,8 +47,8 @@ export default function CTA() {
             marginBottom: '1.2rem',
           }}
         >
-          Sei Pronto a Vivere le Langhe<br />
-          <em style={{ color: '#C9A870' }}>come Non le Hai Mai Vissute?</em>
+          {t(lang, 'cta.title').split('\n')[0]}<br />
+          <em style={{ color: '#C9A870' }}>{t(lang, 'cta.title').split('\n')[1]}</em>
         </h2>
 
         <p
@@ -58,23 +61,23 @@ export default function CTA() {
             lineHeight: 1.8,
           }}
         >
-          Ogni soggiorno è un'occasione irripetibile. Prenota ora, scegli le date che preferisci e lascia che ci prendiamo cura di ogni dettaglio per te. Le migliori tariffe sono disponibili solo sul nostro sito ufficiale.
+          {t(lang, 'cta.text')}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
           <Link href="/prenota" className="btn-gold" style={{ fontSize: '0.78rem', padding: '1.1rem 2.8rem' }}>
-            <span>Prenota Direttamente. Miglior Prezzo</span>
+            <span>{t(lang, 'cta.bookDirect')}</span>
           </Link>
           <Link href="/contatti" className="btn-outline-white" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            Contattaci
+            {t(lang, 'cta.contactUs')}
           </Link>
         </div>
 
         {/* Trust signals */}
         <div className="flex flex-wrap justify-center gap-6">
           {[
-            { icon: 'fa-shield-alt', text: 'Cancellazione Gratuita' },
-            { icon: 'fa-tag', text: 'Miglior Prezzo Garantito' },
+            { icon: 'fa-shield-alt', text: t(lang, 'cta.freeCancellation') },
+            { icon: 'fa-tag', text: t(lang, 'cta.bestPrice') },
           ].map((t) => (
             <div key={t.text} style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
               <i className={`fa ${t.icon}`} style={{ color: '#C9A870', fontSize: '0.75rem' }}></i>

@@ -1,0 +1,343 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "roomsSuite": "Habitaciones y Suites",
+    "meetingRooms": "Salas de reuniones",
+    "territory": "Territorio",
+    "contacts": "Contactos",
+    "bookNow": "Reservar ahora",
+    "rooms": {
+      "single": "Habitación Individual",
+      "double": "Habitación Doble",
+      "triple": "Habitación Triple",
+      "quadruple": "Habitación Cuádruple",
+      "suite": "Suite Deluxe"
+    },
+    "territoryItems": {
+      "asti": "Asti, la Edad Media",
+      "alba": "Alba, capital del sabor",
+      "cathedrals": "Catedrales subterráneas",
+      "truffle": "Caza de trufa",
+      "castles": "Castillos del Monferrato",
+      "bigBench": "Big Bench",
+      "nizza": "Nizza è Barbera"
+    }
+  },
+  "hero": {
+    "slides": [
+      {
+        "label": "Un oasis de relax en las Langhe",
+        "title": "Alójate en el Hotel\nLanghe & Monferrato",
+        "sub": "En el verde del Parco della Contessa en Costigliole d'Asti, a pocos kilómetros de las excelencias UNESCO de Langhe y Monferrato."
+      },
+      {
+        "label": "Piscina inmersa en la naturaleza",
+        "title": "La piscina\nen plena naturaleza",
+        "sub": "Déjate envolver por el silencio y la naturaleza del Parco della Contessa. Nuestra piscina de verano es el lugar perfecto para relajarte y recargar energías."
+      }
+    ],
+    "ctaBook": "Reserva tu estancia",
+    "ctaRooms": "Descubrir habitaciones",
+    "reviews": {
+      "booking": "En Booking.com",
+      "google": "Reseñas de Google",
+      "verified": "Reseñas verificadas"
+    },
+    "scroll": "Desplazar"
+  },
+  "cta": {
+    "eyebrow": "¿Listo para tu escapada?",
+    "title": "¿Listo para vivir las Langhe\ncomo nunca antes?",
+    "text": "Cada estancia es una ocasión única. Reserva ahora, elige tus fechas y deja que cuidemos cada detalle. Las mejores tarifas están disponibles solo en nuestra web oficial.",
+    "bookDirect": "Reserva directa. Mejor precio",
+    "contactUs": "Contáctanos",
+    "freeCancellation": "Cancelación gratuita",
+    "bestPrice": "Mejor precio garantizado"
+  },
+  "footer": {
+    "description": "El hotel Langhe&Monferrato, inmerso en la naturaleza del Parco della Contessa en Costigliole d'Asti, es un oasis de tranquilidad y relax.",
+    "hotelTitle": "El Hotel",
+    "exploreTitle": "Explora el territorio",
+    "contactsTitle": "Contactos",
+    "whereWeAre": "Dónde estamos",
+    "book": "Reservar",
+    "rooms": "Habitaciones y Suites",
+    "meeting": "Salas de reuniones",
+    "explore": {
+      "asti": "Asti - Edad Media",
+      "alba": "Alba - Capital del sabor",
+      "cathedrals": "Catedrales subterráneas",
+      "castles": "Castillos del Monferrato",
+      "bigBench": "Big Bench"
+    },
+    "checkInOut": "Check-in 15:00-22:30 · Check-out 07:00-11:00",
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Política de privacidad",
+    "cookie": "Política de cookies",
+    "terms": "Términos y condiciones"
+  },
+  "trustBar": {
+    "items": [
+      {
+        "title": "Ubicación privilegiada",
+        "desc": "En el corazón de Langhe y Monferrato, a unos 15 km de Alba, Asti y Canelli, rodeado de naturaleza en Costigliole d'Asti."
+      },
+      {
+        "title": "Cocina local",
+        "desc": "Posibilidad de disfrutar productos locales y propuestas típicas, ideales también para eventos y ocasiones especiales."
+      },
+      {
+        "title": "Piscina",
+        "desc": "Piscina exterior de verano inmersa en la naturaleza, perfecta para relajarse durante la estancia."
+      },
+      {
+        "title": "Salas de reuniones",
+        "desc": "Espacios equipados para eventos, reuniones y ocasiones especiales dentro del hotel. Contáctanos para organizar cada detalle."
+      }
+    ]
+  },
+  "about": {
+    "label": "Bienvenidos",
+    "title": "Un oasis de relax en el corazón del Piamonte",
+    "subtitle": "El lugar ideal para alojarse en Langhe y Monferrato",
+    "p1": "El Hotel Langhe & Monferrato, inmerso en el verde del Parco della Contessa en Costigliole d'Asti, es un oasis de tranquilidad y bienestar en el corazón del Piamonte. Su posición estratégica, a solo 15 km de Alba, Asti y Canelli, lo hace perfecto para descubrir las colinas UNESCO entre Langhe y Monferrato.",
+    "p2": "En una zona Patrimonio de la Humanidad de la UNESCO, rica en tradiciones, eventos culturales y rutas enogastronómicas, el hotel ofrece 58 habitaciones amplias: individuales, dobles, triples, cuádruples y suites.",
+    "reviews": "Reseñas",
+    "bookCta": "Reserva tu estancia"
+  },
+  "roomsHome": {
+    "label": "Habitaciones y Suites",
+    "title": "Nuestra colección de habitaciones",
+    "intro": "58 habitaciones para vivir el territorio en un ambiente cómodo y acogedor, inmerso en la naturaleza del Parco della Contessa.",
+    "startingFrom": "Desde",
+    "perNight": "/ noche",
+    "guests": "Huéspedes",
+    "bookNow": "Reservar ahora",
+    "details": "Detalles",
+    "rooms": {
+      "single": {
+        "name": "Habitación Individual",
+        "tab": "Individual",
+        "desc": "La habitación individual es ideal para quien viaja solo y busca comodidad y tranquilidad entre Langhe y Monferrato.",
+        "features": ["Habitación disponible", "Ducha de hidromasaje", "Ideal para viajeros solos", "Wi-Fi gratis"]
+      },
+      "double": {
+        "name": "Habitación Doble",
+        "tab": "Doble",
+        "desc": "Nuestras 38 habitaciones dobles son ideales para parejas y viajeros de negocios que buscan confort y tranquilidad.",
+        "features": ["38 habitaciones disponibles", "Ducha de hidromasaje", "Ideal para parejas", "Wi-Fi gratis"]
+      },
+      "triple": {
+        "name": "Habitación Triple",
+        "tab": "Triple",
+        "desc": "Las 8 habitaciones triples son perfectas para familias pequeñas o grupos de amigos, con configuración de camas flexible.",
+        "features": ["8 habitaciones disponibles", "Matrimonial + individual o 3 camas", "Bañera de hidromasaje", "Wi-Fi gratis"]
+      },
+      "quadruple": {
+        "name": "Habitación Cuádruple",
+        "tab": "Cuádruple",
+        "desc": "Las 2 habitaciones cuádruples están pensadas para familias numerosas y pequeños grupos, con espacios cómodos para todos.",
+        "features": ["2 habitaciones disponibles", "Configuración de camas flexible", "Bañera de hidromasaje", "Wi-Fi gratis"]
+      },
+      "suite": {
+        "name": "Suite Deluxe",
+        "tab": "Suite",
+        "desc": "Nuestras 6 suites son ideales para parejas que desean más espacio y confort, con ambiente elegante y reservado.",
+        "features": ["6 suites disponibles", "Bañera de hidromasaje", "Ideal para parejas", "Wi-Fi gratis"]
+      }
+    }
+  },
+  "amenities": {
+    "label": "Nuestros servicios",
+    "title": "Todo el confort que necesitas",
+    "items": [
+      {
+        "label": "Wi-Fi",
+        "desc": "Conexión Wi-Fi disponible en todo el hotel: habitaciones, zonas comunes y espacios exteriores."
+      },
+      {
+        "label": "Aparcamiento",
+        "desc": "Amplio aparcamiento exterior gratuito frente al hotel, cómodo y accesible para todos los huéspedes."
+      },
+      {
+        "label": "Restaurante & Bar",
+        "desc": "Servicio de restauración disponible bajo petición o en colaboración con socios locales. Desayuno buffet y bar para huéspedes."
+      },
+      {
+        "label": "Paquetes exclusivos",
+        "desc": "Organizamos experiencias a medida para tu estancia, con descuentos dedicados para nuestros huéspedes."
+      },
+      {
+        "label": "Salas de reuniones",
+        "desc": "Espacios equipados para eventos, reuniones y ocasiones especiales directamente en el hotel."
+      },
+      {
+        "label": "Piscina",
+        "desc": "Piscina abierta en temporada de verano, inmersa en la naturaleza para relajarse durante la estancia."
+      }
+    ]
+  },
+  "testimonials": {
+    "label": "Reseñas verificadas",
+    "title": "Nuestros huéspedes hablan de nosotros",
+    "subtitle": "Siempre intentamos mejorar para que cada estancia sea especial.",
+    "items": [
+      {
+        "text": "El establecimiento cuenta con habitaciones amplias, modernas y limpias, con grandes terrazas con vistas al sugerente Parco della Contessa. Hay un gran aparcamiento gratuito. El desayuno es muy abundante, variado y rico en productos locales. El personal es muy amable y atento.",
+        "name": "Alice B.",
+        "platform": "Google"
+      },
+      {
+        "text": "¡Un hotel precioso en una ubicación algo apartada, pero muy cerca del centro! Perfecto para quienes desean unas vacaciones de total relax y silencio mientras visitan las magníficas bodegas de la zona. Desayuno muy variado, habitaciones grandes, limpias y llenas de confort. Personal amable y profesional, y precios muy buenos para los servicios ofrecidos.",
+        "name": "Antonio B.",
+        "platform": "Google"
+      },
+      {
+        "text": "¡Un establecimiento excelente, de verdad! Personal amable y disponible. Habitaciones limpias y ambiente acogedor. El entorno exterior también merece la pena y se disfruta con largos paseos. Todos nos sentimos muy bien. ¡Muy recomendable!",
+        "name": "Andrea T.",
+        "platform": "Booking.com"
+      }
+    ]
+  },
+  "guidesHome": {
+    "label": "Nuestras mini guías",
+    "title": "Qué hacer y ver alrededor del hotel",
+    "subtitle": "El territorio de Langhe y Monferrato ofrece experiencias únicas para cada viajero.",
+    "discoverGuide": "Descubrir la guía",
+    "seeAll": "Ver todas las guías del territorio"
+  },
+  "faqHome": {
+    "label": "FAQ",
+    "title": "Preguntas frecuentes",
+    "subtitle": "Todo lo que necesitas saber para organizar mejor tu estancia. Si tienes otras preguntas, no dudes en contactarnos.",
+    "items": [
+      {
+        "question": "¿Cuáles son los horarios de check-in y check-out?",
+        "answer": "El check-in está disponible a partir de las 15:00. Si llegas antes, puedes dejar el equipaje en el hotel y disfrutar de la zona mientras preparamos la habitación. El check-out es antes de las 11:00. Si necesitas flexibilidad, contáctanos antes de tu llegada: según disponibilidad, podemos valorar un late check-out sin coste adicional."
+      },
+      {
+        "question": "¿Se pueden traer mascotas al hotel?",
+        "answer": "Sí, aceptamos mascotas pequeñas y medianas con un suplemento de 15 € por día. Te pedimos que lo indiques al hacer la reserva para organizar la mejor acogida para tu compañero de cuatro patas. Algunas zonas del hotel pueden tener restricciones para garantizar el confort de todos los huéspedes."
+      },
+      {
+        "question": "¿El desayuno está incluido en la tarifa?",
+        "answer": "Depende de la tarifa elegida al reservar. Muchos de nuestros paquetes incluyen un rico desayuno buffet. Para comprobar qué incluye tu reserva, revisa los detalles al seleccionar la tarifa o contáctanos directamente."
+      },
+      {
+        "question": "¿Hay restaurante o bar en el hotel?",
+        "answer": "Dentro del establecimiento hay una zona de bar donde servimos un abundante desayuno buffet. Para almuerzo y cena, el servicio de restauración está disponible bajo petición o en colaboración con socios locales, con la posibilidad de degustar productos típicos del territorio. Nuestro equipo estará encantado de recomendarte las mejores osterías y restaurantes de Langhe y Monferrato cercanos."
+      },
+      {
+        "question": "¿El hotel dispone de salas de reuniones o espacios para eventos?",
+        "answer": "Sí, disponemos de salas de reuniones equipadas para acoger reuniones de trabajo, eventos corporativos y ocasiones especiales. Nuestras salas cuentan con equipamiento audiovisual y pueden configurarse según tus necesidades. Para información sobre capacidad, servicios disponibles y presupuestos, contáctanos directamente: construiremos juntos la solución más adecuada para tu evento."
+      },
+      {
+        "question": "¿Hay aparcamiento en el hotel? ¿Es de pago?",
+        "answer": "Sí, el hotel dispone de un amplio aparcamiento exterior gratuito justo delante del establecimiento. No es necesaria reserva: el aparcamiento está a disposición de todos los huéspedes durante toda la estancia."
+      },
+      {
+        "question": "¿El hotel tiene piscina?",
+        "answer": "La piscina no se encuentra dentro del hotel, pero es accesible en el Parco della Contessa, dentro de nuestro complejo turístico, y abre solo en temporada de verano. También está abierta al público, pero los huéspedes del Hotel Langhe & Monferrato pueden acceder gratuitamente. Para horarios, pregunta directamente en recepción al hacer el check-in."
+      },
+      {
+        "question": "¿Cómo puedo llegar al hotel desde Asti, Alba o Turín? ¿Hay transporte público?",
+        "answer": "El Hotel Langhe & Monferrato está en Costigliole d'Asti, fácilmente accesible en coche: unos 15 minutos desde Asti, 30 minutos desde Alba y menos de una hora desde Turín. Recomendamos viajar en coche para explorar libremente las colinas de la zona. Si llegas en tren, la estación más cercana es la de Asti, desde donde puedes llegar a Costigliole en taxi o con traslado privado. Contáctanos y te ayudaremos a organizar el traslado."
+      },
+      {
+        "question": "¿Es posible tener una cuna en la habitación?",
+        "answer": "Sí, el hotel pone a disposición cunas para los más pequeños, totalmente gratuitas y facilitadas directamente por el establecimiento. La disponibilidad es limitada, por lo que te recomendamos solicitarla durante la reserva para poder garantizarla. Haremos todo lo posible para que todo esté listo para tu llegada."
+      },
+      {
+        "question": "Soy celíaco: ¿es posible tener productos sin gluten en el desayuno?",
+        "answer": "Por supuesto. Nuestro buffet de desayuno está preparado para atender a huéspedes con necesidades alimentarias específicas, incluida la celiaquía, con una selección de productos certificados sin gluten. Para ayudarnos a organizar mejor tu estancia y garantizarte una experiencia a medida, te pedimos que lo indiques al hacer la reserva. Siempre estamos disponibles para encontrar soluciones personalizadas para cualquier otra necesidad o intolerancia alimentaria."
+      },
+      {
+        "question": "¿Hay horarios de entrada si regresamos tarde de un paseo o una salida nocturna?",
+        "answer": "No, no hay restricciones horarias. A cada huésped se le entrega un código personal de acceso que permite entrar en el establecimiento con total autonomía y a cualquier hora, sin depender de recepción. Así podrás vivir tu estancia con la máxima libertad. Naturalmente, si necesitas asistencia o apoyo en cualquier momento, siempre estamos a tu disposición también a través del chat de la web."
+      }
+    ]
+  },
+  "roomPage": {
+    "label": "Habitaciones y Suites",
+    "startingFrom": "Desde",
+    "perNight": "/ noche",
+    "bookStay": "Reserva tu estancia",
+    "freeCancellation": "Cancelación gratuita",
+    "bestPrice": "Mejor precio garantizado",
+    "roomDescription": "Descripción de la habitación",
+    "gallery": "Galería fotográfica",
+    "expand": "AMPLIAR",
+    "idealForStay": "Ideales para tu estancia",
+    "surroundings": "Alrededores del hotel",
+    "policies": "Políticas e info útil",
+    "needHelp": "¿Necesitas ayuda?",
+    "callUs": "Llámanos",
+    "writeUs": "Escríbenos",
+    "chatWithUs": "Chatea con nosotros",
+    "seeAllRooms": "Ver todas las habitaciones",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "readyExperience": "¿Listo para vivir la experiencia",
+    "bottomText": "Reserva directamente en nuestra web: mejor precio garantizado, cancelación gratuita y un regalo de bienvenida exclusivo.",
+    "bookNowBestPrice": "Reserva ahora. Mejor precio"
+  },
+  "roomsListPage": {
+    "heroAlt": "Habitaciones Hotel Langhe",
+    "label": "Nuestra colección",
+    "title": "Habitaciones y Suites",
+    "subtitle": "Cada habitación cuenta la historia de Langhe con materiales nobles y cuidado artesanal.",
+    "from": "desde",
+    "perNight": "/noche",
+    "discoverRoom": "Descubrir la habitación"
+  },
+  "roomDetails": {
+    "singola": {
+      "name": "Habitación Individual",
+      "tagline": "Confort esencial del Piamonte auténtico",
+      "description": "La habitación individual es el punto de partida perfecto para descubrir Langhe. Amueblada con cuidado artesanal, combina funcionalidad y calidez en un ambiente acogedor.\n\nCada detalle está pensado para que te sientas como en casa: ropa de cama de calidad, productos de baño locales, vista al jardín y suave luz de la mañana piamontesa."
+    },
+    "standard": {
+      "name": "Habitación Doble",
+      "tagline": "Confort esencial del Piamonte auténtico",
+      "description": "La habitación doble es el punto de partida perfecto para descubrir Langhe. Amueblada con cuidado artesanal, combina funcionalidad y calidez en un ambiente acogedor.\n\nCada detalle está pensado para que te sientas como en casa: ropa de cama de calidad, productos de baño locales, vista al jardín y suave luz de la mañana piamontesa."
+    },
+    "tripla": {
+      "name": "Habitación Triple",
+      "tagline": "Espacio y estilo para tres viajeros",
+      "description": "La habitación triple está pensada para viajar en tres sin renunciar a nada. Tres camas, un ambiente armonioso y todo el confort de la tradición piamontesa.\n\nAmplia y funcional, con configuración flexible de camas, es ideal para compartir la experiencia de Langhe con comodidad y privacidad."
+    },
+    "quadrupla": {
+      "name": "Habitación Cuádruple",
+      "tagline": "Cuatro huéspedes, una experiencia inolvidable",
+      "description": "La habitación cuádruple es perfecta para familias y grupos de amigos que quieren compartir espacios sin renunciar al confort individual.\n\nIdeal para vivir Langhe juntos manteniendo la calidad y calidez de nuestro hotel."
+    },
+    "suite": {
+      "name": "Suite Deluxe",
+      "tagline": "La cima del lujo piamontés",
+      "description": "La Suite Deluxe es una experiencia única. Un apartamento de lujo entre colinas UNESCO, donde cada elemento cuenta la historia de Langhe.\n\nSala de estar independiente, terraza panorámica privada, spa con jacuzzi, sauna y servicio dedicado."
+    }
+  },
+  "saleMeetingPage": {
+    "heroAlt": "Sala de reuniones del Hotel Langhe",
+    "heroLabel": "Negocios y eventos",
+    "heroTitle": "Salas de reuniones y congresos",
+    "heroSubtitle": "Espacios modulares, tecnología avanzada y servicios a medida para eventos corporativos, congresos y reuniones profesionales.",
+    "roomsLabel": "Nuestras salas",
+    "roomsTitle": "Espacios diseñados para tus eventos",
+    "roomLabel": "Sala",
+    "requestQuote": "Solicita un presupuesto",
+    "servicesLabel": "Servicios incluidos",
+    "servicesTitle": "Todo lo que necesitas para un evento perfecto",
+    "ctaLabel": "Planifica tu evento",
+    "ctaTitle": "Solicita un presupuesto a medida",
+    "ctaText": "Nuestro equipo está disponible para construir contigo un evento personalizado, desde la sala más adecuada hasta los servicios técnicos y de catering.",
+    "services": {
+      "wifi": "Wi-Fi gratis",
+      "projection": "Proyección 4K",
+      "coffee": "Coffee break gourmet",
+      "catering": "Catering y cena de gala",
+      "parking": "Aparcamiento reservado",
+      "support": "Soporte técnico 24/7"
+    }
+  }
+}

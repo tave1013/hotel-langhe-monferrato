@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
+import useSiteLanguage from '@/hooks/useSiteLanguage';
 
 function WhatsAppIcon({ className = 'w-7 h-7' }) {
   return (
@@ -27,6 +28,11 @@ function CloseIcon() {
 }
 
 export default function WhatsAppWidget() {
+  const lang = useSiteLanguage();
+  const isEn = lang === 'en';
+  const isFr = lang === 'fr';
+  const isDe = lang === 'de';
+  const isEs = lang === 'es';
   const [isOpen, setIsOpen] = useState(false);
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [showPromoBubble, setShowPromoBubble] = useState(false);
@@ -40,9 +46,17 @@ export default function WhatsAppWidget() {
   }, []);
 
   const whatsappUrl = useMemo(() => {
-    const message = 'Buongiorno, vorrei ricevere maggiori informazioni sull\'Hotel Langhe & Monferrato.';
+    const message = isEn
+      ? 'Hello, I would like to receive more information about Hotel Langhe & Monferrato.'
+      : isFr
+        ? 'Bonjour, je souhaite recevoir plus d\'informations sur l\'Hôtel Langhe & Monferrato.'
+        : isDe
+          ? 'Guten Tag, ich möchte weitere Informationen über das Hotel Langhe & Monferrato erhalten.'
+          : isEs
+            ? 'Hola, me gustaría recibir más información sobre el Hotel Langhe & Monferrato.'
+            : 'Buongiorno, vorrei ricevere maggiori informazioni sull\'Hotel Langhe & Monferrato.';
     return `https://wa.me/393518011730?text=${encodeURIComponent(message)}`;
-  }, []);
+  }, [isEn, isFr, isDe, isEs]);
 
   const handleChatOpen = () => {
     if (!privacyAccepted) return;
@@ -71,7 +85,7 @@ export default function WhatsAppWidget() {
                 <div className="font-['Playfair_Display'] text-base font-semibold leading-tight">Hotel Langhe &amp; Monferrato</div>
                 <div className="mt-1 flex items-center gap-2 text-sm text-white/90">
                   <span className="h-2 w-2 rounded-full bg-white" />
-                  <span>Siamo online</span>
+                  <span>{isEn ? 'We are online' : isFr ? 'Nous sommes en ligne' : isDe ? 'Wir sind online' : isEs ? 'Estamos en línea' : 'Siamo online'}</span>
                 </div>
               </div>
             </div>
@@ -79,7 +93,7 @@ export default function WhatsAppWidget() {
               type="button"
               onClick={() => setIsOpen(false)}
               className="rounded-full p-1 text-white/90 transition hover:bg-white/15 hover:text-white"
-              aria-label="Chiudi widget WhatsApp"
+              aria-label={isEn ? 'Close WhatsApp widget' : isFr ? 'Fermer le widget WhatsApp' : isDe ? 'WhatsApp-Widget schließen' : 'Chiudi widget WhatsApp'}
             >
               <CloseIcon />
             </button>
@@ -88,7 +102,15 @@ export default function WhatsAppWidget() {
 
         <div className="space-y-4 px-5 py-5">
           <div className="max-w-[88%] rounded-[22px] rounded-bl-md bg-[#F2F7F5] px-4 py-3 text-sm leading-6 text-[#2C2520] shadow-sm">
-            Benvenuto all'Hotel Langhe &amp; Monferrato! Come possiamo aiutarti?
+            {isEn
+              ? 'Welcome to Hotel Langhe & Monferrato! How can we help you?'
+              : isFr
+                ? 'Bienvenue à l\'Hôtel Langhe & Monferrato ! Comment pouvons-nous vous aider ?'
+                : isDe
+                  ? 'Willkommen im Hotel Langhe & Monferrato! Wie können wir Ihnen helfen?'
+                  : isEs
+                    ? '¡Bienvenido al Hotel Langhe & Monferrato! ¿Cómo podemos ayudarte?'
+                    : 'Benvenuto all\'Hotel Langhe & Monferrato! Come possiamo aiutarti?'}
           </div>
 
           <label className="flex items-start gap-3 text-sm leading-5 text-[#4A3D33]">
@@ -99,10 +121,18 @@ export default function WhatsAppWidget() {
               className="mt-1 h-4 w-4 rounded border-[#CFCFCF] text-[#128C7E] focus:ring-[#128C7E]"
             />
             <span>
-              Ho letto e accetto la{' '}
-              <Link href="/privacy-policy" className="font-semibold text-[#128C7E] underline underline-offset-2">
-                Privacy Policy
-              </Link>
+              {isDe ? (
+                <>Ich habe die <Link href="/privacy-policy" className="font-semibold text-[#128C7E] underline underline-offset-2">Datenschutzerklärung</Link> gelesen und akzeptiere sie</>
+              ) : isEs ? (
+                <>He leído y acepto la <Link href="/privacy-policy" className="font-semibold text-[#128C7E] underline underline-offset-2">Política de Privacidad</Link></>
+              ) : (
+                <>
+                  {isEn ? 'I have read and accept the ' : isFr ? 'J\'ai lu et j\'accepte la ' : 'Ho letto e accetto la '}
+                  <Link href="/privacy-policy" className="font-semibold text-[#128C7E] underline underline-offset-2">
+                    Privacy Policy
+                  </Link>
+                </>
+              )}
             </span>
           </label>
 
@@ -117,7 +147,7 @@ export default function WhatsAppWidget() {
                 : 'cursor-not-allowed bg-[#B9B9B9] opacity-90',
             ].join(' ')}
           >
-            Chatta con noi
+            {isEn ? 'Chat with us' : isFr ? 'Discutez avec nous' : isDe ? 'Chatten Sie mit uns' : isEs ? 'Chatea con nosotros' : 'Chatta con noi'}
           </button>
         </div>
       </div>
@@ -133,10 +163,18 @@ export default function WhatsAppWidget() {
                 type="button"
                 onClick={() => setIsOpen(true)}
                 className="flex-1 text-left"
-                aria-label="Apri chat WhatsApp"
+                aria-label={isEn ? 'Open WhatsApp chat' : isFr ? 'Ouvrir le chat WhatsApp' : isDe ? 'WhatsApp-Chat öffnen' : 'Apri chat WhatsApp'}
               >
                 <p className="text-sm font-semibold leading-5 text-[#2C2520] sm:text-[15px]">
-                  Prenota il tuo soggiorno al prezzo più basso!
+                  {isEn
+                    ? 'Book your stay at the lowest price!'
+                    : isFr
+                      ? 'Réservez votre séjour au prix le plus bas !'
+                      : isDe
+                        ? 'Buchen Sie Ihren Aufenthalt zum günstigsten Preis!'
+                        : isEs
+                          ? '¡Reserva tu estancia al precio más bajo!'
+                          : 'Prenota il tuo soggiorno al prezzo più basso!'}
                 </p>
               </button>
 
@@ -144,7 +182,7 @@ export default function WhatsAppWidget() {
                 type="button"
                 onClick={dismissPromoBubble}
                 className="-mr-1 -mt-1 rounded-full p-1 text-[#6C6C6C] transition hover:bg-[#F5F5F5] hover:text-[#2C2520]"
-                aria-label="Chiudi messaggio promozionale"
+                aria-label={isEn ? 'Close promotional message' : isFr ? 'Fermer le message promotionnel' : isDe ? 'Werbebotschaft schließen' : 'Chiudi messaggio promozionale'}
               >
                 <CloseIcon />
               </button>
@@ -165,7 +203,11 @@ export default function WhatsAppWidget() {
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
         className="pointer-events-auto flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#128C7E] shadow-[0_10px_24px_rgba(18,140,126,0.26)] transition-transform duration-300 hover:scale-105 sm:h-14 sm:w-14"
-        aria-label={isOpen ? 'Chiudi chat WhatsApp' : 'Apri chat WhatsApp'}
+        aria-label={
+          isOpen
+            ? (isEn ? 'Close WhatsApp chat' : isFr ? 'Fermer le chat WhatsApp' : isDe ? 'WhatsApp-Chat schließen' : isEs ? 'Cerrar chat de WhatsApp' : 'Chiudi chat WhatsApp')
+            : (isEn ? 'Open WhatsApp chat' : isFr ? 'Ouvrir le chat WhatsApp' : isDe ? 'WhatsApp-Chat öffnen' : isEs ? 'Abrir chat de WhatsApp' : 'Apri chat WhatsApp')
+        }
       >
         <WhatsAppIcon className="h-6 w-6 text-white sm:h-7 sm:w-7" />
       </button>

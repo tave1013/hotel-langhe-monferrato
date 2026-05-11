@@ -1,26 +1,31 @@
 'use client';
 
+import useSiteLanguage from '@/hooks/useSiteLanguage';
+import { t } from '@/lib/i18n';
+
 export default function TrustBar() {
+  const lang = useSiteLanguage();
+
   const items = [
     {
       icon: 'fa-map-marker-alt',
-      title: 'Posizione Privilegiata',
-      desc: 'Nel cuore di Langhe e Monferrato, a circa 15 km da Alba, Asti e Canelli, nel verde di Costigliole d\'Asti.',
+      title: t(lang, 'trustBar.items.0.title'),
+      desc: t(lang, 'trustBar.items.0.desc'),
     },
     {
       icon: 'fa-utensils',
-      title: 'Cucina del Territorio',
-      desc: 'Possibilità di mangiare prodotti locali del territorio, con proposte tipiche ideali anche per eventi e occasioni speciali.',
+      title: t(lang, 'trustBar.items.1.title'),
+      desc: t(lang, 'trustBar.items.1.desc'),
     },
     {
       icon: 'fa-swimming-pool',
-      title: 'Piscina',
-      desc: 'Piscina estiva all\'aperto immersa nella natura, perfetta per rilassarsi e vivere un momento di relax durante il soggiorno.',
+      title: t(lang, 'trustBar.items.2.title'),
+      desc: t(lang, 'trustBar.items.2.desc'),
     },
     {
       icon: 'fa-briefcase',
-      title: 'Sale Meeting',
-      desc: 'Spazi attrezzati per eventi, riunioni e occasioni speciali direttamente in struttura. Contattaci per organizzare ogni dettaglio.',
+      title: t(lang, 'trustBar.items.3.title'),
+      desc: t(lang, 'trustBar.items.3.desc'),
     },
   ];
 

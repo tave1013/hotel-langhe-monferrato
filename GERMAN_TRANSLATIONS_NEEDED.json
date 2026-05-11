@@ -1,0 +1,1065 @@
+[
+  {
+    "section": "Room Configs - Labels",
+    "replacements": [
+      {
+        "line": "77",
+        "label": "Single room",
+        "itText": "Singola",
+        "enText": "Single",
+        "frText": "Simple",
+        "deText": "Einzelzimmer"
+      },
+      {
+        "line": "78",
+        "label": "Double room",
+        "itText": "Matrimoniale",
+        "enText": "Double",
+        "frText": "Double",
+        "deText": "Doppelzimmer"
+      },
+      {
+        "line": "79",
+        "label": "Twin room label",
+        "itText": "Doppia",
+        "enText": "Twin",
+        "frText": "Twin",
+        "deText": "Zweibettzimmer"
+      },
+      {
+        "line": "79",
+        "label": "Twin room helper",
+        "itText": "(letti separati)",
+        "enText": "(separate beds)",
+        "frText": "(lits séparés)",
+        "deText": "(getrennte Betten)"
+      },
+      {
+        "line": "80",
+        "label": "Triple room",
+        "itText": "Tripla",
+        "enText": "Triple",
+        "frText": "Triple",
+        "deText": "Dreizimmerkammer"
+      },
+      {
+        "line": "81",
+        "label": "Quadruple room",
+        "itText": "Quadrupla",
+        "enText": "Quadruple",
+        "frText": "Quadruple",
+        "deText": "Vierpersonenzimmer"
+      }
+    ]
+  },
+  {
+    "section": "Extras Options - Labels",
+    "replacements": [
+      {
+        "line": "85",
+        "label": "Sparkling wine bottle with 2 glasses",
+        "itText": "Bottiglia di bollicine con 2 calici",
+        "enText": "Bottle of sparkling wine with 2 glasses",
+        "frText": "Bouteille de vin pétillant avec 2 verres",
+        "deText": "Flasche Schaumwein mit 2 Gläsern"
+      },
+      {
+        "line": "86",
+        "label": "Winery visit with tasting",
+        "itText": "Visita alle cantine con degustazione",
+        "enText": "Winery visit with tasting",
+        "frText": "Visite de cave avec dégustation",
+        "deText": "Weinkellerei-Besuch mit Verkostung"
+      },
+      {
+        "line": "87",
+        "label": "Truffle hunting experience",
+        "itText": "Esperienza caccia al tartufo",
+        "enText": "Truffle hunting experience",
+        "frText": "Expérience chasse à la truffe",
+        "deText": "Trüffelsuche-Erlebnis"
+      },
+      {
+        "line": "88",
+        "label": "Langhe e-bike tour",
+        "itText": "Tour e-bike per le Langhe",
+        "enText": "Langhe e-bike tour",
+        "frText": "Tour e-bike dans les Langhe",
+        "deText": "Langhe E-Bike-Tour"
+      },
+      {
+        "line": "89",
+        "label": "Local brewery tour and tasting",
+        "itText": "Tour + degustazione al birrificio del territorio",
+        "enText": "Local brewery tour + tasting",
+        "frText": "Visite + dégustation dans la brasserie locale",
+        "deText": "Besuch der örtlichen Brauerei + Verkostung"
+      }
+    ]
+  },
+  {
+    "section": "Extras Info - Bollicine",
+    "replacements": [
+      {
+        "line": "93",
+        "label": "Bollicine title",
+        "itText": "Bollicine",
+        "enText": "Sparkling Wine",
+        "frText": "Bulles de Champagne",
+        "deText": "Schaumwein"
+      },
+      {
+        "line": "96",
+        "label": "Bollicine welcome description",
+        "itText": "Benvenuti al vostro soggiorno con una bottiglia di spumante piemontese, perfettamente fredda e accompagnata da 2 calici eleganti.",
+        "enText": "Welcome your stay with a bottle of Piemontese sparkling wine, perfectly chilled and accompanied by 2 elegant glasses.",
+        "frText": "Bienvenue dans votre séjour avec une bouteille de vin pétillant piémontais, parfaitement frais et accompagné de 2 élégantes flûtes.",
+        "deText": "Willkommen in Ihrem Aufenthalt mit einer Flasche Piemontese-Schaumwein, perfekt gekühlt und mit 2 eleganten Gläsern."
+      },
+      {
+        "line": "100",
+        "label": "Bollicine what's included title",
+        "itText": "Cosa è incluso:",
+        "enText": "What's included:",
+        "frText": "Ce qui est inclus :",
+        "deText": "Was ist enthalten:"
+      },
+      {
+        "line": "101",
+        "label": "Bollicine what's included description",
+        "itText": "1 bottiglia di spumante locale con 2 calici, consegnata in camera. Perfetto per celebrazioni o momenti speciali.",
+        "enText": "1 bottle of local sparkling wine with 2 glasses, delivered to your room. Perfect for celebrations or special moments.",
+        "frText": "1 bouteille de vin mousseux local avec 2 flûtes, livrée dans votre chambre. Parfait pour les célébrations ou les moments spéciaux.",
+        "deText": "1 Flasche lokaler Schaumwein mit 2 Gläsern, geliefert in Ihrem Zimmer. Perfekt für Feiern oder besondere Momente."
+      },
+      {
+        "line": "105",
+        "label": "Bollicine price note",
+        "itText": "Prezzo: 20€. Si prega di avvisare in anticipo.",
+        "enText": "Price: €20. Advance notice appreciated.",
+        "frText": "Prix : 20 €. Merci de nous prévenir à l'avance.",
+        "deText": "Preis: 20€. Vorankündigung erforderlich."
+      }
+    ]
+  },
+  {
+    "section": "Extras Info - Cantine (Wineries)",
+    "replacements": [
+      {
+        "line": "110",
+        "label": "Cantine title",
+        "itText": "Visita alle Cantine",
+        "enText": "Winery Visit",
+        "frText": "Visite de Caves",
+        "deText": "Weinkellerei-Besuch"
+      },
+      {
+        "line": "113",
+        "label": "Cantine discover description",
+        "itText": "Scopri le storiche cantine delle Langhe con una visita guidata esclusiva. Un'esperienza autentica tra le vigne e la tradizione vinicola piemontese.",
+        "enText": "Discover the historic wineries of Langhe with an exclusive guided tour. An authentic experience among the vineyards and Piedmont winemaking tradition.",
+        "frText": "Découvrez les caves historiques des Langhe lors d'une visite guidée exclusive. Une expérience authentique au cœur des vignes et de la tradition viticole piémontaise.",
+        "deText": "Entdecken Sie die historischen Weinbetriebe von Langhe mit einer exklusiven Führung. Eine authentische Erfahrung inmitten von Weinbergen und piemontesischer Weintradition."
+      },
+      {
+        "line": "119",
+        "label": "Cantine what's included title",
+        "itText": "Cosa è incluso:",
+        "enText": "What's included:",
+        "frText": "Ce qui est inclus :",
+        "deText": "Was ist enthalten:"
+      },
+      {
+        "line": "120",
+        "label": "Cantine what's included description",
+        "itText": "Tour guidato di una cantina locale a vostra scelta, degustazione di vini, durata circa 1,5 ore.",
+        "enText": "Guided tour of a local winery of your choice, wine tasting, approximately 1.5 hours.",
+        "frText": "Visite guidée d'une cave locale de votre choix, dégustation de vins, durée environ 1h30.",
+        "deText": "Führung durch einen lokalen Weinbetrieb Ihrer Wahl, Weinverkostung, ca. 1,5 Stunden."
+      },
+      {
+        "line": "124",
+        "label": "Cantine available wineries title",
+        "itText": "Le cantine visitabili a scelta tra:",
+        "enText": "Available wineries:",
+        "frText": "Caves disponibles au choix :",
+        "deText": "Verfügbare Weinkellereien zur Auswahl:"
+      },
+      {
+        "line": "130",
+        "label": "Cantine price per person",
+        "itText": "Prezzo a persona: da 25€. Minimo 2 persone.",
+        "enText": "Price per person: from €25. Minimum 2 people.",
+        "frText": "Prix par personne : à partir de 25 €. Minimum 2 personnes.",
+        "deText": "Preis pro Person: ab 25€. Mindestens 2 Personen."
+      },
+      {
+        "line": "133",
+        "label": "Cantine advance notice",
+        "itText": "Si prega di avvisare in anticipo così da poter organizzare al meglio e garantire la disponibilità dei posti.",
+        "enText": "Please notify us in advance so we can best organize and ensure availability.",
+        "frText": "Merci de nous prévenir à l'avance afin que nous puissions organiser au mieux et garantir les disponibilités.",
+        "deText": "Bitte benachrichtigen Sie uns im Voraus, damit wir die beste Organisation gewährleisten können."
+      }
+    ]
+  },
+  {
+    "section": "Extras Info - Tartufo (Truffle Hunting)",
+    "replacements": [
+      {
+        "line": "140",
+        "label": "Tartufo title",
+        "itText": "Caccia al Tartufo",
+        "enText": "Truffle Hunting",
+        "frText": "Chasse à la Truffe",
+        "deText": "Trüffelsuche"
+      },
+      {
+        "line": "143",
+        "label": "Tartufo unforgettable adventure description",
+        "itText": "Un'avventura indimenticabile alla ricerca del \"diamante nero\" delle Langhe con cani trufolatori addestrati e un esperto tartufaio locale.",
+        "enText": "An unforgettable adventure searching for the \"black diamond\" of Langhe with trained truffle dogs and a local expert truffle hunter.",
+        "frText": "Une aventure inoubliable à la recherche du « diamant noir » des Langhe avec des chiens truffiers dressés et un expert trufficulture local.",
+        "deText": "Ein unvergessliches Abenteuer auf der Suche nach dem \"schwarzen Diamanten\" von Langhe mit ausgebildeten Trüffelhunden und einem lokalen Experten-Trüffelsammler."
+      },
+      {
+        "line": "148",
+        "label": "Tartufo what's included title",
+        "itText": "Cosa è incluso:",
+        "enText": "What's included:",
+        "frText": "Ce qui est inclus :",
+        "deText": "Was ist enthalten:"
+      },
+      {
+        "line": "149",
+        "label": "Tartufo what's included description",
+        "itText": "Uscita in bosco con tartufaio professionista, ricerca e raccolta tartufi (in stagione), lezione sulla ricerca, identificazione e usi in cucina. Durata circa 1,5 ore.",
+        "enText": "Forest outing with professional truffle hunter, truffle search and collection (in season), lesson on truffle hunting, identification and culinary uses. Approximately 1.5 hours.",
+        "frText": "Sortie en forêt avec un trufficulture professionnel, recherche et récolte de truffes (en saison), initiation à la recherche, l'identification et les usages culinaires. Durée environ 1h30.",
+        "deText": "Waldausflug mit professionellem Trüffelsammler, Trüffelsuche und -sammlung (in der Saison), Unterricht über Trüffelsuche, Identifizierung und kulinarische Verwendung. Etwa 1,5 Stunden."
+      },
+      {
+        "line": "154",
+        "label": "Tartufo available times label",
+        "itText": "Orari disponibili",
+        "enText": "Available times",
+        "frText": "Horaires disponibles",
+        "deText": "Verfügbare Zeiten"
+      },
+      {
+        "line": "155",
+        "label": "Tartufo availability label",
+        "itText": "Disponibilità",
+        "enText": "Availability",
+        "frText": "Disponibilité",
+        "deText": "Verfügbarkeit"
+      },
+      {
+        "line": "155",
+        "label": "Tartufo not available on Wed-Thu",
+        "itText": "non disponibile il mercoledì e il giovedì.",
+        "enText": "not available on Wednesdays and Thursdays.",
+        "frText": "non disponible le mercredi et le jeudi.",
+        "deText": "nicht verfügbar am Mittwoch und Donnerstag."
+      },
+      {
+        "line": "156",
+        "label": "Tartufo children label",
+        "itText": "Bambini fino a 17 anni",
+        "enText": "Children up to 17",
+        "frText": "Enfants jusqu'à 17 ans",
+        "deText": "Kinder bis 17 Jahre"
+      },
+      {
+        "line": "156",
+        "label": "Tartufo children free entry",
+        "itText": "ingresso gratuito.",
+        "enText": "free entry.",
+        "frText": "entrée gratuite.",
+        "deText": "kostenlos."
+      },
+      {
+        "line": "159",
+        "label": "Tartufo price per person",
+        "itText": "Prezzo a persona: da 87€.",
+        "enText": "Price per person: from €87.",
+        "frText": "Prix par personne : à partir de 87 €.",
+        "deText": "Preis pro Person: ab 87€."
+      },
+      {
+        "line": "162",
+        "label": "Tartufo advance notice",
+        "itText": "Si prega di avvisare in anticipo così da poter organizzare al meglio e garantire la disponibilità dei posti.",
+        "enText": "Please notify us in advance so we can best organize and ensure availability.",
+        "frText": "Merci de nous prévenir à l'avance afin que nous puissions organiser au mieux et garantir les disponibilités.",
+        "deText": "Bitte benachrichtigen Sie uns im Voraus, damit wir die beste Organisation gewährleisten können."
+      }
+    ]
+  },
+  {
+    "section": "Extras Info - E-Bike",
+    "replacements": [
+      {
+        "line": "169",
+        "label": "E-Bike title",
+        "itText": "Tour E-Bike",
+        "enText": "E-Bike Tour",
+        "frText": "Tour E-Bike",
+        "deText": "E-Bike-Tour"
+      },
+      {
+        "line": "172",
+        "label": "E-Bike pedal through landscapes",
+        "itText": "Pedala attraverso i paesaggi mozzafiato delle Langhe con le nostre biciclette elettriche. Un modo ecologico e divertente per scoprire la regione, adatto a ogni età.",
+        "enText": "Pedal through the breathtaking landscapes of Langhe with our electric bicycles. An ecological and fun way to discover the region, suitable for all ages.",
+        "frText": "Parcourez les paysages à couper le souffle des Langhe à vélo électrique. Une façon écologique et ludique de découvrir la région, adaptée à tous les âges.",
+        "deText": "Fahren Sie mit unseren Elektrofahrrädern durch die atemberaubende Landschaft von Langhe. Eine ökologische und unterhaltsame Möglichkeit, die Region zu erkunden, geeignet für alle Altersgruppen."
+      },
+      {
+        "line": "177",
+        "label": "E-Bike what's included title",
+        "itText": "Cosa è incluso:",
+        "enText": "What's included:",
+        "frText": "Ce qui est inclus :",
+        "deText": "Was ist enthalten:"
+      },
+      {
+        "line": "178",
+        "label": "E-Bike what's included description",
+        "itText": "E-bike, itinerario guidato attraverso vigne e borghi, soste panoramiche, guida locale esperta. Il noleggio comprende casco, zainetto, lucchetto, kit riparazione forature e mantellina antipioggia. Seggiolino bimbo disponibile su richiesta.",
+        "enText": "E-bike, guided itinerary through vineyards and villages, scenic stops, expert local guide. Rental includes helmet, backpack, lock, repair kit and rain cape. Child seat available upon request.",
+        "frText": "Vélo électrique, itinéraire guidé à travers vignes et villages, arrêts panoramiques, guide local expert. La location comprend casque, sac à dos, antivol, kit de réparation et cape de pluie. Siège enfant disponible sur demande.",
+        "deText": "E-Bike, geführte Strecke durch Weinberge und Dörfer, Panoramaaussichtspunkte, sachkundiger lokaler Führer. Der Mietservice umfasst Helm, Rucksack, Schloss, Reparaturset und Regenumhang. Kindersitz auf Anfrage verfügbar."
+      },
+      {
+        "line": "183",
+        "label": "E-Bike available routes label",
+        "itText": "Percorsi disponibili",
+        "enText": "Available routes",
+        "frText": "Itinéraires disponibles",
+        "deText": "Verfügbare Strecken"
+      },
+      {
+        "line": "183",
+        "label": "E-Bike routes 40-80 km",
+        "itText": "da 40 a 80 km a seconda della scelta.",
+        "enText": "from 40 to 80 km depending on your choice.",
+        "frText": "de 40 à 80 km selon votre choix.",
+        "deText": "von 40 bis 80 km je nach Wahl."
+      },
+      {
+        "line": "186",
+        "label": "E-Bike options and prices title",
+        "itText": "Opzioni e prezzi:",
+        "enText": "Options and prices:",
+        "frText": "Options et tarifs :",
+        "deText": "Optionen und Tarife:"
+      },
+      {
+        "line": "188",
+        "label": "E-Bike half day morning",
+        "itText": "Mezza giornata (8:00–12:30 oppure 15:00–19:30): 35€ a persona",
+        "enText": "Half day (8:00–12:30 or 15:00–19:30): €35 per person",
+        "frText": "Demi-journée (8h00–12h30 ou 15h00–19h30) : 35 € par personne",
+        "deText": "Halbtag (8:00–12:30 oder 15:00–19:30): 35€ pro Person"
+      },
+      {
+        "line": "189",
+        "label": "E-Bike full day",
+        "itText": "1 giorno (8:00–19:30): 45€ a persona",
+        "enText": "1 day (8:00–19:30): €45 per person",
+        "frText": "1 journée (8h00–19h30) : 45 € par personne",
+        "deText": "1 Tag (8:00–19:30): 45€ pro Person"
+      },
+      {
+        "line": "190",
+        "label": "E-Bike 2 days",
+        "itText": "2 giorni: 80€ a persona",
+        "enText": "2 days: €80 per person",
+        "frText": "2 jours : 80 € par personne",
+        "deText": "2 Tage: 80€ pro Person"
+      },
+      {
+        "line": "191",
+        "label": "E-Bike 3 days",
+        "itText": "3 giorni: 110€ a persona",
+        "enText": "3 days: €110 per person",
+        "frText": "3 jours : 110 € par personne",
+        "deText": "3 Tage: 110€ pro Person"
+      },
+      {
+        "line": "194",
+        "label": "E-Bike minimum 2 people March-November",
+        "itText": "Minimo 2 persone. Disponibilità: marzo–novembre.",
+        "enText": "Minimum 2 people. Available: March–November.",
+        "frText": "Minimum 2 personnes. Disponible : mars–novembre.",
+        "deText": "Mindestens 2 Personen. Verfügbar: März–November."
+      }
+    ]
+  },
+  {
+    "section": "Extras Info - Birre (Brewery)",
+    "replacements": [
+      {
+        "line": "200",
+        "label": "Birrificio title",
+        "itText": "Birrificio del Territorio",
+        "enText": "Local Brewery",
+        "frText": "Brasserie Locale",
+        "deText": "Örtliche Brauerei"
+      },
+      {
+        "line": "203",
+        "label": "Birrificio visit craft breweries",
+        "itText": "Visita una delle migliori birraie artigianali del territorio piemontese. Scopri il processo di produzione e assaggia birre esclusive create localmente.",
+        "enText": "Visit one of the best craft breweries in the Piedmont region. Discover the production process and taste exclusive beers created locally.",
+        "frText": "Visitez l'une des meilleures brasseries artisanales du Piémont. Découvrez le processus de production et dégustez des bières exclusives créées localement.",
+        "deText": "Besuchen Sie eine der besten Handwerkbrauereien in der Piemont-Region. Entdecken Sie den Produktionsprozess und probieren Sie exklusive lokal hergestellte Biere."
+      },
+      {
+        "line": "208",
+        "label": "Birrificio what's included title",
+        "itText": "Cosa è incluso:",
+        "enText": "What's included:",
+        "frText": "Ce qui est inclus :",
+        "deText": "Was ist enthalten:"
+      },
+      {
+        "line": "209",
+        "label": "Birrificio what's included description",
+        "itText": "Tour dei reparti di produzione, degustazione di 3 birre artigianali con abbinamento di 3 assaggi, spiegazione del processo di fermentazione. Durata circa 1,5 ore. Al termine è possibile acquistare direttamente i prodotti in azienda.",
+        "enText": "Tour of production departments, tasting of 3 craft beers with 3 food pairings, explanation of fermentation process. Approximately 1.5 hours. At the end you can purchase products directly from the brewery.",
+        "frText": "Visite des ateliers de production, dégustation de 3 bières artisanales avec 3 accords mets-bières, explication du processus de fermentation. Durée environ 1h30. À la fin, il est possible d'acheter les produits directement à la brasserie.",
+        "deText": "Führung durch die Produktionsabteilungen, Verkostung von 3 Handwerkbieren mit 3 Speisepaaren, Erklärung des Gärungsprozesses. Etwa 1,5 Stunden. Am Ende können Sie die Produkte direkt in der Brauerei kaufen."
+      },
+      {
+        "line": "215",
+        "label": "Birrificio price per person",
+        "itText": "Prezzo a persona: da 15€. Minimo 2 persone.",
+        "enText": "Price per person: from €15. Minimum 2 people.",
+        "frText": "Prix par personne : à partir de 15 €. Minimum 2 personnes.",
+        "deText": "Preis pro Person: ab 15€. Mindestens 2 Personen."
+      },
+      {
+        "line": "218",
+        "label": "Birrificio advance notice",
+        "itText": "Si prega di avvisare in anticipo così da poter organizzare al meglio e garantire la disponibilità dei posti.",
+        "enText": "Please notify us in advance so we can best organize and ensure availability.",
+        "frText": "Merci de nous prévenir à l'avance afin que nous puissions organiser au mieux et garantir les disponibilités.",
+        "deText": "Bitte benachrichtigen Sie uns im Voraus, damit wir die beste Organisation gewährleisten können."
+      }
+    ]
+  },
+  {
+    "section": "Form UI Labels",
+    "replacements": [
+      {
+        "line": "270",
+        "label": "Request Availability heading",
+        "itText": "Richiedi Disponibilità",
+        "enText": "Request Availability",
+        "frText": "Demander la Disponibilité",
+        "deText": "Verfügbarkeit anfordern"
+      },
+      {
+        "line": "274",
+        "label": "Form intro description",
+        "itText": "Compila il form con i tuoi dati e le date del tuo soggiorno. Ti risponderemo al più presto per confermare la disponibilità e fornirti tutte le informazioni necessarie.",
+        "enText": "Fill out the form with your details and stay dates. We will reply as soon as possible to confirm availability and provide all necessary information.",
+        "frText": "Remplissez le formulaire avec vos coordonnées et les dates de votre séjour. Nous vous répondrons dès que possible pour confirmer la disponibilité et vous fournir toutes les informations nécessaires.",
+        "deText": "Füllen Sie das Formular mit Ihren Daten und den Aufenthaltsdaten aus. Wir werden uns so bald wie möglich melden, um die Verfügbarkeit zu bestätigen und alle notwendigen Informationen bereitzustellen."
+      },
+      {
+        "line": "278",
+        "label": "Best price guaranteed",
+        "itText": "Miglior prezzo garantito prenotando direttamente",
+        "enText": "Best price guaranteed when booking direct",
+        "frText": "Meilleur prix garanti en réservant en direct",
+        "deText": "Bestes Preis garantiert bei direkter Buchung"
+      },
+      {
+        "line": "279",
+        "label": "Free cancellation",
+        "itText": "Cancellazione gratuita fino a 48h prima del check-in",
+        "enText": "Free cancellation up to 48h before check-in",
+        "frText": "Annulation gratuite jusqu'à 48h avant le check-in",
+        "deText": "Kostenlose Stornierung bis 48 Stunden vor dem Check-in"
+      },
+      {
+        "line": "280",
+        "label": "Dedicated support",
+        "itText": "Assistenza dedicata per qualsiasi necessità",
+        "enText": "Dedicated support for any need",
+        "frText": "Assistance dédiée pour chaque besoin",
+        "deText": "Unterstützung für jede Anforderung"
+      },
+      {
+        "line": "297",
+        "label": "Name label",
+        "itText": "Nome",
+        "enText": "Name",
+        "frText": "Nom",
+        "deText": "Name"
+      },
+      {
+        "line": "298",
+        "label": "Name placeholder",
+        "itText": "Paolo Rossi",
+        "enText": "John Smith",
+        "frText": "Jean Dupont",
+        "deText": "Max Müller"
+      },
+      {
+        "line": "303",
+        "label": "Phone label",
+        "itText": "Cellulare",
+        "enText": "Phone",
+        "frText": "Téléphone",
+        "deText": "Telefon"
+      },
+      {
+        "line": "310",
+        "label": "Room types label",
+        "itText": "Tipologie camere",
+        "enText": "Room types",
+        "frText": "Types de chambres",
+        "deText": "Zimmertypen"
+      },
+      {
+        "line": "324",
+        "label": "room singular",
+        "itText": "camera",
+        "enText": "room",
+        "frText": "chambre",
+        "deText": "Zimmer"
+      },
+      {
+        "line": "324",
+        "label": "rooms plural",
+        "itText": "camere",
+        "enText": "rooms",
+        "frText": "chambres",
+        "deText": "Zimmer"
+      },
+      {
+        "line": "350",
+        "label": "Breakfast label",
+        "itText": "Colazione",
+        "enText": "Breakfast",
+        "frText": "Petit-déjeuner",
+        "deText": "Frühstück"
+      },
+      {
+        "line": "355",
+        "label": "Select an option",
+        "itText": "Seleziona un'opzione...",
+        "enText": "Select an option...",
+        "frText": "Sélectionnez une option...",
+        "deText": "Wählen Sie eine Option..."
+      },
+      {
+        "line": "356",
+        "label": "Breakfast included",
+        "itText": "Colazione inclusa",
+        "enText": "Breakfast included",
+        "frText": "Petit-déjeuner inclus",
+        "deText": "Frühstück inbegriffen"
+      },
+      {
+        "line": "357",
+        "label": "Breakfast excluded",
+        "itText": "Colazione esclusa",
+        "enText": "Breakfast excluded",
+        "frText": "Petit-déjeuner non inclus",
+        "deText": "Frühstück ausgeschlossen"
+      },
+      {
+        "line": "364",
+        "label": "Late checkout label",
+        "itText": "Late checkout",
+        "enText": "Late checkout",
+        "frText": "Départ tardif",
+        "deText": "Späte Abreise"
+      },
+      {
+        "line": "370",
+        "label": "Late checkout No thanks",
+        "itText": "No, grazie",
+        "enText": "No, thanks",
+        "frText": "Non, merci",
+        "deText": "Nein, danke"
+      },
+      {
+        "line": "371",
+        "label": "Late checkout Yes with surcharge",
+        "itText": "Sì (+15€ supplemento)",
+        "enText": "Yes (+€15 surcharge)",
+        "frText": "Oui (+15€ supplément)",
+        "deText": "Ja (+15€ Aufschlag)"
+      },
+      {
+        "line": "380",
+        "label": "Do you have pets",
+        "itText": "Hai animali domestici?",
+        "enText": "Do you have pets?",
+        "frText": "Avez-vous des animaux domestiques ?",
+        "deText": "Haben Sie Haustiere?"
+      },
+      {
+        "line": "380",
+        "label": "Pet surcharge per night",
+        "itText": "(+15€ a notte per animale)",
+        "enText": "(+€15 per night per pet)",
+        "frText": "(+15€ par nuit et par animal)",
+        "deText": "(+15€ pro Nacht pro Haustier)"
+      },
+      {
+        "line": "385",
+        "label": "pet singular",
+        "itText": "animale",
+        "enText": "pet",
+        "frText": "animal",
+        "deText": "Haustier"
+      },
+      {
+        "line": "385",
+        "label": "pets plural",
+        "itText": "animali",
+        "enText": "pets",
+        "frText": "animaux",
+        "deText": "Haustiere"
+      },
+      {
+        "line": "402",
+        "label": "Experiences and extras",
+        "itText": "Esperienze ed extra",
+        "enText": "Experiences and extras",
+        "frText": "Expériences et extras",
+        "deText": "Erfahrungen und Extras"
+      },
+      {
+        "line": "402",
+        "label": "optional",
+        "itText": "(opzionale)",
+        "enText": "(optional)",
+        "frText": "(optionnel)",
+        "deText": "(optional)"
+      },
+      {
+        "line": "404",
+        "label": "Customize your Langhe experience",
+        "itText": "Personalizza la tua esperienza nelle Langhe…",
+        "enText": "Customize your Langhe experience…",
+        "frText": "Personnalisez votre expérience dans les Langhe…",
+        "deText": "Passen Sie Ihr Langhe-Erlebnis an…"
+      },
+      {
+        "line": "438",
+        "label": "Stay dates label",
+        "itText": "Date soggiorno (arrivo e partenza)",
+        "enText": "Stay dates (arrival and departure)",
+        "frText": "Dates du séjour (arrivée et départ)",
+        "deText": "Aufenthaltsdaten (Ankunft und Abreise)"
+      },
+      {
+        "line": "442",
+        "label": "night singular",
+        "itText": "notte",
+        "enText": "night",
+        "frText": "nuit",
+        "deText": "Nacht"
+      },
+      {
+        "line": "442",
+        "label": "nights plural",
+        "itText": "notti",
+        "enText": "nights",
+        "frText": "nuits",
+        "deText": "Nächte"
+      },
+      {
+        "line": "480",
+        "label": "Message label",
+        "itText": "Messaggio",
+        "enText": "Message",
+        "frText": "Message",
+        "deText": "Nachricht"
+      },
+      {
+        "line": "480",
+        "label": "optional suffix",
+        "itText": "(opzionale)",
+        "enText": "(optional)",
+        "frText": "(optionnel)",
+        "deText": "(optional)"
+      },
+      {
+        "line": "481",
+        "label": "Message placeholder",
+        "itText": "Indica le camere: una singola, doppia...?",
+        "enText": "Tell us your room preferences, notes, and requests...",
+        "frText": "Indiquez vos préférences de chambre, notes et demandes...",
+        "deText": "Teilen Sie Ihre Zimmerpräferenzen, Anmerkungen und Anfragen mit..."
+      },
+      {
+        "line": "499",
+        "label": "Opening WhatsApp loading",
+        "itText": "Apertura WhatsApp...",
+        "enText": "Opening WhatsApp...",
+        "frText": "Ouverture de WhatsApp...",
+        "deText": "Öffnung von WhatsApp..."
+      },
+      {
+        "line": "500",
+        "label": "Send Request on WhatsApp button",
+        "itText": "Invia Richiesta su WhatsApp",
+        "enText": "Send Request on WhatsApp",
+        "frText": "Envoyer la Demande sur WhatsApp",
+        "deText": "Anfrage per WhatsApp senden"
+      }
+    ]
+  },
+  {
+    "section": "WhatsApp Message Build",
+    "replacements": [
+      {
+        "line": "228",
+        "label": "Hello booking intro",
+        "itText": "Buongiorno, vorrei richiedere disponibilita per la seguentte data:",
+        "enText": "Hello, I would like to request availability for the following dates:",
+        "frText": "Bonjour, je souhaite demander la disponibilité pour les dates suivantes :",
+        "deText": "Hallo, ich möchte die Verfügbarkeit für die folgenden Termine anfordern:"
+      },
+      {
+        "line": "231",
+        "label": "Booking Request heading",
+        "itText": "*Prenotazione*",
+        "enText": "*Booking Request*",
+        "frText": "*Demande de Réservation*",
+        "deText": "*Buchungsanfrage*"
+      },
+      {
+        "line": "232",
+        "label": "Name in message",
+        "itText": "Nome",
+        "enText": "Name",
+        "frText": "Nom",
+        "deText": "Name"
+      },
+      {
+        "line": "233",
+        "label": "Phone in message",
+        "itText": "Cellulare",
+        "enText": "Phone",
+        "frText": "Téléphone",
+        "deText": "Telefon"
+      },
+      {
+        "line": "236",
+        "label": "Single Rooms in message",
+        "itText": "Camere Singole",
+        "enText": "Single Rooms",
+        "frText": "Chambres Simples",
+        "deText": "Einzelzimmer"
+      },
+      {
+        "line": "237",
+        "label": "Double Rooms in message",
+        "itText": "Camere Matrimoniali",
+        "enText": "Double Rooms",
+        "frText": "Chambres Doubles",
+        "deText": "Doppelzimmer"
+      },
+      {
+        "line": "238",
+        "label": "Twin Rooms in message",
+        "itText": "Camere Doppie (letti separati)",
+        "enText": "Twin Rooms (separate beds)",
+        "frText": "Chambres Twin (lits séparés)",
+        "deText": "Zweibettzimmer (getrennte Betten)"
+      },
+      {
+        "line": "239",
+        "label": "Triple Rooms in message",
+        "itText": "Camere Triple",
+        "enText": "Triple Rooms",
+        "frText": "Chambres Triples",
+        "deText": "Dreibettzimmer"
+      },
+      {
+        "line": "240",
+        "label": "Quadruple Rooms in message",
+        "itText": "Camere Quadruple",
+        "enText": "Quadruple Rooms",
+        "frText": "Chambres Quadruples",
+        "deText": "Vierpersonenzimmer"
+      },
+      {
+        "line": "247",
+        "label": "Nights in message",
+        "itText": "Notti",
+        "enText": "Nights",
+        "frText": "Nuits",
+        "deText": "Nächte"
+      },
+      {
+        "line": "248",
+        "label": "Breakfast in message",
+        "itText": "Colazione",
+        "enText": "Breakfast",
+        "frText": "Petit-déjeuner",
+        "deText": "Frühstück"
+      },
+      {
+        "line": "248",
+        "label": "Breakfast included in message",
+        "itText": "Colazione inclusa",
+        "enText": "Breakfast included",
+        "frText": "Petit-déjeuner inclus",
+        "deText": "Frühstück inbegriffen"
+      },
+      {
+        "line": "248",
+        "label": "Breakfast excluded in message",
+        "itText": "Colazione esclusa",
+        "enText": "Breakfast excluded",
+        "frText": "Petit-déjeuner non inclus",
+        "deText": "Frühstück ausgeschlossen"
+      },
+      {
+        "line": "249",
+        "label": "Late checkout in message",
+        "itText": "Late checkout",
+        "enText": "Late checkout",
+        "frText": "Départ tardif",
+        "deText": "Späte Abreise"
+      },
+      {
+        "line": "249",
+        "label": "Yes with surcharge in message",
+        "itText": "Sì (+15€)",
+        "enText": "Yes (+€15)",
+        "frText": "Oui (+15€)",
+        "deText": "Ja (+15€)"
+      },
+      {
+        "line": "249",
+        "label": "No thanks in message",
+        "itText": "No, grazie",
+        "enText": "No, thanks",
+        "frText": "Non, merci",
+        "deText": "Nein, danke"
+      },
+      {
+        "line": "250",
+        "label": "Pets in message",
+        "itText": "Animali domestici",
+        "enText": "Pets",
+        "frText": "Animaux domestiques",
+        "deText": "Haustiere"
+      },
+      {
+        "line": "250",
+        "label": "1 pet in message",
+        "itText": "1 animale",
+        "enText": "1 pet",
+        "frText": "1 animal",
+        "deText": "1 Haustier"
+      },
+      {
+        "line": "250",
+        "label": "multiple pets in message",
+        "itText": "animali",
+        "enText": "pets",
+        "frText": "animaux",
+        "deText": "Haustiere"
+      },
+      {
+        "line": "250",
+        "label": "Pet surcharge in message",
+        "itText": "supplemento 15€ a notte per animale",
+        "enText": "€15 per night per pet surcharge",
+        "frText": "supplément de 15€ par nuit et par animal",
+        "deText": "15€ pro Nacht pro Haustier Aufschlag"
+      },
+      {
+        "line": "250",
+        "label": "None in message",
+        "itText": "Nessuno",
+        "enText": "None",
+        "frText": "Aucun",
+        "deText": "Keine"
+      },
+      {
+        "line": "251",
+        "label": "Experiences & Extras in message",
+        "itText": "Esperienze ed Extra",
+        "enText": "Experiences & Extras",
+        "frText": "Expériences & Extras",
+        "deText": "Erfahrungen & Extras"
+      },
+      {
+        "line": "252",
+        "label": "Message in message",
+        "itText": "Messaggio",
+        "enText": "Message",
+        "frText": "Message",
+        "deText": "Nachricht"
+      },
+      {
+        "line": "252",
+        "label": "No additional notes",
+        "itText": "Nessuna nota aggiuntiva",
+        "enText": "No additional notes",
+        "frText": "Aucune note supplémentaire",
+        "deText": "Keine zusätzlichen Anmerkungen"
+      }
+    ]
+  },
+  {
+    "section": "Validation and Error Messages",
+    "replacements": [
+      {
+        "line": "263",
+        "label": "Rate limit error",
+        "itText": "Attendi qualche secondo prima di inviare nuovamente",
+        "enText": "Please wait a few seconds before submitting again",
+        "frText": "Veuillez attendre quelques secondes avant de renvoyer la demande",
+        "deText": "Bitte warten Sie einige Sekunden, bevor Sie erneut einreichen"
+      },
+      {
+        "line": "273",
+        "label": "Name required",
+        "itText": "Il nome è obbligatorio",
+        "enText": "Name is required",
+        "frText": "Le nom est obligatoire",
+        "deText": "Name ist erforderlich"
+      },
+      {
+        "line": "274",
+        "label": "Name too short",
+        "itText": "Il nome deve avere almeno 2 caratteri",
+        "enText": "Name must be at least 2 characters",
+        "frText": "Le nom doit comporter au moins 2 caractères",
+        "deText": "Name muss mindestens 2 Zeichen lang sein"
+      },
+      {
+        "line": "275",
+        "label": "Email required",
+        "itText": "L'email è obbligatoria",
+        "enText": "Email is required",
+        "frText": "L'e-mail est obligatoire",
+        "deText": "E-Mail ist erforderlich"
+      },
+      {
+        "line": "276",
+        "label": "Email invalid",
+        "itText": "Inserisci un'email valida",
+        "enText": "Please enter a valid email",
+        "frText": "Veuillez saisir une adresse e-mail valide",
+        "deText": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+      },
+      {
+        "line": "277",
+        "label": "Phone required",
+        "itText": "Il cellulare è obbligatorio",
+        "enText": "Phone is required",
+        "frText": "Le téléphone est obligatoire",
+        "deText": "Telefon ist erforderlich"
+      },
+      {
+        "line": "278",
+        "label": "Phone too short",
+        "itText": "Il cellulare deve contenere almeno 10 cifre",
+        "enText": "Phone must contain at least 10 digits",
+        "frText": "Le téléphone doit contenir au moins 10 chiffres",
+        "deText": "Telefon muss mindestens 10 Ziffern enthalten"
+      },
+      {
+        "line": "279",
+        "label": "Room required",
+        "itText": "Seleziona almeno una tipologia di camera (quantità maggiore di 0)",
+        "enText": "Select at least one room type (quantity greater than 0)",
+        "frText": "Sélectionnez au moins un type de chambre (quantité supérieure à 0)",
+        "deText": "Wählen Sie mindestens einen Zimmertyp aus (Menge größer als 0)"
+      },
+      {
+        "line": "280",
+        "label": "Breakfast required",
+        "itText": "Seleziona un'opzione per la colazione",
+        "enText": "Select a breakfast option",
+        "frText": "Sélectionnez une option pour le petit-déjeuner",
+        "deText": "Wählen Sie eine Frühstücksoption aus"
+      },
+      {
+        "line": "281",
+        "label": "Dates required",
+        "itText": "Seleziona le date di check-in e check-out",
+        "enText": "Select check-in and check-out dates",
+        "frText": "Sélectionnez les dates d'arrivée et de départ",
+        "deText": "Wählen Sie das Eincheck- und Abreisedatum aus"
+      },
+      {
+        "line": "310",
+        "label": "WhatsApp error opening",
+        "itText": "Errore apertura WhatsApp:",
+        "enText": "WhatsApp open error:",
+        "frText": "Erreur lors de l'ouverture de WhatsApp :",
+        "deText": "WhatsApp-Fehler beim Öffnen:"
+      },
+      {
+        "line": "312",
+        "label": "Error message",
+        "itText": "Si è verificato un errore durante l'apertura di WhatsApp. Riprova.",
+        "enText": "An error occurred while opening WhatsApp. Please try again.",
+        "frText": "Une erreur s'est produite lors de l'ouverture de WhatsApp. Veuillez réessayer.",
+        "deText": "Bei der Öffnung von WhatsApp ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+      },
+      {
+        "line": "314",
+        "label": "Detail label",
+        "itText": "Dettaglio",
+        "enText": "Detail",
+        "frText": "Détail",
+        "deText": "Einzelheiten"
+      },
+      {
+        "line": "315",
+        "label": "Unknown error",
+        "itText": "Errore sconosciuto",
+        "enText": "Unknown error",
+        "frText": "Erreur inconnue",
+        "deText": "Unbekannter Fehler"
+      }
+    ]
+  },
+  {
+    "section": "Date Format UI",
+    "replacements": [
+      {
+        "line": "425",
+        "label": "Date format placeholder default",
+        "itText": "Arrivo: --/--/----   |   Partenza: --/--/----",
+        "enText": "Arrival: --/--/----   |   Departure: --/--/----",
+        "frText": "Arrivée : --/--/----   |   Départ : --/--/----",
+        "deText": "Ankunft: --/--/----   |   Abreise: --/--/----"
+      },
+      {
+        "line": "428",
+        "label": "Date format only arrival",
+        "itText": "Arrivo: {from}   |   Partenza: --/--/----",
+        "enText": "Arrival: {from}   |   Departure: --/--/----",
+        "frText": "Arrivée : {from}   |   Départ : --/--/----",
+        "deText": "Ankunft: {from}   |   Abreise: --/--/----"
+      },
+      {
+        "line": "432",
+        "label": "Date format with both dates",
+        "itText": "Arrivo: {from}   |   Partenza: {to}",
+        "enText": "Arrival: {from}   |   Departure: {to}",
+        "frText": "Arrivée : {from}   |   Départ : {to}",
+        "deText": "Ankunft: {from}   |   Abreise: {to}"
+      }
+    ]
+  }
+]

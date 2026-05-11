@@ -3,44 +3,48 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import LanguageFlags from '@/components/LanguageFlags';
+import useSiteLanguage from '@/hooks/useSiteLanguage';
+import { t } from '@/lib/i18n';
 
 // ================================================================
 // MENU PRINCIPALE — modifica qui voci e link
 // ================================================================
 const navLinks = [
-  { label: 'Home', href: '/' },
+  { key: 'home', href: '/' },
   {
-    label: 'Camere & Suite',
+    key: 'roomsSuite',
     href: '/camere',
     dropdown: [
-      { label: 'Camera Singola',    href: '/camere/singola' },
-      { label: 'Camera Matrimoniale', href: '/camere/standard' },
-      { label: 'Camera Tripla',     href: '/camere/tripla' },
-      { label: 'Camera Quadrupla',  href: '/camere/quadrupla' },
-      { label: 'Suite Deluxe',      href: '/camere/suite' },
+      { key: 'single', href: '/camere/singola' },
+      { key: 'double', href: '/camere/standard' },
+      { key: 'triple', href: '/camere/tripla' },
+      { key: 'quadruple', href: '/camere/quadrupla' },
+      { key: 'suite', href: '/camere/suite' },
     ],
   },
   {
-    label: 'Sale Meeting',
+    key: 'meetingRooms',
     href: '/sale-meeting',
   },
   {
-    label: 'Territorio',
+    key: 'territory',
     href: '/territorio',
     dropdown: [
-      { label: 'Asti, Il Medioevo',          href: '/territorio/asti' },
-      { label: 'Alba, Capitale del Gusto',   href: '/territorio/alba' },
-      { label: 'Cattedrali Sotterranee',      href: '/territorio/cattedrali-sotterranee' },
-      { label: 'Caccia al Tartufo',           href: '/territorio/caccia-al-tartufo' },
-      { label: 'Castelli del Monferrato',     href: '/territorio/castelli-del-monferrato' },
-      { label: 'Le Big Bench',                href: '/territorio/big-bench' },
-      { label: 'Nizza è Barbera',             href: '/territorio/nizza-e-barbera' },
+      { key: 'asti', href: '/territorio/asti' },
+      { key: 'alba', href: '/territorio/alba' },
+      { key: 'cathedrals', href: '/territorio/cattedrali-sotterranee' },
+      { key: 'truffle', href: '/territorio/caccia-al-tartufo' },
+      { key: 'castles', href: '/territorio/castelli-del-monferrato' },
+      { key: 'bigBench', href: '/territorio/big-bench' },
+      { key: 'nizza', href: '/territorio/nizza-e-barbera' },
     ],
   },
-  { label: 'Contatti', href: '/contatti' },
+  { key: 'contacts', href: '/contatti' },
 ];
 
 export default function Navbar() {
+  const lang = useSiteLanguage();
   const [scrolled, setScrolled]         = useState(false);
   const [menuOpen, setMenuOpen]         = useState(false);
   const [mobileOpen, setMobileOpen]     = useState(null); // label del dropdown aperto
@@ -78,8 +82,9 @@ export default function Navbar() {
         {/* ── DESKTOP NAV ── */}
         <nav className="hidden lg:flex items-center gap-7">
           {navLinks.map((link) => {
+            const label = t(lang, `nav.${link.key}`);
             return link.dropdown ? (
-              <div key={link.label} className="dropdown-parent">
+              <div key={link.key} className="dropdown-parent">
                 {/* Cliccando la voce principale va alla pagina listing */}
                 <Link
                   href={link.href}
@@ -92,7 +97,7 @@ export default function Navbar() {
                   onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--button-gold)')}
                   onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.82)')}
                 >
-                  {link.label}
+                  {label}
                   <i className="fa fa-chevron-down" style={{ fontSize: '0.5rem', marginTop: 1 }}></i>
                 </Link>
 
@@ -100,25 +105,29 @@ export default function Navbar() {
                 <div className="dropdown-menu">
                   {link.dropdown.map((item) => (
                     <Link key={item.href} href={item.href} className="dropdown-item">
-                      {item.label}
+                      {link.key === 'territory'
+                        ? t(lang, `nav.territoryItems.${item.key}`)
+                        : t(lang, `nav.rooms.${item.key}`)}
                     </Link>
                   ))}
                 </div>
               </div>
             ) : (
-              <Link
-                key={link.label}
-                href={link.href}
-                style={{
-                  fontFamily: 'Lato, sans-serif', fontSize: '0.68rem', fontWeight: 700,
-                  letterSpacing: '0.14em', textTransform: 'uppercase',
-                  color: 'rgba(255,255,255,0.82)', textDecoration: 'none', transition: 'color 0.2s',
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--button-gold)')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.82)')}
-              >
-                {link.label}
-              </Link>
+              <div key={link.key} style={{ display: 'flex', alignItems: 'center', gap: 22 }}>
+                <Link
+                  href={link.href}
+                  style={{
+                    fontFamily: 'Lato, sans-serif', fontSize: '0.68rem', fontWeight: 700,
+                    letterSpacing: '0.14em', textTransform: 'uppercase',
+                    color: 'rgba(255,255,255,0.82)', textDecoration: 'none', transition: 'color 0.2s',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--button-gold)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.82)')}
+                >
+                  {label}
+                </Link>
+                {link.key === 'contacts' && <LanguageFlags />}
+              </div>
             );
           })}
         </nav>
@@ -129,7 +138,7 @@ export default function Navbar() {
             <i className="fa fa-phone" style={{ color: '#C9A870', marginRight: 6 }}></i>
             +39 0141 961853
           </a>
-          <Link href="/prenota" className="btn-gold">Prenota Ora</Link>
+          <Link href="/prenota" className="btn-gold">{t(lang, 'nav.bookNow')}</Link>
         </div>
 
         {/* ── HAMBURGER (solo mobile/tablet) ── */}
@@ -160,26 +169,27 @@ export default function Navbar() {
       }}>
         <div style={{ padding: '1.5rem 1.5rem 2rem' }}>
           {navLinks.map((link) => {
+            const label = t(lang, `nav.${link.key}`);
             return (
-            <div key={link.label} style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: '0.3rem', marginBottom: '0.3rem' }}>
+            <div key={link.key} style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: '0.3rem', marginBottom: '0.3rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <Link
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
                   style={{ fontFamily: 'Lato', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.85)', textDecoration: 'none', padding: '0.7rem 0', display: 'block' }}
                 >
-                  {link.label}
+                  {label}
                 </Link>
                 {link.dropdown && (
                   <button
-                    onClick={() => setMobileOpen(mobileOpen === link.label ? null : link.label)}
+                    onClick={() => setMobileOpen(mobileOpen === link.key ? null : link.key)}
                     style={{ background: 'none', border: 'none', color: '#C9A870', cursor: 'pointer', padding: '0.5rem' }}
                   >
-                    <i className={`fa fa-chevron-${mobileOpen === link.label ? 'up' : 'down'}`} style={{ fontSize: '0.65rem' }}></i>
+                    <i className={`fa fa-chevron-${mobileOpen === link.key ? 'up' : 'down'}`} style={{ fontSize: '0.65rem' }}></i>
                   </button>
                 )}
               </div>
-              {link.dropdown && mobileOpen === link.label && (
+              {link.dropdown && mobileOpen === link.key && (
                 <div style={{ paddingLeft: '1rem', borderLeft: '1px solid rgba(150,0,24,0.35)', marginBottom: '0.5rem' }}>
                   {link.dropdown.map((item) => (
                     <Link
@@ -188,15 +198,22 @@ export default function Navbar() {
                       onClick={() => { setMenuOpen(false); setMobileOpen(null); }}
                       style={{ display: 'block', fontFamily: 'Lato', fontSize: '0.86rem', color: 'rgba(255,255,255,0.6)', textDecoration: 'none', padding: '0.45rem 0' }}
                     >
-                      {item.label}
+                      {link.key === 'territory'
+                        ? t(lang, `nav.territoryItems.${item.key}`)
+                        : t(lang, `nav.rooms.${item.key}`)}
                     </Link>
                   ))}
+                </div>
+              )}
+              {link.key === 'contacts' && (
+                <div style={{ paddingLeft: '0.05rem', paddingBottom: '0.65rem' }}>
+                  <LanguageFlags mobile />
                 </div>
               )}
             </div>
           );})}
           <Link href="/prenota" className="btn-gold" style={{ marginTop: '1.2rem', display: 'block', textAlign: 'center' }} onClick={() => setMenuOpen(false)}>
-            Prenota Ora
+            {t(lang, 'nav.bookNow')}
           </Link>
         </div>
       </div>

@@ -1,9 +1,16 @@
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import useSiteLanguage from '@/hooks/useSiteLanguage';
 
 export default function InfoPopup({ title, description, children }) {
   const [isOpen, setIsOpen] = useState(false);
+  const lang = useSiteLanguage();
+  const isEn = lang === 'en';
+  const isFr = lang === 'fr';
+  const isEs = lang === 'es';
+  const closeLabel = isEn ? 'Close' : isFr ? 'Fermer' : isEs ? 'Cerrar' : 'Chiudi';
+  const infoLabel = isEn ? `Info about ${title}` : isFr ? `Informations sur ${title}` : isEs ? `Información sobre ${title}` : `Informazioni su ${title}`;
 
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -18,8 +25,8 @@ export default function InfoPopup({ title, description, children }) {
         type="button"
         onClick={() => setIsOpen(true)}
         className="flex-shrink-0 w-5 h-5 rounded-full border-2 border-[#C9A870] flex items-center justify-center text-[#C9A870] hover:bg-[#C9A870] hover:text-white transition-all duration-200 cursor-pointer ml-2"
-        aria-label={`Informazioni su ${title}`}
-        title={`Informazioni su ${title}`}
+        aria-label={infoLabel}
+        title={infoLabel}
       >
         <span style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.75rem', fontWeight: 'bold' }}>i</span>
       </button>
@@ -54,7 +61,7 @@ export default function InfoPopup({ title, description, children }) {
                     setIsOpen(false);
                   }}
                   className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full hover:bg-white hover:text-[#2C2520] transition-colors"
-                  aria-label="Chiudi"
+                  aria-label={closeLabel}
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -80,7 +87,7 @@ export default function InfoPopup({ title, description, children }) {
                   className="w-full bg-[#C9A870] text-white py-3 font-semibold hover:bg-[#b8985f] transition-colors"
                   style={{ fontFamily: 'Lato, sans-serif' }}
                 >
-                  Chiudi
+                  {closeLabel}
                 </button>
               </div>
             </motion.div>

@@ -1,0 +1,335 @@
+{
+  "nav": {
+    "home": "Home",
+    "roomsSuite": "Rooms & Suites",
+    "meetingRooms": "Meeting Rooms",
+    "territory": "Area",
+    "contacts": "Contact",
+    "bookNow": "Book Now",
+    "rooms": {
+      "single": "Single Room",
+      "double": "Double Room",
+      "triple": "Triple Room",
+      "quadruple": "Quadruple Room",
+      "suite": "Deluxe Suite"
+    },
+    "territoryItems": {
+      "asti": "Asti, The Middle Ages",
+      "alba": "Alba, Capital of Taste",
+      "cathedrals": "Underground Cathedrals",
+      "truffle": "Truffle Hunting",
+      "castles": "Monferrato Castles",
+      "bigBench": "Big Benches",
+      "nizza": "Nizza è Barbera"
+    }
+  },
+  "hero": {
+    "slides": [
+      {
+        "label": "An Oasis of Relaxation in the Langhe",
+        "title": "Stay at Hotel\nLanghe & Monferrato",
+        "sub": "In the green setting of Parco della Contessa in Costigliole d'Asti, just a few kilometers from the UNESCO treasures of Langhe and Monferrato."
+      },
+      {
+        "label": "Pool Surrounded by Nature",
+        "title": "The Pool\nSurrounded by Nature",
+        "sub": "Let yourself be embraced by the silence and nature of Parco della Contessa. Our summer pool is the perfect place to relax and recharge."
+      }
+    ],
+    "ctaBook": "Book Your Stay",
+    "ctaRooms": "Discover Rooms",
+    "reviews": {
+      "booking": "On Booking.com",
+      "google": "Google Reviews",
+      "verified": "Verified Reviews"
+    },
+    "scroll": "Scroll"
+  },
+  "cta": {
+    "eyebrow": "Ready for Your Escape?",
+    "title": "Are You Ready to Experience Langhe\nLike Never Before?",
+    "text": "Every stay is a unique occasion. Book now, choose your preferred dates and let us take care of every detail for you. The best rates are available only on our official website.",
+    "bookDirect": "Book Directly. Best Price",
+    "contactUs": "Contact Us",
+    "freeCancellation": "Free Cancellation",
+    "bestPrice": "Best Price Guaranteed"
+  },
+  "footer": {
+    "description": "Hotel Langhe&Monferrato, surrounded by nature in Parco della Contessa in Costigliole d'Asti, an oasis of peace and relaxation.",
+    "hotelTitle": "The Hotel",
+    "exploreTitle": "Explore the Area",
+    "contactsTitle": "Contact",
+    "whereWeAre": "Where we are",
+    "book": "Book",
+    "rooms": "Rooms & Suites",
+    "meeting": "Meeting Rooms",
+    "explore": {
+      "asti": "Asti - The Middle Ages",
+      "alba": "Alba - Capital of Taste",
+      "cathedrals": "Underground Cathedrals",
+      "castles": "Monferrato Castles",
+      "bigBench": "Big Benches"
+    },
+    "checkInOut": "Check-in 3:00 PM-10:30 PM · Check-out 7:00 AM-11:00 AM",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "cookie": "Cookie Policy",
+    "terms": "Terms and Conditions"
+  },
+  "trustBar": {
+    "items": [
+      {
+        "title": "Prime Location",
+        "desc": "In the heart of Langhe and Monferrato, about 15 km from Alba, Asti and Canelli, surrounded by the greenery of Costigliole d'Asti."
+      },
+      {
+        "title": "Local Cuisine",
+        "desc": "Enjoy local products and typical specialties, perfect also for events and special occasions."
+      },
+      {
+        "title": "Pool",
+        "desc": "Outdoor summer pool surrounded by nature, perfect for relaxing and enjoying a peaceful moment during your stay."
+      },
+      {
+        "title": "Meeting Rooms",
+        "desc": "Fully equipped spaces for events, meetings and special occasions directly at the hotel. Contact us to organize every detail."
+      }
+    ]
+  },
+  "about": {
+    "label": "Welcome",
+    "title": "An Oasis of Relaxation in the Heart of Piedmont",
+    "subtitle": "The ideal place to stay in Langhe and Monferrato",
+    "p1": "Hotel Langhe & Monferrato, surrounded by the greenery of Parco della Contessa in Costigliole d'Asti, is an oasis of peace and well-being in the heart of Piedmont. Its strategic location, just 15 km from Alba, Asti and Canelli, makes it perfect for discovering the UNESCO hills between Langhe and Monferrato.",
+    "p2": "In a UNESCO World Heritage area rich in traditions, cultural events and food-and-wine itineraries, the hotel offers 58 spacious rooms: Single, Double, Triple, Quadruple and Suites. Every space is designed to ensure maximum comfort for couples, families and travelers seeking relaxation, nature and authenticity.",
+    "reviews": "Reviews",
+    "bookCta": "Book Your Stay"
+  },
+  "roomsHome": {
+    "label": "Rooms & Suites",
+    "title": "Our Room Collection",
+    "intro": "58 rooms to experience the area in a comfortable and welcoming environment, surrounded by the nature of Parco della Contessa.",
+    "startingFrom": "Starting from",
+    "perNight": "/ night",
+    "guests": "Guests",
+    "bookNow": "Book Now",
+    "details": "Details",
+    "rooms": {
+      "single": {
+        "name": "Single Room",
+        "tab": "Single",
+        "desc": "The Single Room is ideal for solo travelers looking for comfort and peace between Langhe and Monferrato. A welcoming setting with attention to detail, featuring a hydromassage shower for complete relaxation.",
+        "features": ["Room Available", "Hydromassage Shower", "Ideal for Solo Travelers", "Free Wi-Fi"]
+      },
+      "double": {
+        "name": "Double Room",
+        "tab": "Double",
+        "desc": "Our 38 Double Rooms are ideal for couples and business travelers seeking comfort and tranquility between Langhe and Monferrato. Cozy spaces with attention to detail and hydromassage shower for full relaxation.",
+        "features": ["38 Rooms Available", "Hydromassage Shower", "Ideal for Couples", "Free Wi-Fi"]
+      },
+      "triple": {
+        "name": "Triple Room",
+        "tab": "Triple",
+        "desc": "Our 8 Triple Rooms are perfect for small families or groups of friends. Flexible bed setup: double + single or three single beds, with hydromassage tub for an even more pleasant stay.",
+        "features": ["8 Rooms Available", "Double + Single or 3 Beds", "Hydromassage Tub", "Free Wi-Fi"]
+      },
+      "quadruple": {
+        "name": "Quadruple Room",
+        "tab": "Quadruple",
+        "desc": "Our 2 Quadruple Rooms are designed for large families and small groups. Choose between 2 double beds, 4 single beds, or double + 2 singles, with hydromassage tub and comfortable space for all guests.",
+        "features": ["2 Rooms Available", "Flexible Bed Configuration", "Hydromassage Tub", "Free Wi-Fi"]
+      },
+      "suite": {
+        "name": "Deluxe Suite",
+        "tab": "Suite",
+        "desc": "Our 6 Suites are the ideal choice for couples who want more space and comfort. Elegant interiors, private atmosphere and hydromassage tub for a relaxing stay in the heart of Costigliole d'Asti.",
+        "features": ["6 Suites Available", "Hydromassage Tub", "Ideal for Couples", "Free Wi-Fi"]
+      }
+    }
+  },
+  "amenities": {
+    "label": "Our Services",
+    "title": "All the Comfort You Need",
+    "items": [
+      {
+        "label": "Wi-Fi",
+        "desc": "Wi-Fi connection available throughout the hotel: in rooms, common areas and outdoor spaces. Stay connected during your stay."
+      },
+      {
+        "label": "Parking",
+        "desc": "Large free outdoor parking directly in front of the hotel, convenient and accessible for all guests."
+      },
+      {
+        "label": "Restaurant & Bar",
+        "desc": "Dining service available on request or through local partner agreements. Rich buffet breakfast and bar service available for guests."
+      },
+      {
+        "label": "Exclusive Packages",
+        "desc": "We organize tailor-made experiences for your stay, with dedicated discounts designed especially for our guests."
+      },
+      {
+        "label": "Meeting Rooms",
+        "desc": "Fully equipped spaces to host your events, meetings and special occasions directly at the hotel. Contact us to organize every detail."
+      },
+      {
+        "label": "Pool",
+        "desc": "Pool complex open during summer season, surrounded by nature to relax and enjoy peaceful moments during your stay."
+      }
+    ]
+  },
+  "testimonials": {
+    "label": "Verified Reviews",
+    "title": "Our Guests Talk About Us",
+    "subtitle": "We always strive to improve and make every stay special. Here is what some of our guests say.",
+    "items": [
+      {
+        "text": "The property offers spacious, modern, clean rooms with large terraces overlooking the beautiful Parco della Contessa. There is a large free parking area. Breakfast is abundant and varied, with local products. Very kind and helpful staff.",
+        "name": "Alice B.",
+        "platform": "Google"
+      },
+      {
+        "text": "A beautiful hotel in a slightly secluded location, yet very close to the center. Perfect for those who want a holiday of complete relaxation and silence while visiting the area's wonderful wineries. Very varied breakfast, large and clean rooms full of comfort. Friendly and professional staff, and excellent value for money.",
+        "name": "Antonio B.",
+        "platform": "Google"
+      },
+      {
+        "text": "Excellent property! Kind and helpful staff. Clean rooms and welcoming atmosphere. The outdoor setting is also beautiful and worth exploring with long walks. We all had a great time. Highly recommended!",
+        "name": "Andrea T.",
+        "platform": "Booking.com"
+      }
+    ]
+  },
+  "guidesHome": {
+    "label": "Our Mini Guides",
+    "title": "What to Do and See Around the Hotel",
+    "subtitle": "The Langhe and Monferrato area offers unique experiences for every traveler. Three must-see destinations during your stay.",
+    "discoverGuide": "Discover the Guide",
+    "seeAll": "See All Area Guides"
+  },
+  "faqHome": {
+    "label": "FAQ",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know to organize your stay in the best way. If you have other questions, feel free to contact us.",
+    "items": [
+      {
+        "question": "What are the check-in and check-out times?",
+        "answer": "Check-in is available from 3:00 PM. If you arrive earlier, you can leave your luggage at the hotel and enjoy the area while your room is prepared. Check-out is by 11:00 AM. If you need flexibility, contact us before arrival and, subject to availability, we can evaluate a late check-out at no extra cost."
+      },
+      {
+        "question": "Can I bring pets to the hotel?",
+        "answer": "Yes, we accept small and medium-sized pets with a supplement of €15 per day. Please let us know at the time of booking so we can prepare the best welcome for your four-legged friend. Some areas of the hotel may have restrictions to ensure comfort and tranquility for all guests."
+      },
+      {
+        "question": "Is breakfast included in the rate?",
+        "answer": "It depends on the rate selected at booking. Many of our packages include a rich buffet breakfast. To verify what is included, check the details during booking or contact us directly."
+      },
+      {
+        "question": "Is there a restaurant or bar at the hotel?",
+        "answer": "The property has a bar area where we serve a rich buffet breakfast. For lunch and dinner, dining service is available on request or through local partner agreements, with opportunities to taste local specialties. Our staff will be happy to recommend the best inns and restaurants nearby."
+      },
+      {
+        "question": "Does the hotel have meeting rooms or event spaces?",
+        "answer": "Yes, we offer equipped meeting rooms for business meetings, corporate events and special occasions. Our rooms include audiovisual equipment and can be configured based on your needs. Contact us for capacity, services and quotes."
+      },
+      {
+        "question": "Is there parking at the hotel? Is it paid?",
+        "answer": "Yes, the hotel has a large free outdoor parking area directly in front of the property. No reservation is required; parking is available to all guests for the entire stay."
+      },
+      {
+        "question": "Does the hotel have a pool?",
+        "answer": "The pool is not inside the hotel but is accessible in Parco della Contessa, within our tourist complex, and is open only during summer season. It is also open to the public, but Hotel Langhe & Monferrato guests can access it for free."
+      },
+      {
+        "question": "How can I reach the hotel from Asti, Alba or Turin? Is there public transport?",
+        "answer": "Hotel Langhe & Monferrato is located in Costigliole d'Asti and is easy to reach by car: about 15 minutes from Asti, 30 minutes from Alba and less than one hour from Turin. We recommend traveling by car to explore the hills freely. If you arrive by train, the nearest station is Asti; from there you can reach Costigliole by taxi or private shuttle."
+      },
+      {
+        "question": "Is it possible to have a baby cot in the room?",
+        "answer": "Yes, we provide free baby cots directly from the hotel. Availability is limited, so we recommend requesting one during booking to reserve it with certainty."
+      },
+      {
+        "question": "I am celiac: can I have gluten-free products for breakfast?",
+        "answer": "Absolutely yes. Our breakfast buffet is equipped for guests with specific dietary needs, including celiac disease, with a selection of certified gluten-free products. Please indicate this at booking so we can prepare everything properly."
+      },
+      {
+        "question": "Are there entrance time restrictions if we return late?",
+        "answer": "No, there are no time restrictions. Each guest receives a personal access code to enter independently at any time, without relying on reception."
+      }
+    ]
+  },
+  "roomPage": {
+    "label": "Rooms & Suites",
+    "startingFrom": "Starting from",
+    "perNight": "/ night",
+    "bookStay": "Book Your Stay",
+    "freeCancellation": "Free cancellation",
+    "bestPrice": "Best price guaranteed",
+    "roomDescription": "Room Description",
+    "gallery": "Photo Gallery",
+    "expand": "EXPAND",
+    "idealForStay": "Ideal for Your Stay",
+    "surroundings": "Hotel Surroundings",
+    "policies": "Policies & Useful Info",
+    "needHelp": "Need help?",
+    "callUs": "Call us",
+    "writeUs": "Write to us",
+    "chatWithUs": "Chat with us",
+    "seeAllRooms": "See all rooms",
+    "previous": "Previous",
+    "next": "Next",
+    "readyExperience": "Ready to Experience",
+    "bottomText": "Book directly on our website: best price guaranteed, free cancellation and an exclusive welcome gift.",
+    "bookNowBestPrice": "Book Now. Best Price"
+  },
+  "roomsListPage": {
+    "heroAlt": "Hotel Langhe rooms",
+    "label": "Our Collection",
+    "title": "Rooms & Suites",
+    "subtitle": "Each room tells the story of the Langhe through fine materials and artisanal care.",
+    "from": "from",
+    "perNight": "/night",
+    "discoverRoom": "Discover the Room"
+  },
+  "roomDetails": {
+    "singola": {
+      "name": "Single Room",
+      "tagline": "Essential comfort in authentic Piedmont",
+      "description": "The Single Room is the perfect starting point to discover the Langhe. Carefully furnished with artisanal details, it combines function and warmth in a welcoming atmosphere.\n\nEvery detail is designed to make you feel at home: from fine linen and local bath products to garden views and soft Piedmont morning light."
+    },
+    "standard": {
+      "name": "Double Room",
+      "tagline": "Essential comfort in authentic Piedmont",
+      "description": "The Double Room is the perfect starting point to discover the Langhe. Carefully furnished with artisanal details, it combines function and warmth in a welcoming atmosphere.\n\nEvery detail is designed to make you feel at home: from fine linen and local bath products to garden views and soft Piedmont morning light."
+    },
+    "tripla": {
+      "name": "Triple Room",
+      "tagline": "Space and style for three travelers",
+      "description": "The Triple Room is designed for guests traveling in three, without compromises. Three beds, a harmonious environment and all the comfort of Piedmont tradition.\n\nSpacious and functional, with flexible bed setup, it is ideal for sharing the Langhe experience while keeping comfort and privacy."
+    },
+    "quadrupla": {
+      "name": "Quadruple Room",
+      "tagline": "Four guests, one unforgettable experience",
+      "description": "The Quadruple Room is perfect for families or groups of friends who want to share spaces without giving up individual comfort. Four beds in an elegant, well-organized setting.\n\nIdeal for those traveling together who want to experience the Langhe with the quality and warmth of our hotel."
+    },
+    "suite": {
+      "name": "Deluxe Suite",
+      "tagline": "The peak of Piedmont luxury",
+      "description": "The Deluxe Suite is an experience of its own. A luxury apartment among UNESCO hills where every element tells the story of the Langhe through fine materials and premium service.\n\nSeparate living area, private panoramic terrace, spa with jacuzzi, sauna and dedicated butler. Perfect for anniversaries, honeymoons and every special moment."
+    }
+  },
+  "saleMeetingPage": {
+    "heroAlt": "Hotel Langhe meeting room",
+    "heroLabel": "Business & Events",
+    "heroTitle": "Meeting Rooms & Congresses",
+    "heroSubtitle": "Modular spaces, advanced technology and tailor-made services for corporate events, conferences and professional meetings.",
+    "roomsLabel": "Our Rooms",
+    "roomsTitle": "Spaces Designed for Your Events",
+    "roomLabel": "Room",
+    "requestQuote": "Request a Quote",
+    "servicesLabel": "Included Services",
+    "servicesTitle": "Everything You Need for a Perfect Event",
+    "ctaLabel": "Plan Your Event",
+    "ctaTitle": "Request a Tailored Quote",
+    "ctaText": "Our team is available to build a custom event with you, from the most suitable room to technical and catering services."
+  }
+}

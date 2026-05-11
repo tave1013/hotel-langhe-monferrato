@@ -2,36 +2,35 @@
 
 import { useEffect, useRef, useState } from 'react';
 import ScrollAnimation from './ScrollAnimation';
-
-const testimonials = [
-  {
-    text: "La Struttura vanta camere spaziose, moderne, pulite e con ampi terrazzi che affacciano sul suggestivo Parco della Contessa. E' presente un grande parcheggio gratuito. La colazione è molto abbondante, varia e ricca di prodotti del territorio. Staff gentilissimo e disponibile.",
-    name: 'Alice B.',
-    origin: 'Milano',
-    rating: 5,
-    platform: 'Google',
-  },
-  {
-    text: "Un bellissimo albergo ubicato in un posto un pochino isolato, ma vicinissimo al centro. Adatto a chi vuole passare una vacanza di completo relax e silenzio, visitando le splendide cantine della zona. Colazione molto varia, camere grandi, pulite e piene di comfort. In ultimo ma da non sottovalutare, il personale simpatico e professionale, i prezzi sono bassi per i servizi offerti.",
-    name: 'Antonio B.',
-    origin: 'Torino',
-    rating: 5,
-    platform: 'Google',
-  },
-  {
-    text: 'Ottima struttura davvero! Personale gentile e disponibile. Camere pulite ed ambiente accogliente. Anche il contesto esterno merita e vale la pena esplorarlo con lunghe passeggiate. Ci siamo trovati tutti benissimo. Consigliatissimo!',
-    name: 'Andrea T.',
-    origin: 'Roma',
-    rating: 5,
-    platform: 'Booking.com',
-  },
-];
+import useSiteLanguage from '@/hooks/useSiteLanguage';
+import { t } from '@/lib/i18n';
 
 export default function Testimonials() {
+  const lang = useSiteLanguage();
   const [active, setActive] = useState(0);
   const touchStartX = useRef(null);
   const touchStartY = useRef(null);
-  const t = testimonials[active];
+  const testimonials = [
+    {
+      text: t(lang, 'testimonials.items.0.text'),
+      name: t(lang, 'testimonials.items.0.name'),
+      rating: 5,
+      platform: t(lang, 'testimonials.items.0.platform'),
+    },
+    {
+      text: t(lang, 'testimonials.items.1.text'),
+      name: t(lang, 'testimonials.items.1.name'),
+      rating: 5,
+      platform: t(lang, 'testimonials.items.1.platform'),
+    },
+    {
+      text: t(lang, 'testimonials.items.2.text'),
+      name: t(lang, 'testimonials.items.2.name'),
+      rating: 5,
+      platform: t(lang, 'testimonials.items.2.platform'),
+    },
+  ];
+  const activeTestimonial = testimonials[active];
 
   const goNext = () => setActive((prev) => (prev + 1) % testimonials.length);
   const goPrev = () => setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
@@ -73,10 +72,10 @@ export default function Testimonials() {
           {/* LEFT: Image + Stats */}
           <ScrollAnimation type="slide-up">
             <div>
-              <p className="section-label mb-3">Recensioni Verificate</p>
+              <p className="section-label mb-3">{t(lang, 'testimonials.label')}</p>
               <div className="gold-divider-left mb-6"></div>
               <h2 className="section-title-light mb-6" style={{ maxWidth: 420 }}>
-                I Nostri Ospiti Parlano di Noi
+                {t(lang, 'testimonials.title')}
               </h2>
             <p
               style={{
@@ -87,7 +86,7 @@ export default function Testimonials() {
                 marginBottom: '2.5rem',
               }}
             >
-              Cerchiamo sempre di fare meglio per rendere ogni soggiorno speciale. Ecco cosa dicono alcuni dei nostri ospiti.
+              {t(lang, 'testimonials.subtitle')}
             </p>
 
             {/* Platform stats */}
@@ -138,7 +137,7 @@ export default function Testimonials() {
               </div>
 
               <div className="stars mb-4" style={{ fontSize: '0.85rem', color: '#C9A870' }}>
-                {'★'.repeat(t.rating)}
+                {'★'.repeat(activeTestimonial.rating)}
               </div>
 
               <p
@@ -153,13 +152,13 @@ export default function Testimonials() {
                   animation: 'fadeIn 0.5s ease forwards',
                 }}
               >
-                {t.text}
+                {activeTestimonial.text}
               </p>
 
               <div className="flex justify-between items-end">
                 <div>
-                  <div style={{ fontFamily: 'Playfair Display, serif', fontSize: '1rem', color: '#FAF7F2', fontWeight: 600 }}>{t.name}</div>
-                  <div style={{ fontFamily: 'Lato', fontSize: '0.7rem', color: '#C9A870', letterSpacing: '0.08em', marginTop: 3 }}>{t.platform}</div>
+                  <div style={{ fontFamily: 'Playfair Display, serif', fontSize: '1rem', color: '#FAF7F2', fontWeight: 600 }}>{activeTestimonial.name}</div>
+                  <div style={{ fontFamily: 'Lato', fontSize: '0.7rem', color: '#C9A870', letterSpacing: '0.08em', marginTop: 3 }}>{activeTestimonial.platform}</div>
                 </div>
               </div>
             </div>

@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import ScrollAnimation from './ScrollAnimation';
+import useSiteLanguage from '@/hooks/useSiteLanguage';
+import { t } from '@/lib/i18n';
 
 const slides = [
   {
@@ -23,6 +25,7 @@ const slides = [
 ];
 
 export default function Hero() {
+  const lang = useSiteLanguage();
   const [current, setCurrent] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -47,6 +50,10 @@ export default function Hero() {
   };
 
   const slide = slides[current] || slides[0];
+  const translatedSlide = t(lang, `hero.slides.${current}`);
+  const slideLabel = translatedSlide?.label || slide.label;
+  const slideTitle = translatedSlide?.title || slide.title;
+  const slideSub = translatedSlide?.sub || slide.sub;
 
   return (
     <section className="relative min-h-[110vh] md:min-h-[680px] overflow-hidden" aria-label="Hero">
@@ -59,7 +66,7 @@ export default function Hero() {
           <Image
             key={slide.img}
             src={slide.img}
-            alt={slide.label}
+            alt={slideLabel}
             fill
             priority={current === 0}
             quality={90}
@@ -83,7 +90,7 @@ export default function Hero() {
           <ScrollAnimation type="slide-up" duration="slow">
             <div className={`${slide.showStars ? 'hidden' : 'hidden md:flex'} items-center justify-center gap-4 mb-5 mt-6 md:mt-0`}>
               <span style={{ width: 40, height: 1, background: '#C9A870', display: 'inline-block' }}></span>
-              <span className="section-label">{slide.label}</span>
+              <span className="section-label">{slideLabel}</span>
               <span style={{ width: 40, height: 1, background: '#C9A870', display: 'inline-block' }}></span>
             </div>
           </ScrollAnimation>
@@ -111,7 +118,7 @@ export default function Hero() {
                 maxWidth: '800px',
               }}
             >
-              {slide.title}
+              {slideTitle}
             </h1>
           </ScrollAnimation>
 
@@ -128,7 +135,7 @@ export default function Hero() {
                 fontStyle: 'italic',
               }}
             >
-              {slide.sub}
+              {slideSub}
             </p>
           </ScrollAnimation>
 
@@ -136,10 +143,10 @@ export default function Hero() {
           <ScrollAnimation type="slide-up" duration="slow" delay={400}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 sm:mt-0">
               <Link href="/prenota" className="btn-gold">
-                <span>Prenota il Tuo Soggiorno</span>
+                <span>{t(lang, 'hero.ctaBook')}</span>
               </Link>
               <Link href="/camere" className="btn-outline-white">
-                Scopri le Camere
+                {t(lang, 'hero.ctaRooms')}
               </Link>
             </div>
           </ScrollAnimation>
@@ -199,9 +206,9 @@ export default function Hero() {
           }}
         >
           {[
-            { val: '8.2/10', label: 'Su Booking.com', icon: 'fa-bed' },
-            { val: '4/5', label: 'Google Review', icon: 'fa-star' },
-            { val: '+600', label: 'Recensioni Verificate', icon: 'fa-heart' },
+            { val: '8.2/10', label: t(lang, 'hero.reviews.booking'), icon: 'fa-bed' },
+            { val: '4/5', label: t(lang, 'hero.reviews.google'), icon: 'fa-star' },
+            { val: '+600', label: t(lang, 'hero.reviews.verified'), icon: 'fa-heart' },
           ].map((item) => (
             <div key={item.label} className="flex items-center gap-2">
               <i className={`fa ${item.icon}`} style={{ color: '#C9A870', fontSize: '1rem' }}></i>
@@ -258,7 +265,7 @@ export default function Hero() {
 
       {/* SCROLL INDICATOR */}
       <div className="absolute bottom-10 right-8 hidden md:flex flex-col items-center gap-2 z-10">
-        <span style={{ fontFamily: 'Lato', fontSize: '0.6rem', letterSpacing: '0.2em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', writingMode: 'vertical-lr' }}>Scorri</span>
+        <span style={{ fontFamily: 'Lato', fontSize: '0.6rem', letterSpacing: '0.2em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', writingMode: 'vertical-lr' }}>{t(lang, 'hero.scroll')}</span>
         <div style={{ width: 1, height: 50, background: 'linear-gradient(to bottom, rgba(201,168,112,0.8), transparent)' }}></div>
       </div>
     </section>

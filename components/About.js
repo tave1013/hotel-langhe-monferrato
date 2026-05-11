@@ -3,8 +3,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import ScrollAnimation from './ScrollAnimation';
+import useSiteLanguage from '@/hooks/useSiteLanguage';
+import { t } from '@/lib/i18n';
 
 export default function About() {
+  const lang = useSiteLanguage();
+
   return (
     <section style={{ background: '#FAF7F2', padding: '100px 0' }}>
       <div className="max-w-7xl mx-auto px-6">
@@ -56,13 +60,13 @@ export default function About() {
           {/* TEXT */}
           <ScrollAnimation type="slide-up" delay={200}>
             <div>
-            <p className="section-label mb-3">Benvenuti</p>
+            <p className="section-label mb-3">{t(lang, 'about.label')}</p>
             <div className="gold-divider-left mb-6"></div>
             <h2
               className="section-title mb-6"
               style={{ maxWidth: 480 }}
             >
-              Un'Oasi di Relax nel Cuore del Piemonte
+              {t(lang, 'about.title')}
             </h2>
             <p
               style={{
@@ -74,7 +78,7 @@ export default function About() {
                 marginBottom: '1.2rem',
               }}
             >
-              Il luogo ideale dove soggiornare nelle Langhe e nel Monferrato
+              {t(lang, 'about.subtitle')}
             </p>
             <p
               style={{
@@ -85,7 +89,7 @@ export default function About() {
                 marginBottom: '1rem',
               }}
             >
-              L'Hotel Langhe & Monferrato, immerso nel verde del Parco della Contessa a Costigliole d'Asti, è un'oasi di tranquillità e benessere nel cuore del Piemonte. La posizione strategica, a soli 15 km da Alba, Asti e Canelli, lo rende perfetto per scoprire le colline UNESCO tra Langhe e Monferrato.
+              {t(lang, 'about.p1')}
             </p>
             <p
               style={{
@@ -96,7 +100,7 @@ export default function About() {
                 marginBottom: '2rem',
               }}
             >
-              In una zona Patrimonio dell’Umanità UNESCO, ricca di tradizioni, eventi culturali e itinerari enogastronomici, l’hotel offre 58 camere spaziose: Singole, Matrimoniali, Triple, Quadruple e Suite. Ogni ambiente è pensato per garantire il massimo comfort a coppie, famiglie e viaggiatori alla ricerca di relax, natura e autenticità.
+              {t(lang, 'about.p2')}
             </p>
 
             {/* MICRO STATS */}
@@ -104,7 +108,7 @@ export default function About() {
               {[
                 { val: '8.2/10', src: 'Booking.com' },
                 { val: '4/5', src: 'Google', icon: 'fa-star' },
-                { val: '+600', src: 'Recensioni' },
+                { val: '+600', src: t(lang, 'about.reviews') },
               ].map((s) => (
                 <div key={s.src}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
@@ -117,7 +121,7 @@ export default function About() {
             </div>
 
             <Link href="/prenota" className="btn-gold">
-              <span>Prenota il Tuo Soggiorno</span>
+              <span>{t(lang, 'about.bookCta')}</span>
             </Link>
           </div>
           </ScrollAnimation>

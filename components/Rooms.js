@@ -4,62 +4,60 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import ScrollAnimation from './ScrollAnimation';
+import useSiteLanguage from '@/hooks/useSiteLanguage';
+import { t } from '@/lib/i18n';
 
 const rooms = [
   {
-    name: 'Camera Singola',
-    desc: 'La Camera Singola è ideale per chi viaggia da solo in cerca di comfort e tranquillità tra Langhe e Monferrato. Ambiente accogliente, curato nei dettagli, con doccia idromassaggio per un relax completo.',
+    id: 'single',
     img: '/foto/suite.webp',
     price: '90',
     size: '22 m²',
     guests: '1',
-    features: ['Camera Disponibile', 'Doccia Idromassaggio', 'Ideale per Viaggiatori Singoli', 'Free Wi-Fi'],
     href: '/camere/singola',
   },
   {
-    name: 'Camera Matrimoniale',
-    desc: 'Le nostre 38 Camere Matrimoniali sono ideali per coppie e viaggiatori business in cerca di comfort e tranquillità tra Langhe e Monferrato. Ambienti accoglienti, curati nei dettagli, con doccia idromassaggio per un relax completo.',
+    id: 'double',
     img: '/foto/suite.webp',
     price: '120',
     size: '22 m²',
     guests: '2',
-    features: ['38 Camere Disponibili', 'Doccia Idromassaggio', 'Ideale per Coppie', 'Free Wi-Fi'],
     href: '/camere/standard',
   },
   {
-    name: 'Camera Tripla',
-    desc: 'Le 8 Camere Triple sono perfette per famiglie piccole o gruppi di amici. La configurazione letti è flessibile: matrimoniale + singolo oppure tre letti singoli, con vasca idromassaggio per rendere il soggiorno ancora più piacevole.',
+    id: 'triple',
     img: '/foto/Camera-tripla.webp',
     price: '150',
     size: '30 m²',
     guests: '3',
-    features: ['8 Camere Disponibili', 'Matrimoniale + Singolo o 3 Letti', 'Vasca Idromassaggio', 'Free Wi-Fi'],
     href: '/camere/tripla',
   },
   {
-    name: 'Camera Quadrupla',
-    desc: 'Le 2 Camere Quadruple sono pensate per famiglie numerose e piccoli gruppi. Possibilità di scegliere tra 2 letti matrimoniali, 4 letti singoli oppure matrimoniale + 2 singoli, con vasca idromassaggio e spazi comodi per tutti gli ospiti.',
+    id: 'quadruple',
     img: '/foto/quadrupla.webp',
     price: '200',
     size: '40 m²',
     guests: '4',
-    features: ['2 Camere Disponibili', 'Configurazione Letti Flessibile', 'Vasca Idromassaggio', 'Free Wi-Fi'],
     href: '/camere/quadrupla',
   },
   {
-    name: 'Suite Deluxe',
-    desc: 'Le 6 Suite sono la scelta ideale per coppie che desiderano più spazio e comfort. Ambienti eleganti, atmosfera riservata e vasca idromassaggio per un soggiorno rilassante nel cuore di Costigliole d\'Asti.',
+    id: 'suite',
     img: '/foto/suite.webp',
     price: '140',
     size: '80 m²',
     guests: '2',
-    features: ['6 Suite Disponibili', 'Vasca Idromassaggio', 'Ideale per Coppie', 'Free Wi-Fi'],
     href: '/camere/suite',
   },
 ];
 
 export default function Rooms() {
   const [active, setActive] = useState(0);
+  const lang = useSiteLanguage();
+
+  const activeRoom = rooms[active];
+  const roomName = t(lang, `roomsHome.rooms.${activeRoom.id}.name`);
+  const roomDesc = t(lang, `roomsHome.rooms.${activeRoom.id}.desc`);
+  const roomFeatures = t(lang, `roomsHome.rooms.${activeRoom.id}.features`);
 
   return (
     <section style={{ background: '#F5EFE4', padding: '100px 0' }}>
@@ -67,9 +65,9 @@ export default function Rooms() {
         {/* HEADER */}
         <ScrollAnimation type="fade-in">
           <div className="text-center mb-14">
-            <p className="section-label mb-3">Camere & Suite</p>
+            <p className="section-label mb-3">{t(lang, 'roomsHome.label')}</p>
             <div className="gold-divider mb-5"></div>
-            <h2 className="section-title mb-4">La Collezione delle Nostre Camere</h2>
+            <h2 className="section-title mb-4">{t(lang, 'roomsHome.title')}</h2>
           <p
             style={{
               fontFamily: 'Cormorant Garamond, serif',
@@ -81,7 +79,7 @@ export default function Rooms() {
               lineHeight: 1.7,
             }}
           >
-            58 camere per vivere il territorio in un ambiente confortevole e accogliente, immerso nella natura del Parco della Contessa.
+            {t(lang, 'roomsHome.intro')}
           </p>
         </div>
         </ScrollAnimation>
@@ -101,7 +99,7 @@ export default function Rooms() {
               <Image
                 key={active}
                 src={rooms[active].img}
-                alt={rooms[active].name}
+                alt={roomName}
                 fill
                 priority
                 quality={85}
@@ -120,9 +118,9 @@ export default function Rooms() {
                   padding: '0.8rem 1.4rem',
                 }}
               >
-                <span style={{ fontFamily: 'Lato', fontSize: '0.65rem', color: '#C9A870', letterSpacing: '0.12em', textTransform: 'uppercase', display: 'block', marginBottom: 3 }}>A partire da</span>
+                <span style={{ fontFamily: 'Lato', fontSize: '0.65rem', color: '#C9A870', letterSpacing: '0.12em', textTransform: 'uppercase', display: 'block', marginBottom: 3 }}>{t(lang, 'roomsHome.startingFrom')}</span>
                 <span style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.8rem', color: '#fff' }}>€{rooms[active].price}</span>
-                <span style={{ fontFamily: 'Lato', fontSize: '0.72rem', color: 'rgba(255,255,255,0.5)' }}> / notte</span>
+                <span style={{ fontFamily: 'Lato', fontSize: '0.72rem', color: 'rgba(255,255,255,0.5)' }}> {t(lang, 'roomsHome.perNight')}</span>
               </div>
             </div>
 
@@ -132,7 +130,7 @@ export default function Rooms() {
               <div className="flex gap-1 mb-8 flex-wrap">
                 {rooms.map((r, i) => (
                   <button
-                    key={r.name}
+                    key={r.id}
                     onClick={() => setActive(i)}
                     style={{
                       fontFamily: 'Lato',
@@ -149,7 +147,7 @@ export default function Rooms() {
                       borderBottom: i === active ? 'none' : '1px solid rgba(201,168,112,0.25)',
                     }}
                   >
-                    {r.name.replace('Camera ', '').replace('Suite ', 'S. ')}
+                    {t(lang, `roomsHome.rooms.${r.id}.tab`)}
                   </button>
                 ))}
               </div>
@@ -163,14 +161,14 @@ export default function Rooms() {
                   fontWeight: 500,
                 }}
               >
-                {rooms[active].name}
+                {roomName}
               </h3>
 
               {/* Meta */}
               <div className="flex gap-4 mb-5">
                 <span style={{ fontFamily: 'Lato', fontSize: '0.75rem', color: '#9A8A7A', display: 'flex', alignItems: 'center', gap: 5 }}>
                   <i className="fa fa-user" style={{ color: '#C9A870' }}></i>
-                  {rooms[active].guests} Ospiti
+                  {rooms[active].guests} {t(lang, 'roomsHome.guests')}
                 </span>
               </div>
 
@@ -183,12 +181,12 @@ export default function Rooms() {
                   marginBottom: '1.5rem',
                 }}
               >
-                {rooms[active].desc}
+                {roomDesc}
               </p>
 
               {/* FEATURES */}
               <ul className="grid grid-cols-2 gap-2 mb-8">
-                {rooms[active].features.map((f) => (
+                {roomFeatures.map((f) => (
                   <li key={f} style={{ fontFamily: 'Lato', fontSize: '0.78rem', color: '#4A3D33', display: 'flex', alignItems: 'center', gap: 7 }}>
                     <i className="fa fa-check" style={{ color: '#C9A870', fontSize: '0.65rem' }}></i>
                     {f}
@@ -198,10 +196,10 @@ export default function Rooms() {
 
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link href="/prenota" className="btn-gold text-center" style={{ padding: '0.75rem 1.4rem', fontSize: '0.62rem' }}>
-                  <span>Prenota Ora</span>
+                  <span>{t(lang, 'roomsHome.bookNow')}</span>
                 </Link>
                 <Link href={rooms[active].href} className="btn-outline-gold text-center" style={{ padding: '0.75rem 1.4rem', fontSize: '0.62rem' }}>
-                  Dettagli
+                  {t(lang, 'roomsHome.details')}
                 </Link>
               </div>
             </div>
