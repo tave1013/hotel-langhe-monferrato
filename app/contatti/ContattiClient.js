@@ -15,10 +15,29 @@ export default function ContattiClient() {
   const isEs = lang === 'es';
   const [form, setForm] = useState({ nome: '', cognome: '', email: '', telefono: '', tipo: '', messaggio: '' });
   const [inviato, setInviato] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errore, setErrore] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setInviato(true);
+    setLoading(true);
+    setErrore(false);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setInviato(true);
+      } else {
+        setErrore(true);
+      }
+    } catch {
+      setErrore(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -96,9 +115,17 @@ export default function ContattiClient() {
                       <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>{isEn ? 'Message *' : isFr ? 'Message *' : isDe ? 'Nachricht *' : isEs ? 'Mensaje *' : 'Messaggio *'}</label>
                       <textarea required rows={5} value={form.messaggio} onChange={e => setForm({...form, messaggio: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-none focus:outline-none focus:border-[#C9A870] transition-colors" style={{ fontFamily: 'Lato, sans-serif', fontSize: '1rem', resize: 'vertical' }} />
                     </div>
-                    <button type="submit" className="w-full py-4 rounded-none text-white font-semibold transition-all bg-[#C9A870] hover:bg-[#A8854A]" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.75rem', letterSpacing: '0.18em', textTransform: 'uppercase' }}>
-                      <i className="fa fa-paper-plane" style={{ marginRight: 8 }}></i>{isEn ? 'Send Message' : isFr ? 'Envoyer le Message' : isDe ? 'Nachricht Senden' : isEs ? 'Enviar mensaje' : 'Invia Messaggio'}
+                    <button type="submit" disabled={loading} className="w-full py-4 rounded-none text-white font-semibold transition-all bg-[#C9A870] hover:bg-[#A8854A] disabled:opacity-60 disabled:cursor-not-allowed" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.75rem', letterSpacing: '0.18em', textTransform: 'uppercase' }}>
+                      {loading
+                        ? <><i className="fa fa-spinner fa-spin" style={{ marginRight: 8 }}></i>{isEn ? 'Sending...' : isFr ? 'Envoi...' : isDe ? 'Senden...' : isEs ? 'Enviando...' : 'Invio in corso...'}</>
+                        : <><i className="fa fa-paper-plane" style={{ marginRight: 8 }}></i>{isEn ? 'Send Message' : isFr ? 'Envoyer le Message' : isDe ? 'Nachricht Senden' : isEs ? 'Enviar mensaje' : 'Invia Messaggio'}</>
+                      }
                     </button>
+                    {errore && (
+                      <p style={{ color: '#c0392b', fontFamily: 'Lato', fontSize: '0.88rem', marginTop: '0.75rem', textAlign: 'center' }}>
+                        {isEn ? 'Error sending message. Please try again or call us.' : isFr ? "Erreur lors de l'envoi. Veuillez réessayer ou nous appeler." : isDe ? 'Fehler beim Senden. Bitte erneut versuchen oder anrufen.' : isEs ? 'Error al enviar. Intenta de nuevo o llámanos.' : "Errore nell'invio. Riprova oppure chiamaci."}
+                      </p>
+                    )}
                 </form>
               )}
               </div>
