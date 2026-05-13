@@ -43,7 +43,7 @@ const navLinks = [
   { key: 'contacts', href: '/contatti' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ forceDark = false }) {
   const lang = useSiteLanguage();
   const [scrolled, setScrolled]         = useState(false);
   const [menuOpen, setMenuOpen]         = useState(false);
@@ -56,13 +56,15 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const isDark = forceDark || scrolled || menuOpen;
+
   return (
     <header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
       style={{
-        background: (scrolled || menuOpen) ? 'rgba(15,13,11,0.97)' : 'linear-gradient(to bottom, rgba(15,13,11,0.82), transparent)',
-        backdropFilter: (scrolled || menuOpen) ? 'blur(12px)' : 'none',
-        borderBottom: (scrolled || menuOpen) ? '1px solid rgba(201,168,112,0.15)' : 'none',
+        background: isDark ? 'rgba(15,13,11,0.97)' : 'linear-gradient(to bottom, rgba(15,13,11,0.82), transparent)',
+        backdropFilter: isDark ? 'blur(12px)' : 'none',
+        borderBottom: isDark ? '1px solid rgba(201,168,112,0.15)' : 'none',
       }}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">

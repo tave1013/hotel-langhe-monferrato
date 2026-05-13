@@ -9,7 +9,7 @@ export const metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <>
-      <Navbar />
+      <Navbar forceDark />
       <main style={{ background: '#FAF7F2', minHeight: '100vh', padding: '140px 0 80px' }}>
         <div className="max-w-4xl mx-auto px-6">
           <div style={{ color: '#1A1714', lineHeight: 1.8, fontSize: '1rem', fontFamily: 'Lato, sans-serif' }} className="space-y-6">
