@@ -60,8 +60,17 @@ export default function CookieConsent() {
   const [lang, setLang] = useState('it');
 
   useEffect(() => {
-    const stored = localStorage.getItem('site_lang');
-    if (stored && cookieI18n[stored]) setLang(stored);
+    const checkLang = () => {
+      const stored = localStorage.getItem('site_lang');
+      if (stored && cookieI18n[stored]) setLang(stored);
+    };
+
+    checkLang();
+    
+    // Listen for language changes from LanguageFlags
+    window.addEventListener('site-language-change', checkLang);
+    
+    return () => window.removeEventListener('site-language-change', checkLang);
   }, []);
 
   useEffect(() => {

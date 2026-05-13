@@ -25,8 +25,24 @@ export default function PrivacyPolicyPage() {
   const [lang, setLang] = useState('it');
 
   useEffect(() => {
-    const stored = localStorage.getItem('site_lang');
-    if (stored && privacyT[stored]) setLang(stored);
+    const checkLang = () => {
+      const stored = localStorage.getItem('site_lang');
+      if (stored && privacyT[stored]) setLang(stored);
+    };
+
+    // Check language at mount
+    checkLang();
+
+    // Listen for storage changes (works when localStorage is updated)
+    window.addEventListener('storage', checkLang);
+
+    // Listen for custom language change event (dispatched by LanguageFlags)
+    window.addEventListener('site-language-change', checkLang);
+
+    return () => {
+      window.removeEventListener('storage', checkLang);
+      window.removeEventListener('site-language-change', checkLang);
+    };
   }, []);
 
   const p = privacyT[lang] || privacyT.it;
