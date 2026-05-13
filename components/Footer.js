@@ -107,11 +107,11 @@ export default function Footer() {
               </li>
               <li style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
                 <i className="fa fa-envelope" style={{ color: '#C9A870', fontSize: '0.75rem', marginTop: '2px', flexShrink: 0 }}></i>
-                <a href="mailto:info@hotellanghemonferrato.it" style={{ fontFamily: 'Lato', fontSize: '0.8rem', lineHeight: 1.5, color: 'rgba(255,255,255,0.55)', textDecoration: 'none', transition: 'color 0.2s' }}
+                <a href="mailto:prenota@hotellanghemonferrato.com" style={{ fontFamily: 'Lato', fontSize: '0.8rem', lineHeight: 1.5, color: 'rgba(255,255,255,0.55)', textDecoration: 'none', transition: 'color 0.2s' }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = '#C9A870')}
                   onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
                 >
-                  info@hotellanghemonferrato.it
+                  prenota@hotellanghemonferrato.com
                 </a>
               </li>
               {[

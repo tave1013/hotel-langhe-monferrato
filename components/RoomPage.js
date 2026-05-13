@@ -824,7 +824,7 @@ export default function RoomPage({ room }) {
                   </h3>
                   {[
                     { icon: 'fas fa-phone', iconColor: '#C9A870', bg: 'rgba(201,168,112,0.1)', label: t(lang, 'roomPage.callUs'), value: '+39 0141 961853', href: 'tel:+390141961853' },
-                    { icon: 'fas fa-envelope', iconColor: '#C9A870', bg: 'rgba(201,168,112,0.1)', label: t(lang, 'roomPage.writeUs'), value: 'info@hotellanghemonferrato.it', href: 'mailto:info@hotellanghemonferrato.it' },
+                    { icon: 'fas fa-envelope', iconColor: '#C9A870', bg: 'rgba(201,168,112,0.1)', label: t(lang, 'roomPage.writeUs'), value: 'prenota@hotellanghemonferrato.com', href: 'mailto:prenota@hotellanghemonferrato.com' },
                     { icon: 'fab fa-whatsapp', iconColor: '#25D366', bg: 'rgba(37,211,102,0.1)', label: 'WhatsApp', value: t(lang, 'roomPage.chatWithUs'), href: 'https://wa.me/390141961853' },
                   ].map((c) => (
                     <a key={c.label} href={c.href} style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', marginBottom: '0.9rem' }}>
