@@ -1,6 +1,6 @@
 import './globals.css';
 import WhatsAppWidget from '@/components/WhatsAppWidget';
-import CookieConsent from '@/components/CookieConsent';
+import ClientLayout from '@/components/ClientLayout';
 
 export const metadata = {
   metadataBase: new URL('https://hotel-langhe-monferrato.vercel.app'),
@@ -66,7 +66,7 @@ export default function RootLayout({ children }) {
       <body>
         {children}
         <WhatsAppWidget />
-        <CookieConsent />
+        <ClientLayout />
       </body>
     </html>
   );
