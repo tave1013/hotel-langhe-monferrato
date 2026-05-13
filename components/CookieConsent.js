@@ -22,6 +22,11 @@ export default function CookieConsent() {
     setShowBanner(false);
   };
 
+  const handleClose = () => {
+    localStorage.setItem('cookieConsent', 'necessary');
+    setShowBanner(false);
+  };
+
   if (!showBanner) return null;
 
   return (
@@ -38,6 +43,36 @@ export default function CookieConsent() {
       boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.3)',
       fontFamily: 'Lato, sans-serif',
     }}>
+      {/* Close X button - top right */}
+      <button
+        onClick={handleClose}
+        style={{
+          position: 'absolute',
+          top: '1.5rem',
+          right: '1.5rem',
+          background: 'none',
+          border: 'none',
+          color: '#C9A870',
+          fontSize: '1.6rem',
+          cursor: 'pointer',
+          padding: '0.3rem 0.6rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          transition: 'color 0.2s',
+          lineHeight: 1,
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.color = '#960018';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.color = '#C9A870';
+        }}
+        title="Chiudi e accetta cookie necessari"
+      >
+        ✕
+      </button>
+
       <div style={{
         maxWidth: '1200px',
         margin: '0 auto',
@@ -46,6 +81,7 @@ export default function CookieConsent() {
         alignItems: 'flex-start',
         gap: '2rem',
         flexWrap: 'wrap',
+        paddingRight: '2rem',
       }}>
         {/* Content */}
         <div style={{ flex: '1', minWidth: '280px' }}>
