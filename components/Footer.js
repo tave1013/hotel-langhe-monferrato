@@ -34,7 +34,7 @@ export default function Footer() {
             <h4 style={{ fontFamily: 'Lato', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C9A870', marginBottom: '1.2rem' }}>{t(lang, 'footer.hotelTitle')}</h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
               {[
-                { label: 'Alfred – Concierge Virtuale', href: 'https://guida.hotellanghemonferrato.com/', external: true },
+                { label: 'Alfred – Concierge Virtuale', href: 'https://guida.hotellanghemonferrato.com/alfred', external: true },
                 { label: t(lang, 'footer.book'), href: '/prenota', external: false },
                 { label: t(lang, 'footer.rooms'), href: '/camere', external: false },
                 { label: t(lang, 'footer.meeting'), href: '/sale-meeting', external: false },
