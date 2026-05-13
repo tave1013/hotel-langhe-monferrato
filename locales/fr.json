@@ -119,31 +119,56 @@
         "name": "Chambre Simple",
         "tab": "Simple",
         "desc": "La chambre simple est idéale pour les voyageurs seuls à la recherche de confort et de tranquillité entre Langhe et Monferrato.",
-        "features": ["Chambre disponible", "Douche hydromassage", "Idéale pour voyageurs solo", "Wi-Fi gratuit"]
+        "features": [
+          "Chambre disponible",
+          "Douche hydromassage",
+          "Idéale pour voyageurs solo",
+          "Wi-Fi gratuit"
+        ]
       },
       "double": {
         "name": "Chambre Double",
         "tab": "Double",
         "desc": "Nos 38 chambres doubles sont idéales pour les couples et les voyageurs d'affaires à la recherche de confort et de calme.",
-        "features": ["38 chambres disponibles", "Douche hydromassage", "Idéale pour couples", "Wi-Fi gratuit"]
+        "features": [
+          "38 chambres disponibles",
+          "Douche hydromassage",
+          "Idéale pour couples",
+          "Wi-Fi gratuit"
+        ]
       },
       "triple": {
         "name": "Chambre Triple",
         "tab": "Triple",
         "desc": "Les 8 chambres triples sont parfaites pour les petites familles ou groupes d'amis, avec configuration de lits flexible.",
-        "features": ["8 chambres disponibles", "Double + simple ou 3 lits", "Baignoire hydromassage", "Wi-Fi gratuit"]
+        "features": [
+          "8 chambres disponibles",
+          "Double + simple ou 3 lits",
+          "Baignoire hydromassage",
+          "Wi-Fi gratuit"
+        ]
       },
       "quadruple": {
         "name": "Chambre Quadruple",
         "tab": "Quadruple",
         "desc": "Les 2 chambres quadruples sont pensées pour familles nombreuses et petits groupes, avec espaces confortables pour tous.",
-        "features": ["2 chambres disponibles", "Configuration flexible", "Baignoire hydromassage", "Wi-Fi gratuit"]
+        "features": [
+          "2 chambres disponibles",
+          "Configuration flexible",
+          "Baignoire hydromassage",
+          "Wi-Fi gratuit"
+        ]
       },
       "suite": {
         "name": "Suite Deluxe",
         "tab": "Suite",
         "desc": "Nos 6 suites sont idéales pour les couples qui souhaitent plus d'espace et de confort, avec atmosphère élégante et réservée.",
-        "features": ["6 suites disponibles", "Baignoire hydromassage", "Idéale pour couples", "Wi-Fi gratuit"]
+        "features": [
+          "6 suites disponibles",
+          "Baignoire hydromassage",
+          "Idéale pour couples",
+          "Wi-Fi gratuit"
+        ]
       }
     }
   },
@@ -331,5 +356,15 @@
     "ctaLabel": "Organisez Votre Événement",
     "ctaTitle": "Demandez un Devis Personnalisé",
     "ctaText": "Notre équipe est à votre disposition pour créer avec vous un événement sur mesure, de la salle la plus adaptée aux services techniques et de catering."
+  },
+  "cookieBanner": {
+    "text1": "Nous et nos partenaires utilisons des cookies techniques nécessaires au fonctionnement du site, ainsi que des cookies de profilage et de marketing — notamment Meta Pixel, Google Analytics, Google Ads et Microsoft Clarity — pour analyser votre navigation, vous présenter des contenus personnalisés et mesurer les performances de nos campagnes publicitaires.",
+    "text2": "Vous pouvez accepter tous les cookies, les refuser ou gérer vos préférences à tout moment. Pour en savoir plus, consultez notre",
+    "cookiePolicyLabel": "Politique de cookies",
+    "privacyPolicyLabel": "Politique de confidentialité",
+    "and": "et notre",
+    "decline": "Refuser",
+    "acceptAll": "Tout accepter",
+    "closeTitle": "Fermer et n'accepter que les cookies nécessaires"
   }
 }

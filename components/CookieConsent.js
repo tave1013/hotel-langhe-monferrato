@@ -2,8 +2,67 @@
 
 import { useState, useEffect } from 'react';
 
+const cookieI18n = {
+  it: {
+    text1: "Noi e i nostri partner utilizziamo cookie tecnici, necessari al funzionamento del sito, e cookie di profilazione e marketing — inclusi Meta Pixel, Google Analytics, Google Ads e Microsoft Clarity — per analizzare la navigazione, mostrarti contenuti personalizzati e misurare le performance delle nostre campagne pubblicitarie.",
+    text2: "Puoi accettare tutti i cookie, rifiutarli o gestire le tue preferenze in qualsiasi momento. Per saperne di più leggi la nostra",
+    cookiePolicyLabel: "Cookie Policy",
+    and: "e la",
+    privacyPolicyLabel: "Privacy Policy",
+    decline: "Rifiuta",
+    acceptAll: "Accetta Tutti",
+    closeTitle: "Chiudi e accetta cookie necessari",
+  },
+  en: {
+    text1: "We and our partners use technical cookies, necessary for the site to function, and profiling/marketing cookies — including Meta Pixel, Google Analytics, Google Ads and Microsoft Clarity — to analyse browsing behaviour, show you personalised content and measure the performance of our advertising campaigns.",
+    text2: "You can accept all cookies, decline them or manage your preferences at any time. To learn more, please read our",
+    cookiePolicyLabel: "Cookie Policy",
+    and: "and our",
+    privacyPolicyLabel: "Privacy Policy",
+    decline: "Decline",
+    acceptAll: "Accept All",
+    closeTitle: "Close and accept necessary cookies only",
+  },
+  fr: {
+    text1: "Nous et nos partenaires utilisons des cookies techniques, nécessaires au fonctionnement du site, et des cookies de profilage et de marketing — notamment Meta Pixel, Google Analytics, Google Ads et Microsoft Clarity — pour analyser la navigation, vous proposer des contenus personnalisés et mesurer les performances de nos campagnes publicitaires.",
+    text2: "Vous pouvez accepter tous les cookies, les refuser ou gérer vos préférences à tout moment. Pour en savoir plus, consultez notre",
+    cookiePolicyLabel: "Politique de cookies",
+    and: "et notre",
+    privacyPolicyLabel: "Politique de confidentialité",
+    decline: "Refuser",
+    acceptAll: "Tout accepter",
+    closeTitle: "Fermer et accepter uniquement les cookies nécessaires",
+  },
+  de: {
+    text1: "Wir und unsere Partner verwenden technische Cookies, die für den Betrieb der Website erforderlich sind, sowie Profiling- und Marketing-Cookies — darunter Meta Pixel, Google Analytics, Google Ads und Microsoft Clarity — um das Surfverhalten zu analysieren, Ihnen personalisierte Inhalte anzuzeigen und die Leistung unserer Werbekampagnen zu messen.",
+    text2: "Sie können alle Cookies akzeptieren, ablehnen oder Ihre Einstellungen jederzeit verwalten. Weitere Informationen finden Sie in unserer",
+    cookiePolicyLabel: "Cookie-Richtlinie",
+    and: "und unserer",
+    privacyPolicyLabel: "Datenschutzerklärung",
+    decline: "Ablehnen",
+    acceptAll: "Alle akzeptieren",
+    closeTitle: "Schließen und nur notwendige Cookies akzeptieren",
+  },
+  es: {
+    text1: "Nosotros y nuestros socios utilizamos cookies técnicas, necesarias para el funcionamiento del sitio, y cookies de elaboración de perfiles y marketing — incluidos Meta Pixel, Google Analytics, Google Ads y Microsoft Clarity — para analizar la navegación, mostrarle contenido personalizado y medir el rendimiento de nuestras campañas publicitarias.",
+    text2: "Puede aceptar todas las cookies, rechazarlas o gestionar sus preferencias en cualquier momento. Para más información, consulte nuestra",
+    cookiePolicyLabel: "Política de cookies",
+    and: "y nuestra",
+    privacyPolicyLabel: "Política de privacidad",
+    decline: "Rechazar",
+    acceptAll: "Aceptar todo",
+    closeTitle: "Cerrar y aceptar solo las cookies necesarias",
+  },
+};
+
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false);
+  const [lang, setLang] = useState('it');
+
+  useEffect(() => {
+    const stored = localStorage.getItem('site_lang');
+    if (stored && cookieI18n[stored]) setLang(stored);
+  }, []);
 
   useEffect(() => {
     const consent = localStorage.getItem('cookieConsent');
@@ -11,6 +70,8 @@ export default function CookieConsent() {
       setShowBanner(true);
     }
   }, []);
+
+  const T = cookieI18n[lang] || cookieI18n.it;
 
   const handleAcceptAll = () => {
     localStorage.setItem('cookieConsent', 'all');
@@ -68,7 +129,7 @@ export default function CookieConsent() {
         onMouseLeave={(e) => {
           e.currentTarget.style.color = '#C9A870';
         }}
-        title="Chiudi e accetta cookie necessari"
+        title={T.closeTitle}
       >
         ✕
       </button>
@@ -91,7 +152,7 @@ export default function CookieConsent() {
             color: 'rgba(250, 247, 242, 0.9)',
             margin: '0 0 1rem 0',
           }}>
-            Noi e i nostri partner utilizziamo cookie tecnici, necessari al funzionamento del sito, e cookie di profilazione e marketing — inclusi Meta Pixel, Google Analytics, Google Ads e Microsoft Clarity — per analizzare la navigazione, mostrarti contenuti personalizzati e misurare le performance delle nostre campagne pubblicitarie.
+            {T.text1}
           </p>
           <p style={{
             fontSize: '0.9rem',
@@ -99,23 +160,23 @@ export default function CookieConsent() {
             color: 'rgba(250, 247, 242, 0.8)',
             margin: '0.8rem 0 0 0',
           }}>
-            Puoi accettare tutti i cookie, rifiutarli o gestire le tue preferenze in qualsiasi momento. Per saperne di più leggi la nostra{' '}
+            {T.text2}{' '}
             <a href="/privacy-policy" style={{
               color: '#C9A870',
               textDecoration: 'none',
               fontWeight: 600,
               borderBottom: '1px solid #C9A870',
             }}>
-              Cookie Policy
+              {T.cookiePolicyLabel}
             </a>
-            {' '}e la{' '}
+            {' '}{T.and}{' '}
             <a href="/privacy-policy" style={{
               color: '#C9A870',
               textDecoration: 'none',
               fontWeight: 600,
               borderBottom: '1px solid #C9A870',
             }}>
-              Privacy Policy
+              {T.privacyPolicyLabel}
             </a>
             .
           </p>
@@ -153,7 +214,7 @@ export default function CookieConsent() {
               e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
-            Rifiuta
+            {T.decline}
           </button>
           
           <button
@@ -180,7 +241,7 @@ export default function CookieConsent() {
               e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
-            Accetta Tutti
+            {T.acceptAll}
           </button>
         </div>
       </div>

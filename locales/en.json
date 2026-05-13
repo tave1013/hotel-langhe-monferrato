@@ -119,31 +119,56 @@
         "name": "Single Room",
         "tab": "Single",
         "desc": "The Single Room is ideal for solo travelers looking for comfort and peace between Langhe and Monferrato. A welcoming setting with attention to detail, featuring a hydromassage shower for complete relaxation.",
-        "features": ["Room Available", "Hydromassage Shower", "Ideal for Solo Travelers", "Free Wi-Fi"]
+        "features": [
+          "Room Available",
+          "Hydromassage Shower",
+          "Ideal for Solo Travelers",
+          "Free Wi-Fi"
+        ]
       },
       "double": {
         "name": "Double Room",
         "tab": "Double",
         "desc": "Our 38 Double Rooms are ideal for couples and business travelers seeking comfort and tranquility between Langhe and Monferrato. Cozy spaces with attention to detail and hydromassage shower for full relaxation.",
-        "features": ["38 Rooms Available", "Hydromassage Shower", "Ideal for Couples", "Free Wi-Fi"]
+        "features": [
+          "38 Rooms Available",
+          "Hydromassage Shower",
+          "Ideal for Couples",
+          "Free Wi-Fi"
+        ]
       },
       "triple": {
         "name": "Triple Room",
         "tab": "Triple",
         "desc": "Our 8 Triple Rooms are perfect for small families or groups of friends. Flexible bed setup: double + single or three single beds, with hydromassage tub for an even more pleasant stay.",
-        "features": ["8 Rooms Available", "Double + Single or 3 Beds", "Hydromassage Tub", "Free Wi-Fi"]
+        "features": [
+          "8 Rooms Available",
+          "Double + Single or 3 Beds",
+          "Hydromassage Tub",
+          "Free Wi-Fi"
+        ]
       },
       "quadruple": {
         "name": "Quadruple Room",
         "tab": "Quadruple",
         "desc": "Our 2 Quadruple Rooms are designed for large families and small groups. Choose between 2 double beds, 4 single beds, or double + 2 singles, with hydromassage tub and comfortable space for all guests.",
-        "features": ["2 Rooms Available", "Flexible Bed Configuration", "Hydromassage Tub", "Free Wi-Fi"]
+        "features": [
+          "2 Rooms Available",
+          "Flexible Bed Configuration",
+          "Hydromassage Tub",
+          "Free Wi-Fi"
+        ]
       },
       "suite": {
         "name": "Deluxe Suite",
         "tab": "Suite",
         "desc": "Our 6 Suites are the ideal choice for couples who want more space and comfort. Elegant interiors, private atmosphere and hydromassage tub for a relaxing stay in the heart of Costigliole d'Asti.",
-        "features": ["6 Suites Available", "Hydromassage Tub", "Ideal for Couples", "Free Wi-Fi"]
+        "features": [
+          "6 Suites Available",
+          "Hydromassage Tub",
+          "Ideal for Couples",
+          "Free Wi-Fi"
+        ]
       }
     }
   },
@@ -331,5 +356,15 @@
     "ctaLabel": "Plan Your Event",
     "ctaTitle": "Request a Tailored Quote",
     "ctaText": "Our team is available to build a custom event with you, from the most suitable room to technical and catering services."
+  },
+  "cookieBanner": {
+    "text1": "We and our partners use technical cookies necessary for the site to function, and profiling and marketing cookies — including Meta Pixel, Google Analytics, Google Ads and Microsoft Clarity — to analyse your browsing, show personalised content and measure the performance of our advertising campaigns.",
+    "text2": "You can accept all cookies, decline them or manage your preferences at any time. To learn more, read our",
+    "cookiePolicyLabel": "Cookie Policy",
+    "privacyPolicyLabel": "Privacy Policy",
+    "and": "and our",
+    "decline": "Decline",
+    "acceptAll": "Accept All",
+    "closeTitle": "Close and accept necessary cookies only"
   }
 }

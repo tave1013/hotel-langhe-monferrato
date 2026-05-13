@@ -119,31 +119,56 @@
         "name": "Habitación Individual",
         "tab": "Individual",
         "desc": "La habitación individual es ideal para quien viaja solo y busca comodidad y tranquilidad entre Langhe y Monferrato.",
-        "features": ["Habitación disponible", "Ducha de hidromasaje", "Ideal para viajeros solos", "Wi-Fi gratis"]
+        "features": [
+          "Habitación disponible",
+          "Ducha de hidromasaje",
+          "Ideal para viajeros solos",
+          "Wi-Fi gratis"
+        ]
       },
       "double": {
         "name": "Habitación Doble",
         "tab": "Doble",
         "desc": "Nuestras 38 habitaciones dobles son ideales para parejas y viajeros de negocios que buscan confort y tranquilidad.",
-        "features": ["38 habitaciones disponibles", "Ducha de hidromasaje", "Ideal para parejas", "Wi-Fi gratis"]
+        "features": [
+          "38 habitaciones disponibles",
+          "Ducha de hidromasaje",
+          "Ideal para parejas",
+          "Wi-Fi gratis"
+        ]
       },
       "triple": {
         "name": "Habitación Triple",
         "tab": "Triple",
         "desc": "Las 8 habitaciones triples son perfectas para familias pequeñas o grupos de amigos, con configuración de camas flexible.",
-        "features": ["8 habitaciones disponibles", "Matrimonial + individual o 3 camas", "Bañera de hidromasaje", "Wi-Fi gratis"]
+        "features": [
+          "8 habitaciones disponibles",
+          "Matrimonial + individual o 3 camas",
+          "Bañera de hidromasaje",
+          "Wi-Fi gratis"
+        ]
       },
       "quadruple": {
         "name": "Habitación Cuádruple",
         "tab": "Cuádruple",
         "desc": "Las 2 habitaciones cuádruples están pensadas para familias numerosas y pequeños grupos, con espacios cómodos para todos.",
-        "features": ["2 habitaciones disponibles", "Configuración de camas flexible", "Bañera de hidromasaje", "Wi-Fi gratis"]
+        "features": [
+          "2 habitaciones disponibles",
+          "Configuración de camas flexible",
+          "Bañera de hidromasaje",
+          "Wi-Fi gratis"
+        ]
       },
       "suite": {
         "name": "Suite Deluxe",
         "tab": "Suite",
         "desc": "Nuestras 6 suites son ideales para parejas que desean más espacio y confort, con ambiente elegante y reservado.",
-        "features": ["6 suites disponibles", "Bañera de hidromasaje", "Ideal para parejas", "Wi-Fi gratis"]
+        "features": [
+          "6 suites disponibles",
+          "Bañera de hidromasaje",
+          "Ideal para parejas",
+          "Wi-Fi gratis"
+        ]
       }
     }
   },
@@ -339,5 +364,15 @@
       "parking": "Aparcamiento reservado",
       "support": "Soporte técnico 24/7"
     }
+  },
+  "cookieBanner": {
+    "text1": "Nosotros y nuestros socios utilizamos cookies técnicas necesarias para el funcionamiento del sitio, así como cookies de elaboración de perfiles y marketing — incluidos Meta Pixel, Google Analytics, Google Ads y Microsoft Clarity — para analizar su navegación, mostrarle contenidos personalizados y medir el rendimiento de nuestras campañas publicitarias.",
+    "text2": "Puede aceptar todas las cookies, rechazarlas o gestionar sus preferencias en cualquier momento. Para obtener más información, lea nuestra",
+    "cookiePolicyLabel": "Política de cookies",
+    "privacyPolicyLabel": "Política de privacidad",
+    "and": "y nuestra",
+    "decline": "Rechazar",
+    "acceptAll": "Aceptar todo",
+    "closeTitle": "Cerrar y aceptar solo las cookies necesarias"
   }
 }

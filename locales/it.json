@@ -356,5 +356,15 @@
     "ctaLabel": "Organizza il Tuo Evento",
     "ctaTitle": "Richiedi un Preventivo Personalizzato",
     "ctaText": "Il nostro team è a tua disposizione per costruire insieme un evento su misura, dalla sala più adatta ai servizi tecnici e di catering."
+  },
+  "cookieBanner": {
+    "text1": "Noi e i nostri partner utilizziamo cookie tecnici, necessari al funzionamento del sito, e cookie di profilazione e marketing — inclusi Meta Pixel, Google Analytics, Google Ads e Microsoft Clarity — per analizzare la navigazione, mostrarti contenuti personalizzati e misurare le performance delle nostre campagne pubblicitarie.",
+    "text2": "Puoi accettare tutti i cookie, rifiutarli o gestire le tue preferenze in qualsiasi momento. Per saperne di più leggi la nostra",
+    "cookiePolicyLabel": "Cookie Policy",
+    "privacyPolicyLabel": "Privacy Policy",
+    "and": "e la",
+    "decline": "Rifiuta",
+    "acceptAll": "Accetta Tutti",
+    "closeTitle": "Chiudi e accetta cookie necessari"
   }
 }

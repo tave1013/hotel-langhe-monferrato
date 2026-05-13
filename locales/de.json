@@ -119,31 +119,56 @@
         "name": "Einzelzimmer",
         "tab": "Einzel",
         "desc": "Das Einzelzimmer ist ideal für Alleinreisende, die Komfort und Ruhe zwischen Langhe und Monferrato suchen.",
-        "features": ["Zimmer verfügbar", "Hydromassage-Dusche", "Ideal für Alleinreisende", "Kostenloses WLAN"]
+        "features": [
+          "Zimmer verfügbar",
+          "Hydromassage-Dusche",
+          "Ideal für Alleinreisende",
+          "Kostenloses WLAN"
+        ]
       },
       "double": {
         "name": "Doppelzimmer",
         "tab": "Doppel",
         "desc": "Unsere 38 Doppelzimmer sind ideal für Paare und Geschäftsreisende, die Komfort und Ruhe suchen.",
-        "features": ["38 Zimmer verfügbar", "Hydromassage-Dusche", "Ideal für Paare", "Kostenloses WLAN"]
+        "features": [
+          "38 Zimmer verfügbar",
+          "Hydromassage-Dusche",
+          "Ideal für Paare",
+          "Kostenloses WLAN"
+        ]
       },
       "triple": {
         "name": "Dreibettzimmer",
         "tab": "Dreibett",
         "desc": "Die 8 Dreibettzimmer sind perfekt für kleine Familien oder Freundesgruppen mit flexibler Bettenkonfiguration.",
-        "features": ["8 Zimmer verfügbar", "Doppel + Einzel oder 3 Betten", "Hydromassage-Wanne", "Kostenloses WLAN"]
+        "features": [
+          "8 Zimmer verfügbar",
+          "Doppel + Einzel oder 3 Betten",
+          "Hydromassage-Wanne",
+          "Kostenloses WLAN"
+        ]
       },
       "quadruple": {
         "name": "Vierbettzimmer",
         "tab": "Vierbett",
         "desc": "Die 2 Vierbettzimmer sind für große Familien und kleine Gruppen gedacht, mit komfortablem Platz für alle Gäste.",
-        "features": ["2 Zimmer verfügbar", "Flexible Bettenkonfiguration", "Hydromassage-Wanne", "Kostenloses WLAN"]
+        "features": [
+          "2 Zimmer verfügbar",
+          "Flexible Bettenkonfiguration",
+          "Hydromassage-Wanne",
+          "Kostenloses WLAN"
+        ]
       },
       "suite": {
         "name": "Deluxe Suite",
         "tab": "Suite",
         "desc": "Unsere 6 Suiten sind ideal für Paare, die mehr Platz und Komfort wünschen, mit elegantem Ambiente und Privatsphäre.",
-        "features": ["6 Suiten verfügbar", "Hydromassage-Wanne", "Ideal für Paare", "Kostenloses WLAN"]
+        "features": [
+          "6 Suiten verfügbar",
+          "Hydromassage-Wanne",
+          "Ideal für Paare",
+          "Kostenloses WLAN"
+        ]
       }
     }
   },
@@ -331,5 +356,15 @@
     "ctaLabel": "Ihre Veranstaltung planen",
     "ctaTitle": "Maßgeschneidertes Angebot anfordern",
     "ctaText": "Unser Team steht Ihnen zur Verfügung, um gemeinsam eine individuelle Veranstaltung zu gestalten – vom passenden Raum über technische Ausstattung bis hin zum Catering-Service."
+  },
+  "cookieBanner": {
+    "text1": "Wir und unsere Partner verwenden technische Cookies, die für den Betrieb der Website notwendig sind, sowie Profiling- und Marketing-Cookies — darunter Meta Pixel, Google Analytics, Google Ads und Microsoft Clarity — um Ihr Surfverhalten zu analysieren, Ihnen personalisierte Inhalte anzuzeigen und die Leistung unserer Werbekampagnen zu messen.",
+    "text2": "Sie können alle Cookies akzeptieren, ablehnen oder Ihre Einstellungen jederzeit anpassen. Weitere Informationen finden Sie in unserer",
+    "cookiePolicyLabel": "Cookie-Richtlinie",
+    "privacyPolicyLabel": "Datenschutzerklärung",
+    "and": "und unserer",
+    "decline": "Ablehnen",
+    "acceptAll": "Alle akzeptieren",
+    "closeTitle": "Schliessen und nur notwendige Cookies akzeptieren"
   }
 }
