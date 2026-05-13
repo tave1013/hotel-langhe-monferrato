@@ -34,6 +34,7 @@ export default function Footer() {
             <h4 style={{ fontFamily: 'Lato', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C9A870', marginBottom: '1.2rem' }}>{t(lang, 'footer.hotelTitle')}</h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
               {[
+                { label: 'Alfred – Concierge Virtuale', href: 'https://guida.hotellanghemonferrato.com/', external: true },
                 { label: t(lang, 'footer.book'), href: '/prenota', external: false },
                 { label: t(lang, 'footer.rooms'), href: '/camere', external: false },
                 { label: t(lang, 'footer.meeting'), href: '/sale-meeting', external: false },
@@ -135,14 +136,18 @@ export default function Footer() {
             <div style={{ marginTop: '0.3rem', color: 'rgba(255,255,255,0.4)' }}>P.Iva 00981490055 - CIR 005050-ALB-00001</div>
           </div>
           <div className="flex gap-5">
-            {[t(lang, 'footer.privacy'), t(lang, 'footer.cookie'), t(lang, 'footer.terms')].map((item) => (
-              <Link key={item} href="#" style={{ fontFamily: 'Lato', fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)', textDecoration: 'none', transition: 'color 0.2s' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#C9A870')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.35)')}
-              >
-                {item}
-              </Link>
-            ))}
+            <Link href="/privacy-policy" style={{ fontFamily: 'Lato', fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)', textDecoration: 'none', transition: 'color 0.2s' }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#C9A870')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.35)')}
+            >
+              {t(lang, 'footer.privacy')}
+            </Link>
+            <Link href="#" style={{ fontFamily: 'Lato', fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)', textDecoration: 'none', transition: 'color 0.2s' }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#C9A870')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.35)')}
+            >
+              {t(lang, 'footer.cookie')}
+            </Link>
           </div>
         </div>
       </div>
