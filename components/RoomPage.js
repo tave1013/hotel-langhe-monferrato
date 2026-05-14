@@ -392,6 +392,29 @@ export default function RoomPage({ room }) {
     'Aeroporto di Torino, 73 km': 'Aéroport de Turin, 73 km',
     'Aeroporto di Genova-Sestri, 93 km': 'Aéroport de Gênes-Sestri, 93 km',
   };
+  const itAmenityCategoryMap = {
+    Bathroom: 'Bagno',
+    'General Services': 'Servizi generali',
+    'Business Services': 'Servizi business',
+    'Outdoor Spaces': 'Spazi all’aperto',
+    'In-room Services': 'Servizi in camera',
+    'Media and Technology': 'Media e tecnologia',
+    'Food & Beverage Services': 'Servizi di ristorazione',
+    Internet: 'Internet',
+    Parking: 'Parcheggio',
+    'Reception Services': 'Servizi di reception',
+    'Family Entertainment': 'Intrattenimento per famiglie',
+    'Cleaning Services': 'Servizi di pulizia',
+    Pets: 'Animali',
+    Activities: 'Attività',
+    Accessibility: 'Accessibilità',
+    'Languages Spoken': 'Lingue parlate',
+  };
+  const itSurroundingsCategoryMap = {
+    'Restaurants & Cafés': 'Ristoranti e caffetterie',
+    'Public Transportation': 'Trasporti pubblici',
+    Airports: 'Aeroporti',
+  };
   const roomName = isEn
     ? (room.name || room.name_it)
     : isFr
@@ -494,7 +517,7 @@ export default function RoomPage({ room }) {
             ? (deAmenityCategoryMap[cat] || cat)
             : isEs
               ? (esAmenityCategoryMap[cat] || cat)
-            : cat;
+              : (itAmenityCategoryMap[cat] || cat);
       localized[localCat] = {
         icon: data.icon,
         items: isEn
@@ -548,7 +571,7 @@ export default function RoomPage({ room }) {
             ? (deSurroundingsCategoryMap[cat] || cat)
             : isEs
               ? (esSurroundingsCategoryMap[cat] || cat)
-            : cat;
+              : (itSurroundingsCategoryMap[cat] || cat);
       localized[localCat] = {
         icon: data.icon,
         items: isEn
