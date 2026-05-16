@@ -18,7 +18,7 @@ const rooms = [
   },
   {
     id: 'double',
-    img: '/foto/suite.webp',
+    img: '/foto/Camera matrimoniale (2).webp',
     price: '120',
     size: '22 m²',
     guests: '2',
