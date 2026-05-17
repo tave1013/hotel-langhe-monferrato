@@ -118,7 +118,7 @@
       "single": {
         "name": "Einzelzimmer",
         "tab": "Einzel",
-        "desc": "Das Einzelzimmer ist ideal für Alleinreisende, die Komfort und Ruhe zwischen Langhe und Monferrato suchen.",
+        "desc": "Das Einzelzimmer ist ideal für Alleinreisende, die Komfort und Ruhe zwischen Langhe und Monferrato suchen, mit einer entspannten Atmosphäre.",
         "features": [
           "Zimmer verfügbar",
           "Hydromassage-Dusche",
@@ -162,7 +162,7 @@
       "suite": {
         "name": "Deluxe Suite",
         "tab": "Suite",
-        "desc": "Unsere 6 Suiten sind ideal für Paare, die mehr Platz und Komfort wünschen, mit elegantem Ambiente und Privatsphäre.",
+        "desc": "Unsere 6 Suiten sind ideal für Paare, die mehr Platz und Komfort wünschen, mit elegantem Ambiente, Privatsphäre und gepflegten Services.",
         "features": [
           "6 Suiten verfügbar",
           "Hydromassage-Wanne",
@@ -246,7 +246,7 @@
       },
       {
         "question": "Ist das Frühstück im Preis inbegriffen?",
-        "answer": "Das hängt von dem bei der Buchung gewählten Tarif ab. Viele unserer Pakete enthalten ein reichhaltiges Frühstücksbuffet. Um zu prüfen, was in Ihrer Buchung enthalten ist, lesen Sie die Details bei der Tarifwahl oder kontaktieren Sie uns direkt."
+        "answer": "Ja. Die auf unserer Website angezeigten Preise enthalten, wie auch direkt neben dem Tarif angegeben, ein reichhaltiges Frühstücksbuffet. Wenn Sie eine Option ohne Frühstück bevorzugen, kontaktieren Sie uns bitte direkt – wir empfehlen Ihnen gerne die passendste Lösung."
       },
       {
         "question": "Gibt es ein Restaurant oder eine Bar im Hotel?",
@@ -279,6 +279,10 @@
       {
         "question": "Gibt es Einlasszeiten, wenn wir spät von einem Spaziergang oder Abend zurückkehren?",
         "answer": "Nein, keine Zeitbeschränkungen. Jeder Gast erhält einen persönlichen Zugangscode, der es ermöglicht, jederzeit und unabhängig von der Rezeption in die Einrichtung einzutreten. So können Sie Ihren Aufenthalt in völliger Freiheit genießen. Wenn Sie natürlich jederzeit Hilfe benötigen, sind wir auch über den Chat auf der Website erreichbar."
+      },
+      {
+        "question": "Gibt es bei Ihnen eine Ladestation für Elektroautos?",
+        "answer": "Leider verfügen wir derzeit nicht über eine interne Ladestation in der Unterkunft. In unserer Umgebung gibt es jedoch mehrere öffentliche und funktionierende Ladepunkte; fragen Sie während Ihres Aufenthalts einfach an der Rezeption, wir zeigen Ihnen gerne die nächstgelegenen und am bequemsten erreichbaren im Ortszentrum."
       }
     ]
   },

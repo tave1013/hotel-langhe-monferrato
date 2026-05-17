@@ -443,13 +443,13 @@ export default function RoomPage({ room }) {
           ? t(lang, `roomDetails.${room.slug}.description`)
           : room.description_it;
   const priceNote = isEn
-    ? (room.priceNote || 'per night (breakfast excluded)')
+    ? (room.priceNote || 'per night (breakfast included)')
     : isFr
-      ? 'par nuit (petit-déjeuner non inclus)'
+      ? 'par nuit (petit-déjeuner inclus)'
       : isDe
-        ? 'pro Nacht (Frühstück nicht inbegriffen)'
+        ? 'pro Nacht (Frühstück inbegriffen)'
         : isEs
-          ? 'por noche (desayuno no incluido)'
+          ? 'por noche (desayuno incluido)'
           : room.priceNote_it;
   const [activePhoto, setActivePhoto] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -644,9 +644,9 @@ export default function RoomPage({ room }) {
                   <span style={{ fontFamily: 'Lato', fontSize: '0.62rem', color: '#9A8A7A', letterSpacing: '0.1em', textTransform: 'uppercase', display: 'block', marginBottom: 4 }}>{t(lang, 'roomPage.startingFrom')}</span>
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
                     <span style={{ fontFamily: 'Playfair Display, serif', fontSize: '2.6rem', color: '#C9A870', fontWeight: 600 }}>€{room.price}</span>
-                    <span style={{ fontFamily: 'Lato', fontSize: '0.75rem', color: '#9A8A7A' }}>&nbsp;{t(lang, 'roomPage.perNight')}</span>
+                    <span style={{ fontFamily: 'Lato', fontSize: '0.92rem', color: '#9A8A7A', fontWeight: 600 }}>&nbsp;{t(lang, 'roomPage.perNight')}</span>
                   </div>
-                  <span style={{ fontFamily: 'Lato', fontSize: '0.7rem', color: '#9A8A7A' }}>{priceNote}</span>
+                  <span style={{ fontFamily: 'Lato', fontSize: '0.88rem', color: '#9A8A7A', fontWeight: 500 }}>{priceNote}</span>
                 </div>
 
                 <Link href="/prenota" className="btn-gold" style={{ display: 'block', textAlign: 'center', marginBottom: '0.8rem' }}>
@@ -660,8 +660,8 @@ export default function RoomPage({ room }) {
                     { icon: 'fa-tag', text: t(lang, 'roomPage.bestPrice') },
                   ].map((t) => (
                     <div key={t.text} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                      <i className={`fa ${t.icon}`} style={{ color: '#C9A870', fontSize: '0.7rem', width: 14 }}></i>
-                      <span style={{ fontFamily: 'Lato', fontSize: '0.72rem', color: '#6B5E52' }}>{t.text}</span>
+                      <i className={`fa ${t.icon}`} style={{ color: '#C9A870', fontSize: '0.9rem', width: 16 }}></i>
+                      <span style={{ fontFamily: 'Lato', fontSize: '0.92rem', color: '#6B5E52', fontWeight: 500 }}>{t.text}</span>
                     </div>
                   ))}
                 </div>

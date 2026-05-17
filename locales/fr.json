@@ -118,7 +118,7 @@
       "single": {
         "name": "Chambre Simple",
         "tab": "Simple",
-        "desc": "La chambre simple est idéale pour les voyageurs seuls à la recherche de confort et de tranquillité entre Langhe et Monferrato.",
+        "desc": "La chambre simple est idéale pour les voyageurs seuls à la recherche de confort et de tranquillité entre Langhe et Monferrato, avec une atmosphère reposante.",
         "features": [
           "Chambre disponible",
           "Douche hydromassage",
@@ -162,7 +162,7 @@
       "suite": {
         "name": "Suite Deluxe",
         "tab": "Suite",
-        "desc": "Nos 6 suites sont idéales pour les couples qui souhaitent plus d'espace et de confort, avec atmosphère élégante et réservée.",
+        "desc": "Nos 6 suites sont idéales pour les couples qui souhaitent plus d'espace et de confort, avec atmosphère élégante et réservée, et services soignés.",
         "features": [
           "6 suites disponibles",
           "Baignoire hydromassage",
@@ -246,7 +246,7 @@
       },
       {
         "question": "Le petit-déjeuner est-il inclus dans le tarif ?",
-        "answer": "Cela dépend du tarif choisi lors de la réservation. Beaucoup de nos forfaits incluent un riche petit-déjeuner buffet. Pour vérifier ce qui est inclus dans votre réservation, consultez les détails au moment du choix du tarif ou contactez-nous directement."
+        "answer": "Oui. Les prix affichés sur notre site web, comme indiqué à côté du tarif, incluent un riche petit-déjeuner buffet. Si vous préférez une formule sans petit-déjeuner, contactez-nous directement : nous serons ravis de vous proposer l'option la plus adaptée à vos besoins."
       },
       {
         "question": "Y a-t-il un restaurant ou un bar à l'hôtel ?",
@@ -279,6 +279,10 @@
       {
         "question": "Y a-t-il des horaires d'entrée à respecter si nous rentrons tard d'une promenade ou d'une soirée ?",
         "answer": "Non, aucune contrainte horaire. Chaque client reçoit un code d'accès personnel permettant d'entrer dans l'établissement en toute autonomie, à n'importe quelle heure, sans dépendre de la réception. Vous pourrez ainsi profiter de votre séjour en toute liberté. Bien sûr, si vous avez besoin d'assistance à tout moment, nous sommes également disponibles via le chat du site."
+      },
+      {
+        "question": "Avez-vous une borne de recharge pour les voitures électriques ?",
+        "answer": "Malheureusement, pour le moment, nous ne disposons pas de borne de recharge au sein de l'établissement. Dans notre zone, plusieurs bornes publiques fonctionnelles sont toutefois disponibles ; nous vous invitons à demander directement à la réception pendant votre séjour, nous serons ravis de vous indiquer les plus proches et les plus pratiques à rejoindre dans le centre du village."
       }
     ]
   },

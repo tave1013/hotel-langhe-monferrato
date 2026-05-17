@@ -42,8 +42,8 @@ export default function About() {
             </div>
             <div className="overflow-hidden" style={{ height: 200 }}>
               <Image
-                src="/foto/Camera-tripla.webp"
-                alt="Camera tripla Hotel Langhe & Monferrato"
+                src="/foto/Camera matrimoniale.webp"
+                alt="Camera matrimoniale Hotel Langhe & Monferrato"
                 width={400}
                 height={200}
                 quality={80}

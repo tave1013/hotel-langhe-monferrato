@@ -118,7 +118,7 @@
       "single": {
         "name": "Single Room",
         "tab": "Single",
-        "desc": "The Single Room is ideal for solo travelers looking for comfort and peace between Langhe and Monferrato. A welcoming setting with attention to detail, featuring a hydromassage shower for complete relaxation.",
+        "desc": "The Single Room is ideal for solo travelers looking for comfort and peace between Langhe and Monferrato. A welcoming setting with attention to detail, featuring a hydromassage shower for complete relaxation and a calm atmosphere.",
         "features": [
           "Room Available",
           "Hydromassage Shower",
@@ -162,7 +162,7 @@
       "suite": {
         "name": "Deluxe Suite",
         "tab": "Suite",
-        "desc": "Our 6 Suites are the ideal choice for couples who want more space and comfort. Elegant interiors, private atmosphere and hydromassage tub for a relaxing stay in the heart of Costigliole d'Asti.",
+        "desc": "Our 6 Suites are the ideal choice for couples who want more space and comfort. Elegant interiors, private atmosphere and hydromassage tub for a relaxing stay in the heart of Costigliole d'Asti, with refined amenities.",
         "features": [
           "6 Suites Available",
           "Hydromassage Tub",
@@ -246,7 +246,7 @@
       },
       {
         "question": "Is breakfast included in the rate?",
-        "answer": "It depends on the rate selected at booking. Many of our packages include a rich buffet breakfast. To verify what is included, check the details during booking or contact us directly."
+        "answer": "Yes. The prices shown on our website, as specified next to the rate, include a rich buffet breakfast. If you prefer a no-breakfast option, please contact us directly and we will be happy to suggest the solution that best fits your needs."
       },
       {
         "question": "Is there a restaurant or bar at the hotel?",
@@ -279,6 +279,10 @@
       {
         "question": "Are there entrance time restrictions if we return late?",
         "answer": "No, there are no time restrictions. Each guest receives a personal access code to enter independently at any time, without relying on reception."
+      },
+      {
+        "question": "Do you have an electric vehicle charging station?",
+        "answer": "Unfortunately, at the moment we do not have an on-site charging station. However, there are several public and working charging points in our area; please ask directly at reception during your stay and we will be happy to show you the nearest and most convenient ones in the town center."
       }
     ]
   },

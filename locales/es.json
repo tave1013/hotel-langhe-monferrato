@@ -118,7 +118,7 @@
       "single": {
         "name": "Habitación Individual",
         "tab": "Individual",
-        "desc": "La habitación individual es ideal para quien viaja solo y busca comodidad y tranquilidad entre Langhe y Monferrato.",
+        "desc": "La habitación individual es ideal para quien viaja solo y busca comodidad y tranquilidad entre Langhe y Monferrato, con un ambiente relajante.",
         "features": [
           "Habitación disponible",
           "Ducha de hidromasaje",
@@ -162,7 +162,7 @@
       "suite": {
         "name": "Suite Deluxe",
         "tab": "Suite",
-        "desc": "Nuestras 6 suites son ideales para parejas que desean más espacio y confort, con ambiente elegante y reservado.",
+        "desc": "Nuestras 6 suites son ideales para parejas que desean más espacio y confort, con ambiente elegante y reservado, y servicios cuidados.",
         "features": [
           "6 suites disponibles",
           "Bañera de hidromasaje",
@@ -246,7 +246,7 @@
       },
       {
         "question": "¿El desayuno está incluido en la tarifa?",
-        "answer": "Depende de la tarifa elegida al reservar. Muchos de nuestros paquetes incluyen un rico desayuno buffet. Para comprobar qué incluye tu reserva, revisa los detalles al seleccionar la tarifa o contáctanos directamente."
+        "answer": "Sí. Los precios mostrados en nuestra web, tal como se indica junto a la tarifa, incluyen un abundante desayuno buffet. Si prefieres una opción sin desayuno, contáctanos directamente y estaremos encantados de proponerte la solución que mejor se adapte a tus necesidades."
       },
       {
         "question": "¿Hay restaurante o bar en el hotel?",
@@ -279,6 +279,10 @@
       {
         "question": "¿Hay horarios de entrada si regresamos tarde de un paseo o una salida nocturna?",
         "answer": "No, no hay restricciones horarias. A cada huésped se le entrega un código personal de acceso que permite entrar en el establecimiento con total autonomía y a cualquier hora, sin depender de recepción. Así podrás vivir tu estancia con la máxima libertad. Naturalmente, si necesitas asistencia o apoyo en cualquier momento, siempre estamos a tu disposición también a través del chat de la web."
+      },
+      {
+        "question": "¿Tenéis una estación de carga para coches eléctricos?",
+        "answer": "Lamentablemente, por el momento no disponemos de una estación de carga interna en el establecimiento. En nuestra zona hay varias estaciones públicas y operativas; te invitamos a preguntar directamente en recepción durante tu estancia y estaremos encantados de indicarte las más cercanas y cómodas de alcanzar en el centro del pueblo."
       }
     ]
   },

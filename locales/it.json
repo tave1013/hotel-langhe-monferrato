@@ -118,7 +118,7 @@
       "single": {
         "name": "Camera Singola",
         "tab": "Singola",
-        "desc": "La Camera Singola è ideale per chi viaggia da solo in cerca di comfort e tranquillità tra Langhe e Monferrato. Ambiente accogliente, curato nei dettagli, con doccia idromassaggio per un relax completo.",
+        "desc": "La Camera Singola è ideale per chi viaggia da solo in cerca di comfort e tranquillità tra Langhe e Monferrato. Ambiente accogliente, curato nei dettagli, con doccia idromassaggio per un relax completo e un'atmosfera rilassante.",
         "features": [
           "Camera Disponibile",
           "Doccia Idromassaggio",
@@ -162,7 +162,7 @@
       "suite": {
         "name": "Suite Deluxe",
         "tab": "Suite",
-        "desc": "Le 6 Suite sono la scelta ideale per coppie che desiderano più spazio e comfort. Ambienti eleganti, atmosfera riservata e vasca idromassaggio per un soggiorno rilassante nel cuore di Costigliole d'Asti.",
+        "desc": "Le 6 Suite sono la scelta ideale per coppie che desiderano più spazio e comfort. Ambienti eleganti, atmosfera riservata e vasca idromassaggio per un soggiorno rilassante nel cuore di Costigliole d'Asti, con servizi curati.",
         "features": [
           "6 Suite Disponibili",
           "Vasca Idromassaggio",
@@ -246,7 +246,7 @@
       },
       {
         "question": "La colazione è inclusa nella tariffa?",
-        "answer": "Dipende dalla tariffa scelta al momento della prenotazione. Molti dei nostri pacchetti includono una ricca colazione a buffet. Per verificare cosa è incluso nella tua prenotazione, controlla i dettagli al momento della scelta della tariffa o contattaci direttamente."
+        "answer": "Sì. I prezzi mostrati sul nostro sito web, come specificato anche accanto alla tariffa, includono una ricca colazione a buffet. Se preferisci una soluzione senza colazione, contattaci direttamente: saremo felici di proporti l'opzione più adatta alle tue esigenze."
       },
       {
         "question": "C'è un ristorante o un bar in hotel?",
@@ -279,6 +279,10 @@
       {
         "question": "Ci sono orari di ingresso da rispettare se torniamo tardi da una passeggiata o da una serata fuori?",
         "answer": "No, nessun vincolo di orario. A ogni ospite viene consegnato un codice personale di accesso che permette di entrare nella struttura in piena autonomia e a qualsiasi ora, senza dover dipendere dalla reception. In questo modo potrete vivere il vostro soggiorno con la massima libertà. Naturalmente, se aveste bisogno di assistenza o supporto in qualsiasi momento, siamo sempre a vostra disposizione anche tramite chat presente sul sito."
+      },
+      {
+        "question": "Avete una colonnina di ricarica per le auto elettriche?",
+        "answer": "Purtroppo al momento non siamo dotati di una colonnina di ricarica interna alla struttura. Nella nostra zona sono comunque presenti diverse postazioni pubbliche e funzionanti; vi invitiamo a chiedere direttamente in reception durante il vostro soggiorno, saremo felici di indicarvi quelle più vicine e comode da raggiungere nel centro del paese."
       }
     ]
   },

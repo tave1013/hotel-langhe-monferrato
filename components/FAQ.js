@@ -8,52 +8,8 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
   const lang = useSiteLanguage();
 
-  const faqs = [
-    {
-      question: t(lang, 'faqHome.items.0.question'),
-      answer: t(lang, 'faqHome.items.0.answer')
-    },
-    {
-      question: t(lang, 'faqHome.items.1.question'),
-      answer: t(lang, 'faqHome.items.1.answer')
-    },
-    {
-      question: t(lang, 'faqHome.items.2.question'),
-      answer: t(lang, 'faqHome.items.2.answer')
-    },
-    {
-      question: t(lang, 'faqHome.items.3.question'),
-      answer: t(lang, 'faqHome.items.3.answer')
-    },
-    {
-      question: t(lang, 'faqHome.items.4.question'),
-      answer: t(lang, 'faqHome.items.4.answer')
-    },
-    {
-      question: t(lang, 'faqHome.items.5.question'),
-      answer: t(lang, 'faqHome.items.5.answer')
-    },
-    {
-      question: t(lang, 'faqHome.items.6.question'),
-      answer: t(lang, 'faqHome.items.6.answer')
-    },
-    {
-      question: t(lang, 'faqHome.items.7.question'),
-      answer: t(lang, 'faqHome.items.7.answer')
-    },
-    {
-      question: t(lang, 'faqHome.items.8.question'),
-      answer: t(lang, 'faqHome.items.8.answer')
-    },
-    {
-      question: t(lang, 'faqHome.items.9.question'),
-      answer: t(lang, 'faqHome.items.9.answer')
-    },
-    {
-      question: t(lang, 'faqHome.items.10.question'),
-      answer: t(lang, 'faqHome.items.10.answer')
-    }
-  ];
+  const faqsSource = t(lang, 'faqHome.items');
+  const faqs = Array.isArray(faqsSource) ? faqsSource : [];
 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
