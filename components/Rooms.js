@@ -10,7 +10,7 @@ import { t } from '@/lib/i18n';
 const rooms = [
   {
     id: 'single',
-    img: '/foto/suite.webp',
+    img: '/foto/24.webp',
     price: '90',
     size: '22 m²',
     guests: '1',
@@ -26,7 +26,7 @@ const rooms = [
   },
   {
     id: 'triple',
-    img: '/foto/Camera-tripla.webp',
+    img: '/foto/Camera tripla.webp',
     price: '150',
     size: '30 m²',
     guests: '3',
@@ -34,7 +34,7 @@ const rooms = [
   },
   {
     id: 'quadruple',
-    img: '/foto/quadrupla.webp',
+    img: '/foto/Camera Quadrupla 3.webp',
     price: '200',
     size: '40 m²',
     guests: '4',

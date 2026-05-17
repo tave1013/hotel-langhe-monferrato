@@ -698,7 +698,7 @@ export default function RoomPage({ room }) {
               {/* GALLERY */}
               <section style={{ marginBottom: '3rem', paddingBottom: '3rem', borderBottom: '1px solid rgba(201,168,112,0.2)' }}>
                 <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.7rem', color: '#2C2520', marginBottom: '1.2rem', fontWeight: 500 }}>{t(lang, 'roomPage.gallery')}</h2>
-                <div className="relative overflow-hidden cursor-pointer" style={{ height: 370, marginBottom: 8 }} onClick={() => openLightbox(activePhoto)}>
+                <div className="relative overflow-hidden cursor-pointer" style={{ height: 'clamp(400px, 42vw, 520px)', marginBottom: 8 }} onClick={() => openLightbox(activePhoto)}>
                   <img src={room.gallery[activePhoto]} alt={`${roomName} foto ${activePhoto + 1}`} className="w-full h-full object-cover" />
                   <div style={{ position: 'absolute', bottom: 14, right: 14, background: 'rgba(10,8,6,0.7)', padding: '0.35rem 0.8rem', display: 'flex', alignItems: 'center', gap: 6 }}>
                     <i className="fa fa-expand" style={{ color: '#C9A870', fontSize: '0.7rem' }}></i>
