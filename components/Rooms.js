@@ -10,7 +10,7 @@ import { t } from '@/lib/i18n';
 const rooms = [
   {
     id: 'single',
-    img: '/foto/24.webp',
+    img: '/foto/Camera matrimoniale.webp',
     price: '90',
     size: '22 m²',
     guests: '1',
