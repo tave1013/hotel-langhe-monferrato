@@ -12,6 +12,12 @@ export default function GuideDetailPage({ guida }) {
   const isFr = lang === 'fr';
   const isDe = lang === 'de';
   const isEs = lang === 'es';
+  const isAstiGuide = guida?.slug === 'asti';
+  const isAlbaGuide = guida?.slug === 'alba';
+  const isCanelliGuide = guida?.slug === 'cattedrali-sotterranee';
+  const isTartufoGuide = guida?.slug === 'caccia-al-tartufo';
+  const isCastelliGuide = guida?.slug === 'castelli-del-monferrato';
+  const noCreditGuide = ['big-bench', 'ebike-monferrato', 'birrificio-nicese', 'nizza-e-barbera'].includes(guida?.slug);
 
   return (
     <>
@@ -182,20 +188,30 @@ export default function GuideDetailPage({ guida }) {
                   </div>
 
                   {/* Photo Credits */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid rgba(201,168,112,0.08)' }}>
-                    <i className="fa fa-camera" style={{ color: '#9A8A7A', fontSize: '0.7rem' }}></i>
-                    <span style={{ fontFamily: 'Lato', fontSize: '0.68rem', color: '#9A8A7A', lineHeight: 1.5 }}>
-                      {isEn
-                        ? 'Photo: M. Ferni (from the Facebook group "Gite fuori porta in Piemonte") – used for cover and featured image'
-                        : isFr
-                          ? 'Photo : M. Ferni (du groupe Facebook « Gite fuori porta in Piemonte ») – utilisée pour la couverture et l’image principale'
-                          : isDe
-                            ? 'Foto: M. Ferni (von der Facebook-Gruppe „Gite fuori porta in Piemonte") – verwendet für Coverfoto und Hauptbild'
-                            : isEs
-                              ? 'Foto: M. Ferni (del grupo de Facebook “Gite fuori porta in Piemonte”) – utilizada para portada e imagen destacada'
-                            : 'Foto: M. Ferni (Dal Gruppo Facebook Gite fuori porta in Piemonte) – utilizzata per cover e featured'}
-                    </span>
-                  </div>
+                  {!noCreditGuide && (!isAstiGuide || i === 1) && (!isAlbaGuide || i === 1) && (!isCanelliGuide || i === 0 || i === 1 || i === 5) && (!isTartufoGuide || i === 0 || i === 1 || i === 2 || i === 5) && (!isCastelliGuide || i === 0 || i === 1) && (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid rgba(201,168,112,0.08)' }}>
+                      <i className="fa fa-camera" style={{ color: '#9A8A7A', fontSize: '0.7rem' }}></i>
+                      <span style={{ fontFamily: 'Lato', fontSize: '0.68rem', color: '#9A8A7A', lineHeight: 1.5 }}>
+                        {isAstiGuide
+                          ? 'Foto: prese da Expedia'
+                          : isCanelliGuide
+                          ? 'Foto: Presa da TripAdvisor'
+                          : isTartufoGuide
+                          ? (i === 0 ? 'Foto: Presa dal sito fieradeltartufo.org' : 'Foto: Prese dal sito di truffletrail.it')
+                          : isCastelliGuide
+                          ? (i === 0 ? 'Foto: presa da granmonferrato.it' : 'Foto: presa da holidoit.com')
+                          : isEn
+                            ? 'Photo: M. Ferni (from the Facebook group "Gite fuori porta in Piemonte") – used for cover and featured image'
+                            : isFr
+                              ? 'Photo : M. Ferni (du groupe Facebook « Gite fuori porta in Piemonte ») – utilisée pour la couverture et l’image principale'
+                              : isDe
+                                ? 'Foto: M. Ferni (von der Facebook-Gruppe „Gite fuori porta in Piemonte") – verwendet für Coverfoto und Hauptbild'
+                                : isEs
+                                  ? 'Foto: M. Ferni (del grupo de Facebook “Gite fuori porta in Piemonte”) – utilizada para portada e imagen destacada'
+                                  : 'Foto: M. Ferni (Dal Gruppo Facebook Gite fuori porta in Piemonte) – utilizzata per cover e featured'}
+                      </span>
+                    </div>
+                  )}
 
                   {/* Section divider */}
                   {i < guida.sezioni.length - 1 && (

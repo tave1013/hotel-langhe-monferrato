@@ -1,5 +1,5 @@
 import './globals.css';
-import WhatsAppWidget from '@/components/WhatsAppWidget';
+import Script from 'next/script';
 import ClientLayout from '@/components/ClientLayout';
 
 export const metadata = {
@@ -65,8 +65,22 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         {children}
-        <WhatsAppWidget />
         <ClientLayout />
+
+        {/* Configurazione globale del Widget di Alfred - Dominio Reale */}
+        <Script id="alfred-widget-config" strategy="afterInteractive">
+          {`
+            window.AlfredWidgetConfig = {
+              baseUrl: "https://guida.hotellanghemonferrato.com"
+            };
+          `}
+        </Script>
+
+        {/* Caricamento dello script dal dominio corretto */}
+        <Script
+          src="https://guida.hotellanghemonferrato.com/alfred-init.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
