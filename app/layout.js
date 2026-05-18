@@ -71,7 +71,9 @@ export default function RootLayout({ children }) {
         <Script id="alfred-widget-config" strategy="afterInteractive">
           {`
             window.AlfredWidgetConfig = {
-              baseUrl: "https://guida.hotellanghemonferrato.com"
+              baseUrl: "https://guida.hotellanghemonferrato.com",
+              positionBottom: "15px",
+              positionRight: "15px"
             };
           `}
         </Script>
@@ -81,6 +83,40 @@ export default function RootLayout({ children }) {
           src="https://guida.hotellanghemonferrato.com/alfred-init.js"
           strategy="afterInteractive"
         />
+
+        <Script id="alfred-widget-mobile-ux" strategy="afterInteractive">
+          {`
+            (function () {
+              const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+
+              const syncScrollLock = () => {
+                const panel = document.querySelector('.alfred-widget-panel');
+                if (!panel) return;
+                const open = panel.classList.contains('open');
+                document.body.style.overflow = isMobile() && open ? 'hidden' : '';
+              };
+
+              const attachObserver = () => {
+                const panel = document.querySelector('.alfred-widget-panel');
+                if (!panel) return false;
+
+                syncScrollLock();
+                const obs = new MutationObserver(syncScrollLock);
+                obs.observe(panel, { attributes: true, attributeFilter: ['class'] });
+                window.addEventListener('resize', syncScrollLock, { passive: true });
+                window.addEventListener('orientationchange', syncScrollLock, { passive: true });
+                return true;
+              };
+
+              if (!attachObserver()) {
+                const timer = setInterval(() => {
+                  if (attachObserver()) clearInterval(timer);
+                }, 250);
+                setTimeout(() => clearInterval(timer), 10000);
+              }
+            })();
+          `}
+        </Script>
       </body>
     </html>
   );

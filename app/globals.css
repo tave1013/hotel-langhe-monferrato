@@ -206,3 +206,68 @@ body { font-family: 'Lato', sans-serif; color: var(--text-dark); background: var
   color: #C9A870 !important;
   fill: #C9A870 !important;
 }
+
+/* ========================================
+   ALFRED WIDGET - POSITIONING OVERRIDES
+   ======================================== */
+
+/* Desktop: floating box close to bottom, taller chat area */
+.alfred-widget-launcher {
+  bottom: 15px !important;
+  right: 15px !important;
+}
+
+.alfred-widget-panel {
+  right: 15px !important;
+  bottom: 15px !important;
+  height: min(760px, calc(100dvh - 30px)) !important;
+  max-height: calc(100dvh - 30px) !important;
+}
+
+/* Mobile/tablet: fullscreen panel with smooth expansion from launcher */
+@media (max-width: 768px) {
+  .alfred-widget-launcher {
+    bottom: 10px !important;
+    right: 10px !important;
+  }
+
+  .alfred-widget-panel {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform-origin: calc(100% - 34px) calc(100% - 34px) !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+
+  .alfred-widget-panel:not(.open) {
+    opacity: 0 !important;
+    transform: scale(0.08) !important;
+    pointer-events: none !important;
+  }
+
+  .alfred-widget-panel.open {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    pointer-events: auto !important;
+  }
+
+  .alfred-widget-frame {
+    height: calc(100dvh - 42px) !important;
+  }
+
+  .alfred-widget-close {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 10px !important;
+    font-size: 20px !important;
+  }
+}
