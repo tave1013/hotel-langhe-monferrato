@@ -12,7 +12,7 @@ export default function VideoBanner() {
       <div className="absolute inset-0">
         <img
           src="https://images.unsplash.com/photo-1455587734955-081b22074882?w=1800&q=80&fit=crop"
-          alt="Piscina panoramica Hotel Langhe"
+          alt="Piscina panoramica Parco della Contessa vicino Hotel Langhe & Monferrato Costigliole d'Asti"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(10,8,6,0.85) 40%, rgba(10,8,6,0.45))' }}></div>

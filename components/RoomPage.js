@@ -609,7 +609,7 @@ export default function RoomPage({ room }) {
         <div className="absolute inset-0">
           <Image
             src={room.heroImg}
-            alt={roomName}
+            alt={`${roomName} - Hotel Langhe & Monferrato Costigliole d'Asti Langhe Piemonte`}
             fill
             priority
             quality={85}
@@ -699,7 +699,7 @@ export default function RoomPage({ room }) {
               <section style={{ marginBottom: '3rem', paddingBottom: '3rem', borderBottom: '1px solid rgba(201,168,112,0.2)' }}>
                 <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.7rem', color: '#2C2520', marginBottom: '1.2rem', fontWeight: 500 }}>{t(lang, 'roomPage.gallery')}</h2>
                 <div className="relative overflow-hidden cursor-pointer" style={{ height: 'clamp(400px, 42vw, 520px)', marginBottom: 8 }} onClick={() => openLightbox(activePhoto)}>
-                  <img src={room.gallery[activePhoto]} alt={`${roomName} foto ${activePhoto + 1}`} className="w-full h-full object-cover" />
+                  <img src={room.gallery[activePhoto]} alt={`${roomName} Hotel Langhe & Monferrato - foto ${activePhoto + 1}`} className="w-full h-full object-cover" />
                   <div style={{ position: 'absolute', bottom: 14, right: 14, background: 'rgba(10,8,6,0.7)', padding: '0.35rem 0.8rem', display: 'flex', alignItems: 'center', gap: 6 }}>
                     <i className="fa fa-expand" style={{ color: '#C9A870', fontSize: '0.7rem' }}></i>
                     <span style={{ fontFamily: 'Lato', fontSize: '0.62rem', color: '#fff', letterSpacing: '0.1em' }}>{t(lang, 'roomPage.expand')}</span>
@@ -708,7 +708,7 @@ export default function RoomPage({ room }) {
                 <div className="grid grid-cols-5 gap-2">
                   {room.gallery.map((img, i) => (
                     <div key={i} className="cursor-pointer overflow-hidden" style={{ height: 76, outline: i === activePhoto ? '2px solid #C9A870' : '2px solid transparent', outlineOffset: 2, transition: 'outline 0.2s' }} onClick={() => setActivePhoto(i)}>
-                      <img src={img} alt="" className="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
+                      <img src={img} alt={`${roomName} Hotel Langhe & Monferrato - galleria`} className="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
                     </div>
                   ))}
                 </div>
@@ -917,7 +917,7 @@ export default function RoomPage({ room }) {
       {/* ── CTA BOTTOM ── */}
       <section className="relative overflow-hidden" style={{ padding: '80px 0' }}>
         <div className="absolute inset-0">
-          <img src="/foto/hotel-langhe-monferrato.jpg" alt="" className="w-full h-full object-cover" />
+          <img src="/foto/hotel-langhe-monferrato.jpg" alt="Hotel Langhe & Monferrato 4 stelle Costigliole d'Asti - prenota al miglior prezzo" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: 'rgba(10,8,6,0.78)' }} />
         </div>
         <div className="relative text-center px-6 max-w-3xl mx-auto">
@@ -941,7 +941,7 @@ export default function RoomPage({ room }) {
           <button onClick={(e) => { e.stopPropagation(); prevPhoto(); }} style={{ position: 'absolute', left: 20, top: '50%', transform: 'translateY(-50%)', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: '#fff', width: 46, height: 46, cursor: 'pointer', fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <i className="fa fa-chevron-left"></i>
           </button>
-          <img src={room.gallery[activePhoto]} alt="" style={{ maxWidth: '90vw', maxHeight: '90vh', objectFit: 'contain' }} onClick={(e) => e.stopPropagation()} />
+          <img src={room.gallery[activePhoto]} alt={`${roomName} Hotel Langhe & Monferrato - galleria`} style={{ maxWidth: '90vw', maxHeight: '90vh', objectFit: 'contain' }} onClick={(e) => e.stopPropagation()} />
           <button onClick={(e) => { e.stopPropagation(); nextPhoto(); }} style={{ position: 'absolute', right: 20, top: '50%', transform: 'translateY(-50%)', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: '#fff', width: 46, height: 46, cursor: 'pointer', fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <i className="fa fa-chevron-right"></i>
           </button>

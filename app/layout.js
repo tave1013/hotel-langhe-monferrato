@@ -5,11 +5,11 @@ import ClientLayout from '@/components/ClientLayout';
 export const metadata = {
   metadataBase: new URL('https://hotel-langhe-monferrato.vercel.app'),
   title: 'Hotel Langhe & Monferrato | Hotel 4 Stelle Costigliole d\'Asti',
-  description: 'Hotel 4 stelle a Costigliole d\'Asti tra Langhe e Monferrato. Camere eleganti, piscina, ristorante gourmet e SPA. Prenota direttamente sul sito ufficiale.',
+  description: 'Hotel 4 stelle a Costigliole d\'Asti nel cuore di Langhe e Monferrato. Camere eleganti, eventi aziendali e prenotazione diretta al miglior prezzo garantito.',
   authors: [{ name: 'Hotel Langhe & Monferrato' }],
   openGraph: {
     title: 'Hotel Langhe & Monferrato | Hotel 4 Stelle Costigliole d\'Asti',
-    description: 'Hotel 4 stelle a Costigliole d\'Asti tra Langhe e Monferrato. Camere eleganti, piscina, ristorante gourmet e SPA. Prenota direttamente sul sito ufficiale.',
+    description: 'Hotel 4 stelle a Costigliole d\'Asti nel cuore di Langhe e Monferrato. Camere eleganti, eventi aziendali e prenotazione diretta al miglior prezzo garantito.',
     type: 'website',
     locale: 'it_IT',
     url: 'https://hotel-langhe-monferrato.vercel.app',
@@ -26,7 +26,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Hotel Langhe & Monferrato | Hotel 4 Stelle Costigliole d\'Asti',
-    description: 'Hotel 4 stelle a Costigliole d\'Asti tra Langhe e Monferrato. Camere eleganti, piscina, ristorante gourmet e SPA. Prenota direttamente sul sito ufficiale.',
+    description: 'Hotel 4 stelle a Costigliole d\'Asti nel cuore di Langhe e Monferrato. Camere eleganti, eventi aziendali e prenotazione diretta al miglior prezzo garantito.',
     images: ['/foto/hotel-langhe-monferrato.jpg'],
   },
   robots: {

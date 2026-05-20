@@ -96,7 +96,7 @@ export default function OffertePage() {
         <div className="absolute inset-0">
           <Image
             src="/foto/langhe-monferrato.webp"
-            alt="Offerte Hotel Langhe"
+            alt="Offerte e pacchetti Hotel Langhe & Monferrato Costigliole d'Asti - Langhe Monferrato Piemonte"
             fill
             priority
             quality={85}
@@ -170,7 +170,7 @@ export default function OffertePage() {
         <div className="absolute inset-0">
           <Image
             src="/foto/hotel-langhe-monferrato.jpg"
-            alt="Hotel Langhe Monferrato"
+            alt="Hotel Langhe & Monferrato 4 stelle Costigliole d'Asti - offerte e promozioni"
             fill
             quality={85}
             sizes="100vw"

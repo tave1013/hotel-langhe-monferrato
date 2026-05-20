@@ -169,7 +169,7 @@ export default function TerritorioClient() {
 
       <section className="relative overflow-hidden" style={{ padding: '90px 0' }}>
         <div className="absolute inset-0">
-          <img src="/foto/alba.webp" alt="" className="w-full h-full object-cover" />
+          <img src="/foto/alba.webp" alt="Alba Langhe Monferrato - cosa vedere vicino all'Hotel Langhe & Monferrato Costigliole d'Asti" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: 'rgba(10,8,6,0.80)' }} />
         </div>
         <div className="relative text-center px-6 max-w-3xl mx-auto" style={{ margin: '0 auto' }}>

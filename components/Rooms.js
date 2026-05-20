@@ -99,7 +99,7 @@ export default function Rooms() {
               <Image
                 key={active}
                 src={rooms[active].img}
-                alt={roomName}
+                alt={`${roomName} - Hotel Langhe & Monferrato Costigliole d'Asti`}
                 fill
                 priority
                 quality={85}

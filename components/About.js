@@ -19,7 +19,7 @@ export default function About() {
             <div className="col-span-2 overflow-hidden" style={{ height: 280 }}>
               <Image
                 src="/foto/hotel-langhe-monferrato.jpg"
-                alt="Hotel Langhe & Monferrato vista esterna"
+                alt="Hotel Langhe & Monferrato 4 stelle Costigliole d'Asti - vista esterna"
                 width={800}
                 height={280}
                 quality={85}
@@ -31,7 +31,7 @@ export default function About() {
             <div className="overflow-hidden" style={{ height: 200 }}>
               <Image
                 src="/foto/ingresso.webp"
-                alt="Ingresso Hotel Langhe & Monferrato"
+                alt="Ingresso Hotel Langhe & Monferrato Costigliole d'Asti Langhe Piemonte"
                 width={400}
                 height={200}
                 quality={70}
@@ -43,7 +43,7 @@ export default function About() {
             <div className="overflow-hidden" style={{ height: 200 }}>
               <Image
                 src="/foto/Camera matrimoniale.webp"
-                alt="Camera matrimoniale Hotel Langhe & Monferrato"
+                alt="Camera matrimoniale Hotel Langhe & Monferrato Costigliole d'Asti"
                 width={400}
                 height={200}
                 quality={80}

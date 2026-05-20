@@ -487,7 +487,7 @@ export default function SaleMeetingClient({ sale }) {
       {/* CTA */}
       <section className="relative overflow-hidden" style={{ padding: '90px 0' }}>
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=1600&q=75&fit=crop" alt="" className="w-full h-full object-cover" />
+          <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=1600&q=75&fit=crop" alt="Sale meeting Hotel Langhe & Monferrato Costigliole d'Asti - eventi aziendali e congressi Langhe" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: 'rgba(10,8,6,0.8)' }} />
         </div>
         <div className="relative text-center px-6 max-w-2xl mx-auto">

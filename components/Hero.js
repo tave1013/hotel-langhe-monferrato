@@ -63,7 +63,7 @@ export default function Hero() {
           <Image
             key={slide.img}
             src={slide.img}
-            alt={slideLabel}
+            alt={`Hotel Langhe & Monferrato Costigliole d'Asti - ${slideLabel}`}
             fill
             priority={current === 0}
             quality={90}
