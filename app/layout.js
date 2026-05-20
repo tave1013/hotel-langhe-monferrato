@@ -46,20 +46,28 @@ export default function RootLayout({ children }) {
   return (
     <html lang="it">
       <head>
-        {/* Preconnect for faster font loading */}
+        {/* ── PRECONNECT: apre connessioni TCP/TLS in anticipo ── */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-        
-        {/* Google Fonts con font-display swap per evitare FOIT */}
+        <link rel="dns-prefetch" href="https://guida.hotellanghemonferrato.com" />
+
+        {/* ── GOOGLE FONTS: preload (scarica subito, alta priorità) ──
+            NON usa rel="stylesheet" qui → non blocca il rendering iniziale.
+            Il browser scarica il CSS in parallelo; viene applicato via Script
+            afterInteractive (dopo la prima paint, testo già visibile in font
+            di sistema grazie a font-display:swap nell'URL). ── */}
         <link
+          rel="preload"
+          as="style"
           href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap"
-          rel="stylesheet"
         />
-        
-        {/* Font Awesome */}
+
+        {/* ── FONT AWESOME: preload (scarica subito, alta priorità) ──
+            Stessa strategia: download immediato, applicazione non bloccante. ── */}
         <link
-          rel="stylesheet"
+          rel="preload"
+          as="style"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         />
       </head>
@@ -67,7 +75,35 @@ export default function RootLayout({ children }) {
         {children}
         <ClientLayout />
 
-        {/* Configurazione globale del Widget di Alfred - Dominio Reale */}
+        {/* ── APPLICA GOOGLE FONTS dopo la prima paint ──
+            I font sono già scaricati (preload sopra); questo script li "attiva"
+            senza bloccare LCP/FCP. font-display:swap nell'URL evita FOIT. ── */}
+        <Script id="apply-google-fonts" strategy="afterInteractive">
+          {`
+            (function(){
+              var l = document.createElement('link');
+              l.rel = 'stylesheet';
+              l.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap';
+              document.head.appendChild(l);
+            })();
+          `}
+        </Script>
+
+        {/* ── APPLICA FONT AWESOME dopo la prima paint ──
+            Icone non visibili nel critical path → nessun impatto UX.
+            Appaiono ~100-200ms dopo l'hydration (già precaricato). ── */}
+        <Script id="apply-fontawesome" strategy="afterInteractive">
+          {`
+            (function(){
+              var l = document.createElement('link');
+              l.rel = 'stylesheet';
+              l.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css';
+              document.head.appendChild(l);
+            })();
+          `}
+        </Script>
+
+        {/* ── ALFRED: configurazione (deve girare PRIMA di init.js) ── */}
         <Script id="alfred-widget-config" strategy="afterInteractive">
           {`
             window.AlfredWidgetConfig = {
@@ -78,12 +114,16 @@ export default function RootLayout({ children }) {
           `}
         </Script>
 
-        {/* Caricamento dello script dal dominio corretto */}
+        {/* ── ALFRED init.js: lazyOnload → carica DOPO l'evento load della pagina.
+            Non tocca il main thread durante la finestra LCP/FCP.
+            La config sopra (afterInteractive) gira prima, quindi l'ordine è garantito. ── */}
         <Script
           src="https://guida.hotellanghemonferrato.com/alfred-init.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
 
+        {/* ── ALFRED mobile UX: afterInteractive perché ha un retry loop interno
+            (setInterval 250ms × 10s) → non dipende dall'ordine con init.js. ── */}
         <Script id="alfred-widget-mobile-ux" strategy="afterInteractive">
           {`
             (function () {
