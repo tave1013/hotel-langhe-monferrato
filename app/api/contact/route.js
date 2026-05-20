@@ -27,7 +27,7 @@ export async function POST(request) {
       subject: `Nuovo Messaggio dal Modulo di contatto — ${tipo} — ${nome} ${cognome}`,
       html: `
         <div style="margin:0; padding:18px 8px; background:#F5EFE4; font-family:'Lato', Arial, sans-serif;">
-          <div style="width:100%; max-width:860px; margin:0 auto; background:#FFFFFF; border:1px solid #E6DBCC;">
+          <div style="width:100%; max-width:860px; margin:0; background:#FFFFFF; border:1px solid #E6DBCC;">
             <div style="background:#1A1714; padding:22px 24px 20px; border-bottom:3px solid #960018; text-align:left;">
               <div style="color:#C9A870; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; margin-bottom:8px;">Costigliole d'Asti, Piemonte</div>
               <h1 style="color:#FAF7F2; font-family:'Playfair Display', Georgia, serif; margin:0; font-size:28px; line-height:1.18; font-weight:600;">Hotel Langhe & Monferrato</h1>
@@ -62,7 +62,6 @@ export async function POST(request) {
             </table>
 
             <div style="padding:20px 24px 24px; text-align:left;">
-              <a href="mailto:${email}" style="display:inline-block; background:#7A0013; color:#FFFFFF; padding:12px 24px; text-decoration:none; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Rispondi a ${nome.toUpperCase()}</a>
               <p style="color:#9A8A7A; font-size:11px; margin:16px 0 0;">Messaggio inviato tramite il modulo contatti di hotellanghemonferrato.com</p>
             </div>
           </div>
