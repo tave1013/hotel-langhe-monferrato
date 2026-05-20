@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
+import Script from 'next/script';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DayPicker } from 'react-day-picker';
 import { format } from 'date-fns';
@@ -43,6 +44,10 @@ export default function BookingForm({ onSubmit }) {
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
+  const [turnstileReady, setTurnstileReady] = useState(false);
+  const turnstileContainerRef = useRef(null);
+  const turnstileWidgetIdRef = useRef(null);
+  const turnstilePromiseRef = useRef({ resolve: null, reject: null });
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -57,6 +62,54 @@ export default function BookingForm({ onSubmit }) {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [showCalendar]);
+
+  useEffect(() => {
+    if (!turnstileReady || !turnstileContainerRef.current || typeof window === 'undefined' || !window.turnstile) {
+      return;
+    }
+
+    if (turnstileWidgetIdRef.current !== null) return;
+
+    const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+    if (!siteKey) return;
+
+    turnstileWidgetIdRef.current = window.turnstile.render(turnstileContainerRef.current, {
+      sitekey: siteKey,
+      size: 'invisible',
+      appearance: 'execute',
+      callback: (token) => {
+        if (turnstilePromiseRef.current.resolve) {
+          turnstilePromiseRef.current.resolve(token);
+          turnstilePromiseRef.current = { resolve: null, reject: null };
+        }
+      },
+      'error-callback': () => {
+        if (turnstilePromiseRef.current.reject) {
+          turnstilePromiseRef.current.reject(new Error('Errore verifica Turnstile'));
+          turnstilePromiseRef.current = { resolve: null, reject: null };
+        }
+      },
+      'expired-callback': () => {
+        if (turnstilePromiseRef.current.reject) {
+          turnstilePromiseRef.current.reject(new Error('Token Turnstile scaduto'));
+          turnstilePromiseRef.current = { resolve: null, reject: null };
+        }
+      },
+    });
+  }, [turnstileReady]);
+
+  const getTurnstileToken = () => {
+    return new Promise((resolve, reject) => {
+      if (typeof window === 'undefined' || !window.turnstile || turnstileWidgetIdRef.current === null) {
+        reject(new Error('Turnstile non disponibile'));
+        return;
+      }
+
+      turnstilePromiseRef.current = { resolve, reject };
+      window.turnstile.reset(turnstileWidgetIdRef.current);
+      window.turnstile.execute(turnstileWidgetIdRef.current);
+    });
+  };
 
   const validatePhone = (phone) => {
     const digits = phone.replace(/[^\d]/g, '');
@@ -430,6 +483,20 @@ export default function BookingForm({ onSubmit }) {
     setIsLoading(true);
 
     try {
+      const turnstileToken = await getTurnstileToken();
+      const guardRes = await fetch('/api/booking-guard', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          turnstileToken,
+          website: formData.website,
+        }),
+      });
+
+      if (!guardRes.ok) {
+        throw new Error(tr('Verifica antispam fallita', 'Anti-spam verification failed', 'Vérification anti-spam échouée', 'Anti-Spam-Verifizierung fehlgeschlagen', 'La verificación anti-spam falló'));
+      }
+
       const nights = calculateNights();
       const checkInFormatted  = format(formData.dateRange.from, 'dd/MM/yyyy', { locale: dfLocale });
       const checkOutFormatted = format(formData.dateRange.to,   'dd/MM/yyyy', { locale: dfLocale });
@@ -475,6 +542,12 @@ export default function BookingForm({ onSubmit }) {
 
   return (
     <div ref={formTopRef} className="max-w-4xl mx-auto">
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+        strategy="afterInteractive"
+        onLoad={() => setTurnstileReady(true)}
+      />
+
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center mb-10">
         <h2 className="text-3xl md:text-4xl mb-4" style={{ fontFamily: 'Playfair Display, serif', fontWeight: 400, color: '#2C2520' }}>{tr('Richiedi Disponibilità', 'Request Availability', 'Demander la Disponibilité', 'Verfügbarkeit anfordern', 'Solicitar disponibilidad')}</h2>
         <div className="w-16 h-0.5 bg-[#C9A870] mx-auto mb-6"></div>
@@ -509,6 +582,7 @@ export default function BookingForm({ onSubmit }) {
 
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="bg-white rounded-none p-6 md:p-10 shadow-lg" style={{ border: '1px solid rgba(201,168,112,0.2)' }}>
         <form onSubmit={handleSubmit} className="space-y-5">
+          <div ref={turnstileContainerRef} style={{ display: 'none' }} aria-hidden="true" />
 
           {/* NOME / EMAIL / CELLULARE */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

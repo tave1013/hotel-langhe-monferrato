@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import Script from 'next/script';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ScrollAnimation from '@/components/ScrollAnimation';
@@ -13,20 +14,82 @@ export default function ContattiClient() {
   const isFr = lang === 'fr';
   const isDe = lang === 'de';
   const isEs = lang === 'es';
-  const [form, setForm] = useState({ nome: '', cognome: '', email: '', telefono: '', tipo: '', messaggio: '' });
+  const [form, setForm] = useState({ nome: '', cognome: '', email: '', telefono: '', tipo: '', messaggio: '', website: '' });
   const [inviato, setInviato] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errore, setErrore] = useState(false);
+  const [turnstileReady, setTurnstileReady] = useState(false);
+  const turnstileContainerRef = useRef(null);
+  const turnstileWidgetIdRef = useRef(null);
+  const turnstilePromiseRef = useRef({ resolve: null, reject: null });
+
+  useEffect(() => {
+    if (!turnstileReady || !turnstileContainerRef.current || typeof window === 'undefined' || !window.turnstile) {
+      return;
+    }
+
+    if (turnstileWidgetIdRef.current !== null) return;
+
+    const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+    if (!siteKey) return;
+
+    turnstileWidgetIdRef.current = window.turnstile.render(turnstileContainerRef.current, {
+      sitekey: siteKey,
+      size: 'invisible',
+      appearance: 'execute',
+      callback: (token) => {
+        if (turnstilePromiseRef.current.resolve) {
+          turnstilePromiseRef.current.resolve(token);
+          turnstilePromiseRef.current = { resolve: null, reject: null };
+        }
+      },
+      'error-callback': () => {
+        if (turnstilePromiseRef.current.reject) {
+          turnstilePromiseRef.current.reject(new Error('Errore verifica Turnstile'));
+          turnstilePromiseRef.current = { resolve: null, reject: null };
+        }
+      },
+      'expired-callback': () => {
+        if (turnstilePromiseRef.current.reject) {
+          turnstilePromiseRef.current.reject(new Error('Token Turnstile scaduto'));
+          turnstilePromiseRef.current = { resolve: null, reject: null };
+        }
+      },
+    });
+  }, [turnstileReady]);
+
+  const getTurnstileToken = () => {
+    return new Promise((resolve, reject) => {
+      if (typeof window === 'undefined' || !window.turnstile || turnstileWidgetIdRef.current === null) {
+        reject(new Error('Turnstile non disponibile'));
+        return;
+      }
+
+      turnstilePromiseRef.current = { resolve, reject };
+      window.turnstile.reset(turnstileWidgetIdRef.current);
+      window.turnstile.execute(turnstileWidgetIdRef.current);
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (loading) return;
+
+    // Honeypot client-side: se compilato da bot, ignoriamo in silenzio
+    if (form.website) return;
+
     setLoading(true);
     setErrore(false);
     try {
+      const turnstileToken = await getTurnstileToken();
+
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          turnstileToken,
+        }),
       });
       if (res.ok) {
         setInviato(true);
@@ -42,6 +105,12 @@ export default function ContattiClient() {
 
   return (
     <>
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+        strategy="afterInteractive"
+        onLoad={() => setTurnstileReady(true)}
+      />
+
       <Navbar />
 
       {/* HERO */}
@@ -80,6 +149,8 @@ export default function ContattiClient() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
+                    <div ref={turnstileContainerRef} style={{ display: 'none' }} aria-hidden="true" />
+
                     <div className="grid grid-cols-2 gap-5">
                       <div>
                         <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>{isEn ? 'First Name *' : isFr ? 'Prénom *' : isDe ? 'Vorname *' : isEs ? 'Nombre *' : 'Nome *'}</label>
@@ -115,6 +186,21 @@ export default function ContattiClient() {
                       <label className="block mb-2" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9A8A7A' }}>{isEn ? 'Message *' : isFr ? 'Message *' : isDe ? 'Nachricht *' : isEs ? 'Mensaje *' : 'Messaggio *'}</label>
                       <textarea required rows={5} value={form.messaggio} onChange={e => setForm({...form, messaggio: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-none focus:outline-none focus:border-[#C9A870] transition-colors" style={{ fontFamily: 'Lato, sans-serif', fontSize: '1rem', resize: 'vertical' }} />
                     </div>
+
+                    {/* Honeypot anti-bot */}
+                    <div style={{ display: 'none' }} aria-hidden="true">
+                      <label htmlFor="website">Website</label>
+                      <input
+                        id="website"
+                        name="website"
+                        type="text"
+                        tabIndex="-1"
+                        autoComplete="off"
+                        value={form.website}
+                        onChange={e => setForm({ ...form, website: e.target.value })}
+                      />
+                    </div>
+
                     <button type="submit" disabled={loading} className="w-full py-4 rounded-none text-white font-semibold transition-all bg-[#C9A870] hover:bg-[#A8854A] disabled:opacity-60 disabled:cursor-not-allowed" style={{ fontFamily: 'Lato, sans-serif', fontSize: '0.75rem', letterSpacing: '0.18em', textTransform: 'uppercase' }}>
                       {loading
                         ? <><i className="fa fa-spinner fa-spin" style={{ marginRight: 8 }}></i>{isEn ? 'Sending...' : isFr ? 'Envoi...' : isDe ? 'Senden...' : isEs ? 'Enviando...' : 'Invio in corso...'}</>

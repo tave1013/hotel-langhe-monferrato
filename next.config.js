@@ -1,4 +1,19 @@
 /** @type {import('next').NextConfig} */
+const ContentSecurityPolicy = `
+  default-src 'self';
+  base-uri 'self';
+  object-src 'none';
+  frame-ancestors 'none';
+  form-action 'self';
+  connect-src 'self' https://www.hotellanghemonferrato.com https://hotellanghemonferrato.com https://guida.hotellanghemonferrato.com https://challenges.cloudflare.com;
+  script-src 'self' 'unsafe-inline' https://www.hotellanghemonferrato.com https://hotellanghemonferrato.com https://guida.hotellanghemonferrato.com https://cdnjs.cloudflare.com https://challenges.cloudflare.com;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+  img-src 'self' data: blob: https:;
+  font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+  frame-src 'self' https://guida.hotellanghemonferrato.com https://challenges.cloudflare.com https://www.google.com;
+  upgrade-insecure-requests;
+`;
+
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -20,10 +35,12 @@ const nextConfig = {
         source: '/:path*',
         headers: [
           { key: 'X-DNS-Prefetch-Control', value: 'on' },
-          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'Content-Security-Policy', value: ContentSecurityPolicy.replace(/\n/g, '') },
+          { key: 'X-Frame-Options', value: 'DENY' },
           { key: 'X-Content-Type-Options', value: 'nosniff' },
-          { key: 'Referrer-Policy', value: 'origin-when-cross-origin' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+          { key: 'Strict-Transport-Security', value: 'max-age=31536000; includeSubDomains; preload' },
         ],
       },
       {
