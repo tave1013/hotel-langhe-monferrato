@@ -48,7 +48,7 @@ export default function TrustBar() {
               <h3
                 style={{
                   fontFamily: 'Playfair Display, serif',
-                  fontSize: 'clamp(1.15rem, 2.5vw, 1.3rem)',
+                  fontSize: 'clamp(1.05rem, 2vw, 1.15rem)',
                   fontWeight: 700,
                   color: '#2C2520',
                   marginBottom: '0.7rem',
@@ -59,7 +59,7 @@ export default function TrustBar() {
               <p
                 style={{
                   fontFamily: 'Lato, sans-serif',
-                  fontSize: 'clamp(0.95rem, 2vw, 1rem)',
+                  fontSize: 'clamp(0.88rem, 1.8vw, 0.93rem)',
                   color: '#6B5E52',
                   lineHeight: 1.7,
                 }}
