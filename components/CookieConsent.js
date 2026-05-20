@@ -57,6 +57,7 @@ const cookieI18n = {
 
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false);
+  const [visible, setVisible] = useState(false);
   const [lang, setLang] = useState('it');
 
   useEffect(() => {
@@ -77,6 +78,9 @@ export default function CookieConsent() {
     const consent = localStorage.getItem('cookieConsent');
     if (consent === null) {
       setShowBanner(true);
+      // Ritarda l'entrata nel viewport dopo la prima paint → elimina CLS
+      const t = setTimeout(() => setVisible(true), 80);
+      return () => clearTimeout(t);
     }
   }, []);
 
@@ -84,17 +88,20 @@ export default function CookieConsent() {
 
   const handleAcceptAll = () => {
     localStorage.setItem('cookieConsent', 'all');
-    setShowBanner(false);
+    setVisible(false);
+    setTimeout(() => setShowBanner(false), 400);
   };
 
   const handleManage = () => {
     localStorage.setItem('cookieConsent', 'necessary');
-    setShowBanner(false);
+    setVisible(false);
+    setTimeout(() => setShowBanner(false), 400);
   };
 
   const handleClose = () => {
     localStorage.setItem('cookieConsent', 'necessary');
-    setShowBanner(false);
+    setVisible(false);
+    setTimeout(() => setShowBanner(false), 400);
   };
 
   if (!showBanner) return null;
@@ -112,6 +119,10 @@ export default function CookieConsent() {
       borderTop: '3px solid #C9A870',
       boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.3)',
       fontFamily: 'Lato, sans-serif',
+      // Slide-in dal basso: parte fuori viewport → non conta come CLS
+      transform: visible ? 'translateY(0)' : 'translateY(100%)',
+      transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+      willChange: 'transform',
     }}>
       {/* Close X button - top right */}
       <button

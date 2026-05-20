@@ -66,8 +66,9 @@ export default function Hero() {
             alt={`Hotel Langhe & Monferrato Costigliole d'Asti - ${slideLabel}`}
             fill
             priority={current === 0}
-            quality={90}
-            sizes="100vw"
+            fetchPriority={current === 0 ? 'high' : 'auto'}
+            quality={current === 0 ? 85 : 90}
+            sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 100vw"
             className="object-cover"
             style={{ objectPosition: 'center 22%' }}
           />

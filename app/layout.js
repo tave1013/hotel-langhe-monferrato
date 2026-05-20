@@ -52,6 +52,17 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
         <link rel="dns-prefetch" href="https://guida.hotellanghemonferrato.com" />
 
+        {/* ── PRELOAD immagine LCP (prima slide hero) ──
+            Questa è l'unica ottimizzazione che davvero sposta il LCP:
+            il browser la mette in download PRIMA di parsare React/JS. ── */}
+        <link
+          rel="preload"
+          as="image"
+          href="/foto/hotel-langhe-monferrato.jpg"
+          imageSizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 100vw"
+          fetchPriority="high"
+        />
+
         {/* ── GOOGLE FONTS: preload (scarica subito, alta priorità) ──
             NON usa rel="stylesheet" qui → non blocca il rendering iniziale.
             Il browser scarica il CSS in parallelo; viene applicato via Script
