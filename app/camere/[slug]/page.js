@@ -19,6 +19,12 @@ export async function generateMetadata({ params }) {
       description: roomTagline,
       images: [{ url: room.heroImg, width: 1200, height: 630, alt: roomName }],
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${roomName} | Hotel Langhe & Monferrato`,
+      description: roomTagline,
+      images: [room.heroImg],
+    },
   };
 }
 
