@@ -7,10 +7,10 @@ import SchemaOrg from '@/components/SchemaOrg';
 
 export const metadata = {
   title: 'Offerte Speciali Hotel Langhe | Pacchetti e Promozioni',
-  description: 'Scopri offerte e pacchetti soggiorno dell\'Hotel Langhe & Monferrato. Promozioni stagionali e proposte dedicate per il tuo viaggio.',
+  description: 'Scopri le offerte Hotel Langhe & Monferrato: pacchetti benessere, soggiorni romantici e promozioni stagionali nelle Langhe. Prenota online al miglior prezzo.',
   openGraph: {
     title: 'Offerte Speciali | Hotel Langhe & Monferrato',
-    description: 'Offerte e pacchetti per soggiornare tra Langhe e Monferrato con prenotazione diretta.',
+    description: 'Scopri le offerte Hotel Langhe & Monferrato: pacchetti benessere, soggiorni romantici e promozioni stagionali nelle Langhe. Prenota al miglior prezzo.',
     url: 'https://hotel-langhe-monferrato.vercel.app/offerte',
     images: [{ url: '/foto/langhe-monferrato.webp', width: 1200, height: 630 }],
   },

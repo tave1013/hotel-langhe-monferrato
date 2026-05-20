@@ -2,10 +2,10 @@ import ContattiClient from './ContattiClient';
 
 export const metadata = {
   title: 'Contatti Hotel Langhe | Info e Prenotazioni Dirette',
-  description: 'Contatta Hotel Langhe & Monferrato: +39 0141 966012. Richiedi informazioni, prenota direttamente e scopri le nostre offerte esclusive.',
+  description: 'Contatta l\'Hotel Langhe & Monferrato a Costigliole d\'Asti per informazioni e prenotazioni. Tel. +39 0141 961853, email o WhatsApp. Risposta rapida garantita.',
   openGraph: {
     title: 'Contatti | Hotel Langhe & Monferrato',
-    description: 'Contattaci per informazioni e prenotazioni. Risposta entro 24 ore.',
+    description: 'Contatta l\'Hotel Langhe & Monferrato a Costigliole d\'Asti per informazioni e prenotazioni. Tel. +39 0141 961853, email o WhatsApp. Risposta rapida garantita.',
     url: 'https://hotel-langhe-monferrato.vercel.app/contatti',
     images: [{ url: '/foto/hotel-langhe-monferrato.jpg', width: 1200, height: 630 }],
   },

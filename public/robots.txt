@@ -11,6 +11,9 @@ Sitemap: https://hotel-langhe-monferrato.vercel.app/sitemap.xml
 Disallow: /api/
 Disallow: /_next/
 Disallow: /static/
+Disallow: /grazie
+Disallow: /privacy-policy
+Disallow: /lander
 
 # Consenti immagini
 Allow: /foto/

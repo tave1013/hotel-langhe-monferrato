@@ -8,11 +8,11 @@ import SchemaOrg from '@/components/SchemaOrg';
 import SaleMeetingClient from './SaleMeetingClient';
 
 export const metadata = {
-  title: 'Meeting Rooms & Congresses | Hotel Langhe | Business Events',
-  description: 'Three modular meeting rooms for corporate events in Langhe. 4K technology, free Wi-Fi and dedicated organizational support. Free quote.',
+  title: 'Sale Meeting Langhe | Convegni e Business Hotel 4 Stelle',
+  description: 'Sale meeting modulabili per eventi aziendali e congressi nelle Langhe. Tecnologia 4K, Wi-Fi gratuito e supporto organizzativo dedicato. Preventivo gratuito.',
   openGraph: {
-    title: 'Meeting Rooms & Congresses | Hotel Langhe',
-    description: 'Modular rooms for corporate events and congresses in Langhe. Up to 400 people.',
+    title: 'Sale Meeting Langhe | Convegni e Business Hotel 4 Stelle',
+    description: 'Sale meeting modulabili per eventi aziendali e congressi nelle Langhe. Fino a 400 persone, tecnologia 4K e Wi-Fi gratuito. Preventivo gratuito.',
     type: 'website',
     locale: 'it_IT',
     url: 'https://hotel-langhe-monferrato.vercel.app/sale-meeting',
@@ -21,8 +21,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Meeting Rooms & Congresses',
-    description: 'Corporate events and congresses in Langhe.',
+    title: 'Sale Meeting Langhe | Convegni e Business Hotel 4 Stelle',
+    description: 'Sale meeting modulabili per eventi aziendali e congressi nelle Langhe. Preventivo gratuito.',
     images: ['/foto/hotel_langhe_sala_meeting_alfieri.webp'],
   },
 };

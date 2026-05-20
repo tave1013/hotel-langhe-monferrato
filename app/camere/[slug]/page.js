@@ -13,7 +13,7 @@ export async function generateMetadata({ params }) {
   const roomTagline = room.tagline_it || room.tagline;
   return {
     title: `${roomName} | Hotel Langhe & Monferrato`,
-    description: `${roomTagline}. Prenota la ${roomName} all'Hotel Langhe & Monferrato. Colazione inclusa, cancellazione gratuita, miglior prezzo garantito.`,
+    description: `${roomTagline}. Prenota la ${roomName} a Costigliole d'Asti. Colazione inclusa, cancellazione gratuita e miglior prezzo garantito sul sito ufficiale.`,
     openGraph: {
       title: `${roomName} | Hotel Langhe & Monferrato`,
       description: roomTagline,

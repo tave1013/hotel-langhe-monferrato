@@ -2,21 +2,21 @@ import SchemaOrg from '@/components/SchemaOrg';
 import TerritorioClient from '@/app/territorio/TerritorioClient';
 
 export const metadata = {
-  title: 'What to See in the Langhe | Area Guide & Attractions',
-  description: 'Discover Asti, Alba and truffle experiences, Canelli Underground Cathedrals, Monferrato castles, Big Benches, e-bike tours, local craft brewery and Nizza è Barbera. Mini guides for your stay in the Langhe.',
+  title: 'Cosa Vedere nelle Langhe e Monferrato | Guide Pratiche',
+  description: 'Scopri le attrazioni di Langhe e Monferrato: Alba, castelli, Big Bench, cantine, e-bike e tartufi. Guide pratiche per il tuo soggiorno a Costigliole d\'Asti.',
   openGraph: {
-    title: 'Langhe and Monferrato Area | Guides & Attractions',
-    description: 'Practical guides to explore Langhe and Monferrato: art, wine, food and nature.',
+    title: 'Cosa Vedere nelle Langhe e Monferrato | Guide Pratiche',
+    description: 'Scopri le attrazioni di Langhe e Monferrato: Alba, castelli, Big Bench, cantine, e-bike e tartufi. Guide pratiche per il tuo soggiorno a Costigliole d\'Asti.',
     type: 'website',
-    locale: 'en_US',
+    locale: 'it_IT',
     url: 'https://hotel-langhe-monferrato.vercel.app/territorio',
     images: [{ url: '/foto/alba.webp', width: 1200, height: 630 }],
     updatedTime: new Date().toISOString(),
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Area: Langhe & Monferrato',
-    description: 'Practical mini guides to explore Langhe and Monferrato.',
+    title: 'Cosa Vedere nelle Langhe e Monferrato | Guide Pratiche',
+    description: 'Scopri le attrazioni di Langhe e Monferrato: Alba, castelli, Big Bench, cantine, e-bike e tartufi. Guide pratiche per il tuo soggiorno.',
     images: ['/foto/alba.webp'],
   },
 };

@@ -11,14 +11,14 @@ export async function generateMetadata({ params }) {
   if (!guida) return {};
   return {
     title: `${guida.nome}: ${guida.sottotitolo} | Hotel Langhe & Monferrato`,
-    description: `${guida.tagline} Complete mini guide to ${guida.nome}: what to see, where to eat, practical information and how to get there from Hotel Langhe & Monferrato.`,
+    description: `${guida.tagline} Guida completa a ${guida.nome}: cosa vedere, dove mangiare, informazioni pratiche e come raggiungerlo dall'Hotel Langhe & Monferrato.`,
     keywords: `${guida.nome.toLowerCase()}, ${guida.categoria.toLowerCase()}, langhe monferrato, what to see in piedmont, hotel langhe`,
     openGraph: {
       title: `${guida.nome}: ${guida.sottotitolo}`,
       description: guida.tagline,
       images: [{ url: guida.heroImg, width: 1200, height: 630, alt: guida.nome }],
       type: 'article',
-      locale: 'en_US',
+      locale: 'it_IT',
     },
   };
 }
