@@ -16,10 +16,10 @@ export const metadata = {
     siteName: 'Hotel Langhe & Monferrato',
     images: [
       {
-        url: '/foto/hotel-langhe-monferrato.jpg',
+        url: '/foto/6.webp',
         width: 1200,
         height: 630,
-        alt: 'Hotel Langhe & Monferrato - Vista esterna',
+        alt: 'Hotel Langhe & Monferrato Costigliole d\'Asti - immagine principale',
       },
     ],
   },
@@ -27,7 +27,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Hotel Langhe & Monferrato | Hotel 4 Stelle Costigliole d\'Asti',
     description: 'Hotel 4 stelle a Costigliole d\'Asti nel cuore di Langhe e Monferrato. Camere eleganti, eventi aziendali e prenotazione diretta al miglior prezzo garantito.',
-    images: ['/foto/hotel-langhe-monferrato.jpg'],
+    images: ['/foto/6.webp'],
   },
   robots: {
     index: true,
