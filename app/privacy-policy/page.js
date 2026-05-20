@@ -86,7 +86,7 @@ export default function PrivacyPolicyPage() {
                       { label: p.s1.r.operative, value: 'Via Contessa Di Castiglione 1, 14055 Costigliole d\'Asti (AT) – Italia' },
                       { label: p.s1.r.vat, value: '00981490055' },
                       { label: p.s1.r.phone, value: '+39 0141 274010' },
-                      { label: p.s1.r.email, value: 'prenota@hotellanghemonferrato.com' },
+                      { label: p.s1.r.email, value: 'booking@hotellanghemonferrato.com' },
                       { label: p.s1.r.pec, value: 'italimpiantiat@legalmail.it' },
                       { label: p.s1.r.privacy, value: p.s1.r.privacyVal }
                     ].map((row, idx) => (

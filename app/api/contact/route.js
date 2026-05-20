@@ -22,7 +22,7 @@ export async function POST(request) {
 
     await transporter.sendMail({
       from: `"Hotel Langhe & Monferrato - Sito Web" <${process.env.SMTP_USER}>`,
-      to: 'prenota@hotellanghemonferrato.com',
+      to: 'booking@hotellanghemonferrato.com',
       replyTo: email,
       subject: `Nuovo Messaggio dal Modulo di contatto — ${tipo} — ${nome} ${cognome}`,
       html: `
