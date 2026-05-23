@@ -11,7 +11,8 @@
       "double": "Doppelzimmer",
       "triple": "Dreibettzimmer",
       "quadruple": "Vierbettzimmer",
-      "suite": "Deluxe Suite"
+      "suite": "Deluxe Suite",
+      "family": "Familienzimmer"
     },
     "territoryItems": {
       "asti": "Asti, das Mittelalter",
@@ -344,6 +345,11 @@
       "name": "Deluxe Suite",
       "tagline": "Der Höhepunkt piemontesischen Luxus",
       "description": "Die Deluxe Suite ist ein Erlebnis für sich. Ein Luxus-Apartment inmitten der UNESCO-Hügel, in dem jedes Detail die Geschichte der Langhe erzählt.\n\nSeparater Wohnbereich, private Panoramaterrasse, Spa mit Jacuzzi, Sauna und persönlichem Service."
+    },
+    "family": {
+      "name": "Familienzimmer",
+      "tagline": "Großzügige Räume für Familien",
+      "description": "Das Familienzimmer ist für Gäste gedacht, die mit Kindern reisen und großzügige Räume, Komfort und praktische Lösungen suchen. Helle Räume auf zwei Ebenen mit allen Services für einen entspannten Aufenthalt.\n\nIdeal für Familien, die die Langhe in Freiheit und Komfort erleben möchten – mit Bereichen für alle und der einladenden Atmosphäre unseres Hotels."
     }
   },
   "saleMeetingPage": {

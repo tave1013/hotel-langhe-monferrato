@@ -11,7 +11,8 @@
       "double": "Double Room",
       "triple": "Triple Room",
       "quadruple": "Quadruple Room",
-      "suite": "Deluxe Suite"
+      "suite": "Deluxe Suite",
+      "family": "Family Room"
     },
     "territoryItems": {
       "asti": "Asti, The Middle Ages",
@@ -344,6 +345,11 @@
       "name": "Deluxe Suite",
       "tagline": "The peak of Piedmont luxury",
       "description": "The Deluxe Suite is an experience of its own. A luxury apartment among UNESCO hills where every element tells the story of the Langhe through fine materials and premium service.\n\nSeparate living area, private panoramic terrace, spa with jacuzzi, sauna and dedicated butler. Perfect for anniversaries, honeymoons and every special moment."
+    },
+    "family": {
+      "name": "Family Room",
+      "tagline": "Large spaces designed for families",
+      "description": "The Family Room is designed for those traveling with children and looking for generous spaces, comfort and practicality in one solution. Two-level layout, bright rooms and all the services needed for a relaxed stay.\n\nIdeal for families who want to experience the Langhe with freedom and comfort, with dedicated spaces for everyone and the welcoming atmosphere of our hotel."
     }
   },
   "saleMeetingPage": {

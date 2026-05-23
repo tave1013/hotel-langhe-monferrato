@@ -11,7 +11,8 @@
       "double": "Chambre Double",
       "triple": "Chambre Triple",
       "quadruple": "Chambre Quadruple",
-      "suite": "Suite Deluxe"
+      "suite": "Suite Deluxe",
+      "family": "Chambre Family"
     },
     "territoryItems": {
       "asti": "Asti, Le Moyen Âge",
@@ -344,6 +345,11 @@
       "name": "Suite Deluxe",
       "tagline": "Le sommet du luxe piémontais",
       "description": "La Suite Deluxe est une expérience à part. Un appartement de luxe au cœur des collines UNESCO, où chaque élément raconte l'histoire des Langhe.\n\nSéjour séparé, terrasse panoramique privée, spa avec jacuzzi, sauna et service dédié."
+    },
+    "family": {
+      "name": "Chambre Family",
+      "tagline": "De grands espaces pensés pour les familles",
+      "description": "La chambre Family est conçue pour ceux qui voyagent avec des enfants et recherchent de grands espaces, du confort et de la praticité en une seule solution. Des pièces lumineuses sur deux niveaux avec tous les services nécessaires pour un séjour relaxant.\n\nIdéale pour les familles qui souhaitent vivre les Langhe en toute liberté et confort, avec des espaces dédiés à chacun et l'atmosphère accueillante de notre hôtel."
     }
   },
   "saleMeetingPage": {

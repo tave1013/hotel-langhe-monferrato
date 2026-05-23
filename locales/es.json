@@ -11,7 +11,8 @@
       "double": "Habitación Doble",
       "triple": "Habitación Triple",
       "quadruple": "Habitación Cuádruple",
-      "suite": "Suite Deluxe"
+      "suite": "Suite Deluxe",
+      "family": "Habitación Familiar"
     },
     "territoryItems": {
       "asti": "Asti, la Edad Media",
@@ -344,6 +345,11 @@
       "name": "Suite Deluxe",
       "tagline": "La cima del lujo piamontés",
       "description": "La Suite Deluxe es una experiencia única. Un apartamento de lujo entre colinas UNESCO, donde cada elemento cuenta la historia de Langhe.\n\nSala de estar independiente, terraza panorámica privada, spa con jacuzzi, sauna y servicio dedicado."
+    },
+    "family": {
+      "name": "Habitación Familiar",
+      "tagline": "Espacios amplios pensados para familias",
+      "description": "La Habitación Familiar está pensada para quienes viajan con niños y buscan espacios amplios, comodidad y practicidad en una sola solución. Ambientes luminosos en dos niveles con todos los servicios para una estancia relajante.\n\nIdeal para familias que quieren vivir Langhe con libertad y confort, con espacios dedicados para todos y el ambiente acogedor de nuestro hotel."
     }
   },
   "saleMeetingPage": {

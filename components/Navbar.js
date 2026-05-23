@@ -21,6 +21,7 @@ const navLinks = [
       { key: 'triple', href: '/camere/tripla' },
       { key: 'quadruple', href: '/camere/quadrupla' },
       { key: 'suite', href: '/camere/suite' },
+      { key: 'family', href: '/camere/family' },
     ],
   },
   {

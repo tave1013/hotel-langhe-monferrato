@@ -6,10 +6,10 @@ import CamereClient from './CamereClient';
 
 export const metadata = {
   title: 'Camere Hotel Langhe & Monferrato | Costigliole d\'Asti',
-  description: 'Scegli tra 58 camere a Costigliole d\'Asti: Singola, Matrimoniale, Tripla, Quadrupla e Suite Deluxe. Colazione inclusa e prenotazione diretta al miglior prezzo.',
+  description: 'Scegli tra 58 camere a Costigliole d\'Asti: Singola, Matrimoniale, Tripla, Quadrupla, Suite Deluxe e Family. Colazione inclusa e prenotazione diretta al miglior prezzo.',
   openGraph: {
     title: 'Camere Hotel Langhe & Monferrato | Costigliole d\'Asti',
-    description: 'Scegli tra 58 camere a Costigliole d\'Asti: Singola, Matrimoniale, Tripla, Quadrupla e Suite Deluxe. Colazione inclusa e prenotazione diretta al miglior prezzo.',
+    description: 'Scegli tra 58 camere a Costigliole d\'Asti: Singola, Matrimoniale, Tripla, Quadrupla, Suite Deluxe e Family. Colazione inclusa e prenotazione diretta al miglior prezzo.',
     type: 'website',
     locale: 'it_IT',
     url: 'https://hotel-langhe-monferrato.vercel.app/camere',
@@ -19,7 +19,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Camere Hotel Langhe & Monferrato | Costigliole d\'Asti',
-    description: 'Scegli tra 58 camere a Costigliole d\'Asti: Singola, Matrimoniale, Tripla, Quadrupla e Suite Deluxe. Colazione inclusa e prenotazione diretta.',
+    description: 'Scegli tra 58 camere a Costigliole d\'Asti: Singola, Matrimoniale, Tripla, Quadrupla, Suite Deluxe e Family. Colazione inclusa e prenotazione diretta.',
     images: ['/foto/Camera%20matrimoniale%20%282%29.webp'],
   },
 };

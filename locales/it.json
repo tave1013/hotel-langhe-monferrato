@@ -11,7 +11,8 @@
       "double": "Camera Matrimoniale",
       "triple": "Camera Tripla",
       "quadruple": "Camera Quadrupla",
-      "suite": "Suite Deluxe"
+      "suite": "Suite Deluxe",
+      "family": "Camera Family"
     },
     "territoryItems": {
       "asti": "Asti, Il Medioevo",
@@ -344,6 +345,11 @@
       "name": "Suite Deluxe",
       "tagline": "L'apice del lusso piemontese",
       "description": "La Suite Deluxe è un'esperienza a sé. Un appartamento di lusso immerso tra le colline patrimonio UNESCO, dove ogni elemento racconta la storia delle Langhe attraverso materiali pregiati e un servizio senza pari.\n\nSoggiorno separato, terrazza panoramica privata, spa con jacuzzi, sauna e butler dedicato. Per anniversari, luna di miele e ogni momento che merita di diventare un ricordo eterno."
+    },
+    "family": {
+      "name": "Camera Family",
+      "tagline": "Spazi ampi pensati per le famiglie",
+      "description": "La Camera Family è pensata per chi viaggia con bambini e desidera spazi generosi, comfort e praticità in un'unica soluzione. Ambienti su due livelli, luminosi e dotati di tutti i servizi necessari per un soggiorno rilassante.\n\nIdeale per le famiglie che vogliono vivere le Langhe in libertà e comodità, con aree dedicate per tutti e l'atmosfera accogliente del nostro hotel."
     }
   },
   "saleMeetingPage": {
