@@ -16,6 +16,8 @@ const ContentSecurityPolicy = `
 
 const nextConfig = {
   images: {
+    // Qualità massima: usa i file originali senza ricompressione Next
+    unoptimized: true,
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'guida.hotellanghemonferrato.com' },
