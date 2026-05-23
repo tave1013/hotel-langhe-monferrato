@@ -1,4 +1,5 @@
 import './globals.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import Script from 'next/script';
 import ClientLayout from '@/components/ClientLayout';
 
@@ -49,7 +50,6 @@ export default function RootLayout({ children }) {
         {/* ── PRECONNECT: apre connessioni TCP/TLS in anticipo ── */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
         <link rel="dns-prefetch" href="https://guida.hotellanghemonferrato.com" />
 
         {/* ── PRELOAD immagine LCP (prima slide hero) ──
@@ -74,13 +74,7 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap"
         />
 
-        {/* ── FONT AWESOME: preload (scarica subito, alta priorità) ──
-            Stessa strategia: download immediato, applicazione non bloccante. ── */}
-        <link
-          rel="preload"
-          as="style"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        />
+
       </head>
       <body>
         {children}
@@ -100,19 +94,6 @@ export default function RootLayout({ children }) {
           `}
         </Script>
 
-        {/* ── APPLICA FONT AWESOME dopo la prima paint ──
-            Icone non visibili nel critical path → nessun impatto UX.
-            Appaiono ~100-200ms dopo l'hydration (già precaricato). ── */}
-        <Script id="apply-fontawesome" strategy="afterInteractive">
-          {`
-            (function(){
-              var l = document.createElement('link');
-              l.rel = 'stylesheet';
-              l.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css';
-              document.head.appendChild(l);
-            })();
-          `}
-        </Script>
 
         {/* ── ALFRED: configurazione (deve girare PRIMA di init.js) ── */}
         <Script id="alfred-widget-config" strategy="afterInteractive">
