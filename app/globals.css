@@ -80,36 +80,32 @@ body { font-family: 'Lato', sans-serif; color: var(--text-dark); background: var
    SCROLL ANIMATIONS - Elegant & Professional
    ======================================== */
 
-/* Scroll animations — elementi SEMPRE visibili, animazione è solo abbellimento */
-.scroll-fade-in,
-.scroll-slide-up,
-.scroll-slide-left,
-.scroll-slide-right,
-.scroll-scale {
-  transition-property: opacity, transform;
-  transition-duration: 1.3s;
-  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+/* ==============================================
+   SCROLL ANIMATIONS — contenuto SEMPRE visibile
+   opacity non viene mai toccata!
+   Solo transform leggero come abbellimento.
+   ============================================== */
+
+.scroll-anim {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Fade In */
-.scroll-fade-in { opacity: 0.4; }
-.scroll-fade-in.animate { opacity: 1; }
+/* Stati iniziali: solo leggero spostamento, MAI opacity:0 */
+.scroll-anim--slide-up  { transform: translateY(20px); }
+.scroll-anim--slide-left  { transform: translateX(-20px); }
+.scroll-anim--slide-right { transform: translateX(20px); }
+.scroll-anim--fade-in  { transform: translateY(0); }
+.scroll-anim--scale    { transform: scale(0.98); }
 
-/* Slide Up */
-.scroll-slide-up { transform: translateY(30px); opacity: 0.01; }
-.scroll-slide-up.animate { opacity: 1; transform: translateY(0); }
+/* Stato finale: torna in posizione */
+.scroll-anim--done { transform: translateY(0) translateX(0) scale(1) !important; }
 
-/* Slide da sinistra */
-.scroll-slide-left { transform: translateX(-30px); opacity: 0.01; }
-.scroll-slide-left.animate { opacity: 1; transform: translateX(0); }
-
-/* Slide da destra */
-.scroll-slide-right { transform: translateX(30px); opacity: 0.01; }
-.scroll-slide-right.animate { opacity: 1; transform: translateX(0); }
-
-/* Scale */
-.scroll-scale { transform: scale(0.97); opacity: 0.01; }
-.scroll-scale.animate { opacity: 1; transform: scale(1); }
+/* Delay classes */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
 
 /* Delay per animazioni staggered (sequenziali) */
 .delay-100 { transition-delay: 0.1s; }

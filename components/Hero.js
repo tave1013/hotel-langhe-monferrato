@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import ScrollAnimation from './ScrollAnimation';
 import useSiteLanguage from '@/hooks/useSiteLanguage';
 import { t } from '@/lib/i18n';
 
@@ -85,69 +84,63 @@ export default function Hero() {
           style={{ animation: 'fadeUp 0.9s ease forwards' }}
         >
           {/* Eyebrow */}
-          <ScrollAnimation type="slide-up" duration="slow">
+          <div>
             <div className={`${slide.showStars ? 'hidden' : 'hidden md:flex'} items-center justify-center gap-4 mb-5 mt-6 md:mt-0`}>
               <span style={{ width: 40, height: 1, background: '#C9A870', display: 'inline-block' }}></span>
               <span className="section-label">{slideLabel}</span>
               <span style={{ width: 40, height: 1, background: '#C9A870', display: 'inline-block' }}></span>
             </div>
-          </ScrollAnimation>
+          </div>
 
           {/* Stars */}
           {slide.showStars && (
-            <ScrollAnimation type="slide-up" duration="slow" delay={100}>
+            <div>
               <div className="stars mb-4 text-center mt-10 md:mt-6">★★★★</div>
-            </ScrollAnimation>
+            </div>
           )}
 
           {/* H1 */}
-          <ScrollAnimation type="slide-up" duration="slow" delay={200}>
-            <h1
-              className={`${slide.showStars ? '' : 'mt-8 md:mt-0'}`}
-              style={{
-                fontFamily: 'Playfair Display, serif',
-                fontSize: 'clamp(2.4rem, 6vw, 5rem)',
-                fontWeight: 400,
-                color: '#FAF7F2',
-                lineHeight: 1.15,
-                marginBottom: '1.4rem',
-                whiteSpace: 'pre-line',
-                letterSpacing: '-0.01em',
-                maxWidth: '800px',
-              }}
-            >
-              {slideTitle}
-            </h1>
-          </ScrollAnimation>
+          <h1
+            className={`${slide.showStars ? '' : 'mt-8 md:mt-0'}`}
+            style={{
+              fontFamily: 'Playfair Display, serif',
+              fontSize: 'clamp(2.4rem, 6vw, 5rem)',
+              fontWeight: 400,
+              color: '#FAF7F2',
+              lineHeight: 1.15,
+              marginBottom: '1.4rem',
+              whiteSpace: 'pre-line',
+              letterSpacing: '-0.01em',
+              maxWidth: '800px',
+            }}
+          >
+            {slideTitle}
+          </h1>
 
           {/* Subtitle */}
-          <ScrollAnimation type="slide-up" duration="slow" delay={300}>
-            <p
-              style={{
-                fontFamily: 'Cormorant Garamond, serif',
-                fontSize: 'clamp(1.15rem, 2vw, 1.45rem)',
-                color: '#fff',
-                maxWidth: '560px',
-                margin: '0 auto 2.5rem',
-                lineHeight: 1.7,
-                fontStyle: 'italic',
-              }}
-            >
-              {slideSub}
-            </p>
-          </ScrollAnimation>
+          <p
+            style={{
+              fontFamily: 'Cormorant Garamond, serif',
+              fontSize: 'clamp(1.15rem, 2vw, 1.45rem)',
+              color: '#fff',
+              maxWidth: '560px',
+              margin: '0 auto 2.5rem',
+              lineHeight: 1.7,
+              fontStyle: 'italic',
+            }}
+          >
+            {slideSub}
+          </p>
 
           {/* CTA Buttons */}
-          <ScrollAnimation type="slide-up" duration="slow" delay={400}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 sm:mt-0">
-              <Link href="/prenota" className="btn-gold">
-                <span>{t(lang, 'hero.ctaBook')}</span>
-              </Link>
-              <Link href="/camere" className="btn-outline-white">
-                {t(lang, 'hero.ctaRooms')}
-              </Link>
-            </div>
-          </ScrollAnimation>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 sm:mt-0">
+            <Link href="/prenota" className="btn-gold">
+              <span>{t(lang, 'hero.ctaBook')}</span>
+            </Link>
+            <Link href="/camere" className="btn-outline-white">
+              {t(lang, 'hero.ctaRooms')}
+            </Link>
+          </div>
 
           {/* MOBILE ARROWS */}
           <div className="md:hidden flex items-center justify-between w-full max-w-md mx-auto px-2" style={{ marginTop: 60, marginBottom: 10 }}>

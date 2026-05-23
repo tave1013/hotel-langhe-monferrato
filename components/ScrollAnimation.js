@@ -3,62 +3,42 @@
 import { useEffect, useRef, useState } from 'react';
 
 /**
- * ScrollAnimation - Componente per animazioni eleganti allo scroll
- * Tipo di animazioni disponibili:
- * - fade-in: semplice dissolvenza
- * - slide-up: slide dal basso (default, più comune)
- * - slide-left: slide da sinistra
- * - slide-right: slide da destra
- * - scale: leggero zoom in
+ * ScrollAnimation - Animazioni decorative allo scroll.
+ * Il contenuto è SEMPRE visibile (nessuna opacity:0 mai).
+ * L'animazione aggiunge solo un leggero transform quando l'elemento entra nel viewport.
  */
-
 export default function ScrollAnimation({ 
   children, 
   type = 'slide-up', 
   delay = 0,
-  duration = 'normal',
-  threshold = 0.1 
+  threshold = 0.05
 }) {
   const ref = useRef(null);
-  // Parte già come animate: contenuto sempre visibile
-  const [isVisible, setIsVisible] = useState(true);
+  const [animated, setAnimated] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    // Reset per applicare l'animazione di entrata
-    setIsVisible(false);
-
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight + 100) {
-      // Già nel viewport: anima subito con piccolo delay
-      const t = setTimeout(() => setIsVisible(true), 50);
-      return () => clearTimeout(t);
-    }
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          setAnimated(true);
           observer.unobserve(entry.target);
         }
       },
-      { threshold, rootMargin: '0px 0px -30px 0px' }
+      { threshold, rootMargin: '100px 0px 0px 0px' }
     );
     observer.observe(el);
-    return () => observer.unobserve(el);
+    return () => observer.disconnect();
   }, [threshold]);
-
-  const animationClass = `scroll-${type}`;
-  const delayClass = delay > 0 ? `delay-${delay}` : '';
-  const durationClass = duration !== 'normal' ? `duration-${duration}` : '';
-  const animateClass = isVisible ? 'animate' : '';
 
   return (
     <div
       ref={ref}
-      className={`${animationClass} ${animateClass} ${delayClass} ${durationClass}`}
+      className={`scroll-anim scroll-anim--${type}${animated ? ' scroll-anim--done' : ''}${
+        delay > 0 ? ` delay-${delay}` : ''
+      }`}
     >
       {children}
     </div>
