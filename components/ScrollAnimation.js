@@ -20,21 +20,21 @@ export default function ScrollAnimation({
   threshold = 0.1 
 }) {
   const ref = useRef(null);
-  // Inizia come visibile: contenuto sempre leggibile anche prima dell'hydration JS
-  const [mounted, setMounted] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  // Parte già come animate: contenuto sempre visibile
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    setMounted(true);
-
     const el = ref.current;
     if (!el) return;
 
-    // Se l'elemento è già visibile nel viewport al caricamento, animalo subito
+    // Reset per applicare l'animazione di entrata
+    setIsVisible(false);
+
     const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight) {
-      setIsVisible(true);
-      return;
+    if (rect.top < window.innerHeight + 100) {
+      // Già nel viewport: anima subito con piccolo delay
+      const t = setTimeout(() => setIsVisible(true), 50);
+      return () => clearTimeout(t);
     }
 
     const observer = new IntersectionObserver(
@@ -44,12 +44,8 @@ export default function ScrollAnimation({
           observer.unobserve(entry.target);
         }
       },
-      {
-        threshold,
-        rootMargin: '0px 0px -40px 0px',
-      }
+      { threshold, rootMargin: '0px 0px -30px 0px' }
     );
-
     observer.observe(el);
     return () => observer.unobserve(el);
   }, [threshold]);
@@ -57,12 +53,6 @@ export default function ScrollAnimation({
   const animationClass = `scroll-${type}`;
   const delayClass = delay > 0 ? `delay-${delay}` : '';
   const durationClass = duration !== 'normal' ? `duration-${duration}` : '';
-
-  // Prima dell'hydration: nessuna classe animazione → contenuto visibile normalmente
-  if (!mounted) {
-    return <div>{children}</div>;
-  }
-
   const animateClass = isVisible ? 'animate' : '';
 
   return (

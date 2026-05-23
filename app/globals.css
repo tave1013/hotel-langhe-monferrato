@@ -80,66 +80,36 @@ body { font-family: 'Lato', sans-serif; color: var(--text-dark); background: var
    SCROLL ANIMATIONS - Elegant & Professional
    ======================================== */
 
-/* Base state: elementi nascosti prima dell'animazione */
+/* Scroll animations — elementi SEMPRE visibili, animazione è solo abbellimento */
 .scroll-fade-in,
 .scroll-slide-up,
 .scroll-slide-left,
 .scroll-slide-right,
 .scroll-scale {
-  opacity: 0;
   transition-property: opacity, transform;
-  transition-duration: 1.3s; /* Più lento e smooth */
-  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1); /* Smooth easing */
+  transition-duration: 1.3s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Fade In */
-.scroll-fade-in {
-  transform: translateY(0);
-}
+.scroll-fade-in { opacity: 0.4; }
+.scroll-fade-in.animate { opacity: 1; }
 
-.scroll-fade-in.animate {
-  opacity: 1;
-}
-
-/* Slide Up (più usata) - dal basso verso l'alto */
-.scroll-slide-up {
-  transform: translateY(50px); /* Più distanza per effetto più evidente */
-}
-
-.scroll-slide-up.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* Slide Up */
+.scroll-slide-up { transform: translateY(30px); opacity: 0.01; }
+.scroll-slide-up.animate { opacity: 1; transform: translateY(0); }
 
 /* Slide da sinistra */
-.scroll-slide-left {
-  transform: translateX(-40px);
-}
-
-.scroll-slide-left.animate {
-  opacity: 1;
-  transform: translateX(0);
-}
+.scroll-slide-left { transform: translateX(-30px); opacity: 0.01; }
+.scroll-slide-left.animate { opacity: 1; transform: translateX(0); }
 
 /* Slide da destra */
-.scroll-slide-right {
-  transform: translateX(40px);
-}
+.scroll-slide-right { transform: translateX(30px); opacity: 0.01; }
+.scroll-slide-right.animate { opacity: 1; transform: translateX(0); }
 
-.scroll-slide-right.animate {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Scale (leggero zoom) */
-.scroll-scale {
-  transform: scale(0.96);
-}
-
-.scroll-scale.animate {
-  opacity: 1;
-  transform: scale(1);
-}
+/* Scale */
+.scroll-scale { transform: scale(0.97); opacity: 0.01; }
+.scroll-scale.animate { opacity: 1; transform: scale(1); }
 
 /* Delay per animazioni staggered (sequenziali) */
 .delay-100 { transition-delay: 0.1s; }
