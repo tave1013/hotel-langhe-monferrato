@@ -102,7 +102,7 @@ export default function Rooms() {
                 alt={`${roomName} - Hotel Langhe & Monferrato Costigliole d'Asti`}
                 fill
                 priority
-                quality={85}
+                quality={92}
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
                 style={{ animation: 'fadeIn 0.6s ease forwards' }}

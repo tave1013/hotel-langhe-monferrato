@@ -175,7 +175,7 @@ export default function CamereClient({ rooms }) {
                       src={room.heroImg}
                       alt={roomName}
                       fill
-                      quality={80}
+                      quality={92}
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover"
                     />

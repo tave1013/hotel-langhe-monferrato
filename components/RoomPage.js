@@ -612,7 +612,7 @@ export default function RoomPage({ room }) {
             alt={`${roomName} - Hotel Langhe & Monferrato Costigliole d'Asti Langhe Piemonte`}
             fill
             priority
-            quality={85}
+            quality={95}
             sizes="100vw"
             className="object-cover"
             style={{ animation: 'kenBurns 12s ease-in-out infinite alternate' }}
