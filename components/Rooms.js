@@ -10,7 +10,7 @@ import { t } from '@/lib/i18n';
 const rooms = [
   {
     id: 'single',
-    img: '/foto/Camera matrimoniale.webp',
+    img: '/foto/organizzate/singola/01-camera_Camera doppia con letti singoli.webp',
     price: '90',
     size: '22 m²',
     guests: '1',
@@ -18,7 +18,7 @@ const rooms = [
   },
   {
     id: 'double',
-    img: '/foto/Camera matrimoniale (2).webp',
+    img: '/foto/organizzate/matrimoniale/01-camera_Camera matrimoniale (2).webp',
     price: '120',
     size: '22 m²',
     guests: '2',
@@ -26,7 +26,7 @@ const rooms = [
   },
   {
     id: 'triple',
-    img: '/foto/Camera tripla.webp',
+    img: '/foto/organizzate/tripla/01-camera_Camera tripla ingresso.webp',
     price: '150',
     size: '30 m²',
     guests: '3',
@@ -34,7 +34,7 @@ const rooms = [
   },
   {
     id: 'quadruple',
-    img: '/foto/Camera Quadrupla 3.webp',
+    img: '/foto/organizzate/quadrupla/02-camera_Camera Quadrupla scrivania con letto.webp',
     price: '200',
     size: '40 m²',
     guests: '4',
@@ -42,8 +42,8 @@ const rooms = [
   },
   {
     id: 'suite',
-    img: '/foto/suite.webp',
-    price: '140',
+    img: '/foto/organizzate/suite/01-camera_letto matrimonilae suite.webp',
+    price: '160',
     size: '80 m²',
     guests: '2',
     href: '/camere/suite',
