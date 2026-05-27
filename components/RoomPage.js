@@ -451,6 +451,15 @@ export default function RoomPage({ room }) {
         : isEs
           ? 'por noche (desayuno incluido)'
           : room.priceNote_it;
+  const galleryDisclaimer = isEn
+    ? '*Images are for illustrative purposes only. Room layout and product availability may vary.'
+    : isFr
+      ? "*Les images sont fournies à titre indicatif. L’aménagement de la chambre et la disponibilité des produits peuvent varier."
+      : isDe
+        ? '*Die Bilder dienen nur zur Veranschaulichung. Zimmeraufteilung und Verfügbarkeit der Produkte können variieren.'
+        : isEs
+          ? '*Las imágenes son solo ilustrativas. La disposición de la habitación y la disponibilidad de los productos pueden variar.'
+          : '*Le immagini sono a titolo indicativo. La disposizione della camera e la disponibilità dei prodotti potrebbero variare.';
   const [activePhoto, setActivePhoto] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [specCols, setSpecCols] = useState(2);
@@ -934,6 +943,14 @@ export default function RoomPage({ room }) {
           </Link>
         </div>
       </section>
+
+      <div style={{ background: '#fff', borderTop: '1px solid rgba(201,168,112,0.15)' }}>
+        <div className="max-w-7xl mx-auto px-6" style={{ padding: '0.85rem 0 1rem' }}>
+          <p style={{ fontFamily: 'Lato', fontSize: '0.72rem', color: '#9A8A7A', lineHeight: 1.6 }}>
+            {galleryDisclaimer}
+          </p>
+        </div>
+      </div>
 
       {/* ── LIGHTBOX ── */}
       {lightboxOpen && (
