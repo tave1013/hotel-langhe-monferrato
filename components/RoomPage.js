@@ -685,6 +685,10 @@ export default function RoomPage({ room }) {
                   <p key={i} style={{ fontFamily: 'Lato', fontSize: '1.02rem', color: '#6B5E52', lineHeight: 1.85, marginBottom: '1rem' }}>{para}</p>
                 ))}
 
+                <p style={{ fontFamily: 'Lato', fontSize: '0.72rem', color: '#9A8A7A', lineHeight: 1.6, marginTop: '0.2rem' }}>
+                  {galleryDisclaimer}
+                </p>
+
                 {/* SPECS GRID — stile Booking */}
                 <div className="grid grid-cols-2 sm:grid-cols-4" style={{ border: '1px solid rgba(201,168,112,0.2)', marginTop: '1.8rem' }}>
                   {getLocalizedSpecs().map((spec, i) => (
@@ -943,14 +947,6 @@ export default function RoomPage({ room }) {
           </Link>
         </div>
       </section>
-
-      <div style={{ background: '#fff', borderTop: '1px solid rgba(201,168,112,0.15)' }}>
-        <div className="max-w-7xl mx-auto px-6" style={{ padding: '0.85rem 0 1rem' }}>
-          <p style={{ fontFamily: 'Lato', fontSize: '0.72rem', color: '#9A8A7A', lineHeight: 1.6 }}>
-            {galleryDisclaimer}
-          </p>
-        </div>
-      </div>
 
       {/* ── LIGHTBOX ── */}
       {lightboxOpen && (
