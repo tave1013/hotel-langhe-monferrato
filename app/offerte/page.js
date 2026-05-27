@@ -7,10 +7,13 @@ import SchemaOrg from '@/components/SchemaOrg';
 
 export const metadata = {
   title: 'Offerte Speciali Hotel Langhe | Pacchetti e Promozioni',
-  description: 'Scopri le offerte Hotel Langhe & Monferrato: pacchetti benessere, soggiorni romantici e promozioni stagionali nelle Langhe. Prenota online al miglior prezzo.',
+  description: 'Offerte e promozioni dell\'Hotel Langhe & Monferrato a Costigliole d\'Asti: soggiorni romantici, pacchetti speciali e soluzioni per scoprire Langhe e Monferrato.',
+  alternates: {
+    canonical: '/offerte',
+  },
   openGraph: {
     title: 'Offerte Speciali | Hotel Langhe & Monferrato',
-    description: 'Scopri le offerte Hotel Langhe & Monferrato: pacchetti benessere, soggiorni romantici e promozioni stagionali nelle Langhe. Prenota al miglior prezzo.',
+    description: 'Offerte e promozioni dell\'Hotel Langhe & Monferrato a Costigliole d\'Asti: soggiorni romantici, pacchetti speciali e soluzioni per scoprire Langhe e Monferrato.',
     url: 'https://hotel-langhe-monferrato.vercel.app/offerte',
     images: [{ url: '/foto/langhe-monferrato.webp', width: 1200, height: 630 }],
   },

@@ -1,9 +1,11 @@
+import geoContext from '@/lib/geoContext';
+
 export default function SchemaOrg() {
   const hotelSchema = {
     '@context': 'https://schema.org',
     '@type': 'Hotel',
-    name: 'Hotel Langhe & Monferrato',
-    description: 'Hotel a Costigliole d\'Asti, punto di partenza ideale per visitare Langhe e Monferrato.',
+    name: geoContext.brand,
+    description: geoContext.positioning.short,
     image: 'https://hotel-langhe-monferrato.vercel.app/foto/hotel-langhe-monferrato.jpg',
     '@id': 'https://hotel-langhe-monferrato.vercel.app',
     url: 'https://hotel-langhe-monferrato.vercel.app',
@@ -12,8 +14,8 @@ export default function SchemaOrg() {
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Parco della Contessa',
-      addressLocality: 'Costigliole d\'Asti',
-      addressRegion: 'Piemonte',
+      addressLocality: geoContext.location.city,
+      addressRegion: geoContext.location.region,
       postalCode: '14055',
       addressCountry: 'IT',
     },
@@ -23,6 +25,7 @@ export default function SchemaOrg() {
       longitude: 8.1834,
     },
     priceRange: '€€€',
+    areaServed: `${geoContext.location.territory}, ${geoContext.location.region}`,
     amenityFeature: [
       {
         '@type': 'LocationFeatureSpecification',
@@ -63,7 +66,7 @@ export default function SchemaOrg() {
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Hotel Langhe & Monferrato',
+    name: geoContext.brand,
     url: 'https://hotel-langhe-monferrato.vercel.app',
     logo: 'https://hotel-langhe-monferrato.vercel.app/logo.png',
     contactPoint: {
@@ -114,7 +117,7 @@ export default function SchemaOrg() {
         name: 'Dove si trova l\'Hotel Langhe & Monferrato?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'L\'hotel si trova a Costigliole d\'Asti, nel cuore delle Langhe e del Monferrato, patrimonio UNESCO. Dista 15 minuti da Asti e 30 minuti da Alba.',
+          text: `${geoContext.brand} si trova a ${geoContext.location.city}, nel cuore del ${geoContext.location.territory}, in Piemonte e in area UNESCO.`,
         },
       },
       {
@@ -122,7 +125,7 @@ export default function SchemaOrg() {
         name: 'Quali servizi offre l\'hotel?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'L\'hotel offre camere accoglienti, Wi-Fi gratuito, parcheggio e sale meeting. Contattaci per informazioni aggiornate sui servizi disponibili durante il soggiorno.',
+          text: `${geoContext.brand} offre camere accoglienti, Wi-Fi gratuito, parcheggio, sale meeting e servizi pensati per soggiorni leisure e business.`,
         },
       },
       {
@@ -130,7 +133,7 @@ export default function SchemaOrg() {
         name: 'Qual è il prezzo delle camere?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Le camere partono da €90 a notte per la Camera Singola. Offriamo anche Camera Matrimoniale (€120), Camere Triple (€150), Quadruple (€200) e Suite Deluxe (€140).',
+          text: 'Le tariffe variano in base alla tipologia di camera e alla stagione. La struttura propone soluzioni per singoli, coppie, famiglie e soggiorni di livello superiore.',
         },
       },
       {

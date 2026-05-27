@@ -9,10 +9,13 @@ import SaleMeetingClient from './SaleMeetingClient';
 
 export const metadata = {
   title: 'Sale Meeting Langhe | Convegni e Business Hotel 4 Stelle',
-  description: 'Sale meeting modulabili per eventi aziendali e congressi nelle Langhe. Tecnologia 4K, Wi-Fi gratuito e supporto organizzativo dedicato. Preventivo gratuito.',
+  description: 'Sale meeting ed eventi aziendali a Costigliole d\'Asti, nel cuore di Langhe e Monferrato, con supporto organizzativo dedicato e tecnologie per congressi.',
+  alternates: {
+    canonical: '/sale-meeting',
+  },
   openGraph: {
     title: 'Sale Meeting Langhe | Convegni e Business Hotel 4 Stelle',
-    description: 'Sale meeting modulabili per eventi aziendali e congressi nelle Langhe. Fino a 400 persone, tecnologia 4K e Wi-Fi gratuito. Preventivo gratuito.',
+    description: 'Sale meeting ed eventi aziendali a Costigliole d\'Asti, nel cuore di Langhe e Monferrato, con supporto organizzativo dedicato e tecnologie per congressi.',
     type: 'website',
     locale: 'it_IT',
     url: 'https://hotel-langhe-monferrato.vercel.app/sale-meeting',
