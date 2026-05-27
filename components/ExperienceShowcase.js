@@ -15,7 +15,7 @@ const col2 = [
 
 export default function ExperienceShowcase() {
   return (
-    <section style={{ background: '#FFFFFF', padding: '100px 0 110px' }}>
+    <section style={{ background: '#FFFFFF', padding: '50px 0 110px' }}>
       <div className="max-w-6xl mx-auto px-6">
         <div
           style={{
