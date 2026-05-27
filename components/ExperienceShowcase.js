@@ -3,23 +3,16 @@
 import Image from 'next/image';
 import ScrollAnimation from './ScrollAnimation';
 
-const images = [
-  {
-    src: '/foto/Camera matrimoniale.webp',
-    alt: 'Camera matrimoniale Hotel Langhe e Monferrato Costigliole d\'Asti',
-  },
-  {
-    src: '/foto/Suite divanetti.webp',
-    alt: 'Suite con salottino Hotel Langhe e Monferrato',
-  },
-  {
-    src: '/foto/Reception 4.webp',
-    alt: 'Reception Hotel Langhe e Monferrato Asti',
-  },
-  {
-    src: '/foto/langhe-monferrato.webp',
-    alt: 'Paesaggio colline Langhe e Monferrato UNESCO',
-  },
+const col1 = [
+  { src: '/foto/Camera matrimoniale.webp', alt: 'Camera matrimoniale Hotel Langhe e Monferrato', h: 240 },
+  { src: '/foto/Reception 4.webp', alt: 'Reception Hotel Langhe e Monferrato Asti', h: 200 },
+  { src: '/foto/Colazione pane tostato e focaccine.webp', alt: 'Colazione con prodotti locali Hotel Langhe Monferrato', h: 240 },
+];
+
+const col2 = [
+  { src: '/foto/Suite divanetti.webp', alt: 'Suite con salottino Hotel Langhe e Monferrato', h: 200 },
+  { src: '/foto/langhe-monferrato.webp', alt: 'Paesaggio colline Langhe e Monferrato UNESCO', h: 240 },
+  { src: '/foto/Bagno con vasca idromassaggio suite.webp', alt: 'Bagno con vasca idromassaggio Suite Hotel Langhe', h: 200 },
 ];
 
 export default function ExperienceShowcase() {
@@ -79,79 +72,31 @@ export default function ExperienceShowcase() {
               style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 1fr',
-                gap: '14px',
+                gap: '12px',
               }}
             >
-              {/* col 1: prima immagine più alta, seconda normale */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', paddingTop: 0 }}>
-                <div
-                  style={{
-                    position: 'relative',
-                    width: '100%',
-                    height: '260px',
-                    overflow: 'hidden',
-                  }}
-                >
-                  <Image
-                    src={images[0].src}
-                    alt={images[0].alt}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    sizes="(max-width: 768px) 45vw, 22vw"
-                  />
-                </div>
-                <div
-                  style={{
-                    position: 'relative',
-                    width: '100%',
-                    height: '200px',
-                    overflow: 'hidden',
-                  }}
-                >
-                  <Image
-                    src={images[2].src}
-                    alt={images[2].alt}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    sizes="(max-width: 768px) 45vw, 22vw"
-                  />
-                </div>
+              {/* col 1 */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {col1.map((img) => (
+                  <div
+                    key={img.src}
+                    style={{ position: 'relative', width: '100%', height: img.h + 'px', overflow: 'hidden' }}
+                  >
+                    <Image src={img.src} alt={img.alt} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 45vw, 22vw" />
+                  </div>
+                ))}
               </div>
 
               {/* col 2: sfasata verso il basso */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', paddingTop: '40px' }}>
-                <div
-                  style={{
-                    position: 'relative',
-                    width: '100%',
-                    height: '200px',
-                    overflow: 'hidden',
-                  }}
-                >
-                  <Image
-                    src={images[1].src}
-                    alt={images[1].alt}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    sizes="(max-width: 768px) 45vw, 22vw"
-                  />
-                </div>
-                <div
-                  style={{
-                    position: 'relative',
-                    width: '100%',
-                    height: '260px',
-                    overflow: 'hidden',
-                  }}
-                >
-                  <Image
-                    src={images[3].src}
-                    alt={images[3].alt}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    sizes="(max-width: 768px) 45vw, 22vw"
-                  />
-                </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', paddingTop: '36px' }}>
+                {col2.map((img) => (
+                  <div
+                    key={img.src}
+                    style={{ position: 'relative', width: '100%', height: img.h + 'px', overflow: 'hidden' }}
+                  >
+                    <Image src={img.src} alt={img.alt} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 45vw, 22vw" />
+                  </div>
+                ))}
               </div>
             </div>
           </ScrollAnimation>
