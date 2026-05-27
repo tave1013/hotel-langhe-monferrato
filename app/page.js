@@ -5,6 +5,7 @@ import About from '@/components/About';
 import Rooms from '@/components/Rooms';
 import Amenities from '@/components/Amenities';
 import Testimonials from '@/components/Testimonials';
+import ExperienceShowcase from '@/components/ExperienceShowcase';
 import Deals from '@/components/Deals';
 import TerritoryGuides from '@/components/TerritoryGuides';
 import FAQ from '@/components/FAQ';
@@ -47,6 +48,7 @@ export default function Home() {
       <Rooms />
       <Amenities />
       {/* <Deals /> */}
+      <ExperienceShowcase />
       <Testimonials />
       <TerritoryGuides />
       <div style={{ marginTop: '60px' }}>
