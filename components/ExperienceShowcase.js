@@ -4,15 +4,13 @@ import Image from 'next/image';
 import ScrollAnimation from './ScrollAnimation';
 
 const col1 = [
-  { src: '/foto/Camera matrimoniale.webp', alt: 'Camera matrimoniale Hotel Langhe e Monferrato', h: 240 },
-  { src: '/foto/Reception 4.webp', alt: 'Reception Hotel Langhe e Monferrato Asti', h: 200 },
-  { src: '/foto/Colazione pane tostato e focaccine.webp', alt: 'Colazione con prodotti locali Hotel Langhe Monferrato', h: 240 },
+  { src: '/foto/Camera matrimoniale.webp', alt: 'Camera matrimoniale Hotel Langhe e Monferrato', h: 320 },
+  { src: '/foto/Reception 4.webp', alt: 'Reception Hotel Langhe e Monferrato Asti', h: 260 },
 ];
 
 const col2 = [
-  { src: '/foto/Suite divanetti.webp', alt: 'Suite con salottino Hotel Langhe e Monferrato', h: 200 },
-  { src: '/foto/langhe-monferrato.webp', alt: 'Paesaggio colline Langhe e Monferrato UNESCO', h: 240 },
-  { src: '/foto/Bagno con vasca idromassaggio suite.webp', alt: 'Bagno con vasca idromassaggio Suite Hotel Langhe', h: 200 },
+  { src: '/foto/Suite divanetti.webp', alt: 'Suite con salottino Hotel Langhe e Monferrato', h: 260 },
+  { src: '/foto/langhe-monferrato.webp', alt: 'Paesaggio colline Langhe e Monferrato UNESCO', h: 320 },
 ];
 
 export default function ExperienceShowcase() {
