@@ -122,7 +122,7 @@ export default function CamereClient({ rooms }) {
       <section className="relative overflow-hidden" style={{ height: '52vh', minHeight: 360 }}>
         <div className="absolute inset-0">
           <Image
-            src="/foto/Camere.webp"
+            src="/foto/organizzate/matrimoniale/02-camera_Camera matrimoniale 3.webp"
             alt={t(lang, 'roomsListPage.heroAlt')}
             fill
             priority
