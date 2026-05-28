@@ -335,7 +335,7 @@ export default function SaleMeetingClient({ sale }) {
       {/* HERO */}
       <section className="relative overflow-hidden" style={{ height: '58vh', minHeight: 400 }}>
         <div className="absolute inset-0">
-          <img src="/foto/hotel_langhe_sala_meeting_alfieri.webp" alt={t(lang, 'saleMeetingPage.heroAlt')} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <img src="/foto/hotel_langhe_sala_meeting_alfieri.webp?v=2" alt={t(lang, 'saleMeetingPage.heroAlt')} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(10,8,6,0.55), rgba(10,8,6,0.75))' }} />
         </div>
         <div className="relative h-full flex flex-col items-center justify-center text-center px-6 max-w-4xl mx-auto" style={{ margin: '0 auto' }}>

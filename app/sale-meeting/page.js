@@ -19,14 +19,14 @@ export const metadata = {
     type: 'website',
     locale: 'it_IT',
     url: 'https://hotel-langhe-monferrato.vercel.app/sale-meeting',
-    images: [{ url: '/foto/hotel_langhe_sala_meeting_alfieri.webp', width: 1200, height: 630 }],
+    images: [{ url: '/foto/hotel_langhe_sala_meeting_alfieri.webp?v=2', width: 1200, height: 630 }],
     updatedTime: new Date().toISOString(),
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Sale Meeting Langhe | Convegni e Business Hotel 4 Stelle',
     description: 'Sale meeting modulabili per eventi aziendali e congressi nelle Langhe. Preventivo gratuito.',
-    images: ['/foto/hotel_langhe_sala_meeting_alfieri.webp'],
+    images: ['/foto/hotel_langhe_sala_meeting_alfieri.webp?v=2'],
   },
 };
 
