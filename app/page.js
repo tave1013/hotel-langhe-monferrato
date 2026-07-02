@@ -22,7 +22,7 @@ export const metadata = {
   openGraph: {
     title: 'Hotel Langhe & Monferrato | Hotel 4 Stelle a Costigliole d\'Asti',
     description: geoContext.positioning.long,
-    url: 'https://hotel-langhe-monferrato.vercel.app',
+    url: 'https://hotellanghemonferrato.com',
     siteName: geoContext.brand,
     type: 'website',
     locale: 'it_IT',

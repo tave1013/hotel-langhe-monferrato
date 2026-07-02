@@ -9,7 +9,7 @@ export const metadata = {
   openGraph: {
     title: 'Prenota Ora | Hotel Langhe & Monferrato',
     description: 'Prenota direttamente l\'Hotel Langhe & Monferrato a Costigliole d\'Asti: migliori tariffe online, colazione inclusa e cancellazione gratuita.',
-    url: 'https://hotel-langhe-monferrato.vercel.app/prenota',
+    url: 'https://hotellanghemonferrato.com/prenota',
     images: [{ url: '/foto/hotel-langhe-monferrato.jpg', width: 1200, height: 630 }],
   },
   twitter: {

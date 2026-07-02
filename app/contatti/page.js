@@ -9,7 +9,7 @@ export const metadata = {
   openGraph: {
     title: 'Contatti | Hotel Langhe & Monferrato',
     description: 'Contatta l\'Hotel Langhe & Monferrato a Costigliole d\'Asti per informazioni, prenotazioni e richieste di soggiorno nel cuore di Langhe e Monferrato.',
-    url: 'https://hotel-langhe-monferrato.vercel.app/contatti',
+    url: 'https://hotellanghemonferrato.com/contatti',
     images: [{ url: '/foto/hotel-langhe-monferrato.jpg', width: 1200, height: 630 }],
   },
   twitter: {

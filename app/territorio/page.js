@@ -12,7 +12,7 @@ export const metadata = {
     description: 'Guide pratiche per esplorare Langhe e Monferrato da Costigliole d\'Asti: borghi storici, cantine, Big Bench, e-bike e tartufi.',
     type: 'website',
     locale: 'it_IT',
-    url: 'https://hotel-langhe-monferrato.vercel.app/territorio',
+    url: 'https://hotellanghemonferrato.com/territorio',
     images: [{ url: '/foto/cantine-soto-terra.webp', width: 1200, height: 630 }],
     updatedTime: new Date().toISOString(),
   },

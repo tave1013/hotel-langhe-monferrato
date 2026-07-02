@@ -1,11 +1,11 @@
 # robots.txt per Hotel Langhe & Monferrato
-# https://hotel-langhe-monferrato.vercel.app
+# https://hotellanghemonferrato.com
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://hotel-langhe-monferrato.vercel.app/sitemap.xml
+Sitemap: https://hotellanghemonferrato.com/sitemap.xml
 
 # Blocca eventuali file di sistema
 Disallow: /api/

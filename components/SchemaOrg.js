@@ -6,9 +6,9 @@ export default function SchemaOrg() {
     '@type': 'Hotel',
     name: geoContext.brand,
     description: geoContext.positioning.short,
-    image: 'https://hotel-langhe-monferrato.vercel.app/foto/hotel-langhe-monferrato.jpg',
-    '@id': 'https://hotel-langhe-monferrato.vercel.app',
-    url: 'https://hotel-langhe-monferrato.vercel.app',
+    image: 'https://hotellanghemonferrato.com/foto/hotel-langhe-monferrato.jpg',
+    '@id': 'https://hotellanghemonferrato.com',
+    url: 'https://hotellanghemonferrato.com',
     telephone: '+39-0141-966-012',
     email: 'info@hotellanghe.com',
     address: {
@@ -50,7 +50,7 @@ export default function SchemaOrg() {
       '@type': 'ReserveAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: 'https://hotel-langhe-monferrato.vercel.app/prenota',
+        urlTemplate: 'https://hotellanghemonferrato.com/prenota',
         actionPlatform: [
           'http://schema.org/DesktopWebPlatform',
           'http://schema.org/MobileWebPlatform',
@@ -67,8 +67,8 @@ export default function SchemaOrg() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: geoContext.brand,
-    url: 'https://hotel-langhe-monferrato.vercel.app',
-    logo: 'https://hotel-langhe-monferrato.vercel.app/logo.png',
+    url: 'https://hotellanghemonferrato.com',
+    logo: 'https://hotellanghemonferrato.com/logo.png',
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+39-0141-966-012',
@@ -91,19 +91,19 @@ export default function SchemaOrg() {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://hotel-langhe-monferrato.vercel.app',
+        item: 'https://hotellanghemonferrato.com',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Camere',
-        item: 'https://hotel-langhe-monferrato.vercel.app/camere',
+        item: 'https://hotellanghemonferrato.com/camere',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Offerte',
-        item: 'https://hotel-langhe-monferrato.vercel.app/offerte',
+        item: 'https://hotellanghemonferrato.com/offerte',
       },
     ],
   };

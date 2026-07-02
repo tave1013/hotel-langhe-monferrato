@@ -14,7 +14,7 @@ export const metadata = {
   openGraph: {
     title: 'Offerte Speciali | Hotel Langhe & Monferrato',
     description: 'Offerte e promozioni dell\'Hotel Langhe & Monferrato a Costigliole d\'Asti: soggiorni romantici, pacchetti speciali e soluzioni per scoprire Langhe e Monferrato.',
-    url: 'https://hotel-langhe-monferrato.vercel.app/offerte',
+    url: 'https://hotellanghemonferrato.com/offerte',
     images: [{ url: '/foto/langhe-monferrato.webp', width: 1200, height: 630 }],
   },
 };

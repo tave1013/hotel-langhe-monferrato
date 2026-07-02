@@ -3,7 +3,7 @@ import { guide } from '@/lib/territorioData';
 import { sale } from '@/lib/saleMeetingData';
 
 export default function sitemap() {
-  const baseUrl = 'https://hotel-langhe-monferrato.vercel.app';
+  const baseUrl = 'https://hotellanghemonferrato.com';
   const currentDate = new Date().toISOString();
 
   // Pagine statiche principali

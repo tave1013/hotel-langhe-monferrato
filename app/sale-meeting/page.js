@@ -18,7 +18,7 @@ export const metadata = {
     description: 'Sale meeting ed eventi aziendali a Costigliole d\'Asti, nel cuore di Langhe e Monferrato, con supporto organizzativo dedicato e tecnologie per congressi.',
     type: 'website',
     locale: 'it_IT',
-    url: 'https://hotel-langhe-monferrato.vercel.app/sale-meeting',
+    url: 'https://hotellanghemonferrato.com/sale-meeting',
     images: [{ url: '/foto/hotel_langhe_sala_meeting_alfieri.webp?v=2', width: 1200, height: 630 }],
     updatedTime: new Date().toISOString(),
   },

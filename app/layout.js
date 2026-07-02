@@ -5,7 +5,7 @@ import ClientLayout from '@/components/ClientLayout';
 import geoContext from '@/lib/geoContext';
 
 export const metadata = {
-  metadataBase: new URL('https://hotel-langhe-monferrato.vercel.app'),
+  metadataBase: new URL('https://hotellanghemonferrato.com'),
   title: 'Hotel Langhe & Monferrato | Hotel 4 Stelle Costigliole d\'Asti',
   description: geoContext.positioning.short,
   authors: [{ name: 'Hotel Langhe & Monferrato' }],
@@ -14,7 +14,7 @@ export const metadata = {
     description: geoContext.positioning.short,
     type: 'website',
     locale: 'it_IT',
-    url: 'https://hotel-langhe-monferrato.vercel.app',
+    url: 'https://hotellanghemonferrato.com',
     siteName: 'Hotel Langhe & Monferrato',
     images: [
       {

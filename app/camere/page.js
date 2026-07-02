@@ -15,7 +15,7 @@ export const metadata = {
     description: '58 camere e suite a Costigliole d\'Asti, tra Monferrato e Langhe: Singola, Matrimoniale, Tripla, Quadrupla, Family e Suite Deluxe.',
     type: 'website',
     locale: 'it_IT',
-    url: 'https://hotel-langhe-monferrato.vercel.app/camere',
+    url: 'https://hotellanghemonferrato.com/camere',
     images: [{ url: '/foto/Camera%20matrimoniale%20%282%29.webp', width: 1200, height: 630 }],
     updatedTime: new Date().toISOString(),
   },
