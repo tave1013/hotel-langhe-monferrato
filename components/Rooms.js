@@ -10,7 +10,7 @@ import { t } from '@/lib/i18n';
 const rooms = [
   {
     id: 'single',
-    img: '/foto/organizzate/singola/01-camera_Camera doppia con letti singoli.webp',
+    img: '/foto/Camera matrimoniale (2).webp',
     price: '90',
     size: '22 m²',
     guests: '1',
