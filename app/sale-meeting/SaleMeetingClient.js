@@ -352,14 +352,14 @@ export default function SaleMeetingClient({ sale }) {
 
       {/* STRIP KPI */}
       <div style={{ background: '#1A1714', padding: '1.8rem 1.5rem', borderBottom: '1px solid rgba(201,168,112,0.1)' }}>
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center justify-items-center">
           {[
             { icon: 'fa-th-large', num: '3', label: isEn ? 'Modular Rooms' : isFr ? 'Salles Modulables' : isDe ? 'Modulare Säle' : isEs ? 'Salas Modulares' : 'Sale Modulari' },
             { icon: 'fa-users', num: '400', label: isEn ? 'Max Capacity' : isFr ? 'Capacité Max' : isDe ? 'Maximale Kapazität' : isEs ? 'Capacidad Máxima' : 'Posti Max' },
             { icon: 'fa-wifi', num: isFr ? 'Gratuit' : isDe ? 'Kostenlos' : isEs ? 'Gratis' : 'Free', label: isEn ? 'Throughout Property' : isFr ? 'Dans Toute la Structure' : isDe ? 'Im gesamten Haus' : isEs ? 'En toda la estructura' : 'Nella Struttura' },
             { icon: 'fa-headset', num: '24/7', label: isEn ? 'Technical Support' : isFr ? 'Support Technique' : isDe ? 'Technischer Support' : isEs ? 'Soporte Técnico' : 'Supporto Tecnico' },
           ].map((s) => (
-            <div key={s.label} style={{ padding: '0.5rem' }}>
+            <div key={s.label} style={{ padding: '0.5rem', textAlign: 'center', width: '100%' }}>
               <i className={`fa ${s.icon}`} style={{ color: '#C9A870', fontSize: '1.1rem', display: 'block', marginBottom: '0.4rem' }}></i>
               <div style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.4rem', color: '#FAF7F2', lineHeight: 1 }}>{s.num}</div>
               <div style={{ fontFamily: 'Lato', fontSize: '0.6rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginTop: 4 }}>{s.label}</div>
