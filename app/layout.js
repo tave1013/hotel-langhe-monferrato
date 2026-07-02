@@ -10,7 +10,10 @@ export const metadata = {
   description: geoContext.positioning.short,
   authors: [{ name: 'Hotel Langhe & Monferrato' }],
   verification: {
-    google: process.env.GOOGLE_SITE_VERIFICATION || 'VlQc5ocr2P3K589C4-9SsCGAfJOP9IgulCIOZnYvNnw',
+    google: [
+      'xIgqRDq4f4L2s37Xls_8rrejXEUt7pV9vbXqDvUzIuY', // hotellanghemonferrato.com
+      'VlQc5ocr2P3K589C4-9SsCGAfJOP9IgulCIOZnYvNnw',  // hotel-langhe-monferrato.vercel.app
+    ],
   },
   openGraph: {
     title: 'Hotel Langhe & Monferrato | Hotel 4 Stelle Costigliole d\'Asti',
