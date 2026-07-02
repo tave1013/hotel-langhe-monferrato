@@ -14,6 +14,9 @@ export async function generateMetadata({ params }) {
   return {
     title: `${roomName} | Hotel Langhe & Monferrato`,
     description: `${roomTagline}. Prenota la ${roomName} a Costigliole d'Asti. Colazione inclusa, cancellazione gratuita e miglior prezzo garantito sul sito ufficiale.`,
+    alternates: {
+      canonical: `/camere/${params.slug}`,
+    },
     openGraph: {
       title: `${roomName} | Hotel Langhe & Monferrato`,
       description: roomTagline,

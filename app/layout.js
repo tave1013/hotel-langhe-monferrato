@@ -24,7 +24,7 @@ export const metadata = {
     siteName: 'Hotel Langhe & Monferrato',
     images: [
       {
-        url: '/foto/6.webp',
+        url: '/foto/hotel-langhe-monferrato.jpg',
         width: 1200,
         height: 630,
         alt: 'Hotel Langhe & Monferrato Costigliole d\'Asti - immagine principale',
@@ -35,7 +35,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Hotel Langhe & Monferrato | Hotel 4 Stelle Costigliole d\'Asti',
     description: geoContext.positioning.short,
-    images: ['/foto/6.webp'],
+    images: ['/foto/hotel-langhe-monferrato.jpg'],
   },
   robots: {
     index: true,

@@ -13,6 +13,9 @@ export async function generateMetadata({ params }) {
     title: `${guida.nome}: ${guida.sottotitolo} | Hotel Langhe & Monferrato`,
     description: `${guida.tagline} Guida completa a ${guida.nome}: cosa vedere, dove mangiare, informazioni pratiche e come raggiungerlo dall'Hotel Langhe & Monferrato.`,
     keywords: `${guida.nome.toLowerCase()}, ${guida.categoria.toLowerCase()}, langhe monferrato, what to see in piedmont, hotel langhe`,
+    alternates: {
+      canonical: `/territorio/${params.slug}`,
+    },
     openGraph: {
       title: `${guida.nome}: ${guida.sottotitolo}`,
       description: guida.tagline,
