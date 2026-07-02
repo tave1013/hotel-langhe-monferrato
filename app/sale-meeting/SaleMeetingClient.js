@@ -359,7 +359,7 @@ export default function SaleMeetingClient({ sale }) {
             { icon: 'fa-wifi', num: isFr ? 'Gratuit' : isDe ? 'Kostenlos' : isEs ? 'Gratis' : 'Free', label: isEn ? 'Throughout Property' : isFr ? 'Dans Toute la Structure' : isDe ? 'Im gesamten Haus' : isEs ? 'En toda la estructura' : 'Nella Struttura' },
             { icon: 'fa-headset', num: '24/7', label: isEn ? 'Technical Support' : isFr ? 'Support Technique' : isDe ? 'Technischer Support' : isEs ? 'Soporte Técnico' : 'Supporto Tecnico' },
           ].map((s) => (
-            <div key={s.label} style={{ padding: '0.5rem', textAlign: 'center', width: '100%' }}>
+            <div key={s.label} style={{ padding: '0.5rem', textAlign: 'center', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
               <i className={`fa ${s.icon}`} style={{ color: '#C9A870', fontSize: '1.1rem', display: 'block', marginBottom: '0.4rem' }}></i>
               <div style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.4rem', color: '#FAF7F2', lineHeight: 1 }}>{s.num}</div>
               <div style={{ fontFamily: 'Lato', fontSize: '0.6rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginTop: 4 }}>{s.label}</div>

@@ -85,7 +85,7 @@ export default function TerritorioClient() {
             { icon: 'fa-wine-glass-alt', num: '19', label: isEn ? 'Recognized DOCG' : isFr ? 'DOCG Reconnues' : isDe ? 'Anerkannte DOCG' : isEs ? 'DOCG reconocidas' : 'DOCG Riconosciute' },
             { icon: 'fa-route', num: '< 40km', label: isEn ? 'Radius from Hotel' : isFr ? "Rayon depuis l'Hôtel" : isDe ? 'Radius vom Hotel' : isEs ? 'Radio desde el hotel' : "Raggio dall'Hotel" },
           ].map((s) => (
-            <div key={s.label} style={{ padding: '0.5rem', textAlign: 'center', width: '100%' }}>
+            <div key={s.label} style={{ padding: '0.5rem', textAlign: 'center', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
               <i className={`fa ${s.icon}`} style={{ color: '#C9A870', fontSize: '1.1rem', display: 'block', marginBottom: '0.4rem' }}></i>
               <div style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.4rem', color: '#FAF7F2', lineHeight: 1 }}>{s.num}</div>
               <div style={{ fontFamily: 'Lato', fontSize: '0.6rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginTop: 4 }}>{s.label}</div>
