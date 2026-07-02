@@ -10,7 +10,7 @@ export const metadata = {
   description: geoContext.positioning.short,
   authors: [{ name: 'Hotel Langhe & Monferrato' }],
   verification: {
-    google: process.env.GOOGLE_SITE_VERIFICATION,
+    google: process.env.GOOGLE_SITE_VERIFICATION || 'VlQc5ocr2P3K589C4-9SsCGAfJOP9IgulCIOZnYvNnw',
   },
   openGraph: {
     title: 'Hotel Langhe & Monferrato | Hotel 4 Stelle Costigliole d\'Asti',
