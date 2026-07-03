@@ -127,7 +127,7 @@ export default function PrivacyPolicyPage() {
                   <H3>{p.s3.sub2}</H3>
                   <ul style={{ marginLeft: '1.5rem' }}>
                     {p.s3.items2 && p.s3.items2.map((item, idx) => (
-                      <li key={idx}>{item}</li>
+                      <li key={idx} dangerouslySetInnerHTML={{ __html: item }} />
                     ))}
                   </ul>
                 </>
@@ -241,7 +241,7 @@ export default function PrivacyPolicyPage() {
                 ))}
               </ul>
               <p style={{ marginTop: '1rem' }}>
-                <strong>{p.s9.note}</strong>
+                <span dangerouslySetInnerHTML={{ __html: p.s9.note }} />
               </p>
             </section>
 
@@ -276,11 +276,11 @@ export default function PrivacyPolicyPage() {
               <p>{p.s11.intro}</p>
               <ul style={{ marginLeft: '1.5rem', marginTop: '1rem' }}>
                 {p.s11.items && p.s11.items.map((item, idx) => (
-                  <li key={idx}>{item}</li>
+                  <li key={idx} dangerouslySetInnerHTML={{ __html: item }} />
                 ))}
               </ul>
               <p style={{ marginTop: '1.5rem', backgroundColor: 'rgba(201, 168, 112, 0.1)', padding: '1rem', borderLeft: '3px solid #C9A870', borderRadius: '3px' }}>
-                <strong>{p.s11.note}</strong>
+                <span dangerouslySetInnerHTML={{ __html: p.s11.note }} />
               </p>
             </section>
 
