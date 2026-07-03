@@ -13,7 +13,7 @@ const deals = [
     price: '520',
     oldPrice: '650',
     badge2: 'Relax',
-    href: '/offerte/monferrato-relax',
+    href: '/prenota',
     persone: 2,
     notti: 3,
   },
@@ -25,7 +25,7 @@ const deals = [
     price: '420',
     oldPrice: '540',
     badge2: 'Gourmet',
-    href: '/offerte/weekend-gastronomico',
+    href: '/prenota',
     persone: 2,
     notti: 2,
   },
@@ -37,7 +37,7 @@ const deals = [
     price: '860',
     oldPrice: '1050',
     badge2: 'Avventura',
-    href: '/offerte/scopri-langhe',
+    href: '/prenota',
     persone: 2,
     notti: 3,
   },
@@ -184,7 +184,7 @@ export default function Deals() {
         </div>
 
         <div className="text-center mt-10">
-          <Link href="/offerte" className="btn-outline-gold">
+          <Link href="/prenota" className="btn-outline-gold">
             Vedi Tutte le Offerte
           </Link>
         </div>
