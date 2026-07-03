@@ -209,6 +209,16 @@ export default function PrivacyPolicyPage() {
               </p>
             </section>
 
+            {/* Section 6-bis */}
+            <section style={{ backgroundColor: 'rgba(201, 168, 112, 0.05)', padding: '1.5rem', borderRadius: '3px' }}>
+              <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.2rem', color: '#960018', marginBottom: '1rem', fontWeight: 600 }}>
+                Trattamento dati tramite sistemi di Intelligenza Artificiale
+              </h2>
+              <p>
+                Si informa l&apos;utente che questo sito web utilizza un assistente virtuale basato su intelligenza artificiale denominato &apos;Alfred&apos; per migliorare il servizio clienti e fornire informazioni sul soggiorno. Le conversazioni intercorse con l&apos;assistente possono essere elaborate e analizzate da fornitori terzi di servizi AI (quali OpenAI) esclusivamente per le finalità del servizio. I dati personali forniti spontaneamente dall&apos;utente durante la chat potrebbero essere trattati anche al di fuori dell&apos;Unione Europea, sempre in conformità con le garanzie contrattuali e le clausole standard previste dal fornitore in linea con il GDPR. In ogni momento, l&apos;utente ha il diritto di richiedere la cancellazione completa dei propri dati conversazionali contattando la struttura.
+              </p>
+            </section>
+
             {/* Section 7 */}
             <section>
               <H2>{p.s7.title}</H2>
