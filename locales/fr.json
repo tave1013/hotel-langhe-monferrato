@@ -22,10 +22,10 @@
       "castles": "Châteaux du Monferrato",
       "bigBench": "Big Bench",
       "nizza": "Nizza è Barbera"
-    }
-  },
-  "hero": {
-    "slides": [
+      {
+        "question": "L'hôtel a-t-il une piscine ?",
+        "answer": "La piscine a été fermée le 31 août et rouvrira pendant la prochaine saison estivale ; elle n'est actuellement pas disponible. Pour connaître les dates d'ouverture, veuillez contacter la réception."
+      },
       {
         "label": "Une oasis de détente dans les Langhe",
         "title": "Séjournez à l'Hôtel\nLanghe & Monferrato",
