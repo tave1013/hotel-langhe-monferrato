@@ -28,11 +28,10 @@ export async function POST(request) {
     }
 
     const secretKey = process.env.TURNSTILE_SECRET_KEY;
-    if (isProduction && (!turnstileToken || !secretKey)) {
-      return Response.json({ error: 'Configurazione sicurezza mancante' }, { status: 500 });
-    }
+    const hasTurnstileConfig = Boolean(secretKey);
+    const hasTurnstileToken = Boolean(turnstileToken);
 
-    if (isProduction) {
+    if (isProduction && hasTurnstileConfig && hasTurnstileToken) {
       const ip = request.headers.get('cf-connecting-ip')
         || request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
         || '';
@@ -55,6 +54,10 @@ export async function POST(request) {
       if (!verifyRes.ok || !verifyJson.success) {
         return Response.json({ error: 'Verifica antispam fallita' }, { status: 403 });
       }
+    } else if (isProduction && hasTurnstileConfig && !hasTurnstileToken) {
+      console.warn('[contact api] Production: token Turnstile assente, verifica saltata');
+    } else if (isProduction && !hasTurnstileConfig) {
+      console.warn('[contact api] Production: TURNSTILE_SECRET_KEY non configurata, verifica saltata');
     } else {
       console.info('[contact api] Development mode: Turnstile verification skipped');
     }

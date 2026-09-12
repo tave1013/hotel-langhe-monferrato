@@ -69,7 +69,10 @@ export default function ContattiClient() {
           return;
         }
 
-        reject(new Error('Turnstile non disponibile'));
+        // In produzione non blocchiamo il lead se il widget non è pronto/non disponibile.
+        // L'API gestirà l'eventuale verifica antispam se configurata.
+        console.warn('Turnstile non disponibile lato client, invio senza token');
+        resolve(null);
         return;
       }
 
