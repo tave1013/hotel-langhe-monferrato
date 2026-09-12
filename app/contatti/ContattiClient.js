@@ -61,7 +61,14 @@ export default function ContattiClient() {
 
   const getTurnstileToken = () => {
     return new Promise((resolve, reject) => {
+      const isLocalDev = process.env.NODE_ENV !== 'production';
+
       if (typeof window === 'undefined' || !window.turnstile || turnstileWidgetIdRef.current === null) {
+        if (isLocalDev) {
+          resolve('dev-bypass-token');
+          return;
+        }
+
         reject(new Error('Turnstile non disponibile'));
         return;
       }

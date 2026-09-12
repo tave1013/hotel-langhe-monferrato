@@ -13,6 +13,7 @@ function escapeHtml(value = '') {
 
 export async function POST(request) {
   try {
+    const isProduction = process.env.NODE_ENV === 'production';
     const body = await request.json();
     const { nome, cognome, email, telefono, tipo, messaggio, website, turnstileToken } = body;
 
@@ -22,36 +23,40 @@ export async function POST(request) {
     }
 
     // Validazione campi obbligatori
-    if (!nome || !cognome || !email || !telefono || !tipo || !messaggio || !turnstileToken) {
+    if (!nome || !cognome || !email || !telefono || !tipo || !messaggio) {
       return Response.json({ error: 'Campi mancanti' }, { status: 400 });
     }
 
     const secretKey = process.env.TURNSTILE_SECRET_KEY;
-    if (!secretKey) {
+    if (isProduction && (!turnstileToken || !secretKey)) {
       return Response.json({ error: 'Configurazione sicurezza mancante' }, { status: 500 });
     }
 
-    const ip = request.headers.get('cf-connecting-ip')
-      || request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
-      || '';
+    if (isProduction) {
+      const ip = request.headers.get('cf-connecting-ip')
+        || request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
+        || '';
 
-    const verifyBody = new URLSearchParams({
-      secret: secretKey,
-      response: turnstileToken,
-    });
+      const verifyBody = new URLSearchParams({
+        secret: secretKey,
+        response: turnstileToken,
+      });
 
-    if (ip) verifyBody.append('remoteip', ip);
+      if (ip) verifyBody.append('remoteip', ip);
 
-    const verifyRes = await fetch(TURNSTILE_VERIFY_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: verifyBody,
-      cache: 'no-store',
-    });
+      const verifyRes = await fetch(TURNSTILE_VERIFY_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: verifyBody,
+        cache: 'no-store',
+      });
 
-    const verifyJson = await verifyRes.json();
-    if (!verifyRes.ok || !verifyJson.success) {
-      return Response.json({ error: 'Verifica antispam fallita' }, { status: 403 });
+      const verifyJson = await verifyRes.json();
+      if (!verifyRes.ok || !verifyJson.success) {
+        return Response.json({ error: 'Verifica antispam fallita' }, { status: 403 });
+      }
+    } else {
+      console.info('[contact api] Development mode: Turnstile verification skipped');
     }
 
     const safeNome = escapeHtml(nome);
@@ -61,18 +66,36 @@ export async function POST(request) {
     const safeTipo = escapeHtml(tipo);
     const safeMessaggio = escapeHtml(messaggio).replace(/\n/g, '<br>');
 
+    const smtpUser = process.env.SMTP_USER;
+    const smtpPass = process.env.SMTP_PASS;
+
+    if (!smtpUser || !smtpPass) {
+      if (isProduction) {
+        return Response.json({ error: 'Configurazione email mancante' }, { status: 500 });
+      }
+
+      console.info('[contact api] Development mode: SMTP not configured, simulating success', {
+        nome,
+        cognome,
+        email,
+        telefono,
+        tipo,
+      });
+      return Response.json({ success: true, simulated: true });
+    }
+
     const transporter = nodemailer.createTransport({
       host: 'smtp.zoho.eu',
       port: 465,
       secure: true,
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        user: smtpUser,
+        pass: smtpPass,
       },
     });
 
     await transporter.sendMail({
-      from: `"Hotel Langhe & Monferrato - Sito Web" <${process.env.SMTP_USER}>`,
+      from: `"Hotel Langhe & Monferrato - Sito Web" <${smtpUser}>`,
       to: 'booking@hotellanghemonferrato.com',
       replyTo: email,
       subject: `Messaggio dal Modulo di contatto | ${safeTipo}`,
