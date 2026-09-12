@@ -18,6 +18,7 @@ export default function ContattiClient() {
   const [inviato, setInviato] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errore, setErrore] = useState(false);
+  const [erroreMsg, setErroreMsg] = useState('');
   const [turnstileReady, setTurnstileReady] = useState(false);
   const turnstileContainerRef = useRef(null);
   const turnstileWidgetIdRef = useRef(null);
@@ -91,13 +92,23 @@ export default function ContattiClient() {
           turnstileToken,
         }),
       });
-      if (res.ok) {
+
+      const json = await res.json().catch(() => ({}));
+      if (res.ok && json.success) {
         setInviato(true);
+        setErrore(false);
+        setErroreMsg('');
       } else {
+        // mostra il messaggio di errore restituito dall'API se presente
+        const serverMessage = json?.error || json?.message || '';
+        console.error('Contact API error', res.status, serverMessage);
         setErrore(true);
+        setErroreMsg(serverMessage || 'Errore invio email');
       }
-    } catch {
+    } catch (err) {
+      console.error('Contact submit exception', err);
       setErrore(true);
+      setErroreMsg(err?.message || 'Errore durante l\'invio');
     } finally {
       setLoading(false);
     }
@@ -208,9 +219,16 @@ export default function ContattiClient() {
                       }
                     </button>
                     {errore && (
-                      <p style={{ color: '#c0392b', fontFamily: 'Lato', fontSize: '0.88rem', marginTop: '0.75rem', textAlign: 'center' }}>
-                        {isEn ? 'Error sending message. Please try again or call us.' : isFr ? "Erreur lors de l'envoi. Veuillez réessayer ou nous appeler." : isDe ? 'Fehler beim Senden. Bitte erneut versuchen oder anrufen.' : isEs ? 'Error al enviar. Intenta de nuevo o llámanos.' : "Errore nell'invio. Riprova oppure chiamaci."}
-                      </p>
+                      <div style={{ marginTop: '0.75rem', textAlign: 'center' }}>
+                        <p style={{ color: '#c0392b', fontFamily: 'Lato', fontSize: '0.88rem' }}>
+                          {isEn ? 'Error sending message. Please try again or call us.' : isFr ? "Erreur lors de l'envoi. Veuillez réessayer ou nous appeler." : isDe ? 'Fehler beim Senden. Bitte erneut versuchen oder anrufen.' : isEs ? 'Error al enviar. Intenta de nuevo o llámanos.' : "Errore nell'invio. Riprova oppure chiamaci."}
+                        </p>
+                        {erroreMsg && (
+                          <p style={{ color: '#6B5E52', fontFamily: 'Lato', fontSize: '0.78rem', marginTop: '0.4rem' }}>
+                            <strong>Dettaglio:</strong> {erroreMsg}
+                          </p>
+                        )}
+                      </div>
                     )}
                 </form>
               )}
