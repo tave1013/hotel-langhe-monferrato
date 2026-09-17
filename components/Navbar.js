@@ -51,10 +51,26 @@ export default function Navbar({ forceDark = false }) {
   const [mobileOpen, setMobileOpen]     = useState(null); // label del dropdown aperto
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    onScroll();
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    let rafId = null;
+
+    const updateScrolled = () => {
+      const next = window.scrollY > 60;
+      setScrolled((prev) => (prev === next ? prev : next));
+      rafId = null;
+    };
+
+    const onScroll = () => {
+      if (rafId !== null) return;
+      rafId = window.requestAnimationFrame(updateScrolled);
+    };
+
+    updateScrolled();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (rafId !== null) window.cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const isDark = forceDark || scrolled || menuOpen;
