@@ -5,8 +5,8 @@ const ContentSecurityPolicy = `
   object-src 'none';
   frame-ancestors 'none';
   form-action 'self';
-  connect-src 'self' https://www.hotellanghemonferrato.com https://hotellanghemonferrato.com https://guida.hotellanghemonferrato.com https://challenges.cloudflare.com;
-  script-src 'self' 'unsafe-inline' https://www.hotellanghemonferrato.com https://hotellanghemonferrato.com https://guida.hotellanghemonferrato.com https://cdnjs.cloudflare.com https://challenges.cloudflare.com;
+  connect-src 'self' https://www.hotellanghemonferrato.com https://hotellanghemonferrato.com https://guida.hotellanghemonferrato.com https://challenges.cloudflare.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms;
+  script-src 'self' 'unsafe-inline' https://www.hotellanghemonferrato.com https://hotellanghemonferrato.com https://guida.hotellanghemonferrato.com https://cdnjs.cloudflare.com https://challenges.cloudflare.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms;
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
   img-src 'self' data: blob: https:;
   font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com;
