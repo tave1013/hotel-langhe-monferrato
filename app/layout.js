@@ -59,6 +59,9 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://guida.hotellanghemonferrato.com" />
 
+        {/* FAVICON: usa il logo WebP già presente in /public/foto */}
+        <link rel="icon" href="/foto/logo_hotel_langhe_monferrato_asti_2026.webp" type="image/webp" sizes="any" />
+        <link rel="apple-touch-icon" href="/foto/logo_hotel_langhe_monferrato_asti_2026.webp" />
         {/* ── PRELOAD immagine LCP (prima slide hero) ──
             Questa è l'unica ottimizzazione che davvero sposta il LCP:
             il browser la mette in download PRIMA di parsare React/JS. ── */}

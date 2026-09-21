@@ -17,6 +17,7 @@ export default function BookingForm({ onSubmit }) {
   const isEs = lang === 'es';
   const dfLocale = isEn ? enUS : isFr ? fr : isEs ? es : it;
   const tr = (itText, enText, frText, deText, esText) => (isEn ? enText : isFr ? frText : isDe ? deText : isEs ? (esText || itText) : itText);
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
   const formTopRef = useRef(null);
   const calendarRef = useRef(null);
@@ -48,6 +49,62 @@ export default function BookingForm({ onSubmit }) {
   const turnstileContainerRef = useRef(null);
   const turnstileWidgetIdRef = useRef(null);
   const turnstilePromiseRef = useRef({ resolve: null, reject: null });
+  const turnstileTimeoutRef = useRef(null);
+
+  const clearTurnstileTimeout = () => {
+    if (turnstileTimeoutRef.current) {
+      clearTimeout(turnstileTimeoutRef.current);
+      turnstileTimeoutRef.current = null;
+    }
+  };
+
+  const settleTurnstileRequest = (value = null) => {
+    clearTurnstileTimeout();
+
+    if (turnstilePromiseRef.current.resolve) {
+      turnstilePromiseRef.current.resolve(value);
+    }
+
+    turnstilePromiseRef.current = { resolve: null, reject: null };
+  };
+
+  const renderTurnstileWidget = () => {
+    if (
+      !turnstileSiteKey
+      || turnstileWidgetIdRef.current !== null
+      || !turnstileContainerRef.current
+      || typeof window === 'undefined'
+      || !window.turnstile
+      || typeof window.turnstile.render !== 'function'
+    ) {
+      return false;
+    }
+
+    try {
+      turnstileWidgetIdRef.current = window.turnstile.render(turnstileContainerRef.current, {
+        sitekey: turnstileSiteKey,
+        size: 'invisible',
+        appearance: 'execute',
+        callback: (token) => {
+          settleTurnstileRequest(token);
+        },
+        'error-callback': () => {
+          console.warn('Errore verifica Turnstile, proseguo senza token');
+          settleTurnstileRequest(null);
+        },
+        'expired-callback': () => {
+          console.warn('Token Turnstile scaduto, proseguo senza token');
+          settleTurnstileRequest(null);
+        },
+      });
+
+      return true;
+    } catch (error) {
+      console.warn('Render Turnstile non riuscito, proseguo senza token', error);
+      turnstileWidgetIdRef.current = null;
+      return false;
+    }
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -64,50 +121,70 @@ export default function BookingForm({ onSubmit }) {
   }, [showCalendar]);
 
   useEffect(() => {
-    if (!turnstileReady || !turnstileContainerRef.current || typeof window === 'undefined' || !window.turnstile) {
+    if (!turnstileReady || !turnstileSiteKey) {
       return;
     }
 
-    if (turnstileWidgetIdRef.current !== null) return;
+    if (renderTurnstileWidget()) {
+      return;
+    }
 
-    const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
-    if (!siteKey) return;
+    let attempts = 0;
+    const maxAttempts = 20;
+    const intervalId = window.setInterval(() => {
+      attempts += 1;
 
-    turnstileWidgetIdRef.current = window.turnstile.render(turnstileContainerRef.current, {
-      sitekey: siteKey,
-      size: 'invisible',
-      appearance: 'execute',
-      callback: (token) => {
-        if (turnstilePromiseRef.current.resolve) {
-          turnstilePromiseRef.current.resolve(token);
-          turnstilePromiseRef.current = { resolve: null, reject: null };
-        }
-      },
-      'error-callback': () => {
-        if (turnstilePromiseRef.current.reject) {
-          turnstilePromiseRef.current.reject(new Error('Errore verifica Turnstile'));
-          turnstilePromiseRef.current = { resolve: null, reject: null };
-        }
-      },
-      'expired-callback': () => {
-        if (turnstilePromiseRef.current.reject) {
-          turnstilePromiseRef.current.reject(new Error('Token Turnstile scaduto'));
-          turnstilePromiseRef.current = { resolve: null, reject: null };
-        }
-      },
-    });
-  }, [turnstileReady]);
+      if (renderTurnstileWidget() || attempts >= maxAttempts) {
+        window.clearInterval(intervalId);
+      }
+    }, 250);
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
+  }, [turnstileReady, turnstileSiteKey]);
+
+  useEffect(() => {
+    return () => {
+      clearTurnstileTimeout();
+    };
+  }, []);
 
   const getTurnstileToken = () => {
-    return new Promise((resolve, reject) => {
-      if (typeof window === 'undefined' || !window.turnstile || turnstileWidgetIdRef.current === null) {
-        reject(new Error('Turnstile non disponibile'));
+    return new Promise((resolve) => {
+      if (!turnstileSiteKey) {
+        resolve(null);
         return;
       }
 
-      turnstilePromiseRef.current = { resolve, reject };
-      window.turnstile.reset(turnstileWidgetIdRef.current);
-      window.turnstile.execute(turnstileWidgetIdRef.current);
+      renderTurnstileWidget();
+
+      if (
+        typeof window === 'undefined'
+        || !window.turnstile
+        || typeof window.turnstile.execute !== 'function'
+        || typeof window.turnstile.reset !== 'function'
+        || turnstileWidgetIdRef.current === null
+      ) {
+        console.warn('Turnstile non disponibile lato client, proseguo senza token');
+        resolve(null);
+        return;
+      }
+
+      turnstilePromiseRef.current = { resolve, reject: null };
+      clearTurnstileTimeout();
+      turnstileTimeoutRef.current = setTimeout(() => {
+        console.warn('Timeout Turnstile, proseguo senza token');
+        settleTurnstileRequest(null);
+      }, 4000);
+
+      try {
+        window.turnstile.reset(turnstileWidgetIdRef.current);
+        window.turnstile.execute(turnstileWidgetIdRef.current);
+      } catch (error) {
+        console.warn('Esecuzione Turnstile non riuscita, proseguo senza token', error);
+        settleTurnstileRequest(null);
+      }
     });
   };
 
@@ -356,6 +433,29 @@ export default function BookingForm({ onSubmit }) {
     formTopRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  const openWhatsAppSafely = (whatsappUrl) => {
+    if (typeof window === 'undefined') return false;
+
+    try {
+      window.location.assign(whatsappUrl);
+      return true;
+    } catch (assignError) {
+      console.warn('Navigazione diretta verso WhatsApp fallita, provo fallback su window.open', assignError);
+    }
+
+    try {
+      const popup = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      if (popup) {
+        popup.opener = null;
+        return true;
+      }
+    } catch (openError) {
+      console.warn('Fallback window.open verso WhatsApp fallito', openError);
+    }
+
+    return false;
+  };
+
   const buildWhatsAppMessage = ({ checkInFormatted, checkOutFormatted, nights }) => {
     const safeName    = sanitizeInput(formData.name);
     const safeEmail   = sanitizeInput(formData.email);
@@ -483,28 +583,38 @@ export default function BookingForm({ onSubmit }) {
     setIsLoading(true);
 
     try {
-      const turnstileToken = await getTurnstileToken();
-      const guardRes = await fetch('/api/booking-guard', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          turnstileToken,
-          website: formData.website,
-        }),
-      });
-
-      if (!guardRes.ok) {
-        throw new Error(tr('Verifica antispam fallita', 'Anti-spam verification failed', 'Vérification anti-spam échouée', 'Anti-Spam-Verifizierung fehlgeschlagen', 'La verificación anti-spam falló'));
-      }
-
       const nights = calculateNights();
       const checkInFormatted  = format(formData.dateRange.from, 'dd/MM/yyyy', { locale: dfLocale });
       const checkOutFormatted = format(formData.dateRange.to,   'dd/MM/yyyy', { locale: dfLocale });
-
       const whatsappMessage = buildWhatsAppMessage({ checkInFormatted, checkOutFormatted, nights });
       const whatsappUrl = `https://wa.me/393518011730?text=${encodeURIComponent(whatsappMessage)}`;
 
-      window.location.href = whatsappUrl;
+      const turnstileToken = await getTurnstileToken();
+      if (turnstileToken) {
+        try {
+          const guardRes = await fetch('/api/booking-guard', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              turnstileToken,
+              website: formData.website,
+            }),
+          });
+
+          if (!guardRes.ok) {
+            console.warn('Booking guard non disponibile o fallito, continuo con apertura WhatsApp');
+          }
+        } catch (guardError) {
+          console.warn('Errore booking-guard, continuo con apertura WhatsApp', guardError);
+        }
+      } else {
+        console.warn('Turnstile assente: salto il controllo antispam e apro WhatsApp');
+      }
+
+      const opened = openWhatsAppSafely(whatsappUrl);
+      if (!opened) {
+        throw new Error('Impossibile aprire WhatsApp nel browser corrente');
+      }
 
       if (onSubmit) await onSubmit(formData);
 
@@ -542,11 +652,14 @@ export default function BookingForm({ onSubmit }) {
 
   return (
     <div ref={formTopRef} className="max-w-4xl mx-auto">
-      <Script
-        src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
-        strategy="afterInteractive"
-        onLoad={() => setTurnstileReady(true)}
-      />
+      {turnstileSiteKey ? (
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+          strategy="afterInteractive"
+          onLoad={() => setTurnstileReady(true)}
+          onError={() => console.warn('Script Turnstile non caricato, continuo senza verifica antispam')}
+        />
+      ) : null}
 
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center mb-10">
         <h2 className="text-3xl md:text-4xl mb-4" style={{ fontFamily: 'Playfair Display, serif', fontWeight: 400, color: '#2C2520' }}>{tr('Richiedi Disponibilità', 'Request Availability', 'Demander la Disponibilité', 'Verfügbarkeit anfordern', 'Solicitar disponibilidad')}</h2>
@@ -582,7 +695,7 @@ export default function BookingForm({ onSubmit }) {
 
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="bg-white rounded-none p-6 md:p-10 shadow-lg" style={{ border: '1px solid rgba(201,168,112,0.2)' }}>
         <form onSubmit={handleSubmit} className="space-y-5">
-          <div ref={turnstileContainerRef} style={{ display: 'none' }} aria-hidden="true" />
+          <div ref={turnstileContainerRef} style={{ position: 'absolute', width: 1, height: 1, opacity: 0, pointerEvents: 'none', overflow: 'hidden' }} aria-hidden="true" />
 
           {/* NOME / EMAIL / CELLULARE */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
