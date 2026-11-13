@@ -98,13 +98,7 @@ export default function SchemaOrg() {
         position: 2,
         name: 'Camere',
         item: 'https://hotellanghemonferrato.com/camere',
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: 'Offerte',
-        item: 'https://hotellanghemonferrato.com/offerte',
-      },
+      }
     ],
   };
 

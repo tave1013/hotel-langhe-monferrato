@@ -21,12 +21,6 @@ export default function sitemap() {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/offerte`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
       url: `${baseUrl}/territorio`,
       lastModified: currentDate,
       changeFrequency: 'monthly',

@@ -31,6 +31,14 @@ const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
 
+  async redirects() {
+    return [
+      // Pagina offerte rimossa: redirect permanente alla home (deindicizzazione)
+      { source: '/offerte', destination: '/', permanent: true },
+      { source: '/offerte/:path*', destination: '/', permanent: true },
+    ];
+  },
+
   async headers() {
     return [
       {
